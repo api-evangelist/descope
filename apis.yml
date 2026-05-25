@@ -1,0 +1,492 @@
+aid: descope
+url: https://raw.githubusercontent.com/api-evangelist/descope/refs/heads/main/apis.yml
+apis:
+- aid: descope:descope-authentication-api
+  name: Descope Authentication API
+  tags:
+  - Authentication
+  - Passwordless
+  - OAuth
+  - OIDC
+  - SAML
+  - WebAuthn
+  - Passkeys
+  - MFA
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  properties:
+  - url: https://docs.descope.com/api
+    type: Documentation
+  - url: https://docs.descope.com/auth-methods
+    type: Documentation
+    name: Authentication Methods
+  - url: https://docs.descope.com/api/openapi-spec
+    type: APIReference
+  - url: openapi/descope-openapi.yml
+    type: OpenAPI
+  description: Public, end-user-facing authentication API covering every Descope login experience — One-Time
+    Passwords (email/SMS/voice/IM), Magic Link, Enchanted Link, OAuth/Social, One-Tap, nOTP, TOTP authenticator
+    apps, WebAuthn/Passkeys, password authentication, security questions, recovery codes, SSO/SAML, access keys,
+    session refresh, tenant selection, and IdP-initiated logout. All flows expose `signup`, `signin`, `signup-in`,
+    `verify`, and `update` endpoints where applicable so frontends and mobile SDKs can compose any journey
+    Descope Flows can render.
+- aid: descope:descope-management-api
+  name: Descope Management API
+  tags:
+  - Management
+  - Administration
+  - Users
+  - Tenants
+  - Roles
+  - Permissions
+  - SSO
+  - SCIM
+  - Audit
+  humanURL: https://docs.descope.com/manage
+  baseURL: https://api.descope.com
+  properties:
+  - url: https://docs.descope.com/manage
+    type: Documentation
+  - url: https://docs.descope.com/api
+    type: APIReference
+  - url: openapi/descope-openapi.yml
+    type: OpenAPI
+  description: Server-side administrative API for managing every resource in a Descope project — users,
+    access keys, tenants, roles, permissions, groups, SSO/SAML/OIDC configuration, password policies,
+    JWT customization, flows, widgets, localization, custom attributes, fine-grained authorization (FGA)
+    schemas and relations, audit logs, analytics, third-party (inbound) applications, outbound
+    connectors, project import/export, and impersonation. Authentication uses a Management Key
+    (`sk_…`) and is required for any backend automation, CI/CD, migration, or admin tooling.
+- aid: descope:descope-oauth-applications-api
+  name: Descope OAuth Applications API
+  tags:
+  - OAuth
+  - OIDC
+  - Inbound Apps
+  - Third-Party
+  - Federation
+  - MCP
+  humanURL: https://docs.descope.com/inbound-apps
+  baseURL: https://api.descope.com
+  properties:
+  - url: https://docs.descope.com/inbound-apps
+    type: Documentation
+  - url: openapi/descope-openapi.yml
+    type: OpenAPI
+  description: Standards-compliant OAuth 2.1 / OIDC authorization server endpoints that let Descope act as an
+    identity provider for inbound third-party applications and agentic clients. Covers the full
+    `/oauth2/v1/...` surface — authorize, token, revoke, userinfo, device authorization, CIBA backchannel
+    authorization, and dedicated agentic / MCP-server registration paths
+    (`/oauth2/v1/apps/agentic/{project_id}/{mcp_server_id}/authorize|token`) for AI agents that need
+    delegated user credentials. Supports PKCE, JAR (RFC 9101) request objects, DPoP, and dynamic client
+    registration via SCIM v2.
+- aid: descope:descope-scim-api
+  name: Descope SCIM 2.0 API
+  tags:
+  - SCIM
+  - Provisioning
+  - Identity
+  - Users
+  - Groups
+  humanURL: https://docs.descope.com/scim
+  baseURL: https://api.descope.com
+  properties:
+  - url: https://docs.descope.com/scim
+    type: Documentation
+  - url: openapi/descope-openapi.yml
+    type: OpenAPI
+  description: System for Cross-domain Identity Management (SCIM) 2.0 endpoints under `/scim/v2/` for
+    automated user and group lifecycle provisioning from upstream IdPs (Okta, Entra ID, Google
+    Workspace, JumpCloud, etc.) into Descope tenants. Implements the standard Users, Groups, ResourceTypes,
+    Schemas, and ServiceProviderConfig resources required for enterprise self-service SSO.
+- aid: descope:descope-jwks-api
+  name: Descope JWKS and Discovery API
+  tags:
+  - JWKS
+  - Discovery
+  - OIDC
+  - Keys
+  humanURL: https://docs.descope.com/jwks
+  baseURL: https://api.descope.com
+  properties:
+  - url: https://docs.descope.com/jwks
+    type: Documentation
+  - url: openapi/descope-openapi.yml
+    type: OpenAPI
+  description: Public key and discovery endpoints used by any RP that needs to validate Descope-issued
+    session JWTs without calling the API. Includes the project JWKS endpoints (`/v1/keys`, `/v2/keys`),
+    OIDC discovery (`/.well-known/oauth-authorization-server`, `/{projectId}/.well-known/...`), and
+    project configuration metadata. These are unauthenticated and cache-friendly.
+name: Descope
+tags:
+- Authentication
+- Identity
+- CIAM
+- Passwordless
+- Passkeys
+- MFA
+- SSO
+- OAuth
+- OIDC
+- SAML
+- SCIM
+- Authorization
+- FGA
+- Agentic Identity
+- MCP
+kind: contract
+image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+access: 3rd-Party
+common:
+- url: https://www.descope.com
+  type: Portal
+- url: https://docs.descope.com
+  type: Documentation
+- url: https://docs.descope.com/getting-started
+  type: GettingStarted
+- url: https://docs.descope.com/api/openapi-spec
+  type: APIReference
+- url: https://app.descope.com
+  type: Console
+- url: https://www.descope.com/sign-up
+  type: SignUp
+- url: https://www.descope.com/pricing
+  data:
+  - id: free
+    name: Free Forever
+    entries:
+    - geo: Global
+      unit: 7500
+      label: Monthly Active Users
+      limit: 7500
+      price: 0
+      metric: mau
+      timeFrame: month
+      description: No-cost tier with 7,500 MAUs. No overages allowed — upgrade required to exceed limits.
+    elements:
+    - name: All authentication methods (OTP, magic link, passkeys, social, SSO, MFA)
+    - name: Drag-and-drop Descope Flows
+    - name: Role-based access control
+    - name: Multi-factor authentication
+    - name: Community support
+    description: Free tier for development, prototypes, and small applications.
+  - id: pro
+    name: Pro
+    entries:
+    - geo: Global
+      unit: 1
+      label: Starting Price
+      price: 249
+      metric: month
+      timeFrame: month
+      description: Annual billing. Includes 10,000 MAUs; usage-based overages apply.
+    - geo: Global
+      unit: 10000
+      label: Included MAUs
+      limit: 10000
+      metric: mau
+      timeFrame: month
+      description: Monthly active users included in the Pro tier.
+    elements:
+    - name: Everything in Free
+    - name: Custom domain
+    - name: Google One Tap
+    - name: CI/CD integration
+    - name: Web and Slack support
+    description: Production-ready tier for growing applications.
+  - id: growth
+    name: Growth
+    entries:
+    - geo: Global
+      unit: 1
+      label: Starting Price
+      price: 799
+      metric: month
+      timeFrame: month
+      description: Annual billing. Includes 25,000 MAUs; usage-based overages apply.
+    - geo: Global
+      unit: 25000
+      label: Included MAUs
+      limit: 25000
+      metric: mau
+      timeFrame: month
+      description: Monthly active users included in the Growth tier.
+    elements:
+    - name: Everything in Pro
+    - name: Bot protection
+    - name: 1M included anonymous users
+    - name: SCIM provisioning
+    - name: Fine-grained authorization (FGA)
+    description: For scaling B2B and B2C applications needing enterprise auth features.
+  - id: enterprise
+    name: Enterprise
+    entries:
+    - geo: Global
+      unit: 1
+      label: Custom
+      price: Call
+      metric: contract
+      timeFrame: year
+      description: Custom MAU limits and tiered volume discounts.
+    elements:
+    - name: Everything in Growth
+    - name: Tiered volume discounts
+    - name: Dedicated customer success engineer
+    - name: Custom deployments (single-tenant, private cloud, on-prem)
+    - name: Unlimited test users
+    - name: Unlimited anonymous users
+    - name: Premium support
+    description: For large enterprises with custom deployment and compliance requirements.
+  name: Plans
+  type: Plans
+- url: https://www.descope.com/pricing
+  name: Pricing
+  type: Pricing
+- url: https://www.descope.com/terms
+  type: TermsOfService
+- url: https://www.descope.com/privacy
+  type: PrivacyPolicy
+- url: https://descopestatus.com
+  type: StatusPage
+- url: https://www.descope.com/blog
+  type: Blog
+- url: https://www.descope.com/contact
+  type: Support
+- url: https://www.descope.com/customers
+  type: CaseStudies
+- url: https://www.descope.com/learn
+  type: Training
+  name: Learning Center
+- url: https://www.descope.com/learn/post/agentic-identity-hub
+  type: Documentation
+  name: Agentic Identity Hub
+- url: https://github.com/descope
+  type: GitHubOrganization
+- url: https://github.com/descope/node-sdk
+  name: Node.js SDK
+  type: SDK
+- url: https://github.com/descope/python-sdk
+  name: Python SDK
+  type: SDK
+- url: https://github.com/descope/go-sdk
+  name: Go SDK
+  type: SDK
+- url: https://github.com/descope/descope-java
+  name: Java SDK
+  type: SDK
+- url: https://github.com/descope/descope-dotnet
+  name: .NET SDK
+  type: SDK
+- url: https://github.com/descope/descope-php
+  name: PHP SDK
+  type: SDK
+- url: https://github.com/descope/descope-ruby-sdk
+  name: Ruby SDK
+  type: SDK
+- url: https://github.com/descope/descope-swift
+  name: Swift (iOS) SDK
+  type: SDK
+- url: https://github.com/descope/descope-kotlin
+  name: Kotlin (Android) SDK
+  type: SDK
+- url: https://github.com/descope/descope-react-native
+  name: React Native SDK
+  type: SDK
+- url: https://github.com/descope/descope-flutter
+  name: Flutter SDK
+  type: SDK
+- url: https://github.com/descope/descope-js
+  name: JavaScript / React / Next.js / Vue / Angular / Web Components
+  type: SDK
+- url: https://github.com/descope/django-descope
+  name: Django Plugin
+  type: SDK
+- url: https://github.com/descope/passport-descope
+  name: Passport.js Strategy
+  type: SDK
+- url: https://github.com/descope/descope-wordpress
+  name: WordPress Plugin
+  type: Plugins
+- url: https://github.com/descope/descopecli
+  name: descopecli
+  type: CLI
+- url: https://github.com/descope/terraform-provider-descope
+  name: Terraform Provider
+  type: Tools
+- url: https://github.com/descope/pulumi-descope
+  name: Pulumi Provider
+  type: Tools
+- url: https://github.com/descope/auth-hosting
+  name: Auth Hosting (self-hostable Flows UI)
+  type: Tools
+- url: https://github.com/descope/virtualwebauthn
+  name: VirtualWebAuthn (WebAuthn test tool)
+  type: Tools
+- url: https://github.com/descope/mcp-express
+  name: MCP Express
+  type: Tools
+- url: https://github.com/descope/mcp-go
+  name: MCP Go
+  type: Tools
+- url: https://github.com/descope/descope-mcp
+  name: Descope MCP SDKs
+  type: Tools
+- url: https://github.com/descope/skills
+  name: Descope Authentication Skills for AI Agents
+  type: Tools
+- url: https://github.com/descope/ai
+  name: Descope Official AI Repository
+  type: Tools
+- url: https://github.com/descope/descope-migration
+  name: Generic Migration Tool
+  type: Tools
+- url: https://github.com/descope/descope-auth0-migration
+  name: Auth0 Migration Tool
+  type: Tools
+- url: https://github.com/descope/descope-cognito-migration
+  name: Amazon Cognito Migration Tool
+  type: Tools
+- url: https://github.com/descope/descope-firebase-migration
+  name: Firebase Migration Tool
+  type: Tools
+- url: https://github.com/descope/descope-keycloak-migration
+  name: Keycloak Migration Tool
+  type: Tools
+- url: https://github.com/descope/project-cicd-template
+  name: Project CI/CD Template (GitHub Actions)
+  type: Tools
+- url: https://github.com/descope/project-gitlab-cicd-pipeline
+  name: Project CI/CD Template (GitLab)
+  type: Tools
+- url: https://github.com/descope/sbt-aws-descope
+  name: AWS SaaS Builder Toolkit Integration
+  type: Tools
+- url: https://www.linkedin.com/company/descope
+  type: LinkedIn
+- url: https://twitter.com/descopeinc
+  type: Twitter
+- url: https://www.youtube.com/@descopeinc
+  type: YouTube
+- url: https://authtown.unstructured.chat
+  type: Forum
+  name: AuthTown Community
+- type: Features
+  data:
+  - Drag-and-drop Descope Flows for designing authentication, signup, MFA, step-up, and account-recovery
+    journeys with no code
+  - Passwordless authentication — magic links, enchanted links, passkeys/WebAuthn, OTP (email/SMS/voice/IM),
+    nOTP push, TOTP authenticator apps, and Google One Tap
+  - Social login and OIDC federation with 30+ providers
+  - SAML 2.0 inbound and outbound SSO with self-service IdP configuration for B2B customers
+  - WS-Federation IdP support for Microsoft enterprise tenants
+  - SCIM 2.0 user and group provisioning
+  - Fine-grained authorization (FGA / ReBAC) modeled after Google Zanzibar with schema, relation, and policy APIs
+  - Role-based access control with company/project/tag-scoped management keys
+  - Multi-tenant architecture with delegated admin widgets for B2B customer self-service
+  - Risk-based / adaptive MFA via flow conditional logic and connectors (reCAPTCHA, Fingerprint, ipQualityScore)
+  - Step-up authentication for sensitive transactions
+  - 50+ outbound connectors (HTTP, audit, AWS, Segment, Salesforce, HubSpot, Twilio, SendGrid, Slack, etc.)
+  - Inbound third-party app OAuth — Descope as an OIDC/OAuth 2.1 authorization server
+  - Agentic Identity Hub with MCP server registration, per-agent OAuth scopes, and token vaulting for
+    AI agents (Claude, ChatGPT, Cursor, etc.)
+  - OAuth 2.1, PKCE, JAR (RFC 9101), DPoP, CIBA, and device authorization flows
+  - Anonymous-to-known user merging
+  - Account takeover prevention with disposable-email/burner detection (go-free-email-providers)
+  - Custom domains for hosted authentication pages
+  - Hosted Flow app (React) with full source available for self-hosting
+  - Terraform and Pulumi providers for declarative project management
+  - CLI (`descopecli`) for project snapshot, import, export, and CI/CD pipelines
+  - Audit log API and analytics API
+  - Free 7,500 MAU forever tier
+  sources:
+  - https://www.descope.com
+  - https://docs.descope.com
+  - https://docs.descope.com/api/openapi-spec
+  - https://www.descope.com/pricing
+  - https://github.com/descope
+  updated: '2026-05-25'
+- type: UseCases
+  data:
+  - name: B2C Customer Authentication
+    description: Add passwordless sign-up/sign-in (passkeys, magic link, social) to consumer apps with adaptive
+      MFA and account-takeover protection.
+  - name: B2B Enterprise SSO
+    description: Let business customers self-serve SAML/OIDC SSO and SCIM provisioning without per-tenant
+      engineering work, using delegated admin widgets.
+  - name: Auth Migration
+    description: Migrate users from Auth0, Cognito, Firebase, Keycloak, and other IdPs with prebuilt
+      Python-based migration tools that preserve password hashes where possible.
+  - name: Agentic Identity for AI Agents
+    description: Issue scoped OAuth tokens to AI agents and MCP servers using progressive scoping, token
+      vaulting, and per-agent audit trails via the Agentic Identity Hub.
+  - name: Multi-Tenant SaaS
+    description: Model tenant hierarchies, delegated admin, per-tenant SSO, and tenant-scoped RBAC/FGA
+      from a single Descope project.
+  - name: Fine-Grained Authorization
+    description: Replace homegrown permission systems with a Zanzibar-style schema, relations, and policies
+      via the FGA Management API.
+  - name: Mobile Authentication
+    description: Native passkey, biometric, and social login in iOS, Android, React Native, and Flutter
+      apps using Descope's mobile SDKs.
+  - name: Compliance-Driven Auth
+    description: Use audit logs, custom message templates, MFA enforcement, and SOC 2 / GDPR controls to
+      satisfy regulated-industry requirements.
+- type: Integrations
+  data:
+  - name: AWS
+    description: SaaS Builder Toolkit integration, Cognito migration, and IAM role assumption from GCP via
+      OIDC GitHub Action.
+  - name: Cloudflare
+    description: Workers-based redirect worker for tenant-level SSO migration.
+  - name: Terraform
+    description: "Official `terraform-provider-descope` for managing projects, flows, tenants, and SSO declaratively."
+  - name: Pulumi
+    description: "Official `pulumi-descope` provider."
+  - name: WordPress
+    description: Descope auth plugin replacing native WordPress login.
+  - name: Django
+    description: "`django-descope` plugin for first-class Django auth integration."
+  - name: Passport.js
+    description: "`passport-descope` strategy for Node.js apps using Passport."
+  - name: Next.js / React / Vue / Angular / SvelteKit
+    description: "Client SDKs and Flow web components shipped under `descope-js`."
+  - name: Salesforce / HubSpot / Segment / Twilio / SendGrid / Slack / S3 / Snowflake
+    description: 50+ outbound connectors invoked from inside Flows to enrich users, send messages, and
+      stream events.
+  - name: Anthropic Claude / OpenAI / Cursor / MCP Clients
+    description: Agentic Identity Hub issues short-lived, scoped tokens to AI agents via MCP server
+      registration and per-agent OAuth.
+- type: Solutions
+  data:
+  - name: Customer Identity (CIAM)
+    description: Drop-in B2C authentication with Flows, passwordless methods, and progressive profiling.
+  - name: Workforce-Adjacent B2B Identity
+    description: SAML SSO, SCIM, delegated admin, and tenant management for SaaS vendors selling to
+      enterprises.
+  - name: Agentic Identity
+    description: OAuth issuance, MCP server registration, and credential vaulting for AI agents and
+      autonomous workflows.
+  - name: Migration & Modernization
+    description: Tooling to lift users off legacy IdPs (Auth0, Cognito, Firebase, Keycloak) onto a
+      modern, passwordless-first platform.
+- type: Portal
+  url: https://www.descope.com
+- type: Documentation
+  url: https://docs.descope.com
+created: '2026-05-25T00:00:00.000Z'
+modified: '2026-05-25'
+position: Consuming
+description: Descope is a customer and agentic identity access management (CIAM) platform founded in 2022
+  by veterans of Sentrigo and Demisto (acquired by Palo Alto Networks). Its signature is drag-and-drop
+  Descope Flows — a visual authentication-flow builder — paired with passwordless methods (passkeys, magic
+  link, OTP, social, biometric), risk-based MFA, SSO/SAML/SCIM, fine-grained authorization, and a growing
+  Agentic Identity Hub that issues scoped OAuth tokens to AI agents and MCP servers. Descope ships SDKs for
+  every mainstream language and framework, a CLI, Terraform/Pulumi providers, self-hostable hosted-auth
+  app, and prebuilt migration tools from Auth0, Cognito, Firebase, and Keycloak. Free tier covers 7,500
+  MAUs forever; paid tiers start at $249/month.
+maintainers:
+- FN: Kin Lane
+  email: info@apievangelist.com
+  X: apievangelist
+  url: https://apievangelist.com
+specificationVersion: '0.16'
