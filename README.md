@@ -1,93 +1,160 @@
 # Descope (descope)
-Descope is a customer and agentic identity access management (CIAM) platform founded in 2022 by veterans of Sentrigo and Demisto (acquired by Palo Alto Networks). Its signature is drag-and-drop **Descope Flows** — a visual authentication-flow builder — paired with passwordless methods (passkeys, magic link, OTP, social, biometric), risk-based MFA, SSO/SAML/SCIM, fine-grained authorization, and a growing Agentic Identity Hub that issues scoped OAuth tokens to AI agents and MCP servers. Descope ships SDKs for every mainstream language and framework, a CLI, Terraform/Pulumi providers, a self-hostable hosted-auth app, and prebuilt migration tools from Auth0, Cognito, Firebase, and Keycloak. Free tier covers 7,500 MAUs forever; paid tiers start at $249/month.
 
-**URL:** [Visit APIs.json](https://raw.githubusercontent.com/api-evangelist/descope/refs/heads/main/apis.yml)
+Descope is a customer and agentic identity access management (CIAM) platform founded in 2022 by veterans of Sentrigo and Demisto (acquired by Palo Alto Networks). Its signature is drag-and-drop Descope Flows — a visual authentication-flow builder — paired with passwordless methods (passkeys, magic link, OTP, social, biometric), risk-based MFA, SSO/SAML/SCIM, fine-grained authorization, and a growing Agentic Identity Hub that issues scoped OAuth tokens to AI agents and MCP servers. Descope ships SDKs for every mainstream language and framework, a CLI, Terraform/Pulumi providers, self-hostable hosted-auth app, and prebuilt migration tools from Auth0, Cognito, Firebase, and Keycloak. Free tier covers 7,500 MAUs forever; paid tiers start at $249/month.
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/descope/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/descope/refs/heads/main/apis.yml)
+
+## Scope
+
+- **Position:** Consuming
+- **Access:** 3rd-Party
 
 ## Tags
 
-- Authentication, Identity, CIAM, Passwordless, Passkeys, MFA, SSO, OAuth, OIDC, SAML, SCIM, Authorization, FGA, Agentic Identity, MCP
+- Authentication
+- Identity
+- CIAM
+- Passwordless
+- Passkeys
+- MFA
+- SSO
+- OAuth
+- OIDC
+- SAML
+- SCIM
+- Authorization
+- FGA
+- Agentic Identity
+- MCP
 
 ## Timestamps
 
-- **Created:** 2026-05-25
+- **Created:** 2026-05-25T00:00:00.000Z
 - **Modified:** 2026-05-25
-
-## Plans
-
-| Plan | Starting Price | Included MAUs | Notes |
-|---|---|---|---|
-| Free Forever | $0 | 7,500 | All auth methods, Flows, RBAC, MFA. No overages — upgrade to exceed. |
-| Pro | $249 / month (annual) | 10,000 | Custom domain, One Tap, CI/CD, Slack support. |
-| Growth | $799 / month (annual) | 25,000 | Bot protection, 1M anonymous users, SCIM, FGA. |
-| Enterprise | Custom | Custom | Tiered discounts, dedicated CSE, private/on-prem deployments, premium support. |
 
 ## APIs
 
 ### Descope Authentication API
-Public end-user-facing authentication API covering every Descope login experience — OTP (email/SMS/voice/IM), Magic Link, Enchanted Link, OAuth/Social, One-Tap, nOTP, TOTP, WebAuthn/Passkeys, password, security questions, recovery codes, SSO/SAML, access keys, session refresh, tenant selection, and IdP-initiated logout.
 
-**Human URL:** [https://docs.descope.com/api](https://docs.descope.com/api)
+Public, end-user-facing authentication API covering every Descope login experience — One-Time Passwords (email/SMS/voice/IM), Magic Link, Enchanted Link, OAuth/Social, One-Tap, nOTP, TOTP authenticator apps, WebAuthn/Passkeys, password authentication, security questions, recovery codes, SSO/SAML, access keys, session refresh, tenant selection, and IdP-initiated logout. All flows expose `signup`, `signin`, `signup-in`, `verify`, and `update` endpoints where applicable so frontends and mobile SDKs can compose any journey Descope Flows can render.
+
+- **Human URL:** [https://docs.descope.com/api](https://docs.descope.com/api)
+- **Base URL:** `https://api.descope.com`
+
+#### Tags
+
+- Authentication
+- Passwordless
+- OAuth
+- OIDC
+- SAML
+- WebAuthn
+- Passkeys
+- MFA
+
+#### Properties
 
 - [Documentation](https://docs.descope.com/api)
+- [Documentation](https://docs.descope.com/auth-methods)
 - [API Reference](https://docs.descope.com/api/openapi-spec)
-- [OpenAPI](openapi/descope-openapi.yml)
+- [OpenAPI](openapi/descope-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/descope.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/descope.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Descope Management API
-Server-side administrative API for managing every resource in a Descope project — users, access keys, tenants, roles, permissions, groups, SSO, password policies, JWT settings, flows, widgets, localization, custom attributes, FGA, audit logs, analytics, inbound apps, outbound connectors, project import/export, and impersonation. Authenticated with a Management Key (`sk_…`).
 
-**Human URL:** [https://docs.descope.com/manage](https://docs.descope.com/manage)
+Server-side administrative API for managing every resource in a Descope project — users, access keys, tenants, roles, permissions, groups, SSO/SAML/OIDC configuration, password policies, JWT customization, flows, widgets, localization, custom attributes, fine-grained authorization (FGA) schemas and relations, audit logs, analytics, third-party (inbound) applications, outbound connectors, project import/export, and impersonation. Authentication uses a Management Key (`sk_…`) and is required for any backend automation, CI/CD, migration, or admin tooling.
+
+- **Human URL:** [https://docs.descope.com/manage](https://docs.descope.com/manage)
+- **Base URL:** `https://api.descope.com`
+
+#### Tags
+
+- Management
+- Administration
+- Users
+- Tenants
+- Roles
+- Permissions
+- SSO
+- SCIM
+- Audit
+
+#### Properties
 
 - [Documentation](https://docs.descope.com/manage)
-- [OpenAPI](openapi/descope-openapi.yml)
+- [API Reference](https://docs.descope.com/api)
+- [OpenAPI](openapi/descope-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/descope.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/descope.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Descope OAuth Applications API
-OAuth 2.1 / OIDC authorization-server endpoints (`/oauth2/v1/...`) that let Descope act as an IdP for inbound third-party apps and agentic clients. Includes authorize, token, revoke, userinfo, device authorization, CIBA backchannel, and dedicated agentic / MCP-server registration paths. Supports PKCE, JAR (RFC 9101), DPoP, and SCIM-based dynamic client registration.
 
-**Human URL:** [https://docs.descope.com/inbound-apps](https://docs.descope.com/inbound-apps)
+Standards-compliant OAuth 2.1 / OIDC authorization server endpoints that let Descope act as an identity provider for inbound third-party applications and agentic clients. Covers the full `/oauth2/v1/...` surface — authorize, token, revoke, userinfo, device authorization, CIBA backchannel authorization, and dedicated agentic / MCP-server registration paths (`/oauth2/v1/apps/agentic/{project_id}/{mcp_server_id}/authorize|token`) for AI agents that need delegated user credentials. Supports PKCE, JAR (RFC 9101) request objects, DPoP, and dynamic client registration via SCIM v2.
 
-- [OpenAPI](openapi/descope-openapi.yml)
+- **Human URL:** [https://docs.descope.com/inbound-apps](https://docs.descope.com/inbound-apps)
+- **Base URL:** `https://api.descope.com`
+
+#### Tags
+
+- OAuth
+- OIDC
+- Inbound Apps
+- Third-Party
+- Federation
+- MCP
+
+#### Properties
+
+- [Documentation](https://docs.descope.com/inbound-apps)
+- [OpenAPI](openapi/descope-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/descope.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/descope.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Descope SCIM 2.0 API
-SCIM 2.0 endpoints under `/scim/v2/` for automated user/group lifecycle provisioning from upstream IdPs (Okta, Entra ID, Google Workspace, JumpCloud) into Descope tenants.
 
-- [OpenAPI](openapi/descope-openapi.yml)
+System for Cross-domain Identity Management (SCIM) 2.0 endpoints under `/scim/v2/` for automated user and group lifecycle provisioning from upstream IdPs (Okta, Entra ID, Google Workspace, JumpCloud, etc.) into Descope tenants. Implements the standard Users, Groups, ResourceTypes, Schemas, and ServiceProviderConfig resources required for enterprise self-service SSO.
+
+- **Human URL:** [https://docs.descope.com/scim](https://docs.descope.com/scim)
+- **Base URL:** `https://api.descope.com`
+
+#### Tags
+
+- SCIM
+- Provisioning
+- Identity
+- Users
+- Groups
+
+#### Properties
+
+- [Documentation](https://docs.descope.com/scim)
+- [OpenAPI](openapi/descope-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/descope.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/descope.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
 ### Descope JWKS and Discovery API
-Public key and discovery endpoints used by any RP that needs to validate Descope-issued session JWTs without an API call. Includes `/v1/keys`, `/v2/keys`, OIDC discovery, and project configuration metadata.
 
-- [OpenAPI](openapi/descope-openapi.yml)
+Public key and discovery endpoints used by any RP that needs to validate Descope-issued session JWTs without calling the API. Includes the project JWKS endpoints (`/v1/keys`, `/v2/keys`), OIDC discovery (`/.well-known/oauth-authorization-server`, `/{projectId}/.well-known/...`), and project configuration metadata. These are unauthenticated and cache-friendly.
 
-## SDKs
+- **Human URL:** [https://docs.descope.com/jwks](https://docs.descope.com/jwks)
+- **Base URL:** `https://api.descope.com`
 
-**Backend:** [Node.js](https://github.com/descope/node-sdk) · [Python](https://github.com/descope/python-sdk) · [Go](https://github.com/descope/go-sdk) · [Java](https://github.com/descope/descope-java) · [.NET](https://github.com/descope/descope-dotnet) · [PHP](https://github.com/descope/descope-php) · [Ruby](https://github.com/descope/descope-ruby-sdk)
+#### Tags
 
-**Mobile:** [Swift (iOS)](https://github.com/descope/descope-swift) · [Kotlin (Android)](https://github.com/descope/descope-kotlin) · [React Native](https://github.com/descope/descope-react-native) · [Flutter](https://github.com/descope/descope-flutter)
+- JWKS
+- Discovery
+- OIDC
+- Keys
 
-**Web / Frontend:** [descope-js](https://github.com/descope/descope-js) (React, Next.js, Vue, Angular, Web Components)
+#### Properties
 
-**Framework plugins:** [Django](https://github.com/descope/django-descope) · [Passport.js](https://github.com/descope/passport-descope) · [WordPress](https://github.com/descope/descope-wordpress)
+- [Documentation](https://docs.descope.com/jwks)
+- [OpenAPI](openapi/descope-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/descope.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/descope.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
 
-## Tools
-
-- [descopecli](https://github.com/descope/descopecli) — Project snapshot / import / export / CI/CD
-- [Terraform Provider](https://github.com/descope/terraform-provider-descope)
-- [Pulumi Provider](https://github.com/descope/pulumi-descope)
-- [Auth Hosting](https://github.com/descope/auth-hosting) — Self-hostable React app for hosted Flows
-- [VirtualWebAuthn](https://github.com/descope/virtualwebauthn) — Test harness for WebAuthn flows
-- [MCP Express](https://github.com/descope/mcp-express) · [MCP Go](https://github.com/descope/mcp-go) · [Descope MCP SDKs](https://github.com/descope/descope-mcp)
-- [Authentication Skills for AI Agents](https://github.com/descope/skills)
-
-## Migration Tools
-
-- [Auth0 → Descope](https://github.com/descope/descope-auth0-migration)
-- [Amazon Cognito → Descope](https://github.com/descope/descope-cognito-migration)
-- [Firebase → Descope](https://github.com/descope/descope-firebase-migration)
-- [Keycloak → Descope](https://github.com/descope/descope-keycloak-migration)
-- [Generic migration tool](https://github.com/descope/descope-migration)
-
-## Common Resources
+## Common Properties
 
 - [Portal](https://www.descope.com)
 - [Documentation](https://docs.descope.com)
@@ -95,19 +162,63 @@ Public key and discovery endpoints used by any RP that needs to validate Descope
 - [API Reference](https://docs.descope.com/api/openapi-spec)
 - [Console](https://app.descope.com)
 - [Sign Up](https://www.descope.com/sign-up)
+- [Plans](https://www.descope.com/pricing)
 - [Pricing](https://www.descope.com/pricing)
-- [Status Page](https://descopestatus.com)
-- [Blog](https://www.descope.com/blog)
-- [Customers](https://www.descope.com/customers)
-- [Learning Center](https://www.descope.com/learn)
 - [Terms of Service](https://www.descope.com/terms)
 - [Privacy Policy](https://www.descope.com/privacy)
-- [Contact / Support](https://www.descope.com/contact)
-- [LinkedIn](https://www.linkedin.com/company/descope)
-- [YouTube](https://www.youtube.com/@descopeinc)
-- [AuthTown Community](https://authtown.unstructured.chat)
+- [Status Page](https://descopestatus.com)
+- [Blog](https://www.descope.com/blog)
+- [Support](https://www.descope.com/contact)
+- [Case Studies](https://www.descope.com/customers)
+- [Training](https://www.descope.com/learn)
+- [Documentation](https://www.descope.com/learn/post/agentic-identity-hub)
 - [GitHub Organization](https://github.com/descope)
+- [SDK](https://github.com/descope/node-sdk)
+- [SDK](https://github.com/descope/python-sdk)
+- [SDK](https://github.com/descope/go-sdk)
+- [SDK](https://github.com/descope/descope-java)
+- [SDK](https://github.com/descope/descope-dotnet)
+- [SDK](https://github.com/descope/descope-php)
+- [SDK](https://github.com/descope/descope-ruby-sdk)
+- [SDK](https://github.com/descope/descope-swift)
+- [SDK](https://github.com/descope/descope-kotlin)
+- [SDK](https://github.com/descope/descope-react-native)
+- [SDK](https://github.com/descope/descope-flutter)
+- [SDK](https://github.com/descope/descope-js)
+- [SDK](https://github.com/descope/django-descope)
+- [SDK](https://github.com/descope/passport-descope)
+- [Plugins](https://github.com/descope/descope-wordpress)
+- [C L I](https://github.com/descope/descopecli)
+- [Tools](https://github.com/descope/terraform-provider-descope)
+- [Tools](https://github.com/descope/pulumi-descope)
+- [Tools](https://github.com/descope/auth-hosting)
+- [Tools](https://github.com/descope/virtualwebauthn)
+- [Tools](https://github.com/descope/mcp-express)
+- [Tools](https://github.com/descope/mcp-go)
+- [Tools](https://github.com/descope/descope-mcp)
+- [Tools](https://github.com/descope/skills)
+- [Tools](https://github.com/descope/ai)
+- [Tools](https://github.com/descope/descope-migration)
+- [Tools](https://github.com/descope/descope-auth0-migration)
+- [Tools](https://github.com/descope/descope-cognito-migration)
+- [Tools](https://github.com/descope/descope-firebase-migration)
+- [Tools](https://github.com/descope/descope-keycloak-migration)
+- [Tools](https://github.com/descope/project-cicd-template)
+- [Tools](https://github.com/descope/project-gitlab-cicd-pipeline)
+- [Tools](https://github.com/descope/sbt-aws-descope)
+- [LinkedIn](https://www.linkedin.com/company/descope)
+- [Twitter](https://twitter.com/descopeinc)
+- [YouTube](https://www.youtube.com/@descopeinc)
+- [Forum](https://authtown.unstructured.chat)
+- [Features](undefined)
+- [Use Cases](undefined)
+- [Integrations](undefined)
+- [Solutions](undefined)
+- [Portal](https://www.descope.com)
+- [Documentation](https://docs.descope.com)
 
 ## Maintainers
 
-- **Kin Lane** — [@apievangelist](https://twitter.com/apievangelist) — [apievangelist.com](https://apievangelist.com)
+**FN:** Kin Lane
+**Email:** info@apievangelist.com
+**URL:** https://apievangelist.com
