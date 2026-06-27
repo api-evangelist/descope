@@ -149,7 +149,7 @@ common:
 - url: https://app.descope.com
   type: Console
 - url: https://www.descope.com/sign-up
-  type: SignUp
+  type: Signup
 - url: https://www.descope.com/pricing
   data:
   - id: free
@@ -264,46 +264,46 @@ common:
   type: GitHubOrganization
 - url: https://github.com/descope/node-sdk
   name: Node.js SDK
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/python-sdk
   name: Python SDK
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/go-sdk
   name: Go SDK
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/descope-java
   name: Java SDK
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/descope-dotnet
   name: .NET SDK
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/descope-php
   name: PHP SDK
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/descope-ruby-sdk
   name: Ruby SDK
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/descope-swift
   name: Swift (iOS) SDK
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/descope-kotlin
   name: Kotlin (Android) SDK
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/descope-react-native
   name: React Native SDK
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/descope-flutter
   name: Flutter SDK
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/descope-js
   name: JavaScript / React / Next.js / Vue / Angular / Web Components
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/django-descope
   name: Django Plugin
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/passport-descope
   name: Passport.js Strategy
-  type: SDK
+  type: SDKs
 - url: https://github.com/descope/descope-wordpress
   name: WordPress Plugin
   type: Plugins
@@ -368,7 +368,7 @@ common:
 - url: https://www.youtube.com/@descopeinc
   type: YouTube
 - url: https://authtown.unstructured.chat
-  type: Forum
+  type: Forums
   name: AuthTown Community
 - type: Features
   data:
