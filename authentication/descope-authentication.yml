@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/descope-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: Descope Project ID
+  type: http
+  scheme: bearer
+  bearerFormat: Project ID
+  description: Project ID as bearer token.
+  sources:
+  - openapi/descope-openapi.yml
