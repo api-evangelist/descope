@@ -138,6 +138,8 @@ kind: contract
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+- type: AgenticAccess
+  url: agentic-access/descope-agentic-access.yml
 - type: TrustCenter
   url: security/descope-trust-center.yml
 - type: DomainSecurity
