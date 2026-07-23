@@ -1,0 +1,3693 @@
+openapi: 3.0.3
+info:
+  title: Descope Apps Auth API
+  description: Descope API
+  contact:
+    name: Descope
+    url: https://descope.com
+    email: support@descope.com
+  version: 0.0.1
+servers:
+- url: https://api.descope.com
+  description: Descope Production
+- url: '{customUrl}'
+  description: Custom server URL
+  variables:
+    customUrl:
+      default: https://api.descope.com
+      description: Your Descope API base URL
+security:
+- Descope Project ID: []
+  Descope Project ID:Refresh JWT: []
+  Descope Project ID:Session JWT: []
+  Descope Project ID and Management Key: []
+  Descope Project ID:Access Key: []
+tags:
+- name: Auth
+paths:
+  /v1/auth/saml/idp/initiate:
+    get:
+      tags:
+      - Auth
+      summary: SAML IDP Initiate Redirect
+      description: SAML IDP Initiate HTTP redirect binding login flow
+      operationId: SAMLIDPInitiateHTTPRedirectBinding
+      parameters:
+      - name: app
+        in: query
+        schema:
+          type: string
+      - name: RelayState
+        in: query
+        schema:
+          type: string
+      - name: LoginHint
+        in: query
+        schema:
+          type: string
+      - name: tenant
+        in: query
+        schema:
+          type: string
+      - name: flow_token
+        in: query
+        schema:
+          type: string
+      - name: login_hint
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: SAML IDP Initiate Redirect | Federated Apps
+        description: SAML IDP Initiate HTTP redirect binding login flow
+        keywords: api, federated apps
+    post:
+      tags:
+      - Auth
+      summary: SAML IDP Initiate POST
+      description: SAML IDP Initiate HTTP POST binding login flow
+      operationId: SAMLIDPInitiateHTTPPostBinding
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SAMLIDPInitiateRequestPOST'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: SAML IDP Initiate POST | Federated Apps
+        description: SAML IDP Initiate HTTP POST binding login flow
+        keywords: api, federated apps
+  /v1/auth/saml/idp/sso:
+    get:
+      tags:
+      - Auth
+      summary: SAML IDP Redirect Binding
+      description: SAML IDP http redirect binding login flow
+      operationId: SAMLIDPHTTPRedirectBinding
+      parameters:
+      - name: app
+        in: query
+        schema:
+          type: string
+      - name: SAMLRequest
+        in: query
+        schema:
+          type: string
+      - name: SamlRequest
+        in: query
+        schema:
+          type: string
+      - name: RelayState
+        in: query
+        schema:
+          type: string
+      - name: LoginHint
+        in: query
+        schema:
+          type: string
+      - name: tenant
+        in: query
+        schema:
+          type: string
+      - name: flow_token
+        in: query
+        schema:
+          type: string
+      - name: login_hint
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: SAML IDP Redirect Binding | Federated Apps
+        description: SAML IDP http redirect binding login flow
+        keywords: api, federated apps
+    post:
+      tags:
+      - Auth
+      summary: SAML IDP POST Binding
+      description: SAML IDP HTTP POST binding login flow
+      operationId: SAMLIDPHTTPPostBinding
+      parameters:
+      - name: app
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SAMLIDPSSORequestPOSTData'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: SAML IDP POST Binding | Federated Apps
+        description: SAML IDP HTTP POST binding login flow
+        keywords: api, federated apps
+  /v1/auth/saml/idp/sso-finish:
+    post:
+      tags:
+      - Auth
+      summary: SAML IDP Finish
+      description: SAML IDP finish endpoint
+      operationId: SAMLIDPFinishEndpoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SAMLIDPFinishEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SAMLIDPFinishEndpointResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: SAML IDP Finish | Federated Apps
+        description: SAML IDP finish endpoint
+        keywords: api, federated apps
+  /v1/auth/wsfed/idp/initiate:
+    get:
+      tags:
+      - Auth
+      summary: WS-Fed IDP Initiate
+      description: WS-Fed IDP-initiated sign-in (GET)
+      operationId: WSFedIDPInitiateGet
+      parameters:
+      - name: app
+        in: query
+        schema:
+          type: string
+      - name: tenant
+        in: query
+        schema:
+          type: string
+      - name: login_hint
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: WS-Fed IDP Initiate | Federated Apps
+        description: WS-Fed IDP-initiated sign-in (GET)
+        keywords: api, federated apps
+    post:
+      tags:
+      - Auth
+      summary: WS-Fed IDP Initiate
+      description: WS-Fed IDP-initiated sign-in (POST)
+      operationId: WSFedIDPInitiatePost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WSFedIDPInitiateRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: WS-Fed IDP Initiate | Federated Apps
+        description: WS-Fed IDP-initiated sign-in (POST)
+        keywords: api, federated apps
+  /v1/auth/wsfed/idp/sso:
+    get:
+      tags:
+      - Auth
+      summary: WS-Fed IDP Passive
+      description: WS-Fed IDP passive sign-in endpoint (GET)
+      operationId: WSFedIDPPassiveGet
+      parameters:
+      - name: app
+        in: query
+        schema:
+          type: string
+      - name: wa
+        in: query
+        schema:
+          type: string
+      - name: wtrealm
+        in: query
+        schema:
+          type: string
+      - name: wreply
+        in: query
+        schema:
+          type: string
+      - name: wctx
+        in: query
+        schema:
+          type: string
+      - name: whr
+        in: query
+        schema:
+          type: string
+      - name: tenant
+        in: query
+        schema:
+          type: string
+      - name: login_hint
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: WS-Fed IDP Passive | Federated Apps
+        description: WS-Fed IDP passive sign-in endpoint (GET)
+        keywords: api, federated apps
+    post:
+      tags:
+      - Auth
+      summary: WS-Fed IDP Passive
+      description: WS-Fed IDP passive sign-in endpoint (POST)
+      operationId: WSFedIDPPassivePost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WSFedIDPPassiveRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: WS-Fed IDP Passive | Federated Apps
+        description: WS-Fed IDP passive sign-in endpoint (POST)
+        keywords: api, federated apps
+  /v1/auth/wsfed/idp/sso-finish:
+    post:
+      tags:
+      - Auth
+      summary: WS-Fed IDP Finish
+      description: WS-Fed IDP finish endpoint after authentication
+      operationId: WSFedIDPFinishEndpoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WSFedIDPFinishEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WSFedIDPFinishEndpointResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: WS-Fed IDP Finish | Federated Apps
+        description: WS-Fed IDP finish endpoint after authentication
+        keywords: api, federated apps
+  /v1/auth/accesskey/exchange:
+    post:
+      tags:
+      - Auth
+      summary: Exchange Key
+      description: '### Exchange API key for access token
+
+
+        This API Endpoint will take an API key for the project and provide an access token to be used for accessing the application.
+
+        The session token JWT token will be valid for the configured [Session Token Timeout](/project-settings#session-token-timeout), and its expiration time will be provided in the `expiration` field of the response object.'
+      operationId: ExchangeAccessKey
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExchangeAccessKeyRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExchangeAccessKeyResponse'
+      security:
+      - Descope Project ID:Access Key: []
+      x-order: 3
+      x-publishYaml: AccessKeys
+      x-meta:
+        title: Exchange Key | Access Keys
+        description: Exchange API key for access token
+        keywords: api, access keys
+  /v1/auth/refresh:
+    post:
+      tags:
+      - Auth
+      summary: Refresh Session
+      description: '### Refresh the session token, using a valid fresh token
+
+
+        This API endpoint will provide a new valid session token for an existing signed-in user, by validating the provided refresh token.
+
+        The refresh token is provided as part of the HTTP Authorization Bearer.'
+      operationId: RefreshSession
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshSessionRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-order: 2
+      x-publishYaml: session
+      x-meta:
+        title: Refresh Session | Session
+        description: Refresh the session token, using a valid fresh token
+        keywords: api, session
+  /v1/auth/try-refresh:
+    post:
+      tags:
+      - Auth
+      summary: Try Refresh Session
+      description: Refresh the current session if it is valid, will not fail if the refresh token is missing or invalid
+      operationId: TryRefreshSession
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshSessionRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OptionalJWTResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-order: 2
+      x-publishYaml: session
+      x-meta:
+        title: Try Refresh Session | Session
+        description: Refresh the current session if it is valid, will not fail if the refresh token is missing or invalid
+        keywords: api, session
+  /v1/auth/me:
+    get:
+      tags:
+      - Auth
+      summary: My Details
+      description: '### Get current signed-in user details
+
+
+        This API Endpoint will return the current user''s details. This endpoint requires the user to be signed in and have a valid `refreshJwt`. The `refreshJwt` is then used as part of the Authorization Bearer to perform this task.'
+      operationId: Me
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseUser'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-order: 3
+      x-publishYaml: session
+      x-meta:
+        title: My Details | Session
+        description: Get current signed-in user details
+        keywords: api, session
+  /v1/auth/me/history:
+    get:
+      tags:
+      - Auth
+      summary: Get Session History
+      description: '### Get user''s session history
+
+
+        This API Endpoint will return the current user''s session history including geo-location and IP address. This endpoint requires the user to be signed in and have a valid `refreshJwt`. The `refreshJwt` is then used as part of the Authorization Bearer to perform this task.'
+      operationId: MeAuthHistory
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MeAuthHistoryResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-order: 3
+      x-publishYaml: session
+      x-meta:
+        title: Get Session History | Session
+        description: Get user's session history
+        keywords: api, session
+  /v1/auth/tenant/select:
+    post:
+      tags:
+      - Auth
+      summary: Select an active tenant
+      description: '### Set the active tenant for the user''s current session
+
+
+        This endpoint allows you to get a new session token and refresh token with the `dct` claim on the JWT which shows the active selected tenant for the user.
+
+
+        See [Tenant Selection Article](/knowledgebase/descopeflows/tenantselectcomponent/) for more details of the usage.'
+      operationId: SelectTenant
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SelectTenantRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-order: 3
+      x-publishYaml: session
+      x-meta:
+        title: Select an active tenant | Session
+        description: Set the active tenant for the user's current session
+        keywords: api, session
+  /v1/auth/idp/sso/logout:
+    get:
+      tags:
+      - Auth
+      summary: Logout
+      description: IDP SSO Logout from the session and delete the session and refresh cookies
+      operationId: IDPSSOLogoutGet
+      parameters:
+      - name: app
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-order: 4
+      x-publishYaml: session
+      security: []
+      x-meta:
+        title: Logout | Session
+        description: IDP SSO Logout from the session and delete the session and refresh cookies
+        keywords: api, session
+    post:
+      tags:
+      - Auth
+      summary: Logout
+      description: IDP SSO Logout from the session and delete the session and refresh cookies
+      operationId: IDPSSOLogoutPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IDPSSOLogoutRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-order: 4
+      x-publishYaml: session
+      security: []
+      x-meta:
+        title: Logout | Session
+        description: IDP SSO Logout from the session and delete the session and refresh cookies
+        keywords: api, session
+  /v1/auth/logout:
+    post:
+      tags:
+      - Auth
+      summary: Sign-Out
+      description: '### Log the user out from the provided session
+
+        This API endpoint will sign the user out of the provided session using the `refreshToken`.
+
+        Successfully executing this endpoint will invalidate the provided refresh tokens.
+
+        Response will also include all user tokens and fields empty, so the executing client will remove cookies as well.'
+      operationId: Logout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogoutRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-order: 4
+      x-publishYaml: session
+      x-meta:
+        title: Sign-Out | Session
+        description: Log the user out from the provided session
+        keywords: api, session
+  /v1/auth/logoutall:
+    post:
+      tags:
+      - Auth
+      summary: Sign-Out All Active Sessions
+      description: '### Log the user out from all signed-in sessions
+
+
+        This API endpoint will sign the user out of all the devices they are currently signed-in with.
+
+        Successfully executing this endpoint will invalidate all user''s refresh tokens. Response will include all user tokens and fields empty, so client will remove cookies as well.'
+      operationId: LogoutAllDevices
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogoutRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-order: 4
+      x-publishYaml: session
+      x-meta:
+        title: Sign-Out All Active Sessions | Session
+        description: Log the user out from all signed-in sessions
+        keywords: api, session
+  /v1/auth/validate:
+    post:
+      tags:
+      - Auth
+      operationId: ValidateSession
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ValidateSessionRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidateSessionResponse'
+      security:
+      - Descope Project ID:Session JWT: []
+      x-publishYaml: session
+      summary: Validate Session
+      description: '### Validate and parse a user''s session JWT.
+
+
+        This endpoint is used to validate a users session using the Project ID and the user''s session JWT. Upon successful validate of the user, you will receive the parsed JWT.
+
+
+        When posting to this endpoint from an application, you get the JWT from local or cookie storage, and prepend it with project ID and use that as the bearer.'
+      x-meta:
+        title: Validate Session | Session
+        description: Validate and parse a user's session JWT.
+        keywords: api, session
+  /v1/auth/notp/{provider}/update:
+    post:
+      tags:
+      - Auth
+      summary: Update User NOTP
+      description: Update user phone using NOTP
+      operationId: UpdateUserNOTP
+      parameters:
+      - name: provider
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserNOTPRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NOTPLinkResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: NOTP
+      x-order: 3
+      x-meta:
+        title: Update User NOTP | NOTP
+        description: Update user phone using NOTP
+        keywords: api, notp
+  /v1/auth/oauth/authorize:
+    post:
+      tags:
+      - Auth
+      summary: Sign-Up / Sign-In
+      description: '### Authorize end user to sign-up or sign-in using social login credentials
+
+
+        Initiate a social login (OAuth) sign-up or sign-in process for an end user. Descope will coordinate the authorization process with the OAUth provider specified in the `provider` field. Specify the URL you want to redirect the end user to after a successful sign-in in the `redirectURL` parameter.
+
+
+        When the OAuth authorization completes successfully, the endpoint returns a URL `url` that has a unique code `<unique-code\>` appended as a URL parameter to the `redirectURL` you provided. For example, if `redirectURL = https://oauth.mycompany.com/shopping.htm` then `url = https://oauth.mycompany.com/shopping.htm?code=<unique-code\>`. The unique code will be exchanged for a valid user object in the next step.
+
+
+        After the end user successfully authenticates with the OAuth provider the end user session is redirected to `url`.
+
+
+        ### Next Steps
+
+        Call the [Exchange Code](/api/oauth/exchange-code) endpoint from the flow that responds to the URL specified in the `redirectURL` field, to exchange the unique code for a user session object.
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+
+        - See [User Login Options](/api/overview#user-login-options) for further details on the stepup, mfa, and customClaims parameters.'
+      operationId: AuthorizeOAuth
+      parameters:
+      - name: provider
+        in: query
+        schema:
+          type: string
+      - name: redirectUrl
+        in: query
+        schema:
+          type: string
+      - name: prompt
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: test
+        in: query
+        schema:
+          type: boolean
+      - name: rawResponse
+        in: query
+        schema:
+          type: boolean
+      - name: loginHint
+        in: query
+        schema:
+          type: string
+      - name: initiatedEmail
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginOptions'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthRedirectResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: OAuth
+      x-order: 3
+      x-meta:
+        title: Sign-Up / Sign-In | OAuth
+        description: Authorize end user to sign-up or sign-in using social login credentials
+        keywords: api, oauth
+  /v1/auth/oauth/authorize/signin:
+    post:
+      tags:
+      - Auth
+      summary: Create Redirect URI for Sign-In Request
+      description: '### Create an OAuth Redirect URI for user Sign-In Request
+
+
+        This endpoint allows you to create an OAuth Redirect URI for user Sign-Up Request.
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.'
+      operationId: CreateOAuthRedirectURISignin
+      parameters:
+      - name: provider
+        in: query
+        schema:
+          type: string
+      - name: redirectUrl
+        in: query
+        schema:
+          type: string
+      - name: prompt
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: test
+        in: query
+        schema:
+          type: boolean
+      - name: rawResponse
+        in: query
+        schema:
+          type: boolean
+      - name: loginHint
+        in: query
+        schema:
+          type: string
+      - name: initiatedEmail
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginOptions'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthRedirectResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: OAuth
+      x-order: 4
+      x-meta:
+        title: Create Redirect URI for Sign-In Request | OAuth
+        description: Create an OAuth Redirect URI for user Sign-In Request
+        keywords: api, oauth
+  /v1/auth/oauth/authorize/signup:
+    post:
+      tags:
+      - Auth
+      summary: Create Redirect URI for Sign-Up Request
+      description: '### Create an OAuth Redirect URI for user Sign-In Request
+
+
+        This endpoint allows you to create an OAuth Redirect URI for user Sign-In Request.
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.'
+      operationId: CreateOAuthRedirectURISignup
+      parameters:
+      - name: provider
+        in: query
+        schema:
+          type: string
+      - name: redirectUrl
+        in: query
+        schema:
+          type: string
+      - name: prompt
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: test
+        in: query
+        schema:
+          type: boolean
+      - name: rawResponse
+        in: query
+        schema:
+          type: boolean
+      - name: loginHint
+        in: query
+        schema:
+          type: string
+      - name: initiatedEmail
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginOptions'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthRedirectResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: OAuth
+      x-order: 5
+      x-meta:
+        title: Create Redirect URI for Sign-Up Request | OAuth
+        description: Create an OAuth Redirect URI for user Sign-In Request
+        keywords: api, oauth
+  /v1/auth/oauth/authorize/update:
+    post:
+      tags:
+      - Auth
+      summary: Creating OAuth redirect URI for update user request
+      description: Creating OAuth redirect URI for update user request
+      operationId: CreateOAuthRedirectURIUpdateUser
+      parameters:
+      - name: provider
+        in: query
+        schema:
+          type: string
+      - name: redirectUrl
+        in: query
+        schema:
+          type: string
+      - name: allowAllMerge
+        in: query
+        schema:
+          type: boolean
+      - name: prompt
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: loginHint
+        in: query
+        schema:
+          type: string
+      - name: initiatedEmail
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginOptions'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthRedirectResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-publishYaml: OAuth
+      x-order: 6
+      x-meta:
+        title: Creating OAuth redirect URI for update user request | OAuth
+        description: Creating OAuth redirect URI for update user request
+        keywords: api, oauth
+  /v1/auth/oauth/native/start:
+    post:
+      tags:
+      - Auth
+      summary: Starts a full OAuth flow using native APIs
+      description: Starts a full OAuth flow using native APIs
+      operationId: OAuthNativeStart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuthNativeStartRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OAuthNativeStartResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: OAuth
+      x-order: 6
+      x-meta:
+        title: Starts a full OAuth flow using native APIs | OAuth
+        description: Starts a full OAuth flow using native APIs
+        keywords: api, oauth
+  /v1/auth/oauth/exchange:
+    post:
+      tags:
+      - Auth
+      summary: Exchange Code
+      description: '### Exchange OAuth code for Descope user session
+
+
+        This endpoint will exchange the OAuth code for the Descope session information needed for managing the end user session. Call this endpoint from your code flow that responds to the `url` that was returned by the [Sign-In](/api/oauth/sign-up-sign-in) endpoint.
+
+
+        The unique code `<unique-code\>` is appended as a URL parameter: `code=<unique-code\>`, for example, `url = https://oauth.mycompany.com/shopping.htm?code=<unique-code\>`.
+
+
+        ### Next Steps
+
+
+        1. Extract the unique code `<unique-code\>` from the URL parameter.
+
+        2. Call this endpoint, passing the `<unique-code\>` as the request parameter
+
+
+        The response object includes the session JWT (sessionJwt) and refresh JWT (refreshJwt) when this endpoint completes successfully.
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.'
+      operationId: ExchangeCodeoauth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExchangeTokenRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: OAuth
+      x-order: 7
+      x-meta:
+        title: Exchange Code | OAuth
+        description: Exchange OAuth code for Descope user session
+        keywords: api, oauth
+  /v1/auth/oauth/native/finish:
+    post:
+      tags:
+      - Auth
+      summary: Finishes a full OAuth flow using native APIs
+      description: Finishes a full OAuth flow using native APIs
+      operationId: OAuthNativeFinish
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAuthNativeFinishRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: OAuth
+      x-order: 7
+      x-meta:
+        title: Finishes a full OAuth flow using native APIs | OAuth
+        description: Finishes a full OAuth flow using native APIs
+        keywords: api, oauth
+  /v1/auth/onetap/idtoken/exchange:
+    post:
+      tags:
+      - Auth
+      summary: Exchanges one tap id token for a JWT
+      description: Exchanges one tap id token for a JWT
+      operationId: ExchangeOneTapIDToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExchangeOneTapIDTokenRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: OAuth
+      x-order: 8
+      x-meta:
+        title: Exchanges one tap id token for a JWT | OAuth
+        description: Exchanges one tap id token for a JWT
+        keywords: api, oauth
+  /v1/auth/onetap/idtoken/verify:
+    post:
+      tags:
+      - Auth
+      summary: Verifies one tap id token for a code
+      description: Verifies one tap id token for a code
+      operationId: VerifyOneTapIDToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExchangeOneTapIDTokenRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyOneTapIDTokenResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: OAuth
+      x-order: 8
+      x-meta:
+        title: Verifies one tap id token for a code | OAuth
+        description: Verifies one tap id token for a code
+        keywords: api, oauth
+  /v1/auth/onetap/clientid/{provider}:
+    get:
+      tags:
+      - Auth
+      summary: Get Google One Tap Client ID Configuration
+      description: Get the client ID configuration for Google One Tap integration
+      operationId: GetOneTapClientID
+      parameters:
+      - name: provider
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOneTapClientIDResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: OAuth
+      x-order: 9
+      x-meta:
+        title: Get Google One Tap Client ID Configuration | OAuth
+        description: Get the client ID configuration for Google One Tap integration
+        keywords: api, oauth
+  /v1/auth/password/signup:
+    post:
+      tags:
+      - Auth
+      summary: Sign-Up User
+      description: '### Sign-Up a new user utilizing password authentication. This endpoint will return the user''s JWT.
+
+
+        ### Next Steps
+
+        Verify the user''s email to allow for password reset by updating the email via [OTP](/api/otp/email/update-email), [Enchanted Link](/api/enchanted-link/update-email), or [Magic Link](/api/magic-link/email/update-email)
+
+
+        Add tenants to the user via [Update User Add Tenant](/api/management/users/update-user-add-tenant)
+
+
+        Add roles to the user via [Update User Add Role](/api/management/users/update-user-add-roles)
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+
+        - Use the [Sign-In](/api/passwords/sign-in) endpoint to sign-in an existing end user.'
+      operationId: SignUpPassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordSignUpRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: Password
+      x-order: 1
+      x-meta:
+        title: Sign-Up User | Password
+        description: Sign-Up a new user utilizing password authentication. This endpoint will return the user's JWT.
+        keywords: api, password
+  /v1/auth/password/signin:
+    post:
+      tags:
+      - Auth
+      summary: Sign-In User
+      description: '### Sign-In an existing user utilizing password authentication. This endpoint will return the user''s JWT.
+
+
+        ### Next Steps
+
+        Verify the user''s email to allow for password reset by updating the email via [OTP](/api/otp/email/update-email), [Enchanted Link](/api/enchanted-link/update-email), or [Magic Link](/api/magic-link/email/update-email)
+
+
+        Add tenants to the user via [Update User Add Tenant](/api/management/users/update-user-add-tenant)
+
+
+        Add roles to the user via [Update User Add Role](/api/management/users/update-user-add-roles)
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+
+        - Use the [Sign-Up](/api/passwords/sign-up) endpoint to sign-up a new end user.'
+      operationId: SignInPassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordSignInRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: Password
+      x-order: 2
+      x-meta:
+        title: Sign-In User | Password
+        description: Sign-In an existing user utilizing password authentication. This endpoint will return the user's JWT.
+        keywords: api, password
+  /v1/auth/password/replace:
+    post:
+      tags:
+      - Auth
+      summary: Replace Password
+      description: '### Replace the user''s password of an existing user utilizing the password API.
+
+
+        ### Next Steps
+
+        Sign the user in with their new password via [Sign-In](/api/passwords/sign-in)
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+
+        - You can also utilize [Update Password](/api/passwords/update-password) or [Reset Password](/api/passwords/email/password-reset) as alternatives to change a user''s password.'
+      operationId: ReplaceUserPassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordReplaceRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: Password
+      x-order: 4
+      x-meta:
+        title: Replace Password | Password
+        description: Replace the user's password of an existing user utilizing the password API.
+        keywords: api, password
+  /v1/auth/password/update:
+    post:
+      tags:
+      - Auth
+      summary: Update Password
+      description: '### Update the user''s password of an existing user utilizing the password API.
+
+
+        ### Next Steps
+
+        Sign the user in with their new password via [Sign-In](/api/passwords/sign-in)
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+
+        - You can also utilize [Replace Password](/api/passwords/replace-password) or [Reset Password](/api/passwords/email/password-reset) as alternatives to change a user''s password.'
+      operationId: UpdateUserPassword
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content: {}
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-publishYaml: Password
+      x-order: 5
+      x-meta:
+        title: Update Password | Password
+        description: Update the user's password of an existing user utilizing the password API.
+        keywords: api, password
+  /v1/auth/password/policy:
+    get:
+      tags:
+      - Auth
+      summary: Get Password Policy
+      description: '### Get the configured password policy for the project.
+
+
+        ### See Also
+
+        - See [Password Policy Customization](/auth-methods/passwords#password-policy) for further details on password policy configuration.'
+      operationId: GetPasswordPolicy
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordPolicyResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: Password
+      x-order: 6
+      x-meta:
+        title: Get Password Policy | Password
+        description: Get the configured password policy for the project.
+        keywords: api, password
+  /v1/auth/recovery-codes:
+    post:
+      tags:
+      - Auth
+      summary: Generate recovery codes for a user
+      description: Generate recovery codes for a user
+      operationId: GenerateUserRecoveryCodes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateUserRecoveryCodesRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenerateUserRecoveryCodesResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-publishYaml: RecoveryCodes
+      x-order: 7
+      x-meta:
+        title: Generate recovery codes for a user | Recovery Codes
+        description: Generate recovery codes for a user
+        keywords: api, recovery codes
+  /v1/auth/recovery-codes/signin:
+    post:
+      tags:
+      - Auth
+      summary: Sign in a user using a recovery code
+      description: Sign in a user using a recovery code
+      operationId: SignInRecoveryCode
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignInRecoveryCodeRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+        Descope Project ID:Refresh JWT: []
+      x-publishYaml: RecoveryCodes
+      x-order: 8
+      x-meta:
+        title: Sign in a user using a recovery code | Recovery Codes
+        description: Sign in a user using a recovery code
+        keywords: api, recovery codes
+  /v1/auth/saml/authorize:
+    post:
+      tags:
+      - Auth
+      summary: Creating SAML redirect URI
+      description: Creating SAML redirect URI
+      operationId: CreateSAMLRedirect
+      parameters:
+      - name: tenant
+        in: query
+        schema:
+          type: string
+      - name: redirectUrl
+        in: query
+        schema:
+          type: string
+      - name: prompt
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: test
+        in: query
+        schema:
+          type: boolean
+      - name: forceAuthn
+        in: query
+        schema:
+          type: boolean
+      - name: loginHint
+        in: query
+        schema:
+          type: string
+      - name: initiatedEmail
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.enabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.redirectURL
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.idpURL
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.idpMetadataURL
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.idpCert
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.entityID
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.spCert
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.signRequest
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.samlMappings.name
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.email
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.username
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.phoneNumber
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.group
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.givenName
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.middleName
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.familyName
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.picture
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.verifiedEmail
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.verifiedPhone
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.useMetaInfoToggle
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.allowSamlAuthOnly
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.id
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.version
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.descopeEntityId
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.tenantID
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.acsUrl
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.mergeUsers
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.signRequestKey
+        in: query
+        description: skip 19, was used and removed
+        schema:
+          type: string
+      - name: unsavedSaml.spEncryptionKey
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.signRequestCert
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.subjectNameIdFormat
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.additional
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.providerID
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.configProviderId
+        in: query
+        description: The following are purely on project level, and meant for generiting link
+        schema:
+          type: string
+      - name: unsavedSaml.configTemplateId
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.configExpirationTime
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: unsavedSaml.configExpirationTimeUnit
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.scimProviderID
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.lastSuccessTestTime
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: unsavedSaml.mandatoryUserAttributes
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.defaultSSORoles
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.configFGAMappableFeatures.types
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.configAssumedRoles
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.configAssumedPermissions
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.s4StyleId
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.s4Features.scimDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4Features.ssoDomainsDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4Features.groupMappingDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4Features.samlDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4Features.oidcDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4Features.jitGuideDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.lockedTenantId
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.s4DisableUserMappingCreate
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.useTenantLevelS4Configs
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.forceDomainVerification
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.configFGATenantIDResourcePrefix
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.configFGATenantIDResourceSuffix
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.allowDuplicateSSODomainsInOtherTenants
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.idpCerts
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.allowOverrideRoles
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.groupPriorityEnabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.blockIfEmailDomainMismatch
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.markEmailAsUnverified
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4ShowHelpContact
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4SupportEmail
+        in: query
+        schema:
+          type: string
+      - name: unsavedOauth.enabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.redirectURL
+        in: query
+        schema:
+          type: string
+      - name: unsavedOauth.id
+        in: query
+        schema:
+          type: string
+      - name: unsavedOauth.version
+        in: query
+        schema:
+          type: string
+      - name: unsavedOauth.ssoMergeUsers
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.additional
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.mandatoryUserAttributes
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedOauth.lockedTenantId
+        in: query
+        schema:
+          type: string
+      - name: unsavedOauth.allowOverrideRoles
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.groupPriorityEnabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.blockIfEmailDomainMismatch
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.markEmailAsUnverified
+        in: query
+        schema:
+          type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginOptions'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SAMLRedirectResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: SAML
+      x-order: 5
+      x-meta:
+        title: Creating SAML redirect URI | SAML
+        description: Creating SAML redirect URI
+        keywords: api, saml
+  /v1/auth/saml/exchange:
+    post:
+      tags:
+      - Auth
+      summary: Finalize SAML authentication
+      description: Finalize SAML authentication
+      operationId: ExchangeToken
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExchangeTokenRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: SAML
+      x-order: 5
+      x-meta:
+        title: Finalize SAML authentication | SAML
+        description: Finalize SAML authentication
+        keywords: api, saml
+  /v1/auth/saml/idp/metadata:
+    get:
+      tags:
+      - Auth
+      summary: IDP Metadata URL for external SAML services
+      description: IDP Metadata URL for external SAML services
+      operationId: SAMLIDPMetadata
+      parameters:
+      - name: app
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SAMLIDPMetadataResponse'
+      x-publishYaml: SAML
+      x-order: 5
+      security: []
+      x-meta:
+        title: IDP Metadata URL for external SAML services | SAML
+        description: IDP Metadata URL for external SAML services
+        keywords: api, saml
+  /v1/auth/security-questions/setup:
+    post:
+      tags:
+      - Auth
+      summary: Sets up security questions for a user
+      description: Sets up security questions for a user
+      operationId: SetupUserSecurityQuestions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetupUserSecurityQuestionsRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SetupUserSecurityQuestionsResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-publishYaml: SecurityQuestions
+      x-order: 7
+      x-meta:
+        title: Sets up security questions for a user | Security Questions
+        description: Sets up security questions for a user
+        keywords: api, security questions
+  /v1/auth/security-questions/verify:
+    get:
+      tags:
+      - Auth
+      summary: Get the security questions for a user to verify
+      description: Get the security questions for a user to verify
+      operationId: GetUserSecurityVerifyQuestions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetUserSecurityVerifyQuestionsResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-publishYaml: SecurityQuestions
+      x-order: 8
+      x-meta:
+        title: Get the security questions for a user to verify | Security Questions
+        description: Get the security questions for a user to verify
+        keywords: api, security questions
+    post:
+      tags:
+      - Auth
+      summary: Verifies the security questions for a user
+      description: Verifies the security questions for a user
+      operationId: VerifyUserSecurityQuestions
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyUserSecurityQuestionsRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-publishYaml: SecurityQuestions
+      x-order: 8
+      x-meta:
+        title: Verifies the security questions for a user | Security Questions
+        description: Verifies the security questions for a user
+        keywords: api, security questions
+  /v1/auth/sso/authorize:
+    post:
+      tags:
+      - Auth
+      summary: Start SSO
+      description: '### Authorize end user to sign-in using SAML SSO
+
+
+        Initiate a SAML SSO (Single Sign-On, "sign-in" in Descope terminology) process for an end user. Descope will coordinate the sign-in process with the service provider. Specify the URL you want to redirect the end user to after a successful sign-in in the `redirectURL` parameter.
+
+
+        When the SSO sign-in completes successfully, the endpoint returns a URL `url` that has a unique code `<unique-code\>`, also called a token) appended as a URL parameter to the `redirectURL` you provided. For example, if `redirectURL = https://sso.mycompany.com/mywork.htm` then `url = https://sso.mycompany.com/mywork.htm?code=<unique-code\>`. The unique code will be exchanged for a valid user object in the next step.
+
+
+        After the end user has been successfully authenticated with the identity provider (IdP) the end user session is redirected to `url`.
+
+
+        ### Next Steps
+
+        Call the [Exchange Code](/api/sso/exchange-code) endpoint from the flow that responds to the URL specified in the `redirectURL` field, to exchange the unique code for a user session object.
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+
+        - See [User Login Options](/api/overview#user-login-options) for further details on the stepup, mfa, and customClaims parameters.'
+      operationId: AuthorizeSAML
+      parameters:
+      - name: tenant
+        in: query
+        schema:
+          type: string
+      - name: redirectUrl
+        in: query
+        schema:
+          type: string
+      - name: prompt
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: test
+        in: query
+        schema:
+          type: boolean
+      - name: forceAuthn
+        in: query
+        schema:
+          type: boolean
+      - name: loginHint
+        in: query
+        schema:
+          type: string
+      - name: initiatedEmail
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.enabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.redirectURL
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.idpURL
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.idpMetadataURL
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.idpCert
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.entityID
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.spCert
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.signRequest
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.samlMappings.name
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.email
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.username
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.phoneNumber
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.group
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.givenName
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.middleName
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.familyName
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.picture
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.verifiedEmail
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.samlMappings.verifiedPhone
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.useMetaInfoToggle
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.allowSamlAuthOnly
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.id
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.version
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.descopeEntityId
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.tenantID
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.acsUrl
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.mergeUsers
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.signRequestKey
+        in: query
+        description: skip 19, was used and removed
+        schema:
+          type: string
+      - name: unsavedSaml.spEncryptionKey
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.signRequestCert
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.subjectNameIdFormat
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.additional
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.providerID
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.configProviderId
+        in: query
+        description: The following are purely on project level, and meant for generiting link
+        schema:
+          type: string
+      - name: unsavedSaml.configTemplateId
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.configExpirationTime
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: unsavedSaml.configExpirationTimeUnit
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.scimProviderID
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.lastSuccessTestTime
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: unsavedSaml.mandatoryUserAttributes
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.defaultSSORoles
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.configFGAMappableFeatures.types
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.configAssumedRoles
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.configAssumedPermissions
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.s4StyleId
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.s4Features.scimDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4Features.ssoDomainsDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4Features.groupMappingDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4Features.samlDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4Features.oidcDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4Features.jitGuideDisabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.lockedTenantId
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.s4DisableUserMappingCreate
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.useTenantLevelS4Configs
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.forceDomainVerification
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.configFGATenantIDResourcePrefix
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.configFGATenantIDResourceSuffix
+        in: query
+        schema:
+          type: string
+      - name: unsavedSaml.allowDuplicateSSODomainsInOtherTenants
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.idpCerts
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedSaml.allowOverrideRoles
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.groupPriorityEnabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.blockIfEmailDomainMismatch
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.markEmailAsUnverified
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4ShowHelpContact
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedSaml.s4SupportEmail
+        in: query
+        schema:
+          type: string
+      - name: unsavedOauth.enabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.redirectURL
+        in: query
+        schema:
+          type: string
+      - name: unsavedOauth.id
+        in: query
+        schema:
+          type: string
+      - name: unsavedOauth.version
+        in: query
+        schema:
+          type: string
+      - name: unsavedOauth.ssoMergeUsers
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.additional
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.mandatoryUserAttributes
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: unsavedOauth.lockedTenantId
+        in: query
+        schema:
+          type: string
+      - name: unsavedOauth.allowOverrideRoles
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.groupPriorityEnabled
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.blockIfEmailDomainMismatch
+        in: query
+        schema:
+          type: boolean
+      - name: unsavedOauth.markEmailAsUnverified
+        in: query
+        schema:
+          type: boolean
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginOptions'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SAMLRedirectResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: SSO
+      x-order: 1
+      x-meta:
+        title: Start SSO | SSO
+        description: Authorize end user to sign-in using SAML SSO
+        keywords: api, sso
+  /v1/auth/sso/exchange:
+    post:
+      tags:
+      - Auth
+      summary: Exchange SSO Code
+      description: '### Exchange SSO SAML code for Descope user session
+
+
+        This endpoint will exchange the unique SAML code (also called a token) for the Descope session information needed for managing the end user session. Call this endpoint from your code flow that responds to the `url` that was returned by the [Sign-In](/api/oauth/sign-up-sign-in) endpoint.
+
+
+        The unique code `<unique-code\>` is appended as a URL parameter: `code=<unique-code\>`, for example, `url = https://sso.mycompany.com/mywork.htm?code=<unique-code\>`.
+
+
+        ### Next Steps
+
+
+        1. Extract the unique code `<unique-code\>` from the URL parameter.
+
+        2. Call this endpoint, passing the `<unique-code\>` as the request parameter
+
+
+        The response object includes the session JWT (sessionJwt) and refresh JWT (refreshJwt) when this endpoint completes successfully.
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.'
+      operationId: ExchangeCodesso
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExchangeTokenRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: SSO
+      x-order: 2
+      x-meta:
+        title: Exchange SSO Code | SSO
+        description: Exchange SSO SAML code for Descope user session
+        keywords: api, sso
+  /v1/auth/totp/signup:
+    post:
+      tags:
+      - Auth
+      summary: Sign-Up
+      description: '### Sign-up new end user via TOTP
+
+
+        Initiate a TOTP sign-up process for a new end user. Descope will generate a TOTP key (also called a secret or seed) that will be entered into the end user''s authenticator app so that TOTP codes can be successfully verified. The new end user will be registered after the full TOTP sign-up flow has successfully completed.
+
+
+        If the end user is already registered use the [add/update](/api/totp/add-update-key) endpoint to add TOTP funtionality to an existing end user, to prevent the same person being registered twice.
+
+
+        ### Next Steps
+
+        1. Display the TOTP key so it can be entered into their authenticator app. The TOTP key is returned in the response object in three ways, to ensure it can easily be entered into the end user''s authenticator app.
+
+        2. Prompt the end user user for a TOTP code generated by their authenticator app.
+
+        3. Verify the TOTP code using the [Sign-In / Verify](/api/totp/sign-in-verify) endpoint to complete the sign-in process. After successfully verifying the TOTP code the new end user will be registered using the details you provided in the body of this endpoint.
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+
+        - Use the [add/update](/api/totp/add-update-key) endpoint to add TOTP funtionality to an existing end user.'
+      operationId: SignUpTOTP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TOTPSignUpRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TOTPResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: TOTP
+      x-order: 1
+      x-meta:
+        title: Sign-Up | TOTP
+        description: Sign-up new end user via TOTP
+        keywords: api, totp
+  /v1/auth/totp/verify:
+    post:
+      tags:
+      - Auth
+      summary: Sign-In / Verify
+      description: '### Verify the TOTP of an end user
+
+
+        Verify the TOTP code of an end user. This endpoint is the final API call for the following TOTP flows:
+
+        * Sign-In - If the end user is already registered, this end-point is the only call you need to sign-in that user.
+
+        * Sign-Up - If you are implementing a sign-up flow, this endpoint will verify the TOTP code and complete the sign-up process
+
+        * Add/ Update - If you are implementing an Add / Update flow, this endpoint completes the process of adding/updating the TOTP key for that user.
+
+
+        The response object includes the session JWT `sessionJwt` and refresh JWT `refreshJwt` when the endpoint completes successfully, and the end user will be signed in.
+
+
+        ### See Also
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+
+        - See [User Login Options](/api/overview#user-login-options) for further details on loginOptions.'
+      operationId: VerifyCodeTOTP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TOTPVerifyCodeRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: TOTP
+      x-order: 2
+      x-meta:
+        title: Sign-In / Verify | TOTP
+        description: Verify the TOTP of an end user
+        keywords: api, totp
+  /v1/auth/totp/update:
+    post:
+      tags:
+      - Auth
+      summary: Add / Update Key
+      description: "### Add or update TOTP key for existing end user\n\nInitiate a flow to add TOTP functionality for an existing end user, or to update the TOTP key for an existing end user. Descope will generate a TOTP key (also called a secret or seed) that will be entered into the end user's authenticator app so that TOTP codes can be successfully verified. The new end user will be registered after the full Add / Update TOTP flow has successfully completed. The bearer token requires both the ProjectId and refresh JWT in the format `<Project ID>:<JWT>`, and can therefore only be run for end users who are currently signed-in.\n\nIf the end user is not yet registered use the [Sign-Up](/api/totp/sign-up) endpoint to register the user.\n\n### Next Steps\n1. Display the TOTP key to the end user so the key can be entered into the authenticator app. Use any of the following methods to display the key to your end user:\n    * (recommended) Redirect the end user session to the `provisioningURL` returned in the response body. The URL displays the key as a QR code that can be scanned directly from the authenticator app.\n    * Render the QR code using your own web page using the `image` (the QR code as Base64) returned in the response body.\n    * If your end user cannot scan a QR code, present the `key` returned in the response body so the key can be pasted into their authenticator app. If the authenticator app prompts, the end user must select key type: \"time based\".\n2. Prompt the end user user for a TOTP code generated by their authenticator app.\n3. Verify the TOTP code using the [Sign-In / Verify](/api/totp/sign-in-verify) endpoint to complete the Add / Update process. After successfully verifying the TOTP code the new TOTP key will be used to validate future TOTP code.\n\n### See Also\n- See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number."
+      operationId: UpdateUserTOTP
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TOTPUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TOTPResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-publishYaml: TOTP
+      x-order: 3
+      x-meta:
+        title: Add / Update Key | TOTP
+        description: Add or update TOTP key for existing end user
+        keywords: api, totp
+  /v1/auth/webauthn/signup/start:
+    post:
+      tags:
+      - Auth
+      summary: User Sign-Up
+      description: Create a new user using WebAuthn
+      operationId: WebAuthnSignupStart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebauthnSignUpStartRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebauthnStartResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: WebAuthn
+      x-order: 1
+      x-meta:
+        title: User Sign-Up | WebAuthn
+        description: Create a new user using WebAuthn
+        keywords: api, webauthn
+  /v1/auth/webauthn/signup/finish:
+    post:
+      tags:
+      - Auth
+      summary: Finalize Sign-Up
+      description: Finalize a WebAuthn signup operation
+      operationId: WebAuthnSignupFinish
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebauthnSignUpFinishRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: WebAuthn
+      x-order: 2
+      x-meta:
+        title: Finalize Sign-Up | WebAuthn
+        description: Finalize a WebAuthn signup operation
+        keywords: api, webauthn
+  /v1/auth/webauthn/signin/start:
+    post:
+      tags:
+      - Auth
+      summary: User Sign-In
+      description: Login an existing user with WebAuthn
+      operationId: WebAuthnSigninStart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebauthnSignInStartRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebauthnStartResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: WebAuthn
+      x-order: 3
+      x-meta:
+        title: User Sign-In | WebAuthn
+        description: Login an existing user with WebAuthn
+        keywords: api, webauthn
+  /v1/auth/webauthn/signin/finish:
+    post:
+      tags:
+      - Auth
+      summary: Finalize Sign-In
+      description: Finalize a WebAuthn signin operation
+      operationId: WebAuthnSigninFinish
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebauthnSignInFinishRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JWTResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: WebAuthn
+      x-order: 4
+      x-meta:
+        title: Finalize Sign-In | WebAuthn
+        description: Finalize a WebAuthn signin operation
+        keywords: api, webauthn
+  /v1/auth/webauthn/signup-in/start:
+    post:
+      tags:
+      - Auth
+      summary: User Sign-In with Auto Sign-Up
+      description: Use to login with WebAuthn, if user doesn't exist a new user will be created
+      operationId: WebAuthnSignUpInStart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebauthnSignUpOrInStartRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebauthnStartResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: WebAuthn
+      x-order: 5
+      x-meta:
+        title: User Sign-In with Auto Sign-Up | WebAuthn
+        description: Use to login with WebAuthn, if user doesn't exist a new user will be created
+        keywords: api, webauthn
+  /v1/auth/webauthn/update/start:
+    post:
+      tags:
+      - Auth
+      summary: Add WebAuthn Device
+      description: Add a new WebAuthn device to an existing user
+      operationId: WebAuthnDeviceAddStart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebauthnAddDeviceStartRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebauthnStartResponse'
+      security:
+      - Descope Project ID:Refresh JWT: []
+      x-publishYaml: WebAuthn
+      x-order: 6
+      x-meta:
+        title: Add WebAuthn Device | WebAuthn
+        description: Add a new WebAuthn device to an existing user
+        keywords: api, webauthn
+  /v1/auth/webauthn/update/finish:
+    post:
+      tags:
+      - Auth
+      summary: Finalize Add WebAuthn
+      description: Finalize adding a new WebAuthn device
+      operationId: WebAuthnDeviceAddFinish
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WebauthnAddDeviceFinishRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebauthnAddDeviceFinishResponse'
+      security:
+      - Descope Project ID: []
+      x-publishYaml: WebAuthn
+      x-order: 7
+      x-meta:
+        title: Finalize Add WebAuthn | WebAuthn
+        description: Finalize adding a new WebAuthn device
+        keywords: api, webauthn
+  /v1/auth/wsfed/idp/metadata:
+    get:
+      tags:
+      - Auth
+      summary: WS-Fed IDP Metadata
+      description: WS-Federation metadata endpoint for external RP services
+      operationId: WSFedIDPMetadata
+      parameters:
+      - name: app
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WSFedIDPMetadataResponse'
+      x-publishYaml: WSFed
+      security: []
+      x-meta:
+        title: WS-Fed IDP Metadata | W S Fed
+        description: WS-Federation metadata endpoint for external RP services
+        keywords: api, w s fed
+components:
+  schemas:
+    MeAuthHistoryResponse:
+      type: object
+      properties:
+        authHistory:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExportedAuthHistory'
+    OAuthNativeStartResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        stateId:
+          type: string
+        nonce:
+          type: string
+        implicit:
+          type: boolean
+        errorId:
+          type: string
+    NOTPLinkResponse:
+      type: object
+      properties:
+        pendingRef:
+          type: string
+          description: Pending ref is the reference to the pending operation
+        redirectUrl:
+          type: string
+          description: Link to the app (e.g.  https://wa.me/1234567890?text=My%20authentication%20code%20is%20999999)
+        image:
+          type: string
+          description: QR code image
+    WebauthnSignUpOrInStartRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        origin:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        ssoAppId:
+          type: string
+        passkeyOptions:
+          $ref: '#/components/schemas/PasskeyOptions'
+    SAMLIDPMetadataResponse:
+      type: object
+      properties:
+        xml:
+          type: string
+    PasskeyOptions:
+      type: object
+      properties:
+        authenticatorSelection:
+          allOf:
+          - $ref: '#/components/schemas/PasskeyOptions_WebauthnAuthenticatorSelectionCriteria'
+          description: attestation only (sign up)
+        attestation:
+          type: integer
+          format: enum
+          default: false
+        userVerification:
+          type: integer
+          description: assertion only (sign in)
+          format: enum
+        extensionsJSON:
+          type: string
+          description: shared
+    SAMLIDPFinishEndpointRequest:
+      type: object
+      properties:
+        state_id:
+          type: string
+        sso_app_id:
+          type: string
+        additionalSAMLAttributes:
+          type: object
+          default: false
+    OptionalJWTResponse:
+      type: object
+      properties:
+        sessionJwt:
+          type: string
+        refreshJwt:
+          type: string
+        cookieDomain:
+          type: string
+        cookiePath:
+          type: string
+        cookieMaxAge:
+          type: integer
+          format: int32
+        cookieExpiration:
+          type: integer
+          format: int32
+        sessionExpiration:
+          type: integer
+          description: "For convenience, we use the same field numbers as in JWTResponse\n optional userv1.ResponseUser user = 7;\n optional bool firstSeen = 8;\n optional IDPResponse idpResponse = 11;"
+          format: int32
+        externalToken:
+          type: string
+        claims:
+          type: object
+        tenantSSOID:
+          type: string
+        trustedDeviceJwt:
+          type: string
+        nextRefreshSeconds:
+          type: integer
+          format: int32
+        cookieName:
+          type: string
+        sessionCookieName:
+          type: string
+        sessionCookieDomain:
+          type: string
+      description: "This is a copy of JWTResponse with all fields optional\n This is used so in case an empty response is returned, it won't send zero values"
+    UpdateUserNOTPRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+        loginId:
+          type: string
+        phone:
+          type: string
+        addToLoginIDs:
+          type: boolean
+          default: false
+        onMergeUseExisting:
+          type: boolean
+          default: false
+        providerId:
+          type: string
+        templates:
+          $ref: '#/components/schemas/NOTPTemplateIDs'
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        ssoAppId:
+          type: string
+        locale:
+          type: string
+        failOnConflict:
+          type: boolean
+    LogoutRequest:
+      type: object
+      properties:
+        logoutType:
+          type: array
+          items:
+            type: string
+    SelectTenantRequest:
+      type: object
+      properties:
+        tenant:
+          type: string
+    OperationResponse:
+      type: object
+      properties: {}
+    WebauthnSignUpStartRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        user:
+          $ref: '#/components/schemas/SignUpUser'
+        origin:
+          type: string
+        passkeyOptions:
+          $ref: '#/components/schemas/PasskeyOptions'
+        loginOptions:
+          $ref: '#/components/schemas/SignupLoginOptions'
+    SetupUserSecurityQuestionsRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityQuestionAnswer'
+      description: Setup Questions
+    PasskeyOptions_WebauthnAuthenticatorSelectionCriteria:
+      type: object
+      properties:
+        authenticatorAttachment:
+          type: integer
+          format: enum
+        requireResidentKey:
+          type: integer
+          format: enum
+        residentKey:
+          type: integer
+          format: enum
+        userVerification:
+          type: integer
+          format: enum
+        extensionsJSON:
+          type: string
+    PasswordPolicyResponse:
+      type: object
+      properties:
+        minLength:
+          type: integer
+          format: int32
+        lowercase:
+          type: boolean
+        uppercase:
+          type: boolean
+        number:
+          type: boolean
+        nonAlphanumeric:
+          type: boolean
+        strengthScoreEnabled:
+          type: boolean
+        strengthScore:
+          type: integer
+          format: int32
+    GetUserSecurityVerifyQuestionsResponse:
+      type: object
+      properties:
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityQuestion'
+    PasswordSignUpRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        user:
+          $ref: '#/components/schemas/SignUpUser'
+        password:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/SignupLoginOptions'
+    SecurityQuestionAnswer:
+      type: object
+      properties:
+        id:
+          type: string
+        answer:
+          type: string
+    ValidateSessionResponse:
+      type: object
+      properties:
+        parsedJWT:
+          type: object
+    ExchangeOneTapIDTokenRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+        idToken:
+          type: string
+        nonce:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+    IDPSSOLogoutRequest:
+      type: object
+      properties:
+        app:
+          type: string
+    WebauthnSignInStartRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        origin:
+          type: string
+        passkeyOptions:
+          $ref: '#/components/schemas/PasskeyOptions'
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+    TOTPSignUpRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        user:
+          $ref: '#/components/schemas/SignUpUser'
+        ssoAppId:
+          type: string
+    OAuthRedirectResponse:
+      type: object
+      properties:
+        url:
+          type: string
+        errorId:
+          type: string
+    TOTPVerifyCodeRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        code:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+    PasswordSignInRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        password:
+          type: string
+        ssoAppId:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+    JWTResponse:
+      type: object
+      properties:
+        sessionJwt:
+          type: string
+        refreshJwt:
+          type: string
+        cookieDomain:
+          type: string
+        cookiePath:
+          type: string
+        cookieMaxAge:
+          type: integer
+          format: int32
+        cookieExpiration:
+          type: integer
+          format: int32
+        user:
+          $ref: '#/components/schemas/ResponseUser'
+        firstSeen:
+          type: boolean
+        idpResponse:
+          $ref: '#/components/schemas/IDPResponse'
+        sessionExpiration:
+          type: integer
+          format: int32
+        externalToken:
+          type: string
+        claims:
+          type: object
+        tenantSSOID:
+          type: string
+        trustedDeviceJwt:
+          type: string
+        nextRefreshSeconds:
+          type: integer
+          format: int32
+        cookieName:
+          type: string
+        sessionCookieName:
+          type: string
+        sessionCookieDomain:
+          type: string
+        unsavedSSO:
+          type: boolean
+      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
+    SetupUserSecurityQuestionsResponse:
+      type: object
+      properties: {}
+    TOTPUpdateRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+    WSFedIDPFinishEndpointResponse:
+      type: object
+      properties:
+        replyURL:
+          type: string
+        wresult:
+          type: string
+        wctx:
+          type: string
+        error:
+          type: boolean
+    RecoveryCode:
+      type: object
+      properties:
+        code:
+          type: string
+    SignUpUser:
+      type: object
+      properties:
+        loginId:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        givenName:
+          type: string
+        middleName:
+          type: string
+        familyName:
+          type: string
+        recoveryEmail:
+          type: string
+        recoveryPhone:
+          type: string
+    AccessKeyLoginOptions:
+      type: object
+      properties:
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        selectedTenant:
+          type: string
+    WebauthnSignUpFinishRequest:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        response:
+          type: string
+    ExchangeAccessKeyResponse:
+      type: object
+      properties:
+        keyId:
+          type: string
+        sessionJwt:
+          type: string
+    WSFedIDPPassiveRequest:
+      type: object
+      properties:
+        app:
+          type: string
+        wa:
+          type: string
+        wtrealm:
+          type: string
+        wreply:
+          type: string
+        wctx:
+          type: string
+        whr:
+          type: string
+        tenant:
+          type: string
+        login_hint:
+          type: string
+    NOTPTemplateIDs:
+      type: object
+      properties:
+        verifyTemplateId:
+          type: string
+        successTemplateId:
+          type: string
+        errorTemplateId:
+          type: string
+      description: NOTP Requests & Responses
+    IDPResponse:
+      type: object
+      properties:
+        samlResponse:
+          type: string
+        samlGeneratedUser:
+          type: string
+        samlGeneratedRoles:
+          type: string
+        oidcResponse:
+          type: string
+        oidcGeneratedUser:
+          type: string
+        oidcGeneratedRoles:
+          type: string
+        idpGroups:
+          type: array
+          items:
+            type: string
+        idpSAMLAttributes:
+          type: object
+          default: false
+        idpOIDCClaims:
+          type: object
+    ExportedAuthHistory:
+      type: object
+      properties:
+        userId:
+          type: string
+        loginTime:
+          type: integer
+          format: int32
+        city:
+          type: string
+        country:
+          type: string
+        ip:
+          type: string
+        selectedTenant:
+          type: string
+    LoginOptions:
+      type: object
+      properties:
+        stepup:
+          type: boolean
+          default: false
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        mfa:
+          type: boolean
+          default: false
+        ssoAppId:
+          type: string
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        pkceChallenge:
+          type: string
+          description: relevant only for enchanted links in the point in time - other methods will ignore this field
+          format: bytes
+        revokeOtherSessions:
+          type: boolean
+        revokeOtherSessionsTypes:
+          type: array
+          items:
+            type: string
+        tenantId:
+          type: string
+    UserTenants:
+      type: object
+      properties:
+        tenantId:
+          type: string
+        roleNames:
+          type: array
+          items:
+            type: string
+        tenantName:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+    SAMLRedirectResponse:
+      type: object
+      properties:
+        url:
+          type: string
+    WebauthnAddDeviceStartRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        origin:
+          type: string
+        passkeyOptions:
+          $ref: '#/components/schemas/PasskeyOptions'
+    WSFedIDPInitiateRequest:
+      type: object
+      properties:
+        app:
+          type: string
+        tenant:
+          type: string
+        login_hint:
+          type: string
+    SAMLIDPSSORequestPOSTData:
+      type: object
+      properties:
+        SAMLRequest:
+          type: string
+          default: false
+        RelayState:
+          type: string
+        SamlRequest:
+          type: string
+        LoginHint:
+          type: string
+        tenant:
+          type: string
+        flow_token:
+          type: string
+        login_hint:
+          type: string
+    PasswordReplaceRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        oldPassword:
+          type: string
+        newPassword:
+          type: string
+        revokeOtherSessions:
+          type: boolean
+        revokeOtherSessionsTypes:
+          type: array
+          items:
+            type: string
+    WSFedIDPFinishEndpointRequest:
+      type: object
+      properties:
+        state_id:
+          type: string
+        sso_app_id:
+          type: string
+    WebauthnAddDeviceFinishResponse:
+      type: object
+      properties: {}
+    ExchangeTokenRequest:
+      type: object
+      properties:
+        code:
+          type: string
+    RefreshSessionRequest:
+      type: object
+      properties:
+        externalToken:
+          type: string
+    SignInRecoveryCodeRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        code:
+          type: string
+    TOTPResponse:
+      type: object
+      properties:
+        provisioningURL:
+          type: string
+          description: Clickable URL containing the TOTP key that will open an installed authenticator app
+        image:
+          type: string
+          description: QR code of the TOTP key (as a Base64 image) that can be scanned from an authenticator app
+        key:
+          type: string
+          description: TOTP key that can be manually pasted into the authenticator app
+    WebauthnStartResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        options:
+          type: string
+        create:
+          type: boolean
+    ValidateSessionRequest:
+      type: object
+      properties: {}
+    ExchangeAccessKeyRequest:
+      type: object
+      properties:
+        loginOptions:
+          $ref: '#/components/schemas/AccessKeyLoginOptions'
+    OAuthNativeStartRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        implicit:
+          type: boolean
+        rawResponse:
+          type: boolean
+    WebauthnAddDeviceFinishRequest:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        response:
+          type: string
+    SecurityQuestion:
+      type: object
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+      description: Same as service service's SecurityQuestion, but we don't want to depend on project service
+    VerifyUserSecurityQuestionsRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityQuestionAnswer'
+        stepup:
+          type: boolean
+      description: Verify Questions
+    SAMLIDPInitiateRequestPOST:
+      type: object
+      properties:
+        app:
+          type: string
+        RelayState:
+          type: string
+        LoginHint:
+          type: string
+        tenant:
+          type: string
+        flow_token:
+          type: string
+        login_hint:
+          type: string
+    SAMLIDPFinishEndpointResponse:
+      type: object
+      properties:
+        url:
+          type: string
+        samlResponse:
+          type: string
+        relayState:
+          type: string
+        error:
+          type: boolean
+    ResponseUser:
+      type: object
+      properties:
+        loginIds:
+          type: array
+          items:
+            type: string
+        userId:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        verifiedEmail:
+          type: boolean
+        verifiedPhone:
+          type: boolean
+        roleNames:
+          type: array
+          items:
+            type: string
+        userTenants:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserTenants'
+        status:
+          type: string
+        externalIds:
+          type: array
+          items:
+            type: string
+        picture:
+          type: string
+        test:
+          type: boolean
+          default: false
+        customAttributes:
+          type: object
+          description: Custom attributes as key-value pairs. Keys must be strings; values can be strings, numbers, booleans, or arrays.
+          additionalProperties:
+            type: string
+          example:
+            attribute-key: attribute-value
+        createdTime:
+          type: integer
+          format: int32
+        TOTP:
+          type: boolean
+          default: false
+        SAML:
+          type: boolean
+          default: false
+        OAuth:
+          type: object
+          additionalProperties:
+            type: boolean
+            default: false
+        webauthn:
+          type: boolean
+        password:
+          type: boolean
+        ssoAppIds:
+          type: array
+          items:
+            type: string
+        givenName:
+          type: string
+        middleName:
+          type: string
+        familyName:
+          type: string
+        editable:
+          type: boolean
+        SCIM:
+          type: boolean
+        push:
+          type: boolean
+        permissions:
+          type: array
+          items:
+            type: string
+        OIDC:
+          type: boolean
+        consentExpiration:
+          type: integer
+          format: int32
+        recoveryEmail:
+          type: string
+        verifiedRecoveryEmail:
+          type: boolean
+        recoveryPhone:
+          type: string
+        verifiedRecoveryPhone:
+          type: boolean
+    WSFedIDPMetadataResponse:
+      type: object
+      properties:
+        xml:
+          type: string
+    WebauthnSignInFinishRequest:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        response:
+          type: string
+    GenerateUserRecoveryCodesRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+    VerifyOneTapIDTokenResponse:
+      type: object
+      properties:
+        code:
+          type: string
+    GetOneTapClientIDResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+    PasswordUpdateRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        newPassword:
+          type: string
+    SignupLoginOptions:
+      type: object
+      properties:
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        pkceChallenge:
+          type: string
+          description: relevant only for enchanted links in the point in time - other methods will ignore this field
+          format: bytes
+        tenantId:
+          type: string
+    GenerateUserRecoveryCodesResponse:
+      type: object
+      properties:
+        codes:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecoveryCode'
+    OAuthNativeFinishRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+        stateId:
+          type: string
+        user:
+          type: string
+        code:
+          type: string
+        idToken:
+          type: string
+  securitySchemes:
+    Descope Project ID:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID
+      description: Project ID as bearer token.
+    Descope Project ID:Refresh JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Refresh JWT
+      description: Project ID:Refresh JWT as bearer token.
+    Descope Project ID:Access Key:
+      type: http
+      scheme: bearer
+      bearerFormat: ProjectId:AccessKey
+      description: Project ID:Access Key as bearer token.
+    Descope Project ID:Session JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Session JWT
+      description: Project ID:Session JWT as bearer token.
+    Descope Project ID and Management Key:
+      type: http
+      description: Project ID:Management Key as bearer token.
+      scheme: bearer
+      bearerFormat: ProjectId:ManagementKey
+externalDocs:
+  description: Descope Server
+  url: https://docs.descope.com

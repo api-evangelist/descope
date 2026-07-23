@@ -1,0 +1,157 @@
+openapi: 3.0.3
+info:
+  title: Descope Apps Keys API
+  description: Descope API
+  contact:
+    name: Descope
+    url: https://descope.com
+    email: support@descope.com
+  version: 0.0.1
+servers:
+- url: https://api.descope.com
+  description: Descope Production
+- url: '{customUrl}'
+  description: Custom server URL
+  variables:
+    customUrl:
+      default: https://api.descope.com
+      description: Your Descope API base URL
+security:
+- Descope Project ID: []
+  Descope Project ID:Refresh JWT: []
+  Descope Project ID:Session JWT: []
+  Descope Project ID and Management Key: []
+  Descope Project ID:Access Key: []
+tags:
+- name: Keys
+paths:
+  /v1/keys/{projectId}:
+    get:
+      tags:
+      - Keys
+      summary: Token Validation Key (V1)
+      description: '### Get public key for session token validation (V1)
+
+
+        This API endpoint will return the public key needed to handle the session token JWT validation.
+
+        `projectId` is provided as a GET parameter, so this endpoint can be executed with a browser.'
+      operationId: GetKeys
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: certs
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sessionv1.JWKSResponse'
+      x-publishYaml: sessionGetKeys
+      x-order: 1
+      security: []
+      x-meta:
+        title: Token Validation Key (V1) | Session Get Keys
+        description: Get public key for session token validation (V1)
+        keywords: api, session get keys
+  /v2/keys/{projectId}:
+    get:
+      tags:
+      - Keys
+      summary: Token Validation Key (V2)
+      description: '### Get public key for session token validation (V2)
+
+
+        This API endpoint will return the public key needed to handle the session token JWT validation.
+
+        `projectId` is provided as a GET parameter, so this endpoint can be executed with a browser.
+
+
+        This endpoint differentiates from [Token Validation Key (V1)](/api/session/get-keys)
+
+        as the data is returned in JSON format rather than an array.'
+      operationId: GetKeysV2
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: certs
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sessionv1.JWKSResponseV2'
+      x-publishYaml: sessionGetKeys
+      x-order: 1
+      security: []
+      x-meta:
+        title: Token Validation Key (V2) | Session Get Keys
+        description: Get public key for session token validation (V2)
+        keywords: api, session get keys
+components:
+  schemas:
+    sessionv1.JWKSResponse:
+      type: object
+      properties:
+        alg:
+          type: string
+        e:
+          type: string
+        kid:
+          type: string
+        kty:
+          type: string
+        n:
+          type: string
+        use:
+          type: string
+    sessionv1.JWKSResponseV2:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/sessionv1.JWKSResponse'
+  securitySchemes:
+    Descope Project ID:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID
+      description: Project ID as bearer token.
+    Descope Project ID:Refresh JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Refresh JWT
+      description: Project ID:Refresh JWT as bearer token.
+    Descope Project ID:Access Key:
+      type: http
+      scheme: bearer
+      bearerFormat: ProjectId:AccessKey
+      description: Project ID:Access Key as bearer token.
+    Descope Project ID:Session JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Session JWT
+      description: Project ID:Session JWT as bearer token.
+    Descope Project ID and Management Key:
+      type: http
+      description: Project ID:Management Key as bearer token.
+      scheme: bearer
+      bearerFormat: ProjectId:ManagementKey
+externalDocs:
+  description: Descope Server
+  url: https://docs.descope.com

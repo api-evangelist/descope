@@ -1,0 +1,1986 @@
+openapi: 3.0.3
+info:
+  title: Descope Apps Oauth2 API
+  description: Descope API
+  contact:
+    name: Descope
+    url: https://descope.com
+    email: support@descope.com
+  version: 0.0.1
+servers:
+- url: https://api.descope.com
+  description: Descope Production
+- url: '{customUrl}'
+  description: Custom server URL
+  variables:
+    customUrl:
+      default: https://api.descope.com
+      description: Your Descope API base URL
+security:
+- Descope Project ID: []
+  Descope Project ID:Refresh JWT: []
+  Descope Project ID:Session JWT: []
+  Descope Project ID and Management Key: []
+  Descope Project ID:Access Key: []
+tags:
+- name: Oauth2
+paths:
+  /oauth2/v1/apps/agentic/{project_id}/{mcp_server_id}/authorize:
+    get:
+      tags:
+      - Oauth2
+      description: Third Party application authorization GET endpoint by MCP server ID
+      operationId: ThirdPartyApplicationAuthorizeGetByMcpServerID
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: mcp_server_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: response_type
+        in: query
+        description: "RFC 9101 §6.3: when a JAR `request` parameter is present, response_type and\n redirect_uri may be omitted from the outer query and carried inside the JWT.\n The controller validates the resolved values after JAR processing."
+        schema:
+          type: string
+      - name: scope
+        in: query
+        schema:
+          type: string
+      - name: client_id
+        in: query
+        schema:
+          type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        schema:
+          type: string
+      - name: code_challenge_method
+        in: query
+        description: PKCE
+        schema:
+          type: string
+      - name: code_challenge
+        in: query
+        schema:
+          type: string
+      - name: nonce
+        in: query
+        schema:
+          type: string
+      - name: loginHint
+        in: query
+        schema:
+          type: string
+      - name: prompt
+        in: query
+        schema:
+          type: string
+      - name: flow
+        in: query
+        schema:
+          type: string
+      - name: flow_token
+        in: query
+        schema:
+          type: string
+      - name: resource
+        in: query
+        description: RFC 8707 - OAuth 2.0 Resource Indicators
+        schema:
+          type: array
+          items:
+            type: string
+      - name: tenant
+        in: query
+        schema:
+          type: string
+      - name: style
+        in: query
+        schema:
+          type: string
+      - name: dpop_jkt
+        in: query
+        schema:
+          type: string
+      - name: request
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application authorization GET endpoint by MCP server ID
+        keywords: api, third party apps
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application authorization POST endpoint by MCP server ID
+      operationId: ThirdPartyApplicationAuthorizePOSTByMcpServerID
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: mcp_server_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartyApplicationAuthZEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application authorization POST endpoint by MCP server ID
+        keywords: api, third party apps
+  /oauth2/v1/apps/agentic/{project_id}/{mcp_server_id}/token:
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application token endpoint by MCP server ID
+      operationId: ThirdPartyApplicationTokenEndpointByMcpServerID
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: mcp_server_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartyApplicationTokenEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCTokenEndpointResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application token endpoint by MCP server ID
+        keywords: api, third party apps
+  /oauth2/v1/apps/authorize:
+    get:
+      tags:
+      - Oauth2
+      description: Third Party application authorization GET endpoint
+      operationId: ThirdPartyApplicationAuthorizeGet
+      parameters:
+      - name: response_type
+        in: query
+        description: "RFC 9101 §6.3: when a JAR `request` parameter is present, response_type and\n redirect_uri may be omitted from the outer query and carried inside the JWT.\n The controller validates the resolved values after JAR processing."
+        schema:
+          type: string
+      - name: scope
+        in: query
+        schema:
+          type: string
+      - name: client_id
+        in: query
+        schema:
+          type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        schema:
+          type: string
+      - name: code_challenge_method
+        in: query
+        description: PKCE
+        schema:
+          type: string
+      - name: code_challenge
+        in: query
+        schema:
+          type: string
+      - name: nonce
+        in: query
+        schema:
+          type: string
+      - name: loginHint
+        in: query
+        schema:
+          type: string
+      - name: prompt
+        in: query
+        schema:
+          type: string
+      - name: flow
+        in: query
+        schema:
+          type: string
+      - name: flow_token
+        in: query
+        schema:
+          type: string
+      - name: resource
+        in: query
+        description: RFC 8707 - OAuth 2.0 Resource Indicators
+        schema:
+          type: array
+          items:
+            type: string
+      - name: project_id
+        in: query
+        schema:
+          type: string
+      - name: tenant
+        in: query
+        schema:
+          type: string
+      - name: mcp_server_id
+        in: query
+        schema:
+          type: string
+      - name: style
+        in: query
+        schema:
+          type: string
+      - name: dpop_jkt
+        in: query
+        schema:
+          type: string
+      - name: request
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      title: Get Authorization
+      summary: Get Authorization Endpoint
+      x-meta:
+        title: Get Authorization Endpoint | Third Party Apps
+        description: Third Party application authorization GET endpoint
+        keywords: api, third party apps
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application authorization POST endpoint
+      operationId: ThirdPartyApplicationAuthorize
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartyApplicationAuthZEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      title: Post Authorization
+      summary: Post Authorization Endpoint
+      x-meta:
+        title: Post Authorization Endpoint | Third Party Apps
+        description: Third Party application authorization POST endpoint
+        keywords: api, third party apps
+  /oauth2/v1/apps/bc-authorize:
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application CIBA backchannel authentication endpoint
+      operationId: ThirdPartyApplicationCIBAEndpoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CIBAAuthRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CIBAAuthResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application CIBA backchannel authentication endpoint
+        keywords: api, third party apps
+  /oauth2/v1/apps/device:
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application device endpoint
+      operationId: ThirdPartyApplicationDeviceEndpoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCDeviceEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCDeviceEndpointResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application device endpoint
+        keywords: api, third party apps
+  /oauth2/v1/apps/finish-authorize:
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application authorization finish endpoint
+      operationId: ThirdPartyApplicationFinish
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartyApplicationFinishEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      title: Finish Authorization
+      summary: Finish Authorization Endpoint
+      x-meta:
+        title: Finish Authorization Endpoint | Third Party Apps
+        description: Third Party application authorization finish endpoint
+        keywords: api, third party apps
+  /oauth2/v1/apps/revoke:
+    post:
+      tags:
+      - Oauth2
+      description: OIDC revoke endpoint
+      operationId: ThirdPartyApplicationRevocationEndpoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartyApplicationRevocationEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      title: OIDC revoke endpoint
+      summary: OIDC revoke endpoint
+      x-meta:
+        title: OIDC revoke endpoint | Third Party Apps
+        description: OIDC revoke endpoint
+        keywords: api, third party apps
+  /oauth2/v1/apps/token:
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application token endpoint
+      operationId: ThirdPartyApplicationTokenEndpoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartyApplicationTokenEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCTokenEndpointResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      title: Third Party application token endpoint
+      summary: Third Party application token endpoint
+      x-meta:
+        title: Third Party application token endpoint | Third Party Apps
+        description: Third Party application token endpoint
+        keywords: api, third party apps
+  /oauth2/v1/apps/userinfo:
+    get:
+      tags:
+      - Oauth2
+      description: Third Party application Get UserInfo endpoint
+      operationId: ThirdPartyApplicationUserInfoEndpointGet
+      parameters:
+      - name: project_id
+        in: query
+        description: Can be empty as data arrived on the Authorization header token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThirdPartyApplicationUserInfoEndpointResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      title: Get UserInfo
+      summary: Third Party application Get UserInfo endpoint
+      x-meta:
+        title: Third Party application Get UserInfo endpoint | Third Party Apps
+        description: Third Party application Get UserInfo endpoint
+        keywords: api, third party apps
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application Post UserInfo endpoint
+      operationId: ThirdPartyApplicationUserInfoEndpointPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartyApplicationUserInfoEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThirdPartyApplicationUserInfoEndpointResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      title: Post UserInfo
+      summary: Third Party application Post UserInfo endpoint
+      x-meta:
+        title: Third Party application Post UserInfo endpoint | Third Party Apps
+        description: Third Party application Post UserInfo endpoint
+        keywords: api, third party apps
+  /oauth2/v1/apps/{project_id}/authorize:
+    get:
+      tags:
+      - Oauth2
+      description: Third Party application authorization GET endpoint
+      operationId: ThirdPartyApplicationAuthorizeGetByProjectID
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: response_type
+        in: query
+        description: "RFC 9101 §6.3: when a JAR `request` parameter is present, response_type and\n redirect_uri may be omitted from the outer query and carried inside the JWT.\n The controller validates the resolved values after JAR processing."
+        schema:
+          type: string
+      - name: scope
+        in: query
+        schema:
+          type: string
+      - name: client_id
+        in: query
+        schema:
+          type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        schema:
+          type: string
+      - name: code_challenge_method
+        in: query
+        description: PKCE
+        schema:
+          type: string
+      - name: code_challenge
+        in: query
+        schema:
+          type: string
+      - name: nonce
+        in: query
+        schema:
+          type: string
+      - name: loginHint
+        in: query
+        schema:
+          type: string
+      - name: prompt
+        in: query
+        schema:
+          type: string
+      - name: flow
+        in: query
+        schema:
+          type: string
+      - name: flow_token
+        in: query
+        schema:
+          type: string
+      - name: resource
+        in: query
+        description: RFC 8707 - OAuth 2.0 Resource Indicators
+        schema:
+          type: array
+          items:
+            type: string
+      - name: tenant
+        in: query
+        schema:
+          type: string
+      - name: mcp_server_id
+        in: query
+        schema:
+          type: string
+      - name: style
+        in: query
+        schema:
+          type: string
+      - name: dpop_jkt
+        in: query
+        schema:
+          type: string
+      - name: request
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application authorization GET endpoint
+        keywords: api, third party apps
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application authorization POST endpoint
+      operationId: ThirdPartyApplicationAuthorizePostByProjectID
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartyApplicationAuthZEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application authorization POST endpoint
+        keywords: api, third party apps
+  /oauth2/v1/apps/{project_id}/bc-authorize:
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application CIBA backchannel authentication endpoint
+      operationId: ThirdPartyApplicationCIBAEndpoint
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CIBAAuthRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CIBAAuthResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application CIBA backchannel authentication endpoint
+        keywords: api, third party apps
+  /oauth2/v1/apps/{project_id}/device:
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application device endpoint
+      operationId: ThirdPartyApplicationDeviceEndpoint
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCDeviceEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCDeviceEndpointResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application device endpoint
+        keywords: api, third party apps
+  /oauth2/v1/apps/{project_id}/revoke:
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application revoke endpoint by project ID
+      operationId: ThirdPartyApplicationRevocationEndpointByProjectID
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartyApplicationRevocationEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application revoke endpoint by project ID
+        keywords: api, third party apps
+  /oauth2/v1/apps/{project_id}/token:
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application token endpoint by project ID
+      operationId: ThirdPartyApplicationTokenEndpointByProjectID
+      parameters:
+      - name: project_id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartyApplicationTokenEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCTokenEndpointResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application token endpoint by project ID
+        keywords: api, third party apps
+  /oauth2/v1/apps/{project_id}/userinfo:
+    get:
+      tags:
+      - Oauth2
+      description: Third Party application Get UserInfo endpoint by project ID
+      operationId: ThirdPartyApplicationUserInfoEndpointGetByProjectID
+      parameters:
+      - name: project_id
+        in: path
+        description: Can be empty as data arrived on the Authorization header token
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThirdPartyApplicationUserInfoEndpointResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application Get UserInfo endpoint by project ID
+        keywords: api, third party apps
+    post:
+      tags:
+      - Oauth2
+      description: Third Party application POST UserInfo endpoint by project ID
+      operationId: ThirdPartyApplicationUserInfoEndpointPostByProjectID
+      parameters:
+      - name: project_id
+        in: path
+        description: Can be empty as data arrived on the Authorization header token
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ThirdPartyApplicationUserInfoEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThirdPartyApplicationUserInfoEndpointResponse'
+      x-publishYaml: thirdPartyApps
+      security: []
+      x-meta:
+        title: undefined | Third Party Apps
+        description: Third Party application POST UserInfo endpoint by project ID
+        keywords: api, third party apps
+  /oauth2/v1/authorize:
+    get:
+      tags:
+      - Oauth2
+      summary: OIDC Authorize
+      description: OIDC GET authorization endpoint start
+      operationId: OIDCAuthZEndpointGetStart
+      parameters:
+      - name: response_type
+        in: query
+        schema:
+          type: string
+      - name: scope
+        in: query
+        schema:
+          type: string
+      - name: client_id
+        in: query
+        schema:
+          type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        schema:
+          type: string
+      - name: code_challenge_method
+        in: query
+        description: PKCE
+        schema:
+          type: string
+      - name: code_challenge
+        in: query
+        schema:
+          type: string
+      - name: dynamic_val
+        in: query
+        schema:
+          type: string
+      - name: nonce
+        in: query
+        schema:
+          type: string
+      - name: ssoAppId
+        in: query
+        schema:
+          type: string
+      - name: loginHint
+        in: query
+        schema:
+          type: string
+      - name: prompt
+        in: query
+        schema:
+          type: string
+      - name: flow
+        in: query
+        schema:
+          type: string
+      - name: flow_token
+        in: query
+        schema:
+          type: string
+      - name: tenant
+        in: query
+        schema:
+          type: string
+      - name: style
+        in: query
+        schema:
+          type: string
+      - name: dpop_jkt
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Authorize | Federated Apps
+        description: OIDC GET authorization endpoint start
+        keywords: api, federated apps
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC Authorize
+      description: OIDC POST authorization endpoint start
+      operationId: OIDCAuthZEndpointPostStart
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCAuthZEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Authorize | Federated Apps
+        description: OIDC POST authorization endpoint start
+        keywords: api, federated apps
+  /oauth2/v1/authorize/entramfa:
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC Authorize Entra MFA
+      description: OIDC Entra MFA authorization endpoint
+      operationId: OIDCAuthZEndpointEntraMFA
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCAuthZEntraMFAEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Authorize Entra MFA | Federated Apps
+        description: OIDC Entra MFA authorization endpoint
+        keywords: api, federated apps
+  /oauth2/v1/device:
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC Device
+      description: OIDC device endpoint
+      operationId: OIDCDeviceEndpoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCDeviceEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCDeviceEndpointResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Device | Federated Apps
+        description: OIDC device endpoint
+        keywords: api, federated apps
+  /oauth2/v1/finish-authorize:
+    get:
+      tags:
+      - Oauth2
+      summary: OIDC Finish Authorize
+      description: OIDC POST authorization endpoint finish
+      operationId: OIDCAuthZEndpointFinishPost
+      parameters:
+      - name: state_id
+        in: query
+        schema:
+          type: string
+      - name: sso_app_id
+        in: query
+        schema:
+          type: string
+      - name: error_redirect_uri
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Finish Authorize | Federated Apps
+        description: OIDC POST authorization endpoint finish
+        keywords: api, federated apps
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC Finish Authorize
+      description: OIDC GET authorization endpoint finish
+      operationId: OIDCAuthZEndpointFinishGet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCAuthZEndpointFinishRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Finish Authorize | Federated Apps
+        description: OIDC GET authorization endpoint finish
+        keywords: api, federated apps
+  /oauth2/v1/logout:
+    get:
+      tags:
+      - Oauth2
+      summary: OIDC End Session
+      description: OIDC end session GET endpoint
+      operationId: OIDCEndSessionEndpointGet
+      parameters:
+      - name: id_token_hint
+        in: query
+        schema:
+          type: string
+      - name: client_id
+        in: query
+        schema:
+          type: string
+      - name: post_logout_redirect_uri
+        in: query
+        schema:
+          type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      - name: ssoAppId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC End Session | Federated Apps
+        description: OIDC end session GET endpoint
+        keywords: api, federated apps
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC End Session
+      description: OIDC end session POST endpoint
+      operationId: OIDCEndSessionEndpointPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCEndSessionEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC End Session | Federated Apps
+        description: OIDC end session POST endpoint
+        keywords: api, federated apps
+  /oauth2/v1/revoke:
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC Revoke
+      description: OIDC revoke endpoint
+      operationId: OIDCRevocationEndpoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCRevocationEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Revoke | Federated Apps
+        description: OIDC revoke endpoint
+        keywords: api, federated apps
+  /oauth2/v1/token:
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC Token
+      description: OIDC token endpoint
+      operationId: OIDCTokenEndpoint
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCTokenEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCTokenEndpointResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Token | Federated Apps
+        description: OIDC token endpoint
+        keywords: api, federated apps
+  /oauth2/v1/userinfo:
+    get:
+      tags:
+      - Oauth2
+      summary: OIDC UserInfo
+      description: OIDC Get UserInfo endpoint
+      operationId: OIDCUserInfoEndpointGet
+      parameters:
+      - name: ssoAppId
+        in: query
+        description: Can be empty as data arrived on the Authorization header token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCUserInfoEndpointResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC UserInfo | Federated Apps
+        description: OIDC Get UserInfo endpoint
+        keywords: api, federated apps
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC UserInfo
+      description: OIDC POST UserInfo endpoint
+      operationId: OIDCUserInfoEndpointPost
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCUserInfoEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCUserInfoEndpointResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC UserInfo | Federated Apps
+        description: OIDC POST UserInfo endpoint
+        keywords: api, federated apps
+  /{ssoAppId}/oauth2/v1/authorize:
+    get:
+      tags:
+      - Oauth2
+      summary: OIDC Authorize
+      description: OIDC GET authorization endpoint start (sso app)
+      operationId: OIDCSSOAppAuthZEndpointGetStart
+      parameters:
+      - name: ssoAppId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: response_type
+        in: query
+        schema:
+          type: string
+      - name: scope
+        in: query
+        schema:
+          type: string
+      - name: client_id
+        in: query
+        schema:
+          type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      - name: redirect_uri
+        in: query
+        schema:
+          type: string
+      - name: code_challenge_method
+        in: query
+        description: PKCE
+        schema:
+          type: string
+      - name: code_challenge
+        in: query
+        schema:
+          type: string
+      - name: dynamic_val
+        in: query
+        schema:
+          type: string
+      - name: nonce
+        in: query
+        schema:
+          type: string
+      - name: loginHint
+        in: query
+        schema:
+          type: string
+      - name: prompt
+        in: query
+        schema:
+          type: string
+      - name: flow
+        in: query
+        schema:
+          type: string
+      - name: flow_token
+        in: query
+        schema:
+          type: string
+      - name: tenant
+        in: query
+        schema:
+          type: string
+      - name: style
+        in: query
+        schema:
+          type: string
+      - name: dpop_jkt
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Authorize | Federated Apps
+        description: OIDC GET authorization endpoint start (sso app)
+        keywords: api, federated apps
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC Authorize
+      description: OIDC POST authorization endpoint start (sso app)
+      operationId: OIDCSSOAppAuthZEndpointPostStart
+      parameters:
+      - name: ssoAppId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCAuthZEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Authorize | Federated Apps
+        description: OIDC POST authorization endpoint start (sso app)
+        keywords: api, federated apps
+  /{ssoAppId}/oauth2/v1/authorize/entramfa:
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC Authorize Entra MFA
+      description: OIDC Entra MFA authorization endpoint (SSO App)
+      operationId: OIDCSSOAppAuthZEndpointEntraMFA
+      parameters:
+      - name: ssoAppId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCAuthZEntraMFAEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Authorize Entra MFA | Federated Apps
+        description: OIDC Entra MFA authorization endpoint (SSO App)
+        keywords: api, federated apps
+  /{ssoAppId}/oauth2/v1/device:
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC Device
+      description: OIDC device endpoint (sso app)
+      operationId: OIDCDeviceEndpoint
+      parameters:
+      - name: ssoAppId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCDeviceEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCDeviceEndpointResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Device | Federated Apps
+        description: OIDC device endpoint (sso app)
+        keywords: api, federated apps
+  /{ssoAppId}/oauth2/v1/logout:
+    get:
+      tags:
+      - Oauth2
+      summary: OIDC End Session
+      description: OIDC end session GET endpoint (sso app)
+      operationId: OIDCSSOAppEndSessionEndpointGet
+      parameters:
+      - name: ssoAppId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id_token_hint
+        in: query
+        schema:
+          type: string
+      - name: client_id
+        in: query
+        schema:
+          type: string
+      - name: post_logout_redirect_uri
+        in: query
+        schema:
+          type: string
+      - name: state
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC End Session | Federated Apps
+        description: OIDC end session GET endpoint (sso app)
+        keywords: api, federated apps
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC End Session
+      description: OIDC end session POST endpoint (sso app)
+      operationId: OIDSSOAppCEndSessionEndpointPost
+      parameters:
+      - name: ssoAppId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCEndSessionEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC End Session | Federated Apps
+        description: OIDC end session POST endpoint (sso app)
+        keywords: api, federated apps
+  /{ssoAppId}/oauth2/v1/revoke:
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC Revoke
+      description: OIDC revoke endpoint (sso app)
+      operationId: OIDCSSOAppRevocationEndpoint
+      parameters:
+      - name: ssoAppId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCRevocationEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Revoke | Federated Apps
+        description: OIDC revoke endpoint (sso app)
+        keywords: api, federated apps
+  /{ssoAppId}/oauth2/v1/token:
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC Token
+      description: OIDC token endpoint (sso app)
+      operationId: OIDCSSOAppTokenEndpoint
+      parameters:
+      - name: ssoAppId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCTokenEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCTokenEndpointResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC Token | Federated Apps
+        description: OIDC token endpoint (sso app)
+        keywords: api, federated apps
+  /{ssoAppId}/oauth2/v1/userinfo:
+    get:
+      tags:
+      - Oauth2
+      summary: OIDC UserInfo
+      description: OIDC Get UserInfo endpoint (sso app)
+      operationId: OIDCSSOAppUserInfoEndpointGet
+      parameters:
+      - name: ssoAppId
+        in: path
+        description: Can be empty as data arrived on the Authorization header token
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCUserInfoEndpointResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC UserInfo | Federated Apps
+        description: OIDC Get UserInfo endpoint (sso app)
+        keywords: api, federated apps
+    post:
+      tags:
+      - Oauth2
+      summary: OIDC UserInfo
+      description: OIDC POST UserInfo endpoint (sso app)
+      operationId: OIDCSSOAppUserInfoEndpointPost
+      parameters:
+      - name: ssoAppId
+        in: path
+        description: Can be empty as data arrived on the Authorization header token
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OIDCUserInfoEndpointRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OIDCUserInfoEndpointResponse'
+      x-publishYaml: federatedApps
+      security: []
+      x-meta:
+        title: OIDC UserInfo | Federated Apps
+        description: OIDC POST UserInfo endpoint (sso app)
+        keywords: api, federated apps
+components:
+  schemas:
+    ThirdPartyApplicationTokenEndpointRequest:
+      type: object
+      properties:
+        grant_type:
+          type: string
+        code:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        code_verifier:
+          type: string
+        scope:
+          type: string
+        refresh_token:
+          type: string
+        tenantId:
+          type: string
+        resource:
+          type: string
+          description: RFC 8707 - OAuth 2.0 Resource Indicators - Token Endpoint only supports receiving a single resource
+        audience:
+          type: string
+        assertion:
+          type: string
+        client_assertion_type:
+          type: string
+        client_assertion:
+          type: string
+        device_code:
+          type: string
+        project_id:
+          type: string
+        mcp_server_id:
+          type: string
+        subject_token:
+          type: string
+        subject_token_type:
+          type: string
+        auth_req_id:
+          type: string
+    CIBAAuthRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        scope:
+          type: string
+        login_hint:
+          type: string
+        binding_message:
+          type: string
+        requested_expiry:
+          type: integer
+          format: uint32
+        audience:
+          type: string
+        project_id:
+          type: string
+        dpop_jkt:
+          type: string
+    OperationResponse:
+      type: object
+      properties: {}
+    OIDCUserInfoEndpointRequest:
+      type: object
+      properties:
+        ssoAppId:
+          type: string
+          description: Can be empty as data arrived on the Authorization header token
+    OIDCUserInfoEndpointResponse:
+      type: object
+      properties:
+        userInfoClaims:
+          type: object
+    OIDCDeviceEndpointRequest:
+      type: object
+      properties:
+        ssoAppId:
+          type: string
+        client_id:
+          type: string
+        scope:
+          type: string
+        audience:
+          type: string
+        project_id:
+          type: string
+        dpop_jkt:
+          type: string
+    OIDCRevocationEndpointRequest:
+      type: object
+      properties:
+        token:
+          type: string
+        token_type_hint:
+          type: string
+        ssoAppId:
+          type: string
+    OIDCEndSessionEndpointRequest:
+      type: object
+      properties:
+        id_token_hint:
+          type: string
+        client_id:
+          type: string
+        post_logout_redirect_uri:
+          type: string
+        state:
+          type: string
+        ssoAppId:
+          type: string
+    ThirdPartyApplicationRevocationEndpointRequest:
+      type: object
+      properties:
+        token:
+          type: string
+        token_type_hint:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        project_id:
+          type: string
+    OIDCAuthZEntraMFAEndpointRequest:
+      type: object
+      properties:
+        response_type:
+          type: string
+        scope:
+          type: string
+        client_id:
+          type: string
+        state:
+          type: string
+        redirect_uri:
+          type: string
+        nonce:
+          type: string
+        id_token_hint:
+          type: string
+        claims:
+          type: string
+        ssoAppId:
+          type: string
+        style:
+          type: string
+    OIDCAuthZEndpointFinishRequest:
+      type: object
+      properties:
+        state_id:
+          type: string
+        sso_app_id:
+          type: string
+        error_redirect_uri:
+          type: string
+    ThirdPartyApplicationAuthZEndpointRequest:
+      type: object
+      properties:
+        response_type:
+          type: string
+          description: "RFC 9101 §6.3: when a JAR `request` parameter is present, response_type and\n redirect_uri may be omitted from the outer query and carried inside the JWT.\n The controller validates the resolved values after JAR processing."
+        scope:
+          type: string
+        client_id:
+          type: string
+        state:
+          type: string
+        redirect_uri:
+          type: string
+        code_challenge_method:
+          type: string
+          description: PKCE
+        code_challenge:
+          type: string
+        nonce:
+          type: string
+        loginHint:
+          type: string
+        prompt:
+          type: string
+        flow:
+          type: string
+        flow_token:
+          type: string
+        resource:
+          type: array
+          items:
+            type: string
+          description: RFC 8707 - OAuth 2.0 Resource Indicators
+        project_id:
+          type: string
+        tenant:
+          type: string
+        mcp_server_id:
+          type: string
+        style:
+          type: string
+        dpop_jkt:
+          type: string
+        request:
+          type: string
+    CIBAAuthResponse:
+      type: object
+      properties:
+        auth_req_id:
+          type: string
+        expires_in:
+          type: integer
+          format: uint32
+        interval:
+          type: integer
+          format: uint32
+    OIDCAuthZEndpointRequest:
+      type: object
+      properties:
+        response_type:
+          type: string
+        scope:
+          type: string
+        client_id:
+          type: string
+        state:
+          type: string
+        redirect_uri:
+          type: string
+        code_challenge_method:
+          type: string
+          description: PKCE
+        code_challenge:
+          type: string
+        dynamic_val:
+          type: string
+        nonce:
+          type: string
+        ssoAppId:
+          type: string
+        loginHint:
+          type: string
+        prompt:
+          type: string
+        flow:
+          type: string
+        flow_token:
+          type: string
+        tenant:
+          type: string
+        style:
+          type: string
+        dpop_jkt:
+          type: string
+    ThirdPartyApplicationFinishEndpointRequest:
+      type: object
+      properties:
+        state_id:
+          type: string
+        app_id:
+          type: string
+        error_redirect_uri:
+          type: string
+        consent_id:
+          type: string
+    OIDCTokenEndpointRequest:
+      type: object
+      properties:
+        grant_type:
+          type: string
+        code:
+          type: string
+        redirect_uri:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        code_verifier:
+          type: string
+        refresh_token:
+          type: string
+        scope:
+          type: string
+        ssoAppId:
+          type: string
+        audience:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        assertion:
+          type: string
+        client_assertion_type:
+          type: string
+        client_assertion:
+          type: string
+        device_code:
+          type: string
+    ThirdPartyApplicationUserInfoEndpointResponse:
+      type: object
+      properties:
+        userInfoClaims:
+          type: object
+    ThirdPartyApplicationUserInfoEndpointRequest:
+      type: object
+      properties:
+        project_id:
+          type: string
+          description: Can be empty as data arrived on the Authorization header token
+    OIDCDeviceEndpointResponse:
+      type: object
+      properties:
+        device_code:
+          type: string
+        user_code:
+          type: string
+        verification_uri:
+          type: string
+        verification_uri_complete:
+          type: string
+        expires_in:
+          type: integer
+          format: uint32
+        interval:
+          type: integer
+          format: uint32
+    OIDCTokenEndpointResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        refresh_token:
+          type: string
+        id_token:
+          type: string
+        expires_in:
+          type: integer
+          format: uint32
+        scope:
+          type: string
+        error:
+          type: string
+          description: Those fields are in use just in case of error of device flow scenario (where device polling on the specific error response)
+        description:
+          type: string
+        issued_token_type:
+          type: string
+  securitySchemes:
+    Descope Project ID:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID
+      description: Project ID as bearer token.
+    Descope Project ID:Refresh JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Refresh JWT
+      description: Project ID:Refresh JWT as bearer token.
+    Descope Project ID:Access Key:
+      type: http
+      scheme: bearer
+      bearerFormat: ProjectId:AccessKey
+      description: Project ID:Access Key as bearer token.
+    Descope Project ID:Session JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Session JWT
+      description: Project ID:Session JWT as bearer token.
+    Descope Project ID and Management Key:
+      type: http
+      description: Project ID:Management Key as bearer token.
+      scheme: bearer
+      bearerFormat: ProjectId:ManagementKey
+externalDocs:
+  description: Descope Server
+  url: https://docs.descope.com

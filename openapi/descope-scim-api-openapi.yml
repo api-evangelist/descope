@@ -1,0 +1,988 @@
+openapi: 3.0.3
+info:
+  title: Descope Apps Scim API
+  description: Descope API
+  contact:
+    name: Descope
+    url: https://descope.com
+    email: support@descope.com
+  version: 0.0.1
+servers:
+- url: https://api.descope.com
+  description: Descope Production
+- url: '{customUrl}'
+  description: Custom server URL
+  variables:
+    customUrl:
+      default: https://api.descope.com
+      description: Your Descope API base URL
+security:
+- Descope Project ID: []
+  Descope Project ID:Refresh JWT: []
+  Descope Project ID:Session JWT: []
+  Descope Project ID and Management Key: []
+  Descope Project ID:Access Key: []
+tags:
+- name: Scim
+paths:
+  /scim/v2/Groups:
+    get:
+      tags:
+      - Scim
+      summary: Search SCIM Groups
+      description: '### Search SCIM groups, using a valid access key.
+
+
+        This endpoint allows administrators to search SCIM groups. These groups have been created and associated to the Application and Descope tenant.
+
+
+        The response includes an array of group objects within the Resources object. These group objects include details about the groups including the members.
+
+
+        It is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and has the tenant admin role.
+
+
+        ### Next Steps
+
+
+        Once you have this data, you can [Update an Existing SCIM Group](/api/management/tenants/scim/update-scim-group) or [Delete an Existing SCIM Group](/api/management/tenants/scim/delete-scim-group). You can add or remove users from the SCIM groups via [Update SCIM Group](/api/management/tenants/scim/update-scim-group).
+
+
+        ### See also
+
+
+        - See [SCIM Management](/scim) for further details on managing SCIM provisioning.'
+      operationId: SearchSCIMGroups
+      parameters:
+      - name: filter
+        in: query
+        schema:
+          type: string
+      - name: startIndex
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: excludedAttributes
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SCIMGetGroupsResponse'
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 1
+      x-meta:
+        title: Search SCIM Groups | Scim Management
+        description: Search SCIM groups, using a valid access key.
+        keywords: api, scim management
+    post:
+      tags:
+      - Scim
+      summary: Create SCIM Group
+      description: '### Create a SCIM group, using a valid access key.
+
+
+        This endpoint allows administrators to create new SCIM groups within their environement. When creating the group, you can configure the groupId, displayName, and it''s members.
+
+
+        The response includes the new group''s group object which includes details about the groups including the members.
+
+
+        It is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.
+
+
+        ### Next Steps
+
+
+        Once you have created the group, you can later add or remove users from the SCIM groups via [Update SCIM Group](/api/management/tenants/scim/update-scim-group).
+
+
+        ### See also
+
+
+        - See [SCIM Management](/scim) for further details on managing SCIM provisioning.'
+      operationId: CreateSCIMGroup
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SCIMGroupRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SCIMGroupResponse'
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 3
+      x-meta:
+        title: Create SCIM Group | Scim Management
+        description: Create a SCIM group, using a valid access key.
+        keywords: api, scim management
+  /scim/v2/Groups/{groupId}:
+    get:
+      tags:
+      - Scim
+      summary: Load SCIM Group
+      description: '### Load an existing SCIM group, using a valid access key.
+
+
+        This endpoint allows administrators to load an existing SCIM group using the SCIM groupId, which is a required field, and optionally the displayName.
+
+
+        The response includes the group''s object which includes details about the groups including the members.
+
+
+        It is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.
+
+
+        ### Next Steps
+
+
+        Once you have this data, you can add or remove users from the SCIM groups via [Update SCIM Group](/api/management/tenants/scim/update-scim-group).
+
+
+        ### See also
+
+
+        - See [SCIM Management](/scim) for further details on managing SCIM provisioning.'
+      operationId: LoadSCIMGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: displayName
+        in: query
+        schema:
+          type: string
+      - name: externalId
+        in: query
+        schema:
+          type: string
+      - name: excludedAttributes
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SCIMGroupResponse'
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 2
+      x-meta:
+        title: Load SCIM Group | Scim Management
+        description: Load an existing SCIM group, using a valid access key.
+        keywords: api, scim management
+    put:
+      tags:
+      - Scim
+      summary: Update SCIM Group
+      description: '### Update an existing SCIM group, using a valid access key.
+
+
+        This endpoint allows administrators to update an existing SCIM group using the SCIM group ID, which is a required field. You can update the display name and members through this API endpoint.
+
+
+        The response includes the group''s object which includes details about the groups including the members.
+
+
+        It is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.
+
+
+        ### See also
+
+
+        - See [SCIM Management](/scim) for further details on managing SCIM provisioning.'
+      operationId: UpdateSCIMGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SCIMGroupRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SCIMGroupResponse'
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 4
+      x-meta:
+        title: Update SCIM Group | Scim Management
+        description: Update an existing SCIM group, using a valid access key.
+        keywords: api, scim management
+    delete:
+      tags:
+      - Scim
+      summary: Delete SCIM Group
+      description: '### Delete an existing SCIM group, using a valid access key.
+
+
+        This endpoint allows administrators to delete an existing SCIM group using using the SCIM groupId, which is a required field, and optionally the displayName.
+
+
+        It is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.
+
+
+        ### See also
+
+
+        - See [SCIM Management](/scim) for further details on managing SCIM provisioning.'
+      operationId: DeleteSCIMGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: displayName
+        in: query
+        schema:
+          type: string
+      - name: externalId
+        in: query
+        schema:
+          type: string
+      - name: excludedAttributes
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content: {}
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 5
+      x-meta:
+        title: Delete SCIM Group | Scim Management
+        description: Delete an existing SCIM group, using a valid access key.
+        keywords: api, scim management
+    patch:
+      tags:
+      - Scim
+      summary: Patch SCIM Group
+      description: Patch SCIM Group, using a valid access key.
+      operationId: PatchSCIMGroup
+      parameters:
+      - name: groupId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SCIMPatchRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content: {}
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 5
+      x-meta:
+        title: Patch SCIM Group | Scim Management
+        description: Patch SCIM Group, using a valid access key.
+        keywords: api, scim management
+  /scim/v2/Users:
+    get:
+      tags:
+      - Scim
+      summary: Search SCIM Users
+      description: '### Search SCIM users, using a valid access key.
+
+
+        This endpoint allows administrators to search SCIM users. These users have been created and associated to the Application and Descope tenant.
+
+
+        The response includes an array of user objects within the Resources object. These user objects include details about the users including their email, phone, username, name, etc.
+
+
+        It is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.
+
+
+        ### Next Steps
+
+
+        Once you have user data, you can utilize [Update SCIM Group](/api/management/tenants/scim/update-scim-group) to add or remove the user on groups.
+
+
+        ### See also
+
+
+        - See [SCIM Management](/scim) for further details on managing SCIM provisioning.'
+      operationId: SearchSCIMUsers
+      parameters:
+      - name: filter
+        in: query
+        schema:
+          type: string
+      - name: startIndex
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: count
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SCIMGetUsersResponse'
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 6
+      x-meta:
+        title: Search SCIM Users | Scim Management
+        description: Search SCIM users, using a valid access key.
+        keywords: api, scim management
+  /scim/v2/Users/{userId}:
+    get:
+      tags:
+      - Scim
+      summary: Load SCIM User
+      description: '### Load an existing SCIM user, using a valid access key.
+
+
+        This endpoint allows administrators to load an existing SCIM user.
+
+
+        The response includes the user''s object, which includes details about the users including their email, phone, username, name, etc.
+
+
+        It is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.
+
+
+        ### Next Steps
+
+
+        Once you have user data, you can utilize [Update SCIM Group](/api/management/tenants/scim/update-scim-group) to add or remove the user on groups.
+
+
+        ### See also
+
+
+        - See [SCIM Management](/scim) for further details on managing SCIM provisioning.'
+      operationId: LoadSCIMUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SCIMGetUserResponse'
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 7
+      x-meta:
+        title: Load SCIM User | Scim Management
+        description: Load an existing SCIM user, using a valid access key.
+        keywords: api, scim management
+    put:
+      tags:
+      - Scim
+      summary: Update SCIM User
+      description: '### Update an existing SCIM user, using a valid access key.
+
+
+        This endpoint allows administrators to update an existing SCIM user. Through this API endpoint, administrators can update the displayName, phoneNumbers, emails, and if the user is active.
+
+
+        The response includes the user''s object, which includes details about the users including their email, phone, username, name, etc.
+
+
+        It is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.
+
+
+        ### See also
+
+
+        - See [SCIM Management](/scim) for further details on managing SCIM provisioning.'
+      operationId: UpdateSCIMUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SCIMUserRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SCIMGetUserResponse'
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 9
+      x-meta:
+        title: Update SCIM User | Scim Management
+        description: Update an existing SCIM user, using a valid access key.
+        keywords: api, scim management
+    delete:
+      tags:
+      - Scim
+      summary: Delete SCIM User
+      description: '### Delete an existing SCIM User, using a valid access key.
+
+
+        This API endpoint allows administrators to delete an existing SCIM user from the Descope tenant.
+
+
+        It is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.
+
+
+        ### See also
+
+
+        - See [SCIM Management](/scim) for further details on managing SCIM provisioning.'
+      operationId: DeleteSCIMUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: displayName
+        in: query
+        description: "The following values are manipulated by the marshaler in httpgateway/marshaler.go\n in case of changing or adding new ones, need to edit the marshaler as well"
+        schema:
+          type: string
+      - name: active
+        in: query
+        schema:
+          type: boolean
+      - name: name.givenName
+        in: query
+        schema:
+          type: string
+      - name: name.familyName
+        in: query
+        schema:
+          type: string
+      - name: name.middleName
+        in: query
+        schema:
+          type: string
+      - name: userName
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content: {}
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 11
+      x-meta:
+        title: Delete SCIM User | Scim Management
+        description: Delete an existing SCIM User, using a valid access key.
+        keywords: api, scim management
+    patch:
+      tags:
+      - Scim
+      summary: Patch SCIM User
+      description: Patch SCIM User, using a valid access key.
+      operationId: SCIMPatchUser
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SCIMPatchRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SCIMGetUserResponse'
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 10
+      x-meta:
+        title: Patch SCIM User | Scim Management
+        description: Patch SCIM User, using a valid access key.
+        keywords: api, scim management
+  /scim/v2/ResourceTypes:
+    get:
+      tags:
+      - Scim
+      summary: Load SCIM Resource Types
+      description: '### Load SCIM resource types, using a valid access key.
+
+
+        This API endpoint allows administrators to load the resource types available within the SCIM provisioning. The response includes an array of the available resource types.
+
+
+        It is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.
+
+
+        ### See also
+
+
+        - See [SCIM Management](/scim) for further details on managing SCIM provisioning.'
+      operationId: LoadSCIMResourceTypes
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SCIMResourceTypesResponse'
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 11
+      x-meta:
+        title: Load SCIM Resource Types | Scim Management
+        description: Load SCIM resource types, using a valid access key.
+        keywords: api, scim management
+  /scim/v2/ServiceProviderConfig:
+    get:
+      tags:
+      - Scim
+      summary: Load SCIM Service Provider Config
+      description: '### Load the supported SCIM provisioning service provider configuration, using a valid access key.
+
+
+        This API endpoint allows administrators to load the supported SCIM provisioning service provider configuration. The response includes detailed information on the applicable configurations and schemas within your IdP for SCIM provisioning.
+
+
+        It is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.
+
+
+        ### See also
+
+
+        - See [SCIM Management](/scim) for further details on managing SCIM provisioning.'
+      operationId: LoadSCIMServiceProviderConfig
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SCIMServiceProviderConfigResponse'
+      security:
+      - Descope Project ID:Access Key: []
+      x-publishYaml: scimManagement
+      x-order: 12
+      x-meta:
+        title: Load SCIM Service Provider Config | Scim Management
+        description: Load the supported SCIM provisioning service provider configuration, using a valid access key.
+        keywords: api, scim management
+components:
+  schemas:
+    SCIMGroupRequest:
+      type: object
+      properties:
+        groupId:
+          type: string
+        displayName:
+          type: string
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/SCIMGroupMember'
+        externalId:
+          type: string
+        excludedAttributes:
+          type: string
+    Bulk:
+      type: object
+      properties:
+        supported:
+          type: boolean
+        maxOperations:
+          type: integer
+          format: int32
+        maxPayloadSize:
+          type: integer
+          format: int32
+    SCIMServiceProviderConfigResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+        documentationUri:
+          type: string
+        patch:
+          $ref: '#/components/schemas/Supported'
+        bulk:
+          $ref: '#/components/schemas/Bulk'
+        filter:
+          $ref: '#/components/schemas/Filter'
+        changePassword:
+          $ref: '#/components/schemas/Supported'
+        sort:
+          $ref: '#/components/schemas/Supported'
+        etag:
+          $ref: '#/components/schemas/Supported'
+        authenticationSchemes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationSchemes'
+    SCIMPatchOperation:
+      type: object
+      properties:
+        op:
+          type: string
+        path:
+          type: string
+        valueString:
+          type: string
+          description: "The following values are manipulated by the marshaler in httpgateway/marshaler.go\n in case of changing or adding new ones, need to edit the marshaler as well"
+        valueBoolean:
+          type: boolean
+        valueArray:
+          type: array
+          items:
+            $ref: '#/components/schemas/SCIMPatchOperationValue'
+        valueID:
+          type: string
+        valueDisplayName:
+          type: string
+    SCIMGetUsersResource:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        userName:
+          type: string
+        meta:
+          $ref: '#/components/schemas/SCIMGetUsersResourceMeta'
+        emails:
+          type: array
+          items:
+            $ref: '#/components/schemas/SCIMUserEmail'
+        name:
+          $ref: '#/components/schemas/SCIMUserName'
+        active:
+          type: boolean
+        displayName:
+          type: string
+        detail:
+          type: string
+        attributes:
+          type: object
+        status:
+          type: integer
+          format: int32
+    SCIMUserRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+        displayName:
+          type: string
+          description: "The following values are manipulated by the marshaler in httpgateway/marshaler.go\n in case of changing or adding new ones, need to edit the marshaler as well"
+        emails:
+          type: array
+          items:
+            $ref: '#/components/schemas/SCIMUserEmail'
+        active:
+          type: boolean
+        name:
+          $ref: '#/components/schemas/SCIMUserName'
+        userName:
+          type: string
+        attributes:
+          type: object
+    SCIMGroupResponse:
+      type: object
+      properties:
+        displayName:
+          type: string
+        schemas:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/SCIMGroupMember'
+        meta:
+          $ref: '#/components/schemas/SCIMGroupResourceMeta'
+        externalId:
+          type: string
+        detail:
+          type: string
+        status:
+          type: integer
+          format: int32
+    SCIMGetGroupsResponse:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          format: int32
+        startIndex:
+          type: integer
+          format: int32
+        itemsPerPage:
+          type: integer
+          format: int32
+        schemas:
+          type: array
+          items:
+            type: string
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SCIMGroupResponse'
+        detail:
+          type: string
+        status:
+          type: integer
+          format: int32
+    SCIMResourceTypesResponse:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceType'
+    ResourceType:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        endpoint:
+          type: string
+        schema:
+          type: string
+    SCIMPatchOperationValue:
+      type: object
+      properties:
+        value:
+          type: string
+          description: "The following values are manipulated by the marshaler in httpgateway/marshaler.go\n in case of changing or adding new ones, need to edit the marshaler as well"
+        display:
+          type: string
+    SCIMGetUsersResourceMeta:
+      type: object
+      properties:
+        created:
+          type: object
+        location:
+          type: string
+        lastModified:
+          type: object
+        resourceType:
+          type: string
+    Supported:
+      type: object
+      properties:
+        supported:
+          type: boolean
+    SCIMGroupMember:
+      type: object
+      properties:
+        value:
+          type: string
+        display:
+          type: string
+    SCIMGetUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/SCIMGetUsersResource'
+    SCIMGetUsersResponse:
+      type: object
+      properties:
+        totalResults:
+          type: integer
+          format: int32
+        startIndex:
+          type: integer
+          format: int32
+        itemsPerPage:
+          type: integer
+          format: int32
+        schemas:
+          type: array
+          items:
+            type: string
+        Resources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SCIMGetUsersResource'
+        detail:
+          type: string
+        status:
+          type: integer
+          format: int32
+    SCIMGroupResourceMeta:
+      type: object
+      properties:
+        created:
+          type: object
+        location:
+          type: string
+        lastModified:
+          type: object
+        resourceType:
+          type: string
+    Filter:
+      type: object
+      properties:
+        supported:
+          type: boolean
+        maxResults:
+          type: integer
+          format: int32
+    AuthenticationSchemes:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        primary:
+          type: boolean
+        specUri:
+          type: string
+        type:
+          type: string
+    SCIMUserName:
+      type: object
+      properties:
+        givenName:
+          type: string
+        familyName:
+          type: string
+        middleName:
+          type: string
+    SCIMPatchRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+        groupId:
+          type: string
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/SCIMPatchOperation'
+    SCIMUserEmail:
+      type: object
+      properties:
+        value:
+          type: string
+        primary:
+          type: boolean
+        type:
+          type: string
+  securitySchemes:
+    Descope Project ID:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID
+      description: Project ID as bearer token.
+    Descope Project ID:Refresh JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Refresh JWT
+      description: Project ID:Refresh JWT as bearer token.
+    Descope Project ID:Access Key:
+      type: http
+      scheme: bearer
+      bearerFormat: ProjectId:AccessKey
+      description: Project ID:Access Key as bearer token.
+    Descope Project ID:Session JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Session JWT
+      description: Project ID:Session JWT as bearer token.
+    Descope Project ID and Management Key:
+      type: http
+      description: Project ID:Management Key as bearer token.
+      scheme: bearer
+      bearerFormat: ProjectId:ManagementKey
+externalDocs:
+  description: Descope Server
+  url: https://docs.descope.com

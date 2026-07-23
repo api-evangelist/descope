@@ -1,0 +1,242 @@
+openapi: 3.0.3
+info:
+  title: Descope Apps Custom Attributes API
+  description: Descope API
+  contact:
+    name: Descope
+    url: https://descope.com
+    email: support@descope.com
+  version: 0.0.1
+servers:
+- url: https://api.descope.com
+  description: Descope Production
+- url: '{customUrl}'
+  description: Custom server URL
+  variables:
+    customUrl:
+      default: https://api.descope.com
+      description: Your Descope API base URL
+security:
+- Descope Project ID: []
+  Descope Project ID:Refresh JWT: []
+  Descope Project ID:Session JWT: []
+  Descope Project ID and Management Key: []
+  Descope Project ID:Access Key: []
+tags:
+- name: Custom Attributes
+paths:
+  /v1/mgmt/user/customattributes:
+    get:
+      tags:
+      - Custom Attributes
+      summary: Get Available Custom Attributes
+      description: '### Get available custom attributes to configure on users within a project, using a valid management key.
+
+
+        This API endpoint will return the available user custom attributes within a project.
+
+
+        ### See also
+
+
+        - See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes
+
+        - See [Manage Users](/manage/users) for further details on managing users.
+
+        - See [The User Object](/api/overview#the-user-object) for further details on the user object.'
+      operationId: UserCustomAttributes
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomAttributesResponse'
+      security:
+      - Descope Project ID and Management Key: []
+      x-publishYaml: userManagement
+      x-order: 1
+      x-meta:
+        title: Get Available Custom Attributes | User Management
+        description: Get available custom attributes to configure on users within a project, using a valid management key.
+        keywords: api, user management
+  /v1/mgmt/user/customattribute/create:
+    post:
+      tags:
+      - Custom Attributes
+      summary: Create a Custom Attributes
+      description: '### Create a custom attributes to configure on users within a project, using a valid management key.
+
+
+        This API endpoint will create a custom attribute within a project.
+
+
+        ### See also
+
+
+        - See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes
+
+        - See [Manage Users](/manage/users) for further details on managing users.
+
+        - See [The User Object](/api/overview#the-user-object) for further details on the user object.'
+      operationId: CreateUserCustomAttribute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImportCustomAttributesRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomAttributesResponse'
+      security:
+      - Descope Project ID and Management Key: []
+      x-publishYaml: userManagement
+      x-order: 2
+      x-meta:
+        title: Create a Custom Attributes | User Management
+        description: Create a custom attributes to configure on users within a project, using a valid management key.
+        keywords: api, user management
+  /v1/mgmt/user/customattribute/delete:
+    post:
+      tags:
+      - Custom Attributes
+      summary: Delete a Custom Attributes
+      description: '### Delete a custom attributes to configure on users within a project, using a valid management key.
+
+
+        This API endpoint will delete a custom attribute within a project.
+
+
+        ### See also
+
+
+        - See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes
+
+        - See [Manage Users](/manage/users) for further details on managing users.
+
+        - See [The User Object](/api/overview#the-user-object) for further details on the user object.'
+      operationId: DeleteUserCustomAttribute
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteCustomAttributesRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomAttributesResponse'
+      security:
+      - Descope Project ID and Management Key: []
+      x-publishYaml: userManagement
+      x-order: 3
+      x-meta:
+        title: Delete a Custom Attributes | User Management
+        description: Delete a custom attributes to configure on users within a project, using a valid management key.
+        keywords: api, user management
+components:
+  schemas:
+    ImportCustomAttributesRequest:
+      type: object
+      properties:
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomAttribute'
+    CustomAttributesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomAttribute'
+        total:
+          type: string
+    CustomAttribute:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: integer
+          format: int32
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomAttributeOption'
+        displayName:
+          type: string
+        defaultValue:
+          $ref: '#/components/schemas/google.protobuf.Any'
+        viewPermissions:
+          type: array
+          items:
+            type: string
+        editPermissions:
+          type: array
+          items:
+            type: string
+        editable:
+          type: boolean
+          description: this is to know if this specific user can edit this specific field
+      description: "this object is used in project exports, make sure any changes here\n are also applied in managementservice"
+    CustomAttributeOption:
+      type: object
+      properties:
+        value:
+          type: string
+        label:
+          type: string
+      description: Custom Attributes
+    google.protobuf.Any:
+      type: object
+      properties:
+        '@type':
+          type: string
+          description: The type of the serialized message.
+      additionalProperties: true
+      description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+    DeleteCustomAttributesRequest:
+      type: object
+      properties:
+        names:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    Descope Project ID:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID
+      description: Project ID as bearer token.
+    Descope Project ID:Refresh JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Refresh JWT
+      description: Project ID:Refresh JWT as bearer token.
+    Descope Project ID:Access Key:
+      type: http
+      scheme: bearer
+      bearerFormat: ProjectId:AccessKey
+      description: Project ID:Access Key as bearer token.
+    Descope Project ID:Session JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Session JWT
+      description: Project ID:Session JWT as bearer token.
+    Descope Project ID and Management Key:
+      type: http
+      description: Project ID:Management Key as bearer token.
+      scheme: bearer
+      bearerFormat: ProjectId:ManagementKey
+externalDocs:
+  description: Descope Server
+  url: https://docs.descope.com

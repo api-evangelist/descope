@@ -1,0 +1,153 @@
+openapi: 3.0.3
+info:
+  title: Descope Apps Fedcm API
+  description: Descope API
+  contact:
+    name: Descope
+    url: https://descope.com
+    email: support@descope.com
+  version: 0.0.1
+servers:
+- url: https://api.descope.com
+  description: Descope Production
+- url: '{customUrl}'
+  description: Custom server URL
+  variables:
+    customUrl:
+      default: https://api.descope.com
+      description: Your Descope API base URL
+security:
+- Descope Project ID: []
+  Descope Project ID:Refresh JWT: []
+  Descope Project ID:Session JWT: []
+  Descope Project ID and Management Key: []
+  Descope Project ID:Access Key: []
+tags:
+- name: Fedcm
+paths:
+  /fedcm/clientmetadata:
+    get:
+      tags:
+      - Fedcm
+      summary: Get project federated CM client metadata
+      description: Get project federated CM client metadata
+      operationId: GetFedCMClientMetadata
+      parameters:
+      - name: client_id
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FedCMClientMetadataResponse'
+      x-publishYaml: getFedCMClientMetadata
+      x-order: 1
+      security: []
+      x-meta:
+        title: Get project federated CM client metadata | Get Fed C M Client Metadata
+        description: Get project federated CM client metadata
+        keywords: api, get fed c m client metadata
+  /{projectId}/fedcm/config:
+    get:
+      tags:
+      - Fedcm
+      summary: Get project federated CM configuration
+      description: Get project federated CM configuration
+      operationId: GetFedCMConfig
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FedCMConfigResponse'
+      x-publishYaml: getFedCMConfig
+      x-order: 1
+      security: []
+      x-meta:
+        title: Get project federated CM configuration | Get Fed C M Config
+        description: Get project federated CM configuration
+        keywords: api, get fed c m config
+components:
+  schemas:
+    FedCMIcon:
+      type: object
+      properties:
+        url:
+          type: string
+        size:
+          type: integer
+          format: int32
+    FedCMBranding:
+      type: object
+      properties:
+        background_color:
+          type: string
+        color:
+          type: string
+        icons:
+          type: array
+          items:
+            $ref: '#/components/schemas/FedCMIcon'
+    FedCMConfigResponse:
+      type: object
+      properties:
+        accounts_endpoint:
+          type: string
+        client_metadata_endpoint:
+          type: string
+        id_assertion_endpoint:
+          type: string
+        disconnect_endpoint:
+          type: string
+        login_url:
+          type: string
+        branding:
+          $ref: '#/components/schemas/FedCMBranding'
+      description: According to https://developers.google.com/privacy-sandbox/3pcd/fedcm-developer-guide#idp-config-file
+    FedCMClientMetadataResponse:
+      type: object
+      properties:
+        privacy_policy_url:
+          type: string
+        terms_of_service_url:
+          type: string
+  securitySchemes:
+    Descope Project ID:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID
+      description: Project ID as bearer token.
+    Descope Project ID:Refresh JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Refresh JWT
+      description: Project ID:Refresh JWT as bearer token.
+    Descope Project ID:Access Key:
+      type: http
+      scheme: bearer
+      bearerFormat: ProjectId:AccessKey
+      description: Project ID:Access Key as bearer token.
+    Descope Project ID:Session JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Session JWT
+      description: Project ID:Session JWT as bearer token.
+    Descope Project ID and Management Key:
+      type: http
+      description: Project ID:Management Key as bearer token.
+      scheme: bearer
+      bearerFormat: ProjectId:ManagementKey
+externalDocs:
+  description: Descope Server
+  url: https://docs.descope.com

@@ -1,0 +1,128 @@
+openapi: 3.0.3
+info:
+  title: Descope Apps Embedded Link API
+  description: Descope API
+  contact:
+    name: Descope
+    url: https://descope.com
+    email: support@descope.com
+  version: 0.0.1
+servers:
+- url: https://api.descope.com
+  description: Descope Production
+- url: '{customUrl}'
+  description: Custom server URL
+  variables:
+    customUrl:
+      default: https://api.descope.com
+      description: Your Descope API base URL
+security:
+- Descope Project ID: []
+  Descope Project ID:Refresh JWT: []
+  Descope Project ID:Session JWT: []
+  Descope Project ID and Management Key: []
+  Descope Project ID:Access Key: []
+tags:
+- name: Embedded Link
+paths:
+  /v1/mgmt/user/signin/embeddedlink:
+    post:
+      tags:
+      - Embedded Link
+      summary: Generate Embedded Link
+      description: '### Generate an embedded link for an existing user
+
+
+        Initiate a sign-in process by generating an embdedded link for an existing user utilizing a management key.
+
+
+        The endpoint will return a token which can then be verified using the Magic Link [Verify Token](/api/magic-link/verification/verify-token) endpoint.
+
+
+        ### Next Steps
+
+        Verify the embedded link token using the [Verify Token](/api/magic-link/verification/verify-token) endpoint.
+
+
+        ### See Also
+
+        - See [Embedded link Authentication](/customize/auth/embeddedlink/) for details about implementing embedded links.
+
+        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.'
+      operationId: EmbeddedLinkSignin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EmbeddedLinkSignInRequest'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmbeddedLinkSignInResponse'
+      security:
+      - Descope Project ID and Management Key: []
+      x-publishYaml: MagicLink
+      x-order: 1
+      x-meta:
+        title: Generate Embedded Link | Embedded Link
+        description: Generate an embedded link for an existing user
+        keywords: api, embedded link
+components:
+  schemas:
+    EmbeddedLinkSignInRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        timeout:
+          type: integer
+          format: int32
+    EmbeddedLinkSignInResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        maskedEmail:
+          type: string
+        maskedPhone:
+          type: string
+  securitySchemes:
+    Descope Project ID:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID
+      description: Project ID as bearer token.
+    Descope Project ID:Refresh JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Refresh JWT
+      description: Project ID:Refresh JWT as bearer token.
+    Descope Project ID:Access Key:
+      type: http
+      scheme: bearer
+      bearerFormat: ProjectId:AccessKey
+      description: Project ID:Access Key as bearer token.
+    Descope Project ID:Session JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Session JWT
+      description: Project ID:Session JWT as bearer token.
+    Descope Project ID and Management Key:
+      type: http
+      description: Project ID:Management Key as bearer token.
+      scheme: bearer
+      bearerFormat: ProjectId:ManagementKey
+externalDocs:
+  description: Descope Server
+  url: https://docs.descope.com

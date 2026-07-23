@@ -1,0 +1,462 @@
+openapi: 3.0.3
+info:
+  title: Descope Apps .well Known API
+  description: Descope API
+  contact:
+    name: Descope
+    url: https://descope.com
+    email: support@descope.com
+  version: 0.0.1
+servers:
+- url: https://api.descope.com
+  description: Descope Production
+- url: '{customUrl}'
+  description: Custom server URL
+  variables:
+    customUrl:
+      default: https://api.descope.com
+      description: Your Descope API base URL
+security:
+- Descope Project ID: []
+  Descope Project ID:Refresh JWT: []
+  Descope Project ID:Session JWT: []
+  Descope Project ID and Management Key: []
+  Descope Project ID:Access Key: []
+tags:
+- name: .well Known
+paths:
+  /.well-known/oauth-authorization-server/{projectId}:
+    get:
+      tags:
+      - .well Known
+      summary: Get project well-known configuration for oauth ending with projectID
+      description: Get project well-known configuration for oauth ending with projectID
+      operationId: GetWellKnownConfigurationAuthServerProjectSuffix
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: baseUrl
+        in: query
+        schema:
+          type: string
+      - name: ssoAppId
+        in: query
+        schema:
+          type: string
+      - name: mfa
+        in: query
+        schema:
+          type: string
+      - name: isThirdPartyApps
+        in: query
+        schema:
+          type: boolean
+      - name: usePreLoadedClaims
+        in: query
+        schema:
+          type: boolean
+      - name: claims
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: urlsWithProjectID
+        in: query
+        schema:
+          type: boolean
+      - name: mcpServerId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sessionv1.WellKnownConfigurationResponse'
+      x-publishYaml: sessionWellKnown
+      x-order: 1
+      security: []
+      x-meta:
+        title: Get project well-known configuration for oauth ending with projectID | Session Well Known
+        description: Get project well-known configuration for oauth ending with projectID
+        keywords: api, session well known
+  /{projectId}/.well-known/jwks.json:
+    get:
+      tags:
+      - .well Known
+      summary: Get Public Key to Validate JWT
+      description: Get project public keys for JWT validation
+      operationId: GetWellKnownJWKS
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: certs
+        in: query
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sessionv1.JWKSResponseV2'
+      x-publishYaml: sessionWellKnown
+      x-order: 1
+      security: []
+      x-meta:
+        title: Get Public Key to Validate JWT | Session Well Known
+        description: Get project public keys for JWT validation
+        keywords: api, session well known
+  /{projectId}/.well-known/oauth-authorization-server:
+    get:
+      tags:
+      - .well Known
+      summary: Get project well-known configuration for oauth
+      description: Get project well-known configuration for oauth
+      operationId: GetWellKnownConfigurationAuthServer
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: baseUrl
+        in: query
+        schema:
+          type: string
+      - name: ssoAppId
+        in: query
+        schema:
+          type: string
+      - name: mfa
+        in: query
+        schema:
+          type: string
+      - name: isThirdPartyApps
+        in: query
+        schema:
+          type: boolean
+      - name: usePreLoadedClaims
+        in: query
+        schema:
+          type: boolean
+      - name: claims
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: urlsWithProjectID
+        in: query
+        schema:
+          type: boolean
+      - name: mcpServerId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sessionv1.WellKnownConfigurationResponse'
+      x-publishYaml: sessionWellKnown
+      x-order: 1
+      security: []
+      x-meta:
+        title: Get project well-known configuration for oauth | Session Well Known
+        description: Get project well-known configuration for oauth
+        keywords: api, session well known
+  /{projectId}/.well-known/openid-configuration:
+    get:
+      tags:
+      - .well Known
+      summary: Get project well-known configuration for OpenID
+      description: Get project well-known configuration for OpenID
+      operationId: GetWellKnownConfigurationOpenID
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: baseUrl
+        in: query
+        schema:
+          type: string
+      - name: ssoAppId
+        in: query
+        schema:
+          type: string
+      - name: mfa
+        in: query
+        schema:
+          type: string
+      - name: isThirdPartyApps
+        in: query
+        schema:
+          type: boolean
+      - name: usePreLoadedClaims
+        in: query
+        schema:
+          type: boolean
+      - name: claims
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: urlsWithProjectID
+        in: query
+        schema:
+          type: boolean
+      - name: mcpServerId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sessionv1.WellKnownConfigurationResponse'
+      x-publishYaml: sessionWellKnown
+      x-order: 1
+      security: []
+      x-meta:
+        title: Get project well-known configuration for OpenID | Session Well Known
+        description: Get project well-known configuration for OpenID
+        keywords: api, session well known
+  /{projectId}/{ssoAppId}/.well-known/openid-configuration:
+    get:
+      tags:
+      - .well Known
+      summary: Get project well-known configuration for OpenID (sso app)
+      description: Get project well-known configuration for OpenID (sso app)
+      operationId: GetSSOAppWellKnownConfigurationOpenID
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: ssoAppId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: baseUrl
+        in: query
+        schema:
+          type: string
+      - name: mfa
+        in: query
+        schema:
+          type: string
+      - name: isThirdPartyApps
+        in: query
+        schema:
+          type: boolean
+      - name: usePreLoadedClaims
+        in: query
+        schema:
+          type: boolean
+      - name: claims
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      - name: urlsWithProjectID
+        in: query
+        schema:
+          type: boolean
+      - name: mcpServerId
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sessionv1.WellKnownConfigurationResponse'
+      x-publishYaml: sessionWellKnown
+      x-order: 1
+      security: []
+      x-meta:
+        title: Get project well-known configuration for OpenID (sso app) | Session Well Known
+        description: Get project well-known configuration for OpenID (sso app)
+        keywords: api, session well known
+  /.well-known/project-configuration/{projectId}:
+    get:
+      tags:
+      - .well Known
+      summary: Get general well-known project configuration
+      description: Get general well-known project configuration
+      operationId: GetWellKnownProjectConfiguration
+      parameters:
+      - name: projectId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WellKnownProjectConfigurationResponse'
+      x-publishYaml: sessionWellKnown
+      security: []
+      x-meta:
+        title: Get general well-known project configuration | Session Well Known
+        description: Get general well-known project configuration
+        keywords: api, session well known
+components:
+  schemas:
+    WellKnownProjectConfigurationResponse:
+      type: object
+      properties:
+        allowAuthHostingIframeEmbedding:
+          type: boolean
+    sessionv1.JWKSResponseV2:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/sessionv1.JWKSResponse'
+    sessionv1.JWKSResponse:
+      type: object
+      properties:
+        alg:
+          type: string
+        e:
+          type: string
+        kid:
+          type: string
+        kty:
+          type: string
+        n:
+          type: string
+        use:
+          type: string
+    sessionv1.WellKnownConfigurationResponse:
+      type: object
+      properties:
+        issuer:
+          type: string
+        jwks_uri:
+          type: string
+        authorization_endpoint:
+          type: string
+        response_types_supported:
+          type: array
+          items:
+            type: string
+        subject_types_supported:
+          type: array
+          items:
+            type: string
+        id_token_signing_alg_values_supported:
+          type: array
+          items:
+            type: string
+        token_endpoint:
+          type: string
+        userinfo_endpoint:
+          type: string
+        scopes_supported:
+          type: array
+          items:
+            type: string
+        claims_supported:
+          type: array
+          items:
+            type: string
+        end_session_endpoint:
+          type: string
+        revocation_endpoint:
+          type: string
+        token_endpoint_auth_methods_supported:
+          type: array
+          items:
+            type: string
+        registration_endpoint:
+          type: string
+        code_challenge_methods_supported:
+          type: array
+          items:
+            type: string
+        backchannel_logout_supported:
+          type: boolean
+        device_authorization_endpoint:
+          type: string
+        client_id_metadata_document_supported:
+          type: boolean
+        backchannel_token_delivery_modes_supported:
+          type: array
+          items:
+            type: string
+        backchannel_authentication_endpoint:
+          type: string
+        dpop_signing_alg_values_supported:
+          type: array
+          items:
+            type: string
+        request_parameter_supported:
+          type: boolean
+        request_object_signing_alg_values_supported:
+          type: array
+          items:
+            type: string
+        request_uri_parameter_supported:
+          type: boolean
+        grant_types_supported:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    Descope Project ID:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID
+      description: Project ID as bearer token.
+    Descope Project ID:Refresh JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Refresh JWT
+      description: Project ID:Refresh JWT as bearer token.
+    Descope Project ID:Access Key:
+      type: http
+      scheme: bearer
+      bearerFormat: ProjectId:AccessKey
+      description: Project ID:Access Key as bearer token.
+    Descope Project ID:Session JWT:
+      type: http
+      scheme: bearer
+      bearerFormat: Project ID:Session JWT
+      description: Project ID:Session JWT as bearer token.
+    Descope Project ID and Management Key:
+      type: http
+      description: Project ID:Management Key as bearer token.
+      scheme: bearer
+      bearerFormat: ProjectId:ManagementKey
+externalDocs:
+  description: Descope Server
+  url: https://docs.descope.com
