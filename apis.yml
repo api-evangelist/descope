@@ -1,122 +1,422 @@
 aid: descope
 url: https://raw.githubusercontent.com/api-evangelist/descope/refs/heads/main/apis.yml
 apis:
-- aid: descope:descope-authentication-api
-  name: Descope Authentication API
-  tags:
-  - Authentication
-  - Passwordless
-  - OAuth
-  - OIDC
-  - SAML
-  - WebAuthn
-  - Passkeys
-  - MFA
+- aid: descope:descope-apps-api
+  name: Descope Apps API
+  description: The Apps API from Descope — 4 operation(s) for apps.
   humanURL: https://docs.descope.com/api
   baseURL: https://api.descope.com
-  properties:
-  - url: https://docs.descope.com/api
-    type: Documentation
-  - url: https://docs.descope.com/auth-methods
-    type: Documentation
-    name: Authentication Methods
-  - url: https://docs.descope.com/api/openapi-spec
-    type: APIReference
-  - url: openapi/descope-openapi.yml
-    type: OpenAPI
-  description: Public, end-user-facing authentication API covering every Descope login experience — One-Time
-    Passwords (email/SMS/voice/IM), Magic Link, Enchanted Link, OAuth/Social, One-Tap, nOTP, TOTP authenticator
-    apps, WebAuthn/Passkeys, password authentication, security questions, recovery codes, SSO/SAML, access keys,
-    session refresh, tenant selection, and IdP-initiated logout. All flows expose `signup`, `signin`, `signup-in`,
-    `verify`, and `update` endpoints where applicable so frontends and mobile SDKs can compose any journey
-    Descope Flows can render.
-- aid: descope:descope-management-api
-  name: Descope Management API
   tags:
-  - Management
-  - Administration
-  - Users
-  - Tenants
-  - Roles
-  - Permissions
-  - SSO
-  - SCIM
-  - Audit
-  humanURL: https://docs.descope.com/manage
+  - Apps
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-apps-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-auth-api
+  name: Descope Auth API
+  description: The Auth API from Descope — 52 operation(s) for auth.
+  humanURL: https://docs.descope.com/api
   baseURL: https://api.descope.com
-  properties:
-  - url: https://docs.descope.com/manage
-    type: Documentation
-  - url: https://docs.descope.com/api
-    type: APIReference
-  - url: openapi/descope-openapi.yml
-    type: OpenAPI
-  description: Server-side administrative API for managing every resource in a Descope project — users,
-    access keys, tenants, roles, permissions, groups, SSO/SAML/OIDC configuration, password policies,
-    JWT customization, flows, widgets, localization, custom attributes, fine-grained authorization (FGA)
-    schemas and relations, audit logs, analytics, third-party (inbound) applications, outbound
-    connectors, project import/export, and impersonation. Authentication uses a Management Key
-    (`sk_…`) and is required for any backend automation, CI/CD, migration, or admin tooling.
-- aid: descope:descope-oauth-applications-api
-  name: Descope OAuth Applications API
   tags:
-  - OAuth
-  - OIDC
-  - Inbound Apps
-  - Third-Party
-  - Federation
-  - MCP
-  humanURL: https://docs.descope.com/inbound-apps
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-auth-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-custom-attributes-api
+  name: Descope Custom Attributes API
+  description: The Custom Attributes API from Descope — 3 operation(s) for custom attributes.
+  humanURL: https://docs.descope.com/api
   baseURL: https://api.descope.com
-  properties:
-  - url: https://docs.descope.com/inbound-apps
-    type: Documentation
-  - url: openapi/descope-openapi.yml
-    type: OpenAPI
-  description: Standards-compliant OAuth 2.1 / OIDC authorization server endpoints that let Descope act as an
-    identity provider for inbound third-party applications and agentic clients. Covers the full
-    `/oauth2/v1/...` surface — authorize, token, revoke, userinfo, device authorization, CIBA backchannel
-    authorization, and dedicated agentic / MCP-server registration paths
-    (`/oauth2/v1/apps/agentic/{project_id}/{mcp_server_id}/authorize|token`) for AI agents that need
-    delegated user credentials. Supports PKCE, JAR (RFC 9101) request objects, DPoP, and dynamic client
-    registration via SCIM v2.
-- aid: descope:descope-scim-api
-  name: Descope SCIM 2.0 API
   tags:
-  - SCIM
-  - Provisioning
-  - Identity
-  - Users
-  - Groups
-  humanURL: https://docs.descope.com/scim
+  - Custom Attributes
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-custom-attributes-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-default-api
+  name: Descope Default API
+  description: The Default API from Descope — 10 operation(s) for default.
+  humanURL: https://docs.descope.com/api
   baseURL: https://api.descope.com
-  properties:
-  - url: https://docs.descope.com/scim
-    type: Documentation
-  - url: openapi/descope-openapi.yml
-    type: OpenAPI
-  description: System for Cross-domain Identity Management (SCIM) 2.0 endpoints under `/scim/v2/` for
-    automated user and group lifecycle provisioning from upstream IdPs (Okta, Entra ID, Google
-    Workspace, JumpCloud, etc.) into Descope tenants. Implements the standard Users, Groups, ResourceTypes,
-    Schemas, and ServiceProviderConfig resources required for enterprise self-service SSO.
-- aid: descope:descope-jwks-api
-  name: Descope JWKS and Discovery API
   tags:
-  - JWKS
-  - Discovery
-  - OIDC
+  - Default
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-default-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-email-api
+  name: Descope Email API
+  description: The Email API from Descope — 10 operation(s) for email.
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - Email
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-email-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-embedded-link-api
+  name: Descope Embedded Link API
+  description: The Embedded Link API from Descope — 1 operation(s) for embedded link.
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - Embedded Link
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-embedded-link-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-fedcm-api
+  name: Descope Fedcm API
+  description: The Fedcm API from Descope — 2 operation(s) for fedcm.
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - Fedcm
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-fedcm-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-instant-message-im-api
+  name: Descope Instant Message (IM) API
+  description: The Instant Message (IM) API from Descope — 5 operation(s) for instant message (im).
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - Instant Message (IM)
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-instant-message-im-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-keys-api
+  name: Descope Keys API
+  description: The Keys API from Descope — 2 operation(s) for keys.
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
   - Keys
-  humanURL: https://docs.descope.com/jwks
-  baseURL: https://api.descope.com
   properties:
-  - url: https://docs.descope.com/jwks
-    type: Documentation
-  - url: openapi/descope-openapi.yml
-    type: OpenAPI
-  description: Public key and discovery endpoints used by any RP that needs to validate Descope-issued
-    session JWTs without calling the API. Includes the project JWKS endpoints (`/v1/keys`, `/v2/keys`),
-    OIDC discovery (`/.well-known/oauth-authorization-server`, `/{projectId}/.well-known/...`), and
-    project configuration metadata. These are unauthenticated and cache-friendly.
+  - type: OpenAPI
+    url: openapi/descope-keys-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-mgmt-api
+  name: Descope Mgmt API
+  description: The Mgmt API from Descope — 276 operation(s) for mgmt.
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - Mgmt
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-mgmt-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-oauth2-api
+  name: Descope Oauth2 API
+  description: The Oauth2 API from Descope — 30 operation(s) for oauth2.
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - Oauth2
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-oauth2-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-scim-api
+  name: Descope Scim API
+  description: The Scim API from Descope — 6 operation(s) for scim.
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - Scim
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-scim-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-text-message-sms-api
+  name: Descope Text Message (SMS) API
+  description: The Text Message (SMS) API from Descope — 9 operation(s) for text message (sms).
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - Text Message (SMS)
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-text-message-sms-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-verification-api
+  name: Descope Verification API
+  description: The Verification API from Descope — 1 operation(s) for verification.
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - Verification
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-verification-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-voice-message-phone-api
+  name: Descope Voice Message (Phone) API
+  description: The Voice Message (Phone) API from Descope — 5 operation(s) for voice message (phone).
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - Voice Message (Phone)
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-voice-message-phone-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-well-known-api
+  name: Descope .well Known API
+  description: The .well Known API from Descope — 6 operation(s) for .well known.
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - .well Known
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-well-known-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
 name: Descope
 tags:
 - Authentication
@@ -135,7 +435,19 @@ tags:
 - Agentic Identity
 - MCP
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/descope.png
 access: 3rd-Party
 common:
 - type: AgenticAccess
