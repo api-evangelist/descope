@@ -1,0 +1,47 @@
+{
+  "provider": "descope",
+  "sources": [
+    "descope-apps-api-openapi.yml",
+    "descope-auth-api-openapi.yml",
+    "descope-custom-attributes-api-openapi.yml",
+    "descope-default-api-openapi.yml",
+    "descope-email-api-openapi.yml",
+    "descope-embedded-link-api-openapi.yml",
+    "descope-fedcm-api-openapi.yml",
+    "descope-instant-message-im-api-openapi.yml",
+    "descope-keys-api-openapi.yml",
+    "descope-mgmt-api-openapi.yml",
+    "descope-oauth2-api-openapi.yml",
+    "descope-scim-api-openapi.yml",
+    "descope-text-message-sms-api-openapi.yml",
+    "descope-verification-api-openapi.yml",
+    "descope-voice-message-phone-api-openapi.yml",
+    "descope-well-known-api-openapi.yml"
+  ],
+  "outputs": [
+    "descope-apps-api-openapi.yml",
+    "descope-auth-api-openapi.yml",
+    "descope-custom-attributes-api-openapi.yml",
+    "descope-default-api-openapi.yml",
+    "descope-email-api-openapi.yml",
+    "descope-embedded-link-api-openapi.yml",
+    "descope-fedcm-api-openapi.yml",
+    "descope-instant-message-im-api-openapi.yml",
+    "descope-keys-api-openapi.yml",
+    "descope-mgmt-api-openapi.yml",
+    "descope-oauth2-api-openapi.yml",
+    "descope-scim-api-openapi.yml",
+    "descope-text-message-sms-api-openapi.yml",
+    "descope-verification-api-openapi.yml",
+    "descope-voice-message-phone-api-openapi.yml",
+    "descope-well-known-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [
+    "descope-mgmt-api-openapi.yml: dangling $ref: #/components/schemas/managementv1.RegisterThirdPartyApplicationRequest",
+    "descope-mgmt-api-openapi.yml: dangling $ref: #/components/schemas/managementv1.RegisterThirdPartyApplicationResponse"
+  ],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
