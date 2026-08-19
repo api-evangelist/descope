@@ -1,0 +1,1302 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps Oauth2 API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Oauth2",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "ThirdPartyApplicationAuthorizeGetByMcpServerID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/oauth2/v1/apps/agentic/:project_id/:mcp_server_id/authorize",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mcp_server_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query",
+                "description": "RFC 9101 §6.3: when a JAR `request` parameter is present, response_type and\n redirect_uri may be omitted from the outer query and carried inside the JWT.\n The controller validates the resolved values after JAR processing."
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "code_challenge_method",
+                "value": "",
+                "type": "query",
+                "description": "PKCE"
+              },
+              {
+                "name": "code_challenge",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nonce",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query",
+                "description": "RFC 8707 - OAuth 2.0 Resource Indicators"
+              },
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "style",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dpop_jkt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Third Party application authorization GET endpoint by MCP server ID"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationAuthorizePOSTByMcpServerID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/agentic/:project_id/:mcp_server_id/authorize",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mcp_server_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application authorization POST endpoint by MCP server ID"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationTokenEndpointByMcpServerID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/agentic/:project_id/:mcp_server_id/token",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mcp_server_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application token endpoint by MCP server ID"
+        },
+        {
+          "info": {
+            "name": "Get Authorization Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/oauth2/v1/apps/authorize",
+            "params": [
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query",
+                "description": "RFC 9101 §6.3: when a JAR `request` parameter is present, response_type and\n redirect_uri may be omitted from the outer query and carried inside the JWT.\n The controller validates the resolved values after JAR processing."
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "code_challenge_method",
+                "value": "",
+                "type": "query",
+                "description": "PKCE"
+              },
+              {
+                "name": "code_challenge",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nonce",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query",
+                "description": "RFC 8707 - OAuth 2.0 Resource Indicators"
+              },
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mcp_server_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "style",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dpop_jkt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Third Party application authorization GET endpoint"
+        },
+        {
+          "info": {
+            "name": "Post Authorization Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/authorize",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application authorization POST endpoint"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationCIBAEndpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/bc-authorize",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application CIBA backchannel authentication endpoint"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationDeviceEndpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/device",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application device endpoint"
+        },
+        {
+          "info": {
+            "name": "Finish Authorization Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/finish-authorize",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application authorization finish endpoint"
+        },
+        {
+          "info": {
+            "name": "OIDC revoke endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/revoke",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC revoke endpoint"
+        },
+        {
+          "info": {
+            "name": "Third Party application token endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application token endpoint"
+        },
+        {
+          "info": {
+            "name": "Third Party application Get UserInfo endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/oauth2/v1/apps/userinfo",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "query",
+                "description": "Can be empty as data arrived on the Authorization header token"
+              }
+            ]
+          },
+          "docs": "Third Party application Get UserInfo endpoint"
+        },
+        {
+          "info": {
+            "name": "Third Party application Post UserInfo endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/userinfo",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application Post UserInfo endpoint"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationAuthorizeGetByProjectID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/oauth2/v1/apps/:project_id/authorize",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query",
+                "description": "RFC 9101 §6.3: when a JAR `request` parameter is present, response_type and\n redirect_uri may be omitted from the outer query and carried inside the JWT.\n The controller validates the resolved values after JAR processing."
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "code_challenge_method",
+                "value": "",
+                "type": "query",
+                "description": "PKCE"
+              },
+              {
+                "name": "code_challenge",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nonce",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resource",
+                "value": "",
+                "type": "query",
+                "description": "RFC 8707 - OAuth 2.0 Resource Indicators"
+              },
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mcp_server_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "style",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dpop_jkt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "request",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Third Party application authorization GET endpoint"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationAuthorizePostByProjectID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/:project_id/authorize",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application authorization POST endpoint"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationCIBAEndpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/:project_id/bc-authorize",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application CIBA backchannel authentication endpoint"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationDeviceEndpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/:project_id/device",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application device endpoint"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationRevocationEndpointByProjectID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/:project_id/revoke",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application revoke endpoint by project ID"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationTokenEndpointByProjectID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/:project_id/token",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application token endpoint by project ID"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationUserInfoEndpointGetByProjectID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/oauth2/v1/apps/:project_id/userinfo",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "Can be empty as data arrived on the Authorization header token"
+              }
+            ]
+          },
+          "docs": "Third Party application Get UserInfo endpoint by project ID"
+        },
+        {
+          "info": {
+            "name": "ThirdPartyApplicationUserInfoEndpointPostByProjectID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/apps/:project_id/userinfo",
+            "params": [
+              {
+                "name": "project_id",
+                "value": "",
+                "type": "path",
+                "description": "Can be empty as data arrived on the Authorization header token"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Third Party application POST UserInfo endpoint by project ID"
+        },
+        {
+          "info": {
+            "name": "OIDC Authorize",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/oauth2/v1/authorize",
+            "params": [
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "code_challenge_method",
+                "value": "",
+                "type": "query",
+                "description": "PKCE"
+              },
+              {
+                "name": "code_challenge",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dynamic_val",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nonce",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "style",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dpop_jkt",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "OIDC GET authorization endpoint start"
+        },
+        {
+          "info": {
+            "name": "OIDC Authorize",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/authorize",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC POST authorization endpoint start"
+        },
+        {
+          "info": {
+            "name": "OIDC Authorize Entra MFA",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/authorize/entramfa",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC Entra MFA authorization endpoint"
+        },
+        {
+          "info": {
+            "name": "OIDC Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/device",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC device endpoint"
+        },
+        {
+          "info": {
+            "name": "OIDC Finish Authorize",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/oauth2/v1/finish-authorize",
+            "params": [
+              {
+                "name": "state_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sso_app_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "error_redirect_uri",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "OIDC POST authorization endpoint finish"
+        },
+        {
+          "info": {
+            "name": "OIDC Finish Authorize",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/finish-authorize",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC GET authorization endpoint finish"
+        },
+        {
+          "info": {
+            "name": "OIDC End Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/oauth2/v1/logout",
+            "params": [
+              {
+                "name": "id_token_hint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "post_logout_redirect_uri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "OIDC end session GET endpoint"
+        },
+        {
+          "info": {
+            "name": "OIDC End Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/logout",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC end session POST endpoint"
+        },
+        {
+          "info": {
+            "name": "OIDC Revoke",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/revoke",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC revoke endpoint"
+        },
+        {
+          "info": {
+            "name": "OIDC Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC token endpoint"
+        },
+        {
+          "info": {
+            "name": "OIDC UserInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/oauth2/v1/userinfo",
+            "params": [
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "query",
+                "description": "Can be empty as data arrived on the Authorization header token"
+              }
+            ]
+          },
+          "docs": "OIDC Get UserInfo endpoint"
+        },
+        {
+          "info": {
+            "name": "OIDC UserInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/oauth2/v1/userinfo",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC POST UserInfo endpoint"
+        },
+        {
+          "info": {
+            "name": "OIDC Authorize",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/:ssoAppId/oauth2/v1/authorize",
+            "params": [
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "response_type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scope",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirect_uri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "code_challenge_method",
+                "value": "",
+                "type": "query",
+                "description": "PKCE"
+              },
+              {
+                "name": "code_challenge",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dynamic_val",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "nonce",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "style",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dpop_jkt",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "OIDC GET authorization endpoint start (sso app)"
+        },
+        {
+          "info": {
+            "name": "OIDC Authorize",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/:ssoAppId/oauth2/v1/authorize",
+            "params": [
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC POST authorization endpoint start (sso app)"
+        },
+        {
+          "info": {
+            "name": "OIDC Authorize Entra MFA",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/:ssoAppId/oauth2/v1/authorize/entramfa",
+            "params": [
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC Entra MFA authorization endpoint (SSO App)"
+        },
+        {
+          "info": {
+            "name": "OIDC Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/:ssoAppId/oauth2/v1/device",
+            "params": [
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC device endpoint (sso app)"
+        },
+        {
+          "info": {
+            "name": "OIDC End Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/:ssoAppId/oauth2/v1/logout",
+            "params": [
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id_token_hint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "post_logout_redirect_uri",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "state",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "OIDC end session GET endpoint (sso app)"
+        },
+        {
+          "info": {
+            "name": "OIDC End Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/:ssoAppId/oauth2/v1/logout",
+            "params": [
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC end session POST endpoint (sso app)"
+        },
+        {
+          "info": {
+            "name": "OIDC Revoke",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/:ssoAppId/oauth2/v1/revoke",
+            "params": [
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC revoke endpoint (sso app)"
+        },
+        {
+          "info": {
+            "name": "OIDC Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/:ssoAppId/oauth2/v1/token",
+            "params": [
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC token endpoint (sso app)"
+        },
+        {
+          "info": {
+            "name": "OIDC UserInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/:ssoAppId/oauth2/v1/userinfo",
+            "params": [
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "path",
+                "description": "Can be empty as data arrived on the Authorization header token"
+              }
+            ]
+          },
+          "docs": "OIDC Get UserInfo endpoint (sso app)"
+        },
+        {
+          "info": {
+            "name": "OIDC UserInfo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/:ssoAppId/oauth2/v1/userinfo",
+            "params": [
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "path",
+                "description": "Can be empty as data arrived on the Authorization header token"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "OIDC POST UserInfo endpoint (sso app)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

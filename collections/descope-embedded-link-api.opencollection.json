@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps Embedded Link API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Embedded Link",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Embedded Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/mgmt/user/signin/embeddedlink",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Generate an embedded link for an existing user\n\nInitiate a sign-in process by generating an embdedded link for an existing user utilizing a management key.\n\nThe endpoint will return a token which can then be verified using the Magic Link [Verify Token](/api/magic-link/verification/verify-token) endpoint.\n\n### Next Steps\nVerify the embedded link token using the [Verify Token](/api/magic-link/verification/verify-token) endpoint.\n\n### See Also\n- See [Embedded link Authentication](/customize/aut"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

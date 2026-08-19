@@ -1,0 +1,799 @@
+{
+  "item": [
+    {
+      "id": "2b97b703-b323-4daa-8f07-23085aed64fb",
+      "name": "Apps",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "36db3fbd-5a62-4238-a49d-4886c1e2ae14",
+          "name": "Get project mcp server client well-known configuration for OAuth",
+          "request": {
+            "name": "Get project mcp server client well-known configuration for OAuth",
+            "description": {
+              "content": "Get project mcp server client well-known configuration for OAuth",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "apps",
+                "agentic",
+                ":projectId",
+                ":mcpServerId",
+                ".well-known",
+                "oauth-authorization-server"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "baseUrl",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ssoAppId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mfa",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "isThirdPartyApps",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "usePreLoadedClaims",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "claims",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "claims",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlsWithProjectID",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mcpServerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b4689ca-b5f4-42be-a8c6-84c11621d19b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "apps",
+                    "agentic",
+                    ":projectId",
+                    ":mcpServerId",
+                    ".well-known",
+                    "oauth-authorization-server"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "baseUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ssoAppId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mfa",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isThirdPartyApps",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "usePreLoadedClaims",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "claims",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "claims",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "urlsWithProjectID",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mcpServerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"issuer\": \"string\",\n  \"jwks_uri\": \"string\",\n  \"authorization_endpoint\": \"string\",\n  \"response_types_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"subject_types_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"id_token_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"token_endpoint\": \"string\",\n  \"userinfo_endpoint\": \"string\",\n  \"scopes_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"claims_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"end_session_endpoint\": \"string\",\n  \"revocation_endpoint\": \"string\",\n  \"token_endpoint_auth_methods_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"registration_endpoint\": \"string\",\n  \"code_challenge_methods_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"backchannel_logout_supported\": true,\n  \"device_authorization_endpoint\": \"string\",\n  \"client_id_metadata_document_supported\": true,\n  \"backchannel_token_delivery_modes_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"backchannel_authentication_endpoint\": \"string\",\n  \"dpop_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"request_parameter_supported\": true,\n  \"request_object_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"request_uri_parameter_supported\": true,\n  \"grant_types_supported\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1eab6df3-3665-4263-bccc-446cf871f6e6",
+          "name": "Get project mcp server client well-known configuration for OpenID",
+          "request": {
+            "name": "Get project mcp server client well-known configuration for OpenID",
+            "description": {
+              "content": "Get project mcp server client well-known configuration for OpenID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "apps",
+                "agentic",
+                ":projectId",
+                ":mcpServerId",
+                ".well-known",
+                "openid-configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "baseUrl",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ssoAppId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mfa",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "isThirdPartyApps",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "usePreLoadedClaims",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "claims",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "claims",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlsWithProjectID",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mcpServerId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b611f2a5-c71c-4af0-aadd-85cefae3c92e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "apps",
+                    "agentic",
+                    ":projectId",
+                    ":mcpServerId",
+                    ".well-known",
+                    "openid-configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "baseUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ssoAppId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mfa",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isThirdPartyApps",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "usePreLoadedClaims",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "claims",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "claims",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "urlsWithProjectID",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mcpServerId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"issuer\": \"string\",\n  \"jwks_uri\": \"string\",\n  \"authorization_endpoint\": \"string\",\n  \"response_types_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"subject_types_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"id_token_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"token_endpoint\": \"string\",\n  \"userinfo_endpoint\": \"string\",\n  \"scopes_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"claims_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"end_session_endpoint\": \"string\",\n  \"revocation_endpoint\": \"string\",\n  \"token_endpoint_auth_methods_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"registration_endpoint\": \"string\",\n  \"code_challenge_methods_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"backchannel_logout_supported\": true,\n  \"device_authorization_endpoint\": \"string\",\n  \"client_id_metadata_document_supported\": false,\n  \"backchannel_token_delivery_modes_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"backchannel_authentication_endpoint\": \"string\",\n  \"dpop_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"request_parameter_supported\": false,\n  \"request_object_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"request_uri_parameter_supported\": false,\n  \"grant_types_supported\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "73856952-7a8d-4dc8-aab2-869674d76496",
+          "name": "Get project Third party apps well-known configuration for oauth",
+          "request": {
+            "name": "Get project Third party apps well-known configuration for oauth",
+            "description": {
+              "content": "Get project Third party apps well-known configuration for oauth",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "apps",
+                ":projectId",
+                ".well-known",
+                "oauth-authorization-server"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "baseUrl",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ssoAppId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mfa",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "isThirdPartyApps",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "usePreLoadedClaims",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "claims",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "claims",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlsWithProjectID",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mcpServerId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2befa95e-4853-4e26-be65-02f925c7f7ec",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "apps",
+                    ":projectId",
+                    ".well-known",
+                    "oauth-authorization-server"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "baseUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ssoAppId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mfa",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isThirdPartyApps",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "usePreLoadedClaims",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "claims",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "claims",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "urlsWithProjectID",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "mcpServerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"issuer\": \"string\",\n  \"jwks_uri\": \"string\",\n  \"authorization_endpoint\": \"string\",\n  \"response_types_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"subject_types_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"id_token_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"token_endpoint\": \"string\",\n  \"userinfo_endpoint\": \"string\",\n  \"scopes_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"claims_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"end_session_endpoint\": \"string\",\n  \"revocation_endpoint\": \"string\",\n  \"token_endpoint_auth_methods_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"registration_endpoint\": \"string\",\n  \"code_challenge_methods_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"backchannel_logout_supported\": true,\n  \"device_authorization_endpoint\": \"string\",\n  \"client_id_metadata_document_supported\": false,\n  \"backchannel_token_delivery_modes_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"backchannel_authentication_endpoint\": \"string\",\n  \"dpop_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"request_parameter_supported\": false,\n  \"request_object_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"request_uri_parameter_supported\": false,\n  \"grant_types_supported\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61fe5c2a-b6b2-455e-bf68-7c5c1cd9548c",
+          "name": "Get project Third party apps well-known configuration for OpenID",
+          "request": {
+            "name": "Get project Third party apps well-known configuration for OpenID",
+            "description": {
+              "content": "Get project Third party apps well-known configuration for OpenID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "apps",
+                ":projectId",
+                ".well-known",
+                "openid-configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "baseUrl",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ssoAppId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mfa",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "isThirdPartyApps",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "usePreLoadedClaims",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "claims",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "claims",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "urlsWithProjectID",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mcpServerId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4eea6f8e-aca8-483b-8bd0-9ad1bd518e75",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "apps",
+                    ":projectId",
+                    ".well-known",
+                    "openid-configuration"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "baseUrl",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ssoAppId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mfa",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isThirdPartyApps",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "usePreLoadedClaims",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "claims",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "claims",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "urlsWithProjectID",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "mcpServerId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"issuer\": \"string\",\n  \"jwks_uri\": \"string\",\n  \"authorization_endpoint\": \"string\",\n  \"response_types_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"subject_types_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"id_token_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"token_endpoint\": \"string\",\n  \"userinfo_endpoint\": \"string\",\n  \"scopes_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"claims_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"end_session_endpoint\": \"string\",\n  \"revocation_endpoint\": \"string\",\n  \"token_endpoint_auth_methods_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"registration_endpoint\": \"string\",\n  \"code_challenge_methods_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"backchannel_logout_supported\": true,\n  \"device_authorization_endpoint\": \"string\",\n  \"client_id_metadata_document_supported\": false,\n  \"backchannel_token_delivery_modes_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"backchannel_authentication_endpoint\": \"string\",\n  \"dpop_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"request_parameter_supported\": false,\n  \"request_object_signing_alg_values_supported\": [\n    \"string\",\n    \"string\"\n  ],\n  \"request_uri_parameter_supported\": false,\n  \"grant_types_supported\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.descope.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9fc351c8-3c54-4790-bc7a-6b5281630571",
+    "name": "Descope Apps API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Descope API\n\nContact Support:\n Name: Descope\n Email: support@descope.com",
+      "type": "text/plain"
+    }
+  }
+}

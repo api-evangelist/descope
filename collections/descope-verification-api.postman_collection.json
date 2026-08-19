@@ -1,0 +1,154 @@
+{
+  "item": [
+    {
+      "id": "5c2922ed-61e7-4857-a675-89e27ad7c1da",
+      "name": "Verification",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bdffb07d-a9b7-4f27-af02-b8cf822f5084",
+          "name": "Verify Token",
+          "request": {
+            "name": "Verify Token",
+            "description": {
+              "content": "### Verify the magic link token from the end user\n\nVerify that the magic link token in the URL clicked by the end user matches and has not expired. This endpoint completes the magic link flow for:\n* sign up\n    * [Sign-Up via email](/api/magic-link/email/sign-up)\n    * [Sign-Up via SMS](/api/magic-link/sms/sign-up)\n* sign-in\n    * [Sign-In via email](/api/magic-link/email/sign-in)\n    * [Sign-In via SMS](/api/magic-link/sms/sign-in)\n* sign-in with auto sign-up\n    * [Sign-In with Auto Sign-up via email](/api/magic-link/email/sign-in-auto-sign-up)\n    * [Sign-In with Auto Sign-up via SMS](/api/magic-link/sms/sign-in-auto-sign-up)\n* update data\n    * [update email](/api/magic-link/email/sign-up)\n    * [update phone number](/api/magic-link/email/sign-up)\n\n### Next Steps\n\nThe response object will contain the user's details including the session and refresh JWTs.\n\n### See Also\n- See [Magic link Authentication](/auth-methods/magic-link/with-sdks/client#introduction) for details about implementing magic links.\n- See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "auth",
+                "magiclink",
+                "verify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3c7e461a-269d-4d07-8394-dc0743d1c126",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "auth",
+                    "magiclink",
+                    "verify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sessionJwt\": \"string\",\n  \"refreshJwt\": \"string\",\n  \"cookieDomain\": \"string\",\n  \"cookiePath\": \"string\",\n  \"cookieMaxAge\": 6326,\n  \"cookieExpiration\": 4061,\n  \"user\": {\n    \"loginIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"userId\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"phone\": \"string\",\n    \"verifiedEmail\": false,\n    \"verifiedPhone\": false,\n    \"roleNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"userTenants\": [\n      {\n        \"tenantId\": \"string\",\n        \"roleNames\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tenantName\": \"string\",\n        \"permissions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"tenantId\": \"string\",\n        \"roleNames\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tenantName\": \"string\",\n        \"permissions\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"status\": \"string\",\n    \"externalIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"picture\": \"string\",\n    \"test\": false,\n    \"customAttributes\": {\n      \"attribute-key\": \"attribute-value\"\n    },\n    \"createdTime\": 2545,\n    \"TOTP\": false,\n    \"SAML\": false,\n    \"OAuth\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": false\n    },\n    \"webauthn\": false,\n    \"password\": false,\n    \"ssoAppIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"givenName\": \"string\",\n    \"middleName\": \"string\",\n    \"familyName\": \"string\",\n    \"editable\": true,\n    \"SCIM\": true,\n    \"push\": true,\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"OIDC\": true,\n    \"consentExpiration\": 5246,\n    \"recoveryEmail\": \"string\",\n    \"verifiedRecoveryEmail\": false,\n    \"recoveryPhone\": \"string\",\n    \"verifiedRecoveryPhone\": true\n  },\n  \"firstSeen\": false,\n  \"idpResponse\": {\n    \"samlResponse\": \"string\",\n    \"samlGeneratedUser\": \"string\",\n    \"samlGeneratedRoles\": \"string\",\n    \"oidcResponse\": \"string\",\n    \"oidcGeneratedUser\": \"string\",\n    \"oidcGeneratedRoles\": \"string\",\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"idpSAMLAttributes\": false,\n    \"idpOIDCClaims\": {}\n  },\n  \"sessionExpiration\": 5976,\n  \"externalToken\": \"string\",\n  \"claims\": {},\n  \"tenantSSOID\": \"string\",\n  \"trustedDeviceJwt\": \"string\",\n  \"nextRefreshSeconds\": 2747,\n  \"cookieName\": \"string\",\n  \"sessionCookieName\": \"string\",\n  \"sessionCookieDomain\": \"string\",\n  \"unsavedSSO\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.descope.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5bbfb69d-cce0-4992-bf02-3f5ec84c6086",
+    "name": "Descope Apps Verification API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Descope API\n\nContact Support:\n Name: Descope\n Email: support@descope.com",
+      "type": "text/plain"
+    }
+  }
+}

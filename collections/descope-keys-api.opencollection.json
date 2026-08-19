@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps Keys API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Keys",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Token Validation Key (V1)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/keys/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "certs",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "### Get public key for session token validation (V1)\n\nThis API endpoint will return the public key needed to handle the session token JWT validation.\n`projectId` is provided as a GET parameter, so this endpoint can be executed with a browser."
+        },
+        {
+          "info": {
+            "name": "Token Validation Key (V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v2/keys/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "certs",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "### Get public key for session token validation (V2)\n\nThis API endpoint will return the public key needed to handle the session token JWT validation.\n`projectId` is provided as a GET parameter, so this endpoint can be executed with a browser.\n\nThis endpoint differentiates from [Token Validation Key (V1)](/api/session/get-keys)\nas the data is returned in JSON format rather than an array."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,395 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps Scim API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scim",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search SCIM Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/scim/v2/Groups",
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "excludedAttributes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Search SCIM groups, using a valid access key.\n\nThis endpoint allows administrators to search SCIM groups. These groups have been created and associated to the Application and Descope tenant.\n\nThe response includes an array of group objects within the Resources object. These group objects include details about the groups including the members.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applic"
+        },
+        {
+          "info": {
+            "name": "Create SCIM Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/scim/v2/Groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Create a SCIM group, using a valid access key.\n\nThis endpoint allows administrators to create new SCIM groups within their environement. When creating the group, you can configure the groupId, displayName, and it's members.\n\nThe response includes the new group's group object which includes details about the groups including the members.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable t"
+        },
+        {
+          "info": {
+            "name": "Load SCIM Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/scim/v2/Groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "displayName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "excludedAttributes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Load an existing SCIM group, using a valid access key.\n\nThis endpoint allows administrators to load an existing SCIM group using the SCIM groupId, which is a required field, and optionally the displayName.\n\nThe response includes the group's object which includes details about the groups including the members.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with th"
+        },
+        {
+          "info": {
+            "name": "Update SCIM Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.descope.com/scim/v2/Groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Update an existing SCIM group, using a valid access key.\n\nThis endpoint allows administrators to update an existing SCIM group using the SCIM group ID, which is a required field. You can update the display name and members through this API endpoint.\n\nThe response includes the group's object which includes details about the groups including the members.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with "
+        },
+        {
+          "info": {
+            "name": "Patch SCIM Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.descope.com/scim/v2/Groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Patch SCIM Group, using a valid access key."
+        },
+        {
+          "info": {
+            "name": "Delete SCIM Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.descope.com/scim/v2/Groups/:groupId",
+            "params": [
+              {
+                "name": "groupId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "displayName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "externalId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "excludedAttributes",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Delete an existing SCIM group, using a valid access key.\n\nThis endpoint allows administrators to delete an existing SCIM group using using the SCIM groupId, which is a required field, and optionally the displayName.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### See also\n\n- See [SCIM Management](/scim) for further details on manag"
+        },
+        {
+          "info": {
+            "name": "Search SCIM Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/scim/v2/Users",
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Search SCIM users, using a valid access key.\n\nThis endpoint allows administrators to search SCIM users. These users have been created and associated to the Application and Descope tenant.\n\nThe response includes an array of user objects within the Resources object. These user objects include details about the users including their email, phone, username, name, etc.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be asso"
+        },
+        {
+          "info": {
+            "name": "Load SCIM User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/scim/v2/Users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Load an existing SCIM user, using a valid access key.\n\nThis endpoint allows administrators to load an existing SCIM user.\n\nThe response includes the user's object, which includes details about the users including their email, phone, username, name, etc.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### Next Steps\n\nOnce you have user "
+        },
+        {
+          "info": {
+            "name": "Update SCIM User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.descope.com/scim/v2/Users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Update an existing SCIM user, using a valid access key.\n\nThis endpoint allows administrators to update an existing SCIM user. Through this API endpoint, administrators can update the displayName, phoneNumbers, emails, and if the user is active.\n\nThe response includes the user's object, which includes details about the users including their email, phone, username, name, etc.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key mu"
+        },
+        {
+          "info": {
+            "name": "Patch SCIM User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.descope.com/scim/v2/Users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Patch SCIM User, using a valid access key."
+        },
+        {
+          "info": {
+            "name": "Delete SCIM User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.descope.com/scim/v2/Users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "displayName",
+                "value": "",
+                "type": "query",
+                "description": "The following values are manipulated by the marshaler in httpgateway/marshaler.go\n in case of changing or adding new ones, need to edit the marshaler as well"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name.givenName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name.familyName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "name.middleName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userName",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Delete an existing SCIM User, using a valid access key.\n\nThis API endpoint allows administrators to delete an existing SCIM user from the Descope tenant.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning."
+        },
+        {
+          "info": {
+            "name": "Load SCIM Resource Types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/scim/v2/ResourceTypes",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Load SCIM resource types, using a valid access key.\n\nThis API endpoint allows administrators to load the resource types available within the SCIM provisioning. The response includes an array of the available resource types.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### See also\n\n- See [SCIM Management](/scim) for further details "
+        },
+        {
+          "info": {
+            "name": "Load SCIM Service Provider Config",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/scim/v2/ServiceProviderConfig",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Load the supported SCIM provisioning service provider configuration, using a valid access key.\n\nThis API endpoint allows administrators to load the supported SCIM provisioning service provider configuration. The response includes detailed information on the applicable configurations and schemas within your IdP for SCIM provisioning.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenan"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

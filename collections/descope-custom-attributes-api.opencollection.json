@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps Custom Attributes API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custom Attributes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Available Custom Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/mgmt/user/customattributes",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Get available custom attributes to configure on users within a project, using a valid management key.\n\nThis API endpoint will return the available user custom attributes within a project.\n\n### See also\n\n- See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes\n- See [Manage Users](/manage/users) for further details on managing users.\n- See [The User Object](/api/overview#the-user-object) for further details on the user object."
+        },
+        {
+          "info": {
+            "name": "Create a Custom Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/mgmt/user/customattribute/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Create a custom attributes to configure on users within a project, using a valid management key.\n\nThis API endpoint will create a custom attribute within a project.\n\n### See also\n\n- See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes\n- See [Manage Users](/manage/users) for further details on managing users.\n- See [The User Object](/api/overview#the-user-object) for further details on the user object."
+        },
+        {
+          "info": {
+            "name": "Delete a Custom Attributes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/mgmt/user/customattribute/delete",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Delete a custom attributes to configure on users within a project, using a valid management key.\n\nThis API endpoint will delete a custom attribute within a project.\n\n### See also\n\n- See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes\n- See [Manage Users](/manage/users) for further details on managing users.\n- See [The User Object](/api/overview#the-user-object) for further details on the user object."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

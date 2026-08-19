@@ -1,0 +1,256 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Apps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get project mcp server client well-known configuration for OAuth",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/apps/agentic/:projectId/:mcpServerId/.well-known/oauth-authorization-server",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mcpServerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mfa",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isThirdPartyApps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "usePreLoadedClaims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "claims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "urlsWithProjectID",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get project mcp server client well-known configuration for OAuth"
+        },
+        {
+          "info": {
+            "name": "Get project mcp server client well-known configuration for OpenID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/apps/agentic/:projectId/:mcpServerId/.well-known/openid-configuration",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "mcpServerId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mfa",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isThirdPartyApps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "usePreLoadedClaims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "claims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "urlsWithProjectID",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get project mcp server client well-known configuration for OpenID"
+        },
+        {
+          "info": {
+            "name": "Get project Third party apps well-known configuration for oauth",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/apps/:projectId/.well-known/oauth-authorization-server",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mfa",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isThirdPartyApps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "usePreLoadedClaims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "claims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "urlsWithProjectID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mcpServerId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get project Third party apps well-known configuration for oauth"
+        },
+        {
+          "info": {
+            "name": "Get project Third party apps well-known configuration for OpenID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/apps/:projectId/.well-known/openid-configuration",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mfa",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isThirdPartyApps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "usePreLoadedClaims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "claims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "urlsWithProjectID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mcpServerId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get project Third party apps well-known configuration for OpenID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

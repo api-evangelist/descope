@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps Voice Message (Phone) API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Voice Message (Phone)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sign-Up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/otp/signup/voice",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Sign-up new end user by sending an OTP code via Voice\nInitiate a sign-up process by sending a One-Time Password (OTP) to a new end user. Descope will generate and deliver the OTP code via Voice to the phone number specified. Sending multiple OTP codes (for example, when an end user tries to sign-up a second or third time) will invalidate any OTP code that has already been sent.\n\nThis endpoint will return an empty response object when it completes successfully. The endpoint will return a fail"
+        },
+        {
+          "info": {
+            "name": "Sign-In",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/otp/signin/voice",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Sign-in existing end user by sending an OTP code via Voice\nInitiate a sign-in process by sending a One-Time Password (OTP) to an existing end user. Descope will generate and deliver the OTP code to the phone number specified. Sending multiple OTP codes (for example, when an end user tries to sign-in a second or third time) will invalidate any OTP code that has already been sent.\n\nThis endpoint will return an empty response object when it completes successfully. The endpoint will return a fai"
+        },
+        {
+          "info": {
+            "name": "Sign-In with Auto Sign-up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/otp/signup-in/voice",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Sign-in end user (with automatic sign-up) by sending an OTP code via Voice\nInitiate a process that implements both sign-in and sign-up using a single endpoint. Descope will generate and deliver the One-Time Password (OTP) to the end user via Voice. If the phone number is already registered (the end user exists) the user will be signed in. If the phone number is not registered (the end user is not yet registered) the user will be signed up. Sending multiple OTP codes (for example, when an end"
+        },
+        {
+          "info": {
+            "name": "Verify OTP Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/otp/verify/voice",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Verify the validity of an OTP code via Voice\n\nVerify that the OTP code entered by the end user matches the OTP code that was sent. The Verify OTP code endpoint completes the OTP via Voice flow for:\n- [Sign-Up](/api/otp/phone/sign-up)\n- [Sign-In](/api/otp/phone/sign-in)\n- [Sign-In with Auto Sign-up](/api/otp/phone/sign-in-auto-sign-up)\n- [Update Phone](/api/otp/phone/update-phone)\n\nThe response object includes the session JWT `sessionJwt` and refresh JWT `refreshJwt` when it completes success"
+        },
+        {
+          "info": {
+            "name": "Update Phone",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/otp/update/phone/voice",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Update phone number of Existing User\nUpdate the phone number of an existing end user by sending an OTP code to the new phone number. After successfully verifying the code the new phone number will be used to deliver new OTP messages via Voice. The bearer token requires both the ProjectId and refresh JWT in the format `<Project ID>:<JWT>`, and can therefore only be run for end users who are currently signed-in.\n\nThis endpoint will return an empty response object when it completes successfully"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

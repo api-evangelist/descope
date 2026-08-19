@@ -1,0 +1,238 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps  API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sign-Up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/enchantedlink/signup/email",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Sign-up new end user by sending an enchanted link via email\nInitiate a sign-up process by sending an enchanted link to a new end user.\nDescope will generate and deliver 3 clickable links to the email address specified,\neach is numbered with random 2 digit number. When you initiate the enchanted link, the `linkId` will be returned. This `linkId` needs to be displayed to the user to indicate which link for the user to click\nonce they receive the email. Only when the correct link is clicked wil"
+        },
+        {
+          "info": {
+            "name": "Sign-In",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/enchantedlink/signin/email",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Sign-in existing user by sending an enchanted link via email\nInitiate a sign-in process by sending an enchanted link to a new end user.\nDescope will generate and deliver 3 clickable links to the email address specified,\neach is numbered with random 2 digit number. When you initiate the enchanted link, the `linkId` will be returned. This `linkId` needs to be displayed to the user to indicate which link for the user to click\nonce they receive the email. Only when the correct link is clicked wi"
+        },
+        {
+          "info": {
+            "name": "Sign-In with Auto Sign-Up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/enchantedlink/signup-in/email",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Sign-in end user (with automatic sign-up) by sending an enchanted link via email\nInitiate a process that implements both sign-in and sign-up using a single endpoint.\nIf the email address is already registered (the end user has already registered) the user will be signed in.\nIf the email address is not registered (the end user is not yet registered) the user will be signed up.\n\nDescope will generate and deliver 3 clickable links to the email address specified,\neach is numbered with random 2 d"
+        },
+        {
+          "info": {
+            "name": "Verify Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/enchantedlink/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Verify Enchanted Link token from user\n\nVerify that the enchanted link token in the URL clicked by the end user matches and has\nnot expired. This endpoint completes the enchanted link flow for:\n* sign up\n    * [Sign-Up via email](/api/enchanted-link/sign-up)\n* sign-in\n    * [Sign-In via email](/api/enchanted-link/sign-in)\n* sign-in with auto sign-up\n    * [Sign-In with Auto Sign-up via email](/api/enchanted-link/sign-in-auto-sign-up)\n* Update data\n    * [update email](/api/enchanted-link/upda"
+        },
+        {
+          "info": {
+            "name": "Poll Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/enchantedlink/pending-session",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Poll user session for successful completion of token verification\nThis endpoint is used to wait for the enchanted link verification by the end user.\nUse this endpoint in a poling way, until it returns a successful JWT, or timeout error.\nThe response object includes the session JWT `sessionJwt` and refresh JWT `refreshJwt`\nwhen this endpoint completes successfully.\n\n### See Also\n- See [Enchanted link Authentication](/api/enchantedlink/) for details about implementing enchanted links."
+        },
+        {
+          "info": {
+            "name": "Update Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/enchantedlink/update/email",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Update email of end user by sending enchanted link via email\nUpdate the email address of an existing end user by sending an enchanted link to the new email address.\nDescope will generate and deliver 3 clickable links to the email address specified,\neach is numbered with random 2 digit number.\nOnly the right link (based on the number returned will be successfully verified when clicked)\n\nEach clickable link is made up of two parts -\nthe URI you provide in the `URI` field and the enchanted link"
+        },
+        {
+          "info": {
+            "name": "Sign-Up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/notp/:provider/signup",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Whatsapp, IMessage, etc"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new user using NOTP"
+        },
+        {
+          "info": {
+            "name": "Sign-In",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/notp/:provider/signin",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Whatsapp, IMessage, etc"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Login a user using NOTP"
+        },
+        {
+          "info": {
+            "name": "Sign-In with Auto Sign-Up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/notp/:provider/signup-in",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path",
+                "description": "Whatsapp, IMessage, etc"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Login in using NTOP. If the user does not exist, a new user will be created with the given identifier"
+        },
+        {
+          "info": {
+            "name": "Get NoTP Pending Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/notp/pending-session",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get a session that was generated by NOTP Sign in / Sign up request, and verified with Verify request"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

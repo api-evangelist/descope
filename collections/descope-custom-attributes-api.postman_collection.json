@@ -1,0 +1,363 @@
+{
+  "item": [
+    {
+      "id": "24d6233a-286c-4f77-9c5b-183488eec608",
+      "name": "Custom Attributes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b9a5766a-145b-41e4-a292-7935d5a4555d",
+          "name": "Get Available Custom Attributes",
+          "request": {
+            "name": "Get Available Custom Attributes",
+            "description": {
+              "content": "### Get available custom attributes to configure on users within a project, using a valid management key.\n\nThis API endpoint will return the available user custom attributes within a project.\n\n### See also\n\n- See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes\n- See [Manage Users](/manage/users) for further details on managing users.\n- See [The User Object](/api/overview#the-user-object) for further details on the user object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "mgmt",
+                "user",
+                "customattributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "3a3981e9-83dd-4af7-87e5-064d9da8c3c1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "mgmt",
+                    "user",
+                    "customattributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"string\",\n      \"type\": 5645,\n      \"options\": [\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        }\n      ],\n      \"displayName\": \"string\",\n      \"defaultValue\": {\n        \"@type\": \"string\"\n      },\n      \"viewPermissions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"editPermissions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"editable\": false\n    },\n    {\n      \"name\": \"string\",\n      \"type\": 9624,\n      \"options\": [\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"label\": \"string\"\n        }\n      ],\n      \"displayName\": \"string\",\n      \"defaultValue\": {\n        \"@type\": \"string\"\n      },\n      \"viewPermissions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"editPermissions\": [\n        \"string\",\n        \"string\"\n      ],\n      \"editable\": false\n    }\n  ],\n  \"total\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f82f578d-89e6-4036-8dda-9d8fc46b4b47",
+          "name": "Create a Custom Attributes",
+          "request": {
+            "name": "Create a Custom Attributes",
+            "description": {
+              "content": "### Create a custom attributes to configure on users within a project, using a valid management key.\n\nThis API endpoint will create a custom attribute within a project.\n\n### See also\n\n- See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes\n- See [Manage Users](/manage/users) for further details on managing users.\n- See [The User Object](/api/overview#the-user-object) for further details on the user object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "mgmt",
+                "user",
+                "customattribute",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributes\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<integer>\",\n      \"options\": [\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        }\n      ],\n      \"displayName\": \"<string>\",\n      \"defaultValue\": {\n        \"@type\": \"<string>\",\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"viewPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editable\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<integer>\",\n      \"options\": [\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        }\n      ],\n      \"displayName\": \"<string>\",\n      \"defaultValue\": {\n        \"@type\": \"<string>\"\n      },\n      \"viewPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editable\": \"<boolean>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "136802e5-6b70-427b-bf9e-6ec0b9010d7d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "mgmt",
+                    "user",
+                    "customattribute",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<integer>\",\n      \"options\": [\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        }\n      ],\n      \"displayName\": \"<string>\",\n      \"defaultValue\": {\n        \"@type\": \"<string>\",\n        \"key_0\": 1633.1540445973335\n      },\n      \"viewPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editable\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<integer>\",\n      \"options\": [\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        }\n      ],\n      \"displayName\": \"<string>\",\n      \"defaultValue\": {\n        \"@type\": \"<string>\",\n        \"key_0\": \"string\",\n        \"key_1\": 7230.271797685468\n      },\n      \"viewPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editable\": \"<boolean>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<integer>\",\n      \"options\": [\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        }\n      ],\n      \"displayName\": \"<string>\",\n      \"defaultValue\": {\n        \"@type\": \"<string>\",\n        \"key_0\": 141.71150454229564,\n        \"key_1\": \"string\"\n      },\n      \"viewPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editable\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<integer>\",\n      \"options\": [\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        }\n      ],\n      \"displayName\": \"<string>\",\n      \"defaultValue\": {\n        \"@type\": \"<string>\",\n        \"key_0\": false,\n        \"key_1\": 5862\n      },\n      \"viewPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editable\": \"<boolean>\"\n    }\n  ],\n  \"total\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d011b5d-47c0-4d09-b743-c79e4925472d",
+          "name": "Delete a Custom Attributes",
+          "request": {
+            "name": "Delete a Custom Attributes",
+            "description": {
+              "content": "### Delete a custom attributes to configure on users within a project, using a valid management key.\n\nThis API endpoint will delete a custom attribute within a project.\n\n### See also\n\n- See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes\n- See [Manage Users](/manage/users) for further details on managing users.\n- See [The User Object](/api/overview#the-user-object) for further details on the user object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "mgmt",
+                "user",
+                "customattribute",
+                "delete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"names\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c50eb19c-abeb-4764-8ed4-d226c5cd9af8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "mgmt",
+                    "user",
+                    "customattribute",
+                    "delete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"names\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<integer>\",\n      \"options\": [\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        }\n      ],\n      \"displayName\": \"<string>\",\n      \"defaultValue\": {\n        \"@type\": \"<string>\",\n        \"key_0\": 141.71150454229564,\n        \"key_1\": \"string\"\n      },\n      \"viewPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editable\": \"<boolean>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<integer>\",\n      \"options\": [\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"label\": \"<string>\"\n        }\n      ],\n      \"displayName\": \"<string>\",\n      \"defaultValue\": {\n        \"@type\": \"<string>\",\n        \"key_0\": false,\n        \"key_1\": 5862\n      },\n      \"viewPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editPermissions\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"editable\": \"<boolean>\"\n    }\n  ],\n  \"total\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.descope.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3022d895-e63d-4d19-8416-211b71a6d7d1",
+    "name": "Descope Apps Custom Attributes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Descope API\n\nContact Support:\n Name: Descope\n Email: support@descope.com",
+      "type": "text/plain"
+    }
+  }
+}

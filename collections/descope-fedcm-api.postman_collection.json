@@ -1,0 +1,230 @@
+{
+  "item": [
+    {
+      "id": "3e5efb18-6512-414e-8b7c-e9e965167767",
+      "name": "Fedcm",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "db525e0c-f4e3-4aba-9d8b-156c5063f4a2",
+          "name": "Get project federated CM client metadata",
+          "request": {
+            "name": "Get project federated CM client metadata",
+            "description": {
+              "content": "Get project federated CM client metadata",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "fedcm",
+                "clientmetadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93f644b9-df6f-4a2d-bd1b-01293c803f63",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "fedcm",
+                    "clientmetadata"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"privacy_policy_url\": \"string\",\n  \"terms_of_service_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c94989f4-cfb2-45f9-b67d-359410e6bf52",
+          "name": "Get project federated CM configuration",
+          "request": {
+            "name": "Get project federated CM configuration",
+            "description": {
+              "content": "Get project federated CM configuration",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":projectId",
+                "fedcm",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "projectId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d965b583-7aa0-4fb2-a674-be8db9bd3a5b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":projectId",
+                    "fedcm",
+                    "config"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "projectId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"accounts_endpoint\": \"string\",\n  \"client_metadata_endpoint\": \"string\",\n  \"id_assertion_endpoint\": \"string\",\n  \"disconnect_endpoint\": \"string\",\n  \"login_url\": \"string\",\n  \"branding\": {\n    \"background_color\": \"string\",\n    \"color\": \"string\",\n    \"icons\": [\n      {\n        \"url\": \"string\",\n        \"size\": 6195\n      },\n      {\n        \"url\": \"string\",\n        \"size\": 526\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.descope.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "03ae42a5-6e99-455f-868c-71b88aae7ad4",
+    "name": "Descope Apps Fedcm API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Descope API\n\nContact Support:\n Name: Descope\n Email: support@descope.com",
+      "type": "text/plain"
+    }
+  }
+}

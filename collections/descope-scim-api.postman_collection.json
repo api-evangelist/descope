@@ -1,0 +1,1614 @@
+{
+  "item": [
+    {
+      "id": "da08e882-33bb-4121-a2a2-f58f75dc62f3",
+      "name": "Scim",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "02054309-165a-4d4c-bb49-76ddc2fef806",
+          "name": "Search SCIM Groups",
+          "request": {
+            "name": "Search SCIM Groups",
+            "description": {
+              "content": "### Search SCIM groups, using a valid access key.\n\nThis endpoint allows administrators to search SCIM groups. These groups have been created and associated to the Application and Descope tenant.\n\nThe response includes an array of group objects within the Resources object. These group objects include details about the groups including the members.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and has the tenant admin role.\n\n### Next Steps\n\nOnce you have this data, you can [Update an Existing SCIM Group](/api/management/tenants/scim/update-scim-group) or [Delete an Existing SCIM Group](/api/management/tenants/scim/delete-scim-group). You can add or remove users from the SCIM groups via [Update SCIM Group](/api/management/tenants/scim/update-scim-group).\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "excludedAttributes",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d58e4ffc-8583-4d06-9cda-f370466e4124",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "excludedAttributes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalResults\": 8429,\n  \"startIndex\": 5740,\n  \"itemsPerPage\": 5359,\n  \"schemas\": [\n    \"string\",\n    \"string\"\n  ],\n  \"Resources\": [\n    {\n      \"displayName\": \"string\",\n      \"schemas\": [\n        \"string\",\n        \"string\"\n      ],\n      \"id\": \"string\",\n      \"members\": [\n        {\n          \"value\": \"string\",\n          \"display\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"display\": \"string\"\n        }\n      ],\n      \"meta\": {\n        \"created\": {},\n        \"location\": \"string\",\n        \"lastModified\": {},\n        \"resourceType\": \"string\"\n      },\n      \"externalId\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 1676\n    },\n    {\n      \"displayName\": \"string\",\n      \"schemas\": [\n        \"string\",\n        \"string\"\n      ],\n      \"id\": \"string\",\n      \"members\": [\n        {\n          \"value\": \"string\",\n          \"display\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"display\": \"string\"\n        }\n      ],\n      \"meta\": {\n        \"created\": {},\n        \"location\": \"string\",\n        \"lastModified\": {},\n        \"resourceType\": \"string\"\n      },\n      \"externalId\": \"string\",\n      \"detail\": \"string\",\n      \"status\": 6513\n    }\n  ],\n  \"detail\": \"string\",\n  \"status\": 8304\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d154a50d-2cf8-4bbb-bf50-01553c8ff3b4",
+          "name": "Create SCIM Group",
+          "request": {
+            "name": "Create SCIM Group",
+            "description": {
+              "content": "### Create a SCIM group, using a valid access key.\n\nThis endpoint allows administrators to create new SCIM groups within their environement. When creating the group, you can configure the groupId, displayName, and it's members.\n\nThe response includes the new group's group object which includes details about the groups including the members.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### Next Steps\n\nOnce you have created the group, you can later add or remove users from the SCIM groups via [Update SCIM Group](/api/management/tenants/scim/update-scim-group).\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"groupId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"members\": [\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    }\n  ],\n  \"externalId\": \"<string>\",\n  \"excludedAttributes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f93dcf52-e37a-4677-a685-a48528f35f89",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"groupId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"members\": [\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    }\n  ],\n  \"externalId\": \"<string>\",\n  \"excludedAttributes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"displayName\": \"string\",\n  \"schemas\": [\n    \"string\",\n    \"string\"\n  ],\n  \"id\": \"string\",\n  \"members\": [\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    }\n  ],\n  \"meta\": {\n    \"created\": {},\n    \"location\": \"string\",\n    \"lastModified\": {},\n    \"resourceType\": \"string\"\n  },\n  \"externalId\": \"string\",\n  \"detail\": \"string\",\n  \"status\": 6040\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "248beddd-0071-4a2b-af42-2f57317a7697",
+          "name": "Load SCIM Group",
+          "request": {
+            "name": "Load SCIM Group",
+            "description": {
+              "content": "### Load an existing SCIM group, using a valid access key.\n\nThis endpoint allows administrators to load an existing SCIM group using the SCIM groupId, which is a required field, and optionally the displayName.\n\nThe response includes the group's object which includes details about the groups including the members.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### Next Steps\n\nOnce you have this data, you can add or remove users from the SCIM groups via [Update SCIM Group](/api/management/tenants/scim/update-scim-group).\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Groups",
+                ":groupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "displayName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "excludedAttributes",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9fd931ba-1ddd-486b-9b4d-7106442ba209",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "displayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludedAttributes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"displayName\": \"string\",\n  \"schemas\": [\n    \"string\",\n    \"string\"\n  ],\n  \"id\": \"string\",\n  \"members\": [\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    }\n  ],\n  \"meta\": {\n    \"created\": {},\n    \"location\": \"string\",\n    \"lastModified\": {},\n    \"resourceType\": \"string\"\n  },\n  \"externalId\": \"string\",\n  \"detail\": \"string\",\n  \"status\": 6040\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "37cde45d-edf6-4204-b1c8-2dbd0106f334",
+          "name": "Update SCIM Group",
+          "request": {
+            "name": "Update SCIM Group",
+            "description": {
+              "content": "### Update an existing SCIM group, using a valid access key.\n\nThis endpoint allows administrators to update an existing SCIM group using the SCIM group ID, which is a required field. You can update the display name and members through this API endpoint.\n\nThe response includes the group's object which includes details about the groups including the members.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Groups",
+                ":groupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"groupId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"members\": [\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    }\n  ],\n  \"externalId\": \"<string>\",\n  \"excludedAttributes\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1f5b75bb-59bf-43b6-a862-517df4f4308f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"groupId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"members\": [\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    }\n  ],\n  \"externalId\": \"<string>\",\n  \"excludedAttributes\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"displayName\": \"string\",\n  \"schemas\": [\n    \"string\",\n    \"string\"\n  ],\n  \"id\": \"string\",\n  \"members\": [\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"display\": \"<string>\"\n    }\n  ],\n  \"meta\": {\n    \"created\": {},\n    \"location\": \"string\",\n    \"lastModified\": {},\n    \"resourceType\": \"string\"\n  },\n  \"externalId\": \"string\",\n  \"detail\": \"string\",\n  \"status\": 6040\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "825f2aed-7814-4a3d-b1c5-8c6a6986e4f3",
+          "name": "Delete SCIM Group",
+          "request": {
+            "name": "Delete SCIM Group",
+            "description": {
+              "content": "### Delete an existing SCIM group, using a valid access key.\n\nThis endpoint allows administrators to delete an existing SCIM group using using the SCIM groupId, which is a required field, and optionally the displayName.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Groups",
+                ":groupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "displayName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "externalId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "excludedAttributes",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a76a7dbf-885c-4f5e-808e-eb3c547c14a1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "displayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "externalId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludedAttributes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f1090f8d-a5bd-4a57-8e65-dca04572998d",
+          "name": "Patch SCIM Group",
+          "request": {
+            "name": "Patch SCIM Group",
+            "description": {
+              "content": "Patch SCIM Group, using a valid access key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Groups",
+                ":groupId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "groupId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"operations\": [\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"valueString\": \"<string>\",\n      \"valueBoolean\": \"<boolean>\",\n      \"valueArray\": [\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        }\n      ],\n      \"valueID\": \"<string>\",\n      \"valueDisplayName\": \"<string>\"\n    },\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"valueString\": \"<string>\",\n      \"valueBoolean\": \"<boolean>\",\n      \"valueArray\": [\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        }\n      ],\n      \"valueID\": \"<string>\",\n      \"valueDisplayName\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "16fa38e1-98fc-455a-9406-42fc4a8afff2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Groups",
+                    ":groupId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "groupId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"operations\": [\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"valueString\": \"<string>\",\n      \"valueBoolean\": \"<boolean>\",\n      \"valueArray\": [\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        }\n      ],\n      \"valueID\": \"<string>\",\n      \"valueDisplayName\": \"<string>\"\n    },\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"valueString\": \"<string>\",\n      \"valueBoolean\": \"<boolean>\",\n      \"valueArray\": [\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        }\n      ],\n      \"valueID\": \"<string>\",\n      \"valueDisplayName\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6957e410-d67c-4982-845e-7d1dee188c49",
+          "name": "Search SCIM Users",
+          "request": {
+            "name": "Search SCIM Users",
+            "description": {
+              "content": "### Search SCIM users, using a valid access key.\n\nThis endpoint allows administrators to search SCIM users. These users have been created and associated to the Application and Descope tenant.\n\nThe response includes an array of user objects within the Resources object. These user objects include details about the users including their email, phone, username, name, etc.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### Next Steps\n\nOnce you have user data, you can utilize [Update SCIM Group](/api/management/tenants/scim/update-scim-group) to add or remove the user on groups.\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "count",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "191fee04-fffc-4770-ba5d-22a520fe9136",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "count",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"totalResults\": 5020,\n  \"startIndex\": 1568,\n  \"itemsPerPage\": 7343,\n  \"schemas\": [\n    \"string\",\n    \"string\"\n  ],\n  \"Resources\": [\n    {\n      \"schemas\": [\n        \"string\",\n        \"string\"\n      ],\n      \"id\": \"string\",\n      \"userName\": \"string\",\n      \"meta\": {\n        \"created\": {},\n        \"location\": \"string\",\n        \"lastModified\": {},\n        \"resourceType\": \"string\"\n      },\n      \"emails\": [\n        {\n          \"value\": \"string\",\n          \"primary\": false,\n          \"type\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"primary\": true,\n          \"type\": \"string\"\n        }\n      ],\n      \"name\": {\n        \"givenName\": \"string\",\n        \"familyName\": \"string\",\n        \"middleName\": \"string\"\n      },\n      \"active\": true,\n      \"displayName\": \"string\",\n      \"detail\": \"string\",\n      \"attributes\": {},\n      \"status\": 251\n    },\n    {\n      \"schemas\": [\n        \"string\",\n        \"string\"\n      ],\n      \"id\": \"string\",\n      \"userName\": \"string\",\n      \"meta\": {\n        \"created\": {},\n        \"location\": \"string\",\n        \"lastModified\": {},\n        \"resourceType\": \"string\"\n      },\n      \"emails\": [\n        {\n          \"value\": \"string\",\n          \"primary\": false,\n          \"type\": \"string\"\n        },\n        {\n          \"value\": \"string\",\n          \"primary\": true,\n          \"type\": \"string\"\n        }\n      ],\n      \"name\": {\n        \"givenName\": \"string\",\n        \"familyName\": \"string\",\n        \"middleName\": \"string\"\n      },\n      \"active\": false,\n      \"displayName\": \"string\",\n      \"detail\": \"string\",\n      \"attributes\": {},\n      \"status\": 7763\n    }\n  ],\n  \"detail\": \"string\",\n  \"status\": 9797\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "629c78f4-7652-42ab-b7be-0f30a5156a88",
+          "name": "Load SCIM User",
+          "request": {
+            "name": "Load SCIM User",
+            "description": {
+              "content": "### Load an existing SCIM user, using a valid access key.\n\nThis endpoint allows administrators to load an existing SCIM user.\n\nThe response includes the user's object, which includes details about the users including their email, phone, username, name, etc.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### Next Steps\n\nOnce you have user data, you can utilize [Update SCIM Group](/api/management/tenants/scim/update-scim-group) to add or remove the user on groups.\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "079ddda5-7d3e-43e0-be5e-607afdf97ece",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": {\n    \"schemas\": [\n      \"string\",\n      \"string\"\n    ],\n    \"id\": \"string\",\n    \"userName\": \"string\",\n    \"meta\": {\n      \"created\": {},\n      \"location\": \"string\",\n      \"lastModified\": {},\n      \"resourceType\": \"string\"\n    },\n    \"emails\": [\n      {\n        \"value\": \"string\",\n        \"primary\": false,\n        \"type\": \"string\"\n      },\n      {\n        \"value\": \"string\",\n        \"primary\": true,\n        \"type\": \"string\"\n      }\n    ],\n    \"name\": {\n      \"givenName\": \"string\",\n      \"familyName\": \"string\",\n      \"middleName\": \"string\"\n    },\n    \"active\": false,\n    \"displayName\": \"string\",\n    \"detail\": \"string\",\n    \"attributes\": {},\n    \"status\": 8402\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c105e228-57a6-41fa-a349-1450f9ac6716",
+          "name": "Update SCIM User",
+          "request": {
+            "name": "Update SCIM User",
+            "description": {
+              "content": "### Update an existing SCIM user, using a valid access key.\n\nThis endpoint allows administrators to update an existing SCIM user. Through this API endpoint, administrators can update the displayName, phoneNumbers, emails, and if the user is active.\n\nThe response includes the user's object, which includes details about the users including their email, phone, username, name, etc.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"givenName\": \"<string>\",\n    \"familyName\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"userName\": \"<string>\",\n  \"attributes\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "14e90e21-5843-4703-a84a-d3d1aa62b011",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"emails\": [\n    {\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"value\": \"<string>\",\n      \"primary\": \"<boolean>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"active\": \"<boolean>\",\n  \"name\": {\n    \"givenName\": \"<string>\",\n    \"familyName\": \"<string>\",\n    \"middleName\": \"<string>\"\n  },\n  \"userName\": \"<string>\",\n  \"attributes\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": {\n    \"schemas\": [\n      \"string\",\n      \"string\"\n    ],\n    \"id\": \"string\",\n    \"userName\": \"string\",\n    \"meta\": {\n      \"created\": {},\n      \"location\": \"string\",\n      \"lastModified\": {},\n      \"resourceType\": \"string\"\n    },\n    \"emails\": [\n      {\n        \"value\": \"<string>\",\n        \"primary\": \"<boolean>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\",\n        \"primary\": \"<boolean>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"name\": {\n      \"givenName\": \"<string>\",\n      \"familyName\": \"<string>\",\n      \"middleName\": \"<string>\"\n    },\n    \"active\": false,\n    \"displayName\": \"string\",\n    \"detail\": \"string\",\n    \"attributes\": {},\n    \"status\": 7182\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ae510033-e06b-4ade-9f78-ed53e13be307",
+          "name": "Delete SCIM User",
+          "request": {
+            "name": "Delete SCIM User",
+            "description": {
+              "content": "### Delete an existing SCIM User, using a valid access key.\n\nThis API endpoint allows administrators to delete an existing SCIM user from the Descope tenant.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "displayName",
+                  "value": "<string>",
+                  "description": "The following values are manipulated by the marshaler in httpgateway/marshaler.go\n in case of changing or adding new ones, need to edit the marshaler as well"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<boolean>"
+                },
+                {
+                  "disabled": false,
+                  "key": "name.givenName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "name.familyName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "name.middleName",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "userName",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4bde6c3f-72f0-4759-90ad-a218580fd99d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "displayName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "name.givenName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name.familyName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "name.middleName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "userName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "315a509c-a622-49a5-b31c-3e096b47b06e",
+          "name": "Patch SCIM User",
+          "request": {
+            "name": "Patch SCIM User",
+            "description": {
+              "content": "Patch SCIM User, using a valid access key.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "Users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"userId\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"operations\": [\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"valueString\": \"<string>\",\n      \"valueBoolean\": \"<boolean>\",\n      \"valueArray\": [\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        }\n      ],\n      \"valueID\": \"<string>\",\n      \"valueDisplayName\": \"<string>\"\n    },\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"valueString\": \"<string>\",\n      \"valueBoolean\": \"<boolean>\",\n      \"valueArray\": [\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        }\n      ],\n      \"valueID\": \"<string>\",\n      \"valueDisplayName\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0ed31470-acf0-4ecb-800c-bdbc05b8100b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "Users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"userId\": \"<string>\",\n  \"groupId\": \"<string>\",\n  \"operations\": [\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"valueString\": \"<string>\",\n      \"valueBoolean\": \"<boolean>\",\n      \"valueArray\": [\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        }\n      ],\n      \"valueID\": \"<string>\",\n      \"valueDisplayName\": \"<string>\"\n    },\n    {\n      \"op\": \"<string>\",\n      \"path\": \"<string>\",\n      \"valueString\": \"<string>\",\n      \"valueBoolean\": \"<boolean>\",\n      \"valueArray\": [\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"display\": \"<string>\"\n        }\n      ],\n      \"valueID\": \"<string>\",\n      \"valueDisplayName\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"user\": {\n    \"schemas\": [\n      \"string\",\n      \"string\"\n    ],\n    \"id\": \"string\",\n    \"userName\": \"string\",\n    \"meta\": {\n      \"created\": {},\n      \"location\": \"string\",\n      \"lastModified\": {},\n      \"resourceType\": \"string\"\n    },\n    \"emails\": [\n      {\n        \"value\": \"<string>\",\n        \"primary\": \"<boolean>\",\n        \"type\": \"<string>\"\n      },\n      {\n        \"value\": \"<string>\",\n        \"primary\": \"<boolean>\",\n        \"type\": \"<string>\"\n      }\n    ],\n    \"name\": {\n      \"givenName\": \"<string>\",\n      \"familyName\": \"<string>\",\n      \"middleName\": \"<string>\"\n    },\n    \"active\": false,\n    \"displayName\": \"string\",\n    \"detail\": \"string\",\n    \"attributes\": {},\n    \"status\": 7182\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e5c58a5f-c6b8-4388-94c1-7aacf73660e3",
+          "name": "Load SCIM Resource Types",
+          "request": {
+            "name": "Load SCIM Resource Types",
+            "description": {
+              "content": "### Load SCIM resource types, using a valid access key.\n\nThis API endpoint allows administrators to load the resource types available within the SCIM provisioning. The response includes an array of the available resource types.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "ResourceTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "71f81d1c-7daa-4aa0-9b17-f3e88b803abe",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "ResourceTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"values\": [\n    {\n      \"schemas\": [\n        \"string\",\n        \"string\"\n      ],\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"endpoint\": \"string\",\n      \"schema\": \"string\"\n    },\n    {\n      \"schemas\": [\n        \"string\",\n        \"string\"\n      ],\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"endpoint\": \"string\",\n      \"schema\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d159ed22-8e22-44d4-8b05-44dc250ecf91",
+          "name": "Load SCIM Service Provider Config",
+          "request": {
+            "name": "Load SCIM Service Provider Config",
+            "description": {
+              "content": "### Load the supported SCIM provisioning service provider configuration, using a valid access key.\n\nThis API endpoint allows administrators to load the supported SCIM provisioning service provider configuration. The response includes detailed information on the applicable configurations and schemas within your IdP for SCIM provisioning.\n\nIt is important to note the bearer token for SCIM API endpoints. The format is `ProjectId:AccessKey` the access key must be associated with the applicable tenant and associated with the tenant admin role.\n\n### See also\n\n- See [SCIM Management](/scim) for further details on managing SCIM provisioning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scim",
+                "v2",
+                "ServiceProviderConfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5eb6b740-bc6c-4202-b5a7-097b0f5fdbf3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scim",
+                    "v2",
+                    "ServiceProviderConfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"schemas\": [\n    \"string\",\n    \"string\"\n  ],\n  \"documentationUri\": \"string\",\n  \"patch\": {\n    \"supported\": false\n  },\n  \"bulk\": {\n    \"supported\": false,\n    \"maxOperations\": 2345,\n    \"maxPayloadSize\": 4826\n  },\n  \"filter\": {\n    \"supported\": false,\n    \"maxResults\": 1079\n  },\n  \"changePassword\": {\n    \"supported\": false\n  },\n  \"sort\": {\n    \"supported\": true\n  },\n  \"etag\": {\n    \"supported\": true\n  },\n  \"authenticationSchemes\": [\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"primary\": false,\n      \"specUri\": \"string\",\n      \"type\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"primary\": true,\n      \"specUri\": \"string\",\n      \"type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.descope.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9985853e-06bc-4969-94d9-0ac7f340f442",
+    "name": "Descope Apps Scim API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Descope API\n\nContact Support:\n Name: Descope\n Email: support@descope.com",
+      "type": "text/plain"
+    }
+  }
+}

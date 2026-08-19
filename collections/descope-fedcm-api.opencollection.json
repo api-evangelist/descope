@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps Fedcm API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fedcm",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get project federated CM client metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/fedcm/clientmetadata",
+            "params": [
+              {
+                "name": "client_id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get project federated CM client metadata"
+        },
+        {
+          "info": {
+            "name": "Get project federated CM configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/:projectId/fedcm/config",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get project federated CM configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

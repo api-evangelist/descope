@@ -1,0 +1,2188 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps Auth API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Auth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "SAML IDP Initiate Redirect",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/saml/idp/initiate",
+            "params": [
+              {
+                "name": "app",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "RelayState",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "LoginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "login_hint",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "SAML IDP Initiate HTTP redirect binding login flow"
+        },
+        {
+          "info": {
+            "name": "SAML IDP Initiate POST",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/saml/idp/initiate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "SAML IDP Initiate HTTP POST binding login flow"
+        },
+        {
+          "info": {
+            "name": "SAML IDP Redirect Binding",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/saml/idp/sso",
+            "params": [
+              {
+                "name": "app",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "SAMLRequest",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "SamlRequest",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "RelayState",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "LoginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "flow_token",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "login_hint",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "SAML IDP http redirect binding login flow"
+        },
+        {
+          "info": {
+            "name": "SAML IDP POST Binding",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/saml/idp/sso",
+            "params": [
+              {
+                "name": "app",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "SAML IDP HTTP POST binding login flow"
+        },
+        {
+          "info": {
+            "name": "SAML IDP Finish",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/saml/idp/sso-finish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "SAML IDP finish endpoint"
+        },
+        {
+          "info": {
+            "name": "WS-Fed IDP Initiate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/wsfed/idp/initiate",
+            "params": [
+              {
+                "name": "app",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "login_hint",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "WS-Fed IDP-initiated sign-in (GET)"
+        },
+        {
+          "info": {
+            "name": "WS-Fed IDP Initiate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/wsfed/idp/initiate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "WS-Fed IDP-initiated sign-in (POST)"
+        },
+        {
+          "info": {
+            "name": "WS-Fed IDP Passive",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/wsfed/idp/sso",
+            "params": [
+              {
+                "name": "app",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "wa",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "wtrealm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "wreply",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "wctx",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "whr",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "login_hint",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "WS-Fed IDP passive sign-in endpoint (GET)"
+        },
+        {
+          "info": {
+            "name": "WS-Fed IDP Passive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/wsfed/idp/sso",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "WS-Fed IDP passive sign-in endpoint (POST)"
+        },
+        {
+          "info": {
+            "name": "WS-Fed IDP Finish",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/wsfed/idp/sso-finish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "WS-Fed IDP finish endpoint after authentication"
+        },
+        {
+          "info": {
+            "name": "Exchange Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/accesskey/exchange",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Exchange API key for access token\n\nThis API Endpoint will take an API key for the project and provide an access token to be used for accessing the application.\nThe session token JWT token will be valid for the configured [Session Token Timeout](/project-settings#session-token-timeout), and its expiration time will be provided in the `expiration` field of the response object."
+        },
+        {
+          "info": {
+            "name": "Refresh Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Refresh the session token, using a valid fresh token\n\nThis API endpoint will provide a new valid session token for an existing signed-in user, by validating the provided refresh token.\nThe refresh token is provided as part of the HTTP Authorization Bearer."
+        },
+        {
+          "info": {
+            "name": "Try Refresh Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/try-refresh",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Refresh the current session if it is valid, will not fail if the refresh token is missing or invalid"
+        },
+        {
+          "info": {
+            "name": "My Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/me",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Get current signed-in user details\n\nThis API Endpoint will return the current user's details. This endpoint requires the user to be signed in and have a valid `refreshJwt`. The `refreshJwt` is then used as part of the Authorization Bearer to perform this task."
+        },
+        {
+          "info": {
+            "name": "Get Session History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/me/history",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Get user's session history\n\nThis API Endpoint will return the current user's session history including geo-location and IP address. This endpoint requires the user to be signed in and have a valid `refreshJwt`. The `refreshJwt` is then used as part of the Authorization Bearer to perform this task."
+        },
+        {
+          "info": {
+            "name": "Select an active tenant",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/tenant/select",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Set the active tenant for the user's current session\n\nThis endpoint allows you to get a new session token and refresh token with the `dct` claim on the JWT which shows the active selected tenant for the user.\n\nSee [Tenant Selection Article](/knowledgebase/descopeflows/tenantselectcomponent/) for more details of the usage."
+        },
+        {
+          "info": {
+            "name": "Logout",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/idp/sso/logout",
+            "params": [
+              {
+                "name": "app",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "IDP SSO Logout from the session and delete the session and refresh cookies"
+        },
+        {
+          "info": {
+            "name": "Logout",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/idp/sso/logout",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "IDP SSO Logout from the session and delete the session and refresh cookies"
+        },
+        {
+          "info": {
+            "name": "Sign-Out",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/logout",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Log the user out from the provided session\nThis API endpoint will sign the user out of the provided session using the `refreshToken`.\nSuccessfully executing this endpoint will invalidate the provided refresh tokens.\nResponse will also include all user tokens and fields empty, so the executing client will remove cookies as well."
+        },
+        {
+          "info": {
+            "name": "Sign-Out All Active Sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/logoutall",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Log the user out from all signed-in sessions\n\nThis API endpoint will sign the user out of all the devices they are currently signed-in with.\nSuccessfully executing this endpoint will invalidate all user's refresh tokens. Response will include all user tokens and fields empty, so client will remove cookies as well."
+        },
+        {
+          "info": {
+            "name": "Validate Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Validate and parse a user's session JWT.\n\nThis endpoint is used to validate a users session using the Project ID and the user's session JWT. Upon successful validate of the user, you will receive the parsed JWT.\n\nWhen posting to this endpoint from an application, you get the JWT from local or cookie storage, and prepend it with project ID and use that as the bearer."
+        },
+        {
+          "info": {
+            "name": "Update User NOTP",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/notp/:provider/update",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update user phone using NOTP"
+        },
+        {
+          "info": {
+            "name": "Sign-Up / Sign-In",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/oauth/authorize",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirectUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "test",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rawResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "initiatedEmail",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Authorize end user to sign-up or sign-in using social login credentials\n\nInitiate a social login (OAuth) sign-up or sign-in process for an end user. Descope will coordinate the authorization process with the OAUth provider specified in the `provider` field. Specify the URL you want to redirect the end user to after a successful sign-in in the `redirectURL` parameter.\n\nWhen the OAuth authorization completes successfully, the endpoint returns a URL `url` that has a unique code `<unique-code\\>`"
+        },
+        {
+          "info": {
+            "name": "Create Redirect URI for Sign-In Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/oauth/authorize/signin",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirectUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "test",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rawResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "initiatedEmail",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Create an OAuth Redirect URI for user Sign-In Request\n\nThis endpoint allows you to create an OAuth Redirect URI for user Sign-Up Request.\n\n### See Also\n- See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number."
+        },
+        {
+          "info": {
+            "name": "Create Redirect URI for Sign-Up Request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/oauth/authorize/signup",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirectUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "test",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "rawResponse",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "initiatedEmail",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Create an OAuth Redirect URI for user Sign-In Request\n\nThis endpoint allows you to create an OAuth Redirect URI for user Sign-In Request.\n\n### See Also\n- See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number."
+        },
+        {
+          "info": {
+            "name": "Creating OAuth redirect URI for update user request",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/oauth/authorize/update",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirectUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "allowAllMerge",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "initiatedEmail",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creating OAuth redirect URI for update user request"
+        },
+        {
+          "info": {
+            "name": "Starts a full OAuth flow using native APIs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/oauth/native/start",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Starts a full OAuth flow using native APIs"
+        },
+        {
+          "info": {
+            "name": "Exchange Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/oauth/exchange",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Exchange OAuth code for Descope user session\n\nThis endpoint will exchange the OAuth code for the Descope session information needed for managing the end user session. Call this endpoint from your code flow that responds to the `url` that was returned by the [Sign-In](/api/oauth/sign-up-sign-in) endpoint.\n\nThe unique code `<unique-code\\>` is appended as a URL parameter: `code=<unique-code\\>`, for example, `url = https://oauth.mycompany.com/shopping.htm?code=<unique-code\\>`.\n\n### Next Steps\n\n1"
+        },
+        {
+          "info": {
+            "name": "Finishes a full OAuth flow using native APIs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/oauth/native/finish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Finishes a full OAuth flow using native APIs"
+        },
+        {
+          "info": {
+            "name": "Exchanges one tap id token for a JWT",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/onetap/idtoken/exchange",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Exchanges one tap id token for a JWT"
+        },
+        {
+          "info": {
+            "name": "Verifies one tap id token for a code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/onetap/idtoken/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Verifies one tap id token for a code"
+        },
+        {
+          "info": {
+            "name": "Get Google One Tap Client ID Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/onetap/clientid/:provider",
+            "params": [
+              {
+                "name": "provider",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get the client ID configuration for Google One Tap integration"
+        },
+        {
+          "info": {
+            "name": "Sign-Up User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/password/signup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Sign-Up a new user utilizing password authentication. This endpoint will return the user's JWT.\n\n### Next Steps\nVerify the user's email to allow for password reset by updating the email via [OTP](/api/otp/email/update-email), [Enchanted Link](/api/enchanted-link/update-email), or [Magic Link](/api/magic-link/email/update-email)\n\nAdd tenants to the user via [Update User Add Tenant](/api/management/users/update-user-add-tenant)\n\nAdd roles to the user via [Update User Add Role](/api/management/"
+        },
+        {
+          "info": {
+            "name": "Sign-In User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/password/signin",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Sign-In an existing user utilizing password authentication. This endpoint will return the user's JWT.\n\n### Next Steps\nVerify the user's email to allow for password reset by updating the email via [OTP](/api/otp/email/update-email), [Enchanted Link](/api/enchanted-link/update-email), or [Magic Link](/api/magic-link/email/update-email)\n\nAdd tenants to the user via [Update User Add Tenant](/api/management/users/update-user-add-tenant)\n\nAdd roles to the user via [Update User Add Role](/api/manag"
+        },
+        {
+          "info": {
+            "name": "Replace Password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/password/replace",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Replace the user's password of an existing user utilizing the password API.\n\n### Next Steps\nSign the user in with their new password via [Sign-In](/api/passwords/sign-in)\n\n### See Also\n- See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.\n- You can also utilize [Update Password](/api/passwords/update-password) or [Reset Password](/api/passwords/email/password-reset) as altern"
+        },
+        {
+          "info": {
+            "name": "Update Password",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/password/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Update the user's password of an existing user utilizing the password API.\n\n### Next Steps\nSign the user in with their new password via [Sign-In](/api/passwords/sign-in)\n\n### See Also\n- See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.\n- You can also utilize [Replace Password](/api/passwords/replace-password) or [Reset Password](/api/passwords/email/password-reset) as alter"
+        },
+        {
+          "info": {
+            "name": "Get Password Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/password/policy",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Get the configured password policy for the project.\n\n### See Also\n- See [Password Policy Customization](/auth-methods/passwords#password-policy) for further details on password policy configuration."
+        },
+        {
+          "info": {
+            "name": "Generate recovery codes for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/recovery-codes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Generate recovery codes for a user"
+        },
+        {
+          "info": {
+            "name": "Sign in a user using a recovery code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/recovery-codes/signin",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Sign in a user using a recovery code"
+        },
+        {
+          "info": {
+            "name": "Creating SAML redirect URI",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/saml/authorize",
+            "params": [
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirectUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "test",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "forceAuthn",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "initiatedEmail",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.enabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.redirectURL",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.idpURL",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.idpMetadataURL",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.idpCert",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.entityID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.spCert",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.signRequest",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.email",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.username",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.phoneNumber",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.group",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.givenName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.middleName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.familyName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.picture",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.verifiedEmail",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.verifiedPhone",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.useMetaInfoToggle",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.allowSamlAuthOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.descopeEntityId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.tenantID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.acsUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.mergeUsers",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.signRequestKey",
+                "value": "",
+                "type": "query",
+                "description": "skip 19, was used and removed"
+              },
+              {
+                "name": "unsavedSaml.spEncryptionKey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.signRequestCert",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.subjectNameIdFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.additional",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.providerID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configProviderId",
+                "value": "",
+                "type": "query",
+                "description": "The following are purely on project level, and meant for generiting link"
+              },
+              {
+                "name": "unsavedSaml.configTemplateId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configExpirationTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configExpirationTimeUnit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.scimProviderID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.lastSuccessTestTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.mandatoryUserAttributes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.defaultSSORoles",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configFGAMappableFeatures.types",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configAssumedRoles",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configAssumedPermissions",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4StyleId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.scimDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.ssoDomainsDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.groupMappingDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.samlDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.oidcDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.jitGuideDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.lockedTenantId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4DisableUserMappingCreate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.useTenantLevelS4Configs",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.forceDomainVerification",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configFGATenantIDResourcePrefix",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configFGATenantIDResourceSuffix",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.allowDuplicateSSODomainsInOtherTenants",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.idpCerts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.allowOverrideRoles",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.groupPriorityEnabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.blockIfEmailDomainMismatch",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.markEmailAsUnverified",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4ShowHelpContact",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4SupportEmail",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.enabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.redirectURL",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.ssoMergeUsers",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.additional",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.mandatoryUserAttributes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.lockedTenantId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.allowOverrideRoles",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.groupPriorityEnabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.blockIfEmailDomainMismatch",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.markEmailAsUnverified",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Creating SAML redirect URI"
+        },
+        {
+          "info": {
+            "name": "Finalize SAML authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/saml/exchange",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Finalize SAML authentication"
+        },
+        {
+          "info": {
+            "name": "IDP Metadata URL for external SAML services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/saml/idp/metadata",
+            "params": [
+              {
+                "name": "app",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "IDP Metadata URL for external SAML services"
+        },
+        {
+          "info": {
+            "name": "Sets up security questions for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/security-questions/setup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Sets up security questions for a user"
+        },
+        {
+          "info": {
+            "name": "Get the security questions for a user to verify",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/security-questions/verify",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Get the security questions for a user to verify"
+        },
+        {
+          "info": {
+            "name": "Verifies the security questions for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/security-questions/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Verifies the security questions for a user"
+        },
+        {
+          "info": {
+            "name": "Start SSO",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/sso/authorize",
+            "params": [
+              {
+                "name": "tenant",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "redirectUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "prompt",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "test",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "forceAuthn",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "loginHint",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "initiatedEmail",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.enabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.redirectURL",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.idpURL",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.idpMetadataURL",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.idpCert",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.entityID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.spCert",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.signRequest",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.name",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.email",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.username",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.phoneNumber",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.group",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.givenName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.middleName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.familyName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.picture",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.verifiedEmail",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.samlMappings.verifiedPhone",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.useMetaInfoToggle",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.allowSamlAuthOnly",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.descopeEntityId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.tenantID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.acsUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.mergeUsers",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.signRequestKey",
+                "value": "",
+                "type": "query",
+                "description": "skip 19, was used and removed"
+              },
+              {
+                "name": "unsavedSaml.spEncryptionKey",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.signRequestCert",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.subjectNameIdFormat",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.additional",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.providerID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configProviderId",
+                "value": "",
+                "type": "query",
+                "description": "The following are purely on project level, and meant for generiting link"
+              },
+              {
+                "name": "unsavedSaml.configTemplateId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configExpirationTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configExpirationTimeUnit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.scimProviderID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.lastSuccessTestTime",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.mandatoryUserAttributes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.defaultSSORoles",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configFGAMappableFeatures.types",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configAssumedRoles",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configAssumedPermissions",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4StyleId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.scimDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.ssoDomainsDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.groupMappingDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.samlDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.oidcDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4Features.jitGuideDisabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.lockedTenantId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4DisableUserMappingCreate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.useTenantLevelS4Configs",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.forceDomainVerification",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configFGATenantIDResourcePrefix",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.configFGATenantIDResourceSuffix",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.allowDuplicateSSODomainsInOtherTenants",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.idpCerts",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.allowOverrideRoles",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.groupPriorityEnabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.blockIfEmailDomainMismatch",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.markEmailAsUnverified",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4ShowHelpContact",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedSaml.s4SupportEmail",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.enabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.redirectURL",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.id",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.ssoMergeUsers",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.additional",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.mandatoryUserAttributes",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.lockedTenantId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.allowOverrideRoles",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.groupPriorityEnabled",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.blockIfEmailDomainMismatch",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "unsavedOauth.markEmailAsUnverified",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Authorize end user to sign-in using SAML SSO\n\nInitiate a SAML SSO (Single Sign-On, \"sign-in\" in Descope terminology) process for an end user. Descope will coordinate the sign-in process with the service provider. Specify the URL you want to redirect the end user to after a successful sign-in in the `redirectURL` parameter.\n\nWhen the SSO sign-in completes successfully, the endpoint returns a URL `url` that has a unique code `<unique-code\\>`, also called a token) appended as a URL parameter to"
+        },
+        {
+          "info": {
+            "name": "Exchange SSO Code",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/sso/exchange",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Exchange SSO SAML code for Descope user session\n\nThis endpoint will exchange the unique SAML code (also called a token) for the Descope session information needed for managing the end user session. Call this endpoint from your code flow that responds to the `url` that was returned by the [Sign-In](/api/oauth/sign-up-sign-in) endpoint.\n\nThe unique code `<unique-code\\>` is appended as a URL parameter: `code=<unique-code\\>`, for example, `url = https://sso.mycompany.com/mywork.htm?code=<unique-"
+        },
+        {
+          "info": {
+            "name": "Sign-Up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/totp/signup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Sign-up new end user via TOTP\n\nInitiate a TOTP sign-up process for a new end user. Descope will generate a TOTP key (also called a secret or seed) that will be entered into the end user's authenticator app so that TOTP codes can be successfully verified. The new end user will be registered after the full TOTP sign-up flow has successfully completed.\n\nIf the end user is already registered use the [add/update](/api/totp/add-update-key) endpoint to add TOTP funtionality to an existing end user,"
+        },
+        {
+          "info": {
+            "name": "Sign-In / Verify",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/totp/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Verify the TOTP of an end user\n\nVerify the TOTP code of an end user. This endpoint is the final API call for the following TOTP flows:\n* Sign-In - If the end user is already registered, this end-point is the only call you need to sign-in that user.\n* Sign-Up - If you are implementing a sign-up flow, this endpoint will verify the TOTP code and complete the sign-up process\n* Add/ Update - If you are implementing an Add / Update flow, this endpoint completes the process of adding/updating the T"
+        },
+        {
+          "info": {
+            "name": "Add / Update Key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/totp/update",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Add or update TOTP key for existing end user\n\nInitiate a flow to add TOTP functionality for an existing end user, or to update the TOTP key for an existing end user. Descope will generate a TOTP key (also called a secret or seed) that will be entered into the end user's authenticator app so that TOTP codes can be successfully verified. The new end user will be registered after the full Add / Update TOTP flow has successfully completed. The bearer token requires both the ProjectId and refresh"
+        },
+        {
+          "info": {
+            "name": "User Sign-Up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/webauthn/signup/start",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new user using WebAuthn"
+        },
+        {
+          "info": {
+            "name": "Finalize Sign-Up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/webauthn/signup/finish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Finalize a WebAuthn signup operation"
+        },
+        {
+          "info": {
+            "name": "User Sign-In",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/webauthn/signin/start",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Login an existing user with WebAuthn"
+        },
+        {
+          "info": {
+            "name": "Finalize Sign-In",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/webauthn/signin/finish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Finalize a WebAuthn signin operation"
+        },
+        {
+          "info": {
+            "name": "User Sign-In with Auto Sign-Up",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/webauthn/signup-in/start",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Use to login with WebAuthn, if user doesn't exist a new user will be created"
+        },
+        {
+          "info": {
+            "name": "Add WebAuthn Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/webauthn/update/start",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Add a new WebAuthn device to an existing user"
+        },
+        {
+          "info": {
+            "name": "Finalize Add WebAuthn",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/webauthn/update/finish",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Finalize adding a new WebAuthn device"
+        },
+        {
+          "info": {
+            "name": "WS-Fed IDP Metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/v1/auth/wsfed/idp/metadata",
+            "params": [
+              {
+                "name": "app",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "WS-Federation metadata endpoint for external RP services"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

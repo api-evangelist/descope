@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps Instant Message (IM) API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Instant Message (IM)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "User Sign-Up (IM)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/otp/signup/im",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Create a new user using an instant message"
+        },
+        {
+          "info": {
+            "name": "User Sign-In (IM)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/otp/signin/im",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Login a user based using an instant message (IM) to the given phone number"
+        },
+        {
+          "info": {
+            "name": "User Sign-In with Auto Sign-Up (IM)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/otp/signup-in/im",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Login a user based using an instant message to the given phone number. If the user does not exist, a new user will be created with the given phone number"
+        },
+        {
+          "info": {
+            "name": "Verify Code (IM)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/otp/verify/im",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Verify a Sign in / Sign up based on an instant message"
+        },
+        {
+          "info": {
+            "name": "Update Phone (IM)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/otp/update/phone/im",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update phone, and verify via OTP based on an instant message"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,43 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps Verification API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Verification",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verify Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.descope.com/v1/auth/magiclink/verify",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "### Verify the magic link token from the end user\n\nVerify that the magic link token in the URL clicked by the end user matches and has not expired. This endpoint completes the magic link flow for:\n* sign up\n    * [Sign-Up via email](/api/magic-link/email/sign-up)\n    * [Sign-Up via SMS](/api/magic-link/sms/sign-up)\n* sign-in\n    * [Sign-In via email](/api/magic-link/email/sign-in)\n    * [Sign-In via SMS](/api/magic-link/sms/sign-in)\n* sign-in with auto sign-up\n    * [Sign-In with Auto Sign-up vi"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

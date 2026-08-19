@@ -1,0 +1,156 @@
+{
+  "item": [
+    {
+      "id": "43162987-37f9-4d93-b83d-dcb5c01a42e1",
+      "name": "Embedded Link",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "354f7de0-9db9-4687-93da-529712751e83",
+          "name": "Generate Embedded Link",
+          "request": {
+            "name": "Generate Embedded Link",
+            "description": {
+              "content": "### Generate an embedded link for an existing user\n\nInitiate a sign-in process by generating an embdedded link for an existing user utilizing a management key.\n\nThe endpoint will return a token which can then be verified using the Magic Link [Verify Token](/api/magic-link/verification/verify-token) endpoint.\n\n### Next Steps\nVerify the embedded link token using the [Verify Token](/api/magic-link/verification/verify-token) endpoint.\n\n### See Also\n- See [Embedded link Authentication](/customize/auth/embeddedlink/) for details about implementing embedded links.\n- See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "mgmt",
+                "user",
+                "signin",
+                "embeddedlink"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"loginId\": \"<string>\",\n  \"customClaims\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"timeout\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fd93c3ca-d954-415c-bf29-a1ddb3ad268d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "mgmt",
+                    "user",
+                    "signin",
+                    "embeddedlink"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"loginId\": \"<string>\",\n  \"customClaims\": {\n    \"claim-name\": \"claim-value\"\n  },\n  \"timeout\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\",\n  \"maskedEmail\": \"string\",\n  \"maskedPhone\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.descope.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "63d4d6be-72ca-42f5-bd5f-f7679828fa47",
+    "name": "Descope Apps Embedded Link API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Descope API\n\nContact Support:\n Name: Descope\n Email: support@descope.com",
+      "type": "text/plain"
+    }
+  }
+}

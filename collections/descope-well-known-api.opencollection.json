@@ -1,0 +1,297 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Descope Apps .well Known API",
+    "version": "0.0.1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": ".well Known",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get project well-known configuration for oauth ending with projectID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/.well-known/oauth-authorization-server/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mfa",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isThirdPartyApps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "usePreLoadedClaims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "claims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "urlsWithProjectID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mcpServerId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get project well-known configuration for oauth ending with projectID"
+        },
+        {
+          "info": {
+            "name": "Get Public Key to Validate JWT",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/:projectId/.well-known/jwks.json",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "certs",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get project public keys for JWT validation"
+        },
+        {
+          "info": {
+            "name": "Get project well-known configuration for oauth",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/:projectId/.well-known/oauth-authorization-server",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mfa",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isThirdPartyApps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "usePreLoadedClaims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "claims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "urlsWithProjectID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mcpServerId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get project well-known configuration for oauth"
+        },
+        {
+          "info": {
+            "name": "Get project well-known configuration for OpenID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/:projectId/.well-known/openid-configuration",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mfa",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isThirdPartyApps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "usePreLoadedClaims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "claims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "urlsWithProjectID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mcpServerId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get project well-known configuration for OpenID"
+        },
+        {
+          "info": {
+            "name": "Get project well-known configuration for OpenID (sso app)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/:projectId/:ssoAppId/.well-known/openid-configuration",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ssoAppId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "baseUrl",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mfa",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "isThirdPartyApps",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "usePreLoadedClaims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "claims",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "urlsWithProjectID",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "mcpServerId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get project well-known configuration for OpenID (sso app)"
+        },
+        {
+          "info": {
+            "name": "Get general well-known project configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.descope.com/.well-known/project-configuration/:projectId",
+            "params": [
+              {
+                "name": "projectId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get general well-known project configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

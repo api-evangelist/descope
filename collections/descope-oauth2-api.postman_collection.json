@@ -1,0 +1,5563 @@
+{
+  "item": [
+    {
+      "id": "021d03f2-64ba-48f0-b748-5c09f7e120b5",
+      "name": "Oauth2",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1db1724b-e69f-40cb-b2e9-f1ce7ba5eb94",
+          "name": "Third Party Application Authorize Get By Mcp Server ID",
+          "request": {
+            "name": "Third Party Application Authorize Get By Mcp Server ID",
+            "description": {
+              "content": "Third Party application authorization GET endpoint by MCP server ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "agentic",
+                ":project_id",
+                ":mcp_server_id",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "<string>",
+                  "description": "RFC 9101 §6.3: when a JAR `request` parameter is present, response_type and\n redirect_uri may be omitted from the outer query and carried inside the JWT.\n The controller validates the resolved values after JAR processing."
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge_method",
+                  "value": "<string>",
+                  "description": "PKCE"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nonce",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "loginHint",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "prompt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flow",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flow_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>",
+                  "description": "RFC 8707 - OAuth 2.0 Resource Indicators"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>",
+                  "description": "RFC 8707 - OAuth 2.0 Resource Indicators"
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "style",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dpop_jkt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "request",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mcp_server_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fd9abfd3-8d04-48fd-84c0-6a29516a93db",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "agentic",
+                    ":project_id",
+                    ":mcp_server_id",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "response_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge_method",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nonce",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "loginHint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flow",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flow_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenant",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "style",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dpop_jkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mcp_server_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d74c82da-72bd-4374-aa60-dc684e75a1a6",
+          "name": "Third Party Application Authorize POST By Mcp Server ID",
+          "request": {
+            "name": "Third Party Application Authorize POST By Mcp Server ID",
+            "description": {
+              "content": "Third Party application authorization POST endpoint by MCP server ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "agentic",
+                ":project_id",
+                ":mcp_server_id",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mcp_server_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"code_challenge_method\": \"<string>\",\n  \"code_challenge\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"loginHint\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"flow_token\": \"<string>\",\n  \"resource\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"project_id\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"style\": \"<string>\",\n  \"dpop_jkt\": \"<string>\",\n  \"request\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8ef6ae17-f453-467b-acce-5e314b7ae14f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "agentic",
+                    ":project_id",
+                    ":mcp_server_id",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mcp_server_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"code_challenge_method\": \"<string>\",\n  \"code_challenge\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"loginHint\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"flow_token\": \"<string>\",\n  \"resource\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"project_id\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"style\": \"<string>\",\n  \"dpop_jkt\": \"<string>\",\n  \"request\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "043849a1-a1b1-4294-b32d-375fb361756a",
+          "name": "Third Party Application Token Endpoint By Mcp Server ID",
+          "request": {
+            "name": "Third Party Application Token Endpoint By Mcp Server ID",
+            "description": {
+              "content": "Third Party application token endpoint by MCP server ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "agentic",
+                ":project_id",
+                ":mcp_server_id",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "mcp_server_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"grant_type\": \"<string>\",\n  \"code\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"code_verifier\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"resource\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"assertion\": \"<string>\",\n  \"client_assertion_type\": \"<string>\",\n  \"client_assertion\": \"<string>\",\n  \"device_code\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"subject_token\": \"<string>\",\n  \"subject_token_type\": \"<string>\",\n  \"auth_req_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "18e8be27-2189-4921-a534-aaa4f5b47d02",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "agentic",
+                    ":project_id",
+                    ":mcp_server_id",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "mcp_server_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"grant_type\": \"<string>\",\n  \"code\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"code_verifier\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"resource\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"assertion\": \"<string>\",\n  \"client_assertion_type\": \"<string>\",\n  \"client_assertion\": \"<string>\",\n  \"device_code\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"subject_token\": \"<string>\",\n  \"subject_token_type\": \"<string>\",\n  \"auth_req_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"string\",\n  \"refresh_token\": \"string\",\n  \"id_token\": \"string\",\n  \"expires_in\": 3608,\n  \"scope\": \"string\",\n  \"error\": \"string\",\n  \"description\": \"string\",\n  \"issued_token_type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c08ea807-8e94-49b4-9604-ca7634b501b9",
+          "name": "Get Authorization Endpoint",
+          "request": {
+            "name": "Get Authorization Endpoint",
+            "description": {
+              "content": "Third Party application authorization GET endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "<string>",
+                  "description": "RFC 9101 §6.3: when a JAR `request` parameter is present, response_type and\n redirect_uri may be omitted from the outer query and carried inside the JWT.\n The controller validates the resolved values after JAR processing."
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge_method",
+                  "value": "<string>",
+                  "description": "PKCE"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nonce",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "loginHint",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "prompt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flow",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flow_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>",
+                  "description": "RFC 8707 - OAuth 2.0 Resource Indicators"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>",
+                  "description": "RFC 8707 - OAuth 2.0 Resource Indicators"
+                },
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mcp_server_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "style",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dpop_jkt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "request",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b96fb02-1cbc-4ca0-a169-152066316c66",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "response_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge_method",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nonce",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "loginHint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flow",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flow_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenant",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mcp_server_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "style",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dpop_jkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ef5b13ca-2cb1-4add-9238-d4bbdfc862f2",
+          "name": "Post Authorization Endpoint",
+          "request": {
+            "name": "Post Authorization Endpoint",
+            "description": {
+              "content": "Third Party application authorization POST endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"code_challenge_method\": \"<string>\",\n  \"code_challenge\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"loginHint\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"flow_token\": \"<string>\",\n  \"resource\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"project_id\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"style\": \"<string>\",\n  \"dpop_jkt\": \"<string>\",\n  \"request\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b0cce082-3ced-49a5-86b1-1cea03153fce",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"code_challenge_method\": \"<string>\",\n  \"code_challenge\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"loginHint\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"flow_token\": \"<string>\",\n  \"resource\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"project_id\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"style\": \"<string>\",\n  \"dpop_jkt\": \"<string>\",\n  \"request\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7598931-1b76-41c3-be66-7ae986dcefa9",
+          "name": "Third Party Application CIBA Endpoint",
+          "request": {
+            "name": "Third Party Application CIBA Endpoint",
+            "description": {
+              "content": "Third Party application CIBA backchannel authentication endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "bc-authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"login_hint\": \"<string>\",\n  \"binding_message\": \"<string>\",\n  \"requested_expiry\": \"<uint32>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1fe3efe3-f3a6-4f0b-9958-fc666dd3648b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "bc-authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"login_hint\": \"<string>\",\n  \"binding_message\": \"<string>\",\n  \"requested_expiry\": \"<uint32>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"auth_req_id\": \"string\",\n  \"expires_in\": 1841,\n  \"interval\": 2671\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "86dd361c-43f1-4c6d-a47c-a30e6ad882ea",
+          "name": "Third Party Application Device Endpoint",
+          "request": {
+            "name": "Third Party Application Device Endpoint",
+            "description": {
+              "content": "Third Party application device endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ssoAppId\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "88a20875-383c-44be-9e3d-cb09c8b8b186",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssoAppId\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"device_code\": \"string\",\n  \"user_code\": \"string\",\n  \"verification_uri\": \"string\",\n  \"verification_uri_complete\": \"string\",\n  \"expires_in\": 8579,\n  \"interval\": 2993\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3bd4ece5-57c2-4fbe-873a-cbd01b33ab27",
+          "name": "Finish Authorization Endpoint",
+          "request": {
+            "name": "Finish Authorization Endpoint",
+            "description": {
+              "content": "Third Party application authorization finish endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "finish-authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"state_id\": \"<string>\",\n  \"app_id\": \"<string>\",\n  \"error_redirect_uri\": \"<string>\",\n  \"consent_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "088b4dae-adca-43d7-9f8c-3d8f4609bc05",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "finish-authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state_id\": \"<string>\",\n  \"app_id\": \"<string>\",\n  \"error_redirect_uri\": \"<string>\",\n  \"consent_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1f980601-62e4-4717-96d4-675c6f41989d",
+          "name": "OIDC revoke endpoint",
+          "request": {
+            "name": "OIDC revoke endpoint",
+            "description": {
+              "content": "OIDC revoke endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "revoke"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\",\n  \"token_type_hint\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"project_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c8fc55f6-af1f-4185-965a-9073a89ff53f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"token_type_hint\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"project_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d1f6ed45-f29d-42eb-b7f6-dd60ceef3093",
+          "name": "Third Party application token endpoint",
+          "request": {
+            "name": "Third Party application token endpoint",
+            "description": {
+              "content": "Third Party application token endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"grant_type\": \"<string>\",\n  \"code\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"code_verifier\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"resource\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"assertion\": \"<string>\",\n  \"client_assertion_type\": \"<string>\",\n  \"client_assertion\": \"<string>\",\n  \"device_code\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"subject_token\": \"<string>\",\n  \"subject_token_type\": \"<string>\",\n  \"auth_req_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dcf1fca9-fbd3-40d6-91d8-f0524233be37",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"grant_type\": \"<string>\",\n  \"code\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"code_verifier\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"resource\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"assertion\": \"<string>\",\n  \"client_assertion_type\": \"<string>\",\n  \"client_assertion\": \"<string>\",\n  \"device_code\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"subject_token\": \"<string>\",\n  \"subject_token_type\": \"<string>\",\n  \"auth_req_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"string\",\n  \"refresh_token\": \"string\",\n  \"id_token\": \"string\",\n  \"expires_in\": 3608,\n  \"scope\": \"string\",\n  \"error\": \"string\",\n  \"description\": \"string\",\n  \"issued_token_type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d0ecb74-8ad9-4bc2-bc2d-3a102a1bee1c",
+          "name": "Third Party application Get UserInfo endpoint",
+          "request": {
+            "name": "Third Party application Get UserInfo endpoint",
+            "description": {
+              "content": "Third Party application Get UserInfo endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "userinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "project_id",
+                  "value": "<string>",
+                  "description": "Can be empty as data arrived on the Authorization header token"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d64b9b78-8aec-4062-9d8c-4192658ee8e4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "userinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "project_id",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userInfoClaims\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42ca0410-43d2-4913-8698-215f9e683a92",
+          "name": "Third Party application Post UserInfo endpoint",
+          "request": {
+            "name": "Third Party application Post UserInfo endpoint",
+            "description": {
+              "content": "Third Party application Post UserInfo endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                "userinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "067e27b8-27fa-494a-aead-c51a9b99c810",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    "userinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userInfoClaims\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bcb0d8f5-46f7-47d0-be2d-713a87795e62",
+          "name": "Third Party Application Authorize Get By Project ID",
+          "request": {
+            "name": "Third Party Application Authorize Get By Project ID",
+            "description": {
+              "content": "Third Party application authorization GET endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                ":project_id",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "<string>",
+                  "description": "RFC 9101 §6.3: when a JAR `request` parameter is present, response_type and\n redirect_uri may be omitted from the outer query and carried inside the JWT.\n The controller validates the resolved values after JAR processing."
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge_method",
+                  "value": "<string>",
+                  "description": "PKCE"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nonce",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "loginHint",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "prompt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flow",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flow_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>",
+                  "description": "RFC 8707 - OAuth 2.0 Resource Indicators"
+                },
+                {
+                  "disabled": false,
+                  "key": "resource",
+                  "value": "<string>",
+                  "description": "RFC 8707 - OAuth 2.0 Resource Indicators"
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "mcp_server_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "style",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dpop_jkt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "request",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "980030dc-17d1-498f-bca0-fbea33329b8d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    ":project_id",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "response_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge_method",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nonce",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "loginHint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flow",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flow_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resource",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenant",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "mcp_server_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "style",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dpop_jkt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "request",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd8679f0-2cf3-4d8a-af89-2b6a93258457",
+          "name": "Third Party Application Authorize Post By Project ID",
+          "request": {
+            "name": "Third Party Application Authorize Post By Project ID",
+            "description": {
+              "content": "Third Party application authorization POST endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                ":project_id",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"code_challenge_method\": \"<string>\",\n  \"code_challenge\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"loginHint\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"flow_token\": \"<string>\",\n  \"resource\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"project_id\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"style\": \"<string>\",\n  \"dpop_jkt\": \"<string>\",\n  \"request\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ee5a450-95fd-4a4d-a902-121c86661fce",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    ":project_id",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"code_challenge_method\": \"<string>\",\n  \"code_challenge\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"loginHint\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"flow_token\": \"<string>\",\n  \"resource\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"project_id\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"style\": \"<string>\",\n  \"dpop_jkt\": \"<string>\",\n  \"request\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ca284d72-9de4-43e9-b5b6-67b833a3f74b",
+          "name": "Third Party Application CIBA Endpoint",
+          "request": {
+            "name": "Third Party Application CIBA Endpoint",
+            "description": {
+              "content": "Third Party application CIBA backchannel authentication endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                ":project_id",
+                "bc-authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"login_hint\": \"<string>\",\n  \"binding_message\": \"<string>\",\n  \"requested_expiry\": \"<uint32>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "69796e7f-f1c8-40b3-a20f-9b9dc2fed26e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    ":project_id",
+                    "bc-authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"login_hint\": \"<string>\",\n  \"binding_message\": \"<string>\",\n  \"requested_expiry\": \"<uint32>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"auth_req_id\": \"string\",\n  \"expires_in\": 1841,\n  \"interval\": 2671\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d8da3eb7-bb01-490b-bbc4-4791bc3b8bda",
+          "name": "Third Party Application Device Endpoint",
+          "request": {
+            "name": "Third Party Application Device Endpoint",
+            "description": {
+              "content": "Third Party application device endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                ":project_id",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ssoAppId\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4ffd67b5-18c7-425b-b466-511c858351bc",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    ":project_id",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssoAppId\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"device_code\": \"string\",\n  \"user_code\": \"string\",\n  \"verification_uri\": \"string\",\n  \"verification_uri_complete\": \"string\",\n  \"expires_in\": 8579,\n  \"interval\": 2993\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "97c72076-6705-4a20-8075-3f39c3d41db5",
+          "name": "Third Party Application Revocation Endpoint By Project ID",
+          "request": {
+            "name": "Third Party Application Revocation Endpoint By Project ID",
+            "description": {
+              "content": "Third Party application revoke endpoint by project ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                ":project_id",
+                "revoke"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\",\n  \"token_type_hint\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"project_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8735dabe-04d2-4eeb-b113-6c71df0fb6d6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    ":project_id",
+                    "revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"token_type_hint\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"project_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1bf5bc3-0624-4af2-86be-bef157ec861e",
+          "name": "Third Party Application Token Endpoint By Project ID",
+          "request": {
+            "name": "Third Party Application Token Endpoint By Project ID",
+            "description": {
+              "content": "Third Party application token endpoint by project ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                ":project_id",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"grant_type\": \"<string>\",\n  \"code\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"code_verifier\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"resource\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"assertion\": \"<string>\",\n  \"client_assertion_type\": \"<string>\",\n  \"client_assertion\": \"<string>\",\n  \"device_code\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"subject_token\": \"<string>\",\n  \"subject_token_type\": \"<string>\",\n  \"auth_req_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c426384d-08df-4461-b93a-8677ba2a431e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    ":project_id",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"grant_type\": \"<string>\",\n  \"code\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"code_verifier\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"resource\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"assertion\": \"<string>\",\n  \"client_assertion_type\": \"<string>\",\n  \"client_assertion\": \"<string>\",\n  \"device_code\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"mcp_server_id\": \"<string>\",\n  \"subject_token\": \"<string>\",\n  \"subject_token_type\": \"<string>\",\n  \"auth_req_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"string\",\n  \"refresh_token\": \"string\",\n  \"id_token\": \"string\",\n  \"expires_in\": 3608,\n  \"scope\": \"string\",\n  \"error\": \"string\",\n  \"description\": \"string\",\n  \"issued_token_type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4dfb731-6692-4641-93f8-7f53bd21eb6c",
+          "name": "Third Party Application User Info Endpoint Get By Project ID",
+          "request": {
+            "name": "Third Party Application User Info Endpoint Get By Project ID",
+            "description": {
+              "content": "Third Party application Get UserInfo endpoint by project ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                ":project_id",
+                "userinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) Can be empty as data arrived on the Authorization header token"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "263d33ab-4255-4f5d-90ee-63530efcb9ff",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    ":project_id",
+                    "userinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) Can be empty as data arrived on the Authorization header token"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userInfoClaims\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79f426bd-566c-47f1-949d-785d882f283e",
+          "name": "Third Party Application User Info Endpoint Post By Project ID",
+          "request": {
+            "name": "Third Party Application User Info Endpoint Post By Project ID",
+            "description": {
+              "content": "Third Party application POST UserInfo endpoint by project ID",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "apps",
+                ":project_id",
+                "userinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "project_id",
+                  "description": "(Required) Can be empty as data arrived on the Authorization header token"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b7f2bdc-833c-4636-b094-699b0d22699e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "apps",
+                    ":project_id",
+                    "userinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "project_id",
+                      "description": "(Required) Can be empty as data arrived on the Authorization header token"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userInfoClaims\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "173392bc-ddee-4c66-bd1a-cc9d1d47e0d0",
+          "name": "OIDC Authorize",
+          "request": {
+            "name": "OIDC Authorize",
+            "description": {
+              "content": "OIDC GET authorization endpoint start",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge_method",
+                  "value": "<string>",
+                  "description": "PKCE"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dynamic_val",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nonce",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ssoAppId",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "loginHint",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "prompt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flow",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flow_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "style",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dpop_jkt",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3bc2a137-e519-42ba-b8cc-23716f191ba5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "response_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge_method",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dynamic_val",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nonce",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ssoAppId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "loginHint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flow",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flow_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenant",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "style",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dpop_jkt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb9e6f23-c950-4f1b-afa4-c2925266bbf2",
+          "name": "OIDC Authorize",
+          "request": {
+            "name": "OIDC Authorize",
+            "description": {
+              "content": "OIDC POST authorization endpoint start",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"code_challenge_method\": \"<string>\",\n  \"code_challenge\": \"<string>\",\n  \"dynamic_val\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"loginHint\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"flow_token\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"style\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c94d8890-c166-4fe5-ada6-8319e49c8186",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"code_challenge_method\": \"<string>\",\n  \"code_challenge\": \"<string>\",\n  \"dynamic_val\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"loginHint\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"flow_token\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"style\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb96a040-dad5-49f6-9b90-ed672b648450",
+          "name": "OIDC Authorize Entra MFA",
+          "request": {
+            "name": "OIDC Authorize Entra MFA",
+            "description": {
+              "content": "OIDC Entra MFA authorization endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "authorize",
+                "entramfa"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"id_token_hint\": \"<string>\",\n  \"claims\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"style\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e4898260-8dac-4291-a7e8-0ca1ceffdf39",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "authorize",
+                    "entramfa"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"id_token_hint\": \"<string>\",\n  \"claims\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"style\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b969adc-7e0a-4c6f-946b-d1824c8e0c9c",
+          "name": "OIDC Device",
+          "request": {
+            "name": "OIDC Device",
+            "description": {
+              "content": "OIDC device endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ssoAppId\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "34304910-7329-4e3a-9aa3-02daf450f82a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssoAppId\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"device_code\": \"string\",\n  \"user_code\": \"string\",\n  \"verification_uri\": \"string\",\n  \"verification_uri_complete\": \"string\",\n  \"expires_in\": 8579,\n  \"interval\": 2993\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4d5050f9-aacd-49bc-8fc9-1ce29af38584",
+          "name": "OIDC Finish Authorize",
+          "request": {
+            "name": "OIDC Finish Authorize",
+            "description": {
+              "content": "OIDC POST authorization endpoint finish",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "finish-authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "state_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sso_app_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "error_redirect_uri",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be1be5a8-1945-4505-86ef-f381c915715d",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "finish-authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "state_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sso_app_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "error_redirect_uri",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ade56755-a057-434c-be15-bcbb8ae6a0a9",
+          "name": "OIDC Finish Authorize",
+          "request": {
+            "name": "OIDC Finish Authorize",
+            "description": {
+              "content": "OIDC GET authorization endpoint finish",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "finish-authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"state_id\": \"<string>\",\n  \"sso_app_id\": \"<string>\",\n  \"error_redirect_uri\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "35de51e0-d3ba-44cf-9702-0051a354e908",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "finish-authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state_id\": \"<string>\",\n  \"sso_app_id\": \"<string>\",\n  \"error_redirect_uri\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48d7586f-2357-473a-92ed-54ef65c1d76d",
+          "name": "OIDC End Session",
+          "request": {
+            "name": "OIDC End Session",
+            "description": {
+              "content": "OIDC end session GET endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id_token_hint",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "post_logout_redirect_uri",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "ssoAppId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bebf99fe-4973-49e1-a6e7-eb6c3a051e51",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id_token_hint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "post_logout_redirect_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ssoAppId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e18e6841-ecc3-4f16-97f8-ad5afa2e3cbc",
+          "name": "OIDC End Session",
+          "request": {
+            "name": "OIDC End Session",
+            "description": {
+              "content": "OIDC end session POST endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_token_hint\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"post_logout_redirect_uri\": \"<string>\",\n  \"state\": \"<string>\",\n  \"ssoAppId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "42e85bff-f8d3-4c64-a8d0-85c5f8dcb8fb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id_token_hint\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"post_logout_redirect_uri\": \"<string>\",\n  \"state\": \"<string>\",\n  \"ssoAppId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2cbc8d1-c9ec-4100-9468-2740db2d409d",
+          "name": "OIDC Revoke",
+          "request": {
+            "name": "OIDC Revoke",
+            "description": {
+              "content": "OIDC revoke endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "revoke"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\",\n  \"token_type_hint\": \"<string>\",\n  \"ssoAppId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d16e983e-28b6-4912-a788-bf4591d5195a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"token_type_hint\": \"<string>\",\n  \"ssoAppId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3995511f-26f2-4b9b-acd4-6a05b3a13222",
+          "name": "OIDC Token",
+          "request": {
+            "name": "OIDC Token",
+            "description": {
+              "content": "OIDC token endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"grant_type\": \"<string>\",\n  \"code\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"code_verifier\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"assertion\": \"<string>\",\n  \"client_assertion_type\": \"<string>\",\n  \"client_assertion\": \"<string>\",\n  \"device_code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "099f0abf-299d-4c32-9258-3711870158c6",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"grant_type\": \"<string>\",\n  \"code\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"code_verifier\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"assertion\": \"<string>\",\n  \"client_assertion_type\": \"<string>\",\n  \"client_assertion\": \"<string>\",\n  \"device_code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"string\",\n  \"refresh_token\": \"string\",\n  \"id_token\": \"string\",\n  \"expires_in\": 3608,\n  \"scope\": \"string\",\n  \"error\": \"string\",\n  \"description\": \"string\",\n  \"issued_token_type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "022d59f9-39b8-4679-8101-fc52eca0b100",
+          "name": "OIDC UserInfo",
+          "request": {
+            "name": "OIDC UserInfo",
+            "description": {
+              "content": "OIDC Get UserInfo endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "userinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ssoAppId",
+                  "value": "<string>",
+                  "description": "Can be empty as data arrived on the Authorization header token"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4166833f-bf97-4481-98ff-f34c3a3c28af",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "userinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ssoAppId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userInfoClaims\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9cb2087a-d6c3-4e82-b9bc-b7d4eb610257",
+          "name": "OIDC UserInfo",
+          "request": {
+            "name": "OIDC UserInfo",
+            "description": {
+              "content": "OIDC POST UserInfo endpoint",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth2",
+                "v1",
+                "userinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ssoAppId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "547f0470-bbde-4ef9-bdf6-61bdb357c8aa",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth2",
+                    "v1",
+                    "userinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssoAppId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userInfoClaims\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7b478d2-d4d5-466c-b62e-fa3bb357e683",
+          "name": "OIDC Authorize",
+          "request": {
+            "name": "OIDC Authorize",
+            "description": {
+              "content": "OIDC GET authorization endpoint start (sso app)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":ssoAppId",
+                "oauth2",
+                "v1",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "response_type",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "scope",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "redirect_uri",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge_method",
+                  "value": "<string>",
+                  "description": "PKCE"
+                },
+                {
+                  "disabled": false,
+                  "key": "code_challenge",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dynamic_val",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "nonce",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "loginHint",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "prompt",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flow",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "flow_token",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "tenant",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "style",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "dpop_jkt",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssoAppId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b4320243-4f94-436d-b6b3-f839ac13e7ea",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":ssoAppId",
+                    "oauth2",
+                    "v1",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "response_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "redirect_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge_method",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "code_challenge",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dynamic_val",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nonce",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "loginHint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "prompt",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flow",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "flow_token",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "tenant",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "style",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "dpop_jkt",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssoAppId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7de4a222-62db-4976-9fd3-8ae2fa1ea2a1",
+          "name": "OIDC Authorize",
+          "request": {
+            "name": "OIDC Authorize",
+            "description": {
+              "content": "OIDC POST authorization endpoint start (sso app)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":ssoAppId",
+                "oauth2",
+                "v1",
+                "authorize"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssoAppId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"code_challenge_method\": \"<string>\",\n  \"code_challenge\": \"<string>\",\n  \"dynamic_val\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"loginHint\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"flow_token\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"style\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7122cb2e-354c-4097-b003-27057d89d780",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":ssoAppId",
+                    "oauth2",
+                    "v1",
+                    "authorize"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssoAppId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"code_challenge_method\": \"<string>\",\n  \"code_challenge\": \"<string>\",\n  \"dynamic_val\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"loginHint\": \"<string>\",\n  \"prompt\": \"<string>\",\n  \"flow\": \"<string>\",\n  \"flow_token\": \"<string>\",\n  \"tenant\": \"<string>\",\n  \"style\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b26ef62f-c6bb-48e0-996c-83beaf09945d",
+          "name": "OIDC Authorize Entra MFA",
+          "request": {
+            "name": "OIDC Authorize Entra MFA",
+            "description": {
+              "content": "OIDC Entra MFA authorization endpoint (SSO App)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":ssoAppId",
+                "oauth2",
+                "v1",
+                "authorize",
+                "entramfa"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssoAppId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"id_token_hint\": \"<string>\",\n  \"claims\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"style\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f1a9d698-573c-4a61-843c-19cd9bc78a10",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":ssoAppId",
+                    "oauth2",
+                    "v1",
+                    "authorize",
+                    "entramfa"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssoAppId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"response_type\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"state\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"nonce\": \"<string>\",\n  \"id_token_hint\": \"<string>\",\n  \"claims\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"style\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aad20640-ac66-4598-8314-b531ad26ee02",
+          "name": "OIDC Device",
+          "request": {
+            "name": "OIDC Device",
+            "description": {
+              "content": "OIDC device endpoint (sso app)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":ssoAppId",
+                "oauth2",
+                "v1",
+                "device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssoAppId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ssoAppId\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2ac8b89d-6010-4daa-b847-29234bb3ff30",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":ssoAppId",
+                    "oauth2",
+                    "v1",
+                    "device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssoAppId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssoAppId\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"project_id\": \"<string>\",\n  \"dpop_jkt\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"device_code\": \"string\",\n  \"user_code\": \"string\",\n  \"verification_uri\": \"string\",\n  \"verification_uri_complete\": \"string\",\n  \"expires_in\": 8579,\n  \"interval\": 2993\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "34e7fc7f-80b3-40af-bbe3-ae0ed6d2b793",
+          "name": "OIDC End Session",
+          "request": {
+            "name": "OIDC End Session",
+            "description": {
+              "content": "OIDC end session GET endpoint (sso app)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":ssoAppId",
+                "oauth2",
+                "v1",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id_token_hint",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "post_logout_redirect_uri",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "state",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssoAppId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46e78b73-1702-42f5-90ba-5e835b772431",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":ssoAppId",
+                    "oauth2",
+                    "v1",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id_token_hint",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "post_logout_redirect_uri",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "state",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssoAppId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f9e7460-2b88-4bc0-ad21-b6d1a0312a1a",
+          "name": "OIDC End Session",
+          "request": {
+            "name": "OIDC End Session",
+            "description": {
+              "content": "OIDC end session POST endpoint (sso app)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":ssoAppId",
+                "oauth2",
+                "v1",
+                "logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssoAppId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_token_hint\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"post_logout_redirect_uri\": \"<string>\",\n  \"state\": \"<string>\",\n  \"ssoAppId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "23a1377b-88ba-4cdc-9d9c-4d8a66ea8d70",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":ssoAppId",
+                    "oauth2",
+                    "v1",
+                    "logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssoAppId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id_token_hint\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"post_logout_redirect_uri\": \"<string>\",\n  \"state\": \"<string>\",\n  \"ssoAppId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f299fe80-7bf8-4dd6-b66c-8f5424ab8f28",
+          "name": "OIDC Revoke",
+          "request": {
+            "name": "OIDC Revoke",
+            "description": {
+              "content": "OIDC revoke endpoint (sso app)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":ssoAppId",
+                "oauth2",
+                "v1",
+                "revoke"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssoAppId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\",\n  \"token_type_hint\": \"<string>\",\n  \"ssoAppId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "45bf36ef-22ed-4321-ba6e-49987e631022",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":ssoAppId",
+                    "oauth2",
+                    "v1",
+                    "revoke"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssoAppId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\",\n  \"token_type_hint\": \"<string>\",\n  \"ssoAppId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "226c8eb0-ef98-40d4-b573-2876e6e0162f",
+          "name": "OIDC Token",
+          "request": {
+            "name": "OIDC Token",
+            "description": {
+              "content": "OIDC token endpoint (sso app)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":ssoAppId",
+                "oauth2",
+                "v1",
+                "token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssoAppId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"grant_type\": \"<string>\",\n  \"code\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"code_verifier\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"assertion\": \"<string>\",\n  \"client_assertion_type\": \"<string>\",\n  \"client_assertion\": \"<string>\",\n  \"device_code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b30dea3b-58e2-4793-973f-8a11b99def75",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":ssoAppId",
+                    "oauth2",
+                    "v1",
+                    "token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssoAppId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"grant_type\": \"<string>\",\n  \"code\": \"<string>\",\n  \"redirect_uri\": \"<string>\",\n  \"client_id\": \"<string>\",\n  \"client_secret\": \"<string>\",\n  \"code_verifier\": \"<string>\",\n  \"refresh_token\": \"<string>\",\n  \"scope\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"audience\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"assertion\": \"<string>\",\n  \"client_assertion_type\": \"<string>\",\n  \"client_assertion\": \"<string>\",\n  \"device_code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"string\",\n  \"refresh_token\": \"string\",\n  \"id_token\": \"string\",\n  \"expires_in\": 3608,\n  \"scope\": \"string\",\n  \"error\": \"string\",\n  \"description\": \"string\",\n  \"issued_token_type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd527325-02e5-4700-8b07-36ede4da5d1a",
+          "name": "OIDC UserInfo",
+          "request": {
+            "name": "OIDC UserInfo",
+            "description": {
+              "content": "OIDC Get UserInfo endpoint (sso app)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":ssoAppId",
+                "oauth2",
+                "v1",
+                "userinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssoAppId",
+                  "description": "(Required) Can be empty as data arrived on the Authorization header token"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "595588ec-830d-4f98-a897-0f7a549db2e1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":ssoAppId",
+                    "oauth2",
+                    "v1",
+                    "userinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssoAppId",
+                      "description": "(Required) Can be empty as data arrived on the Authorization header token"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userInfoClaims\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ada51b61-4044-4962-97e7-2dabb7a60df4",
+          "name": "OIDC UserInfo",
+          "request": {
+            "name": "OIDC UserInfo",
+            "description": {
+              "content": "OIDC POST UserInfo endpoint (sso app)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":ssoAppId",
+                "oauth2",
+                "v1",
+                "userinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ssoAppId",
+                  "description": "(Required) Can be empty as data arrived on the Authorization header token"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ssoAppId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bcf7b28f-934b-4c24-9ac4-897c6bb79be4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":ssoAppId",
+                    "oauth2",
+                    "v1",
+                    "userinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ssoAppId",
+                      "description": "(Required) Can be empty as data arrived on the Authorization header token"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ssoAppId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"userInfoClaims\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.descope.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2dcb7023-2919-4dca-a940-cc16188bf1ce",
+    "name": "Descope Apps Oauth2 API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Descope API\n\nContact Support:\n Name: Descope\n Email: support@descope.com",
+      "type": "text/plain"
+    }
+  }
+}

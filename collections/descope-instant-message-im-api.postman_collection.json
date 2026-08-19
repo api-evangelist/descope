@@ -1,0 +1,618 @@
+{
+  "item": [
+    {
+      "id": "95f37831-e250-4998-86c7-53756f953fa1",
+      "name": "Instant Message (IM)",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "27ebd632-011b-423e-82de-14f1f0fdefd8",
+          "name": "User Sign-Up (IM)",
+          "request": {
+            "name": "User Sign-Up (IM)",
+            "description": {
+              "content": "Create a new user using an instant message",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "auth",
+                "otp",
+                "signup",
+                "im"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"<string>\",\n  \"loginId\": \"<string>\",\n  \"user\": {\n    \"username\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"icon\": \"<string>\"\n  },\n  \"providerId\": \"<string>\",\n  \"loginOptions\": {\n    \"customClaims\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"templateOptions\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"locale\": \"<string>\",\n    \"pkceChallenge\": \"<bytes>\",\n    \"tenantId\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "12e83dcd-0a0c-4360-9f57-f458665a6f38",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "auth",
+                    "otp",
+                    "signup",
+                    "im"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"phone\": \"<string>\",\n  \"loginId\": \"<string>\",\n  \"user\": {\n    \"username\": \"<string>\",\n    \"name\": \"<string>\",\n    \"email\": \"<string>\",\n    \"icon\": \"<string>\"\n  },\n  \"providerId\": \"<string>\",\n  \"loginOptions\": {\n    \"customClaims\": {\n      \"claim-name\": \"claim-value\"\n    },\n    \"templateOptions\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\",\n      \"key_3\": \"<string>\"\n    },\n    \"locale\": \"<string>\",\n    \"pkceChallenge\": \"<bytes>\",\n    \"tenantId\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"maskedPhone\": \"string\",\n  \"verificationAttempts\": 2968\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "436f340a-eb66-4745-9dd4-08702ca44573",
+          "name": "User Sign-In (IM)",
+          "request": {
+            "name": "User Sign-In (IM)",
+            "description": {
+              "content": "Login a user based using an instant message (IM) to the given phone number",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "auth",
+                "otp",
+                "signin",
+                "im"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"loginId\": \"<string>\",\n  \"loginOptions\": {\n    \"stepup\": false,\n    \"customClaims\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    },\n    \"mfa\": false,\n    \"ssoAppId\": \"<string>\",\n    \"templateOptions\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\",\n      \"key_3\": \"<string>\",\n      \"key_4\": \"<string>\"\n    },\n    \"locale\": \"<string>\",\n    \"pkceChallenge\": \"<bytes>\",\n    \"revokeOtherSessions\": \"<boolean>\",\n    \"revokeOtherSessionsTypes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tenantId\": \"<string>\"\n  },\n  \"providerId\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"useRecovery\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7866dafd-a945-4431-bd36-6eb2ff6e7234",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "auth",
+                    "otp",
+                    "signin",
+                    "im"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"loginId\": \"<string>\",\n  \"loginOptions\": {\n    \"stepup\": false,\n    \"customClaims\": {\n      \"claim-name\": \"claim-value\"\n    },\n    \"mfa\": false,\n    \"ssoAppId\": \"<string>\",\n    \"templateOptions\": {\n      \"key_0\": \"<string>\"\n    },\n    \"locale\": \"<string>\",\n    \"pkceChallenge\": \"<bytes>\",\n    \"revokeOtherSessions\": \"<boolean>\",\n    \"revokeOtherSessionsTypes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tenantId\": \"<string>\"\n  },\n  \"providerId\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"useRecovery\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"maskedPhone\": \"string\",\n  \"verificationAttempts\": 2968\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2ffa166d-a9b5-4317-b6bf-e798e36af887",
+          "name": "User Sign-In with Auto Sign-Up (IM)",
+          "request": {
+            "name": "User Sign-In with Auto Sign-Up (IM)",
+            "description": {
+              "content": "Login a user based using an instant message to the given phone number. If the user does not exist, a new user will be created with the given phone number",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "auth",
+                "otp",
+                "signup-in",
+                "im"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"loginId\": \"<string>\",\n  \"loginOptions\": {\n    \"stepup\": false,\n    \"customClaims\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    },\n    \"mfa\": false,\n    \"ssoAppId\": \"<string>\",\n    \"templateOptions\": {\n      \"key_0\": \"<string>\"\n    },\n    \"locale\": \"<string>\",\n    \"pkceChallenge\": \"<bytes>\",\n    \"revokeOtherSessions\": \"<boolean>\",\n    \"revokeOtherSessionsTypes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tenantId\": \"<string>\"\n  },\n  \"providerId\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"useRecovery\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f26f9d6c-e005-4710-a1a0-1a4d73e18564",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "auth",
+                    "otp",
+                    "signup-in",
+                    "im"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"loginId\": \"<string>\",\n  \"loginOptions\": {\n    \"stepup\": false,\n    \"customClaims\": {\n      \"claim-name\": \"claim-value\"\n    },\n    \"mfa\": false,\n    \"ssoAppId\": \"<string>\",\n    \"templateOptions\": {\n      \"key_0\": \"<string>\"\n    },\n    \"locale\": \"<string>\",\n    \"pkceChallenge\": \"<bytes>\",\n    \"revokeOtherSessions\": \"<boolean>\",\n    \"revokeOtherSessionsTypes\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"tenantId\": \"<string>\"\n  },\n  \"providerId\": \"<string>\",\n  \"ssoAppId\": \"<string>\",\n  \"useRecovery\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"maskedPhone\": \"string\",\n  \"verificationAttempts\": 2968\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "42f09e05-b330-42b6-83cf-62cd1ed31ef9",
+          "name": "Verify Code (IM)",
+          "request": {
+            "name": "Verify Code (IM)",
+            "description": {
+              "content": "Verify a Sign in / Sign up based on an instant message",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "auth",
+                "otp",
+                "verify",
+                "im"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"loginId\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c0f4df6d-fb84-450a-9e9f-6196287a3f86",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "auth",
+                    "otp",
+                    "verify",
+                    "im"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"loginId\": \"<string>\",\n  \"code\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sessionJwt\": \"string\",\n  \"refreshJwt\": \"string\",\n  \"cookieDomain\": \"string\",\n  \"cookiePath\": \"string\",\n  \"cookieMaxAge\": 4951,\n  \"cookieExpiration\": 9707,\n  \"user\": {\n    \"loginIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"userId\": \"string\",\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"phone\": \"string\",\n    \"verifiedEmail\": true,\n    \"verifiedPhone\": false,\n    \"roleNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"userTenants\": [\n      {\n        \"tenantId\": \"string\",\n        \"roleNames\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tenantName\": \"string\",\n        \"permissions\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"tenantId\": \"string\",\n        \"roleNames\": [\n          \"string\",\n          \"string\"\n        ],\n        \"tenantName\": \"string\",\n        \"permissions\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"status\": \"string\",\n    \"externalIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"picture\": \"string\",\n    \"test\": false,\n    \"customAttributes\": {\n      \"attribute-key\": \"attribute-value\"\n    },\n    \"createdTime\": 8203,\n    \"TOTP\": false,\n    \"SAML\": false,\n    \"OAuth\": {\n      \"key_0\": false,\n      \"key_1\": false\n    },\n    \"webauthn\": false,\n    \"password\": true,\n    \"ssoAppIds\": [\n      \"string\",\n      \"string\"\n    ],\n    \"givenName\": \"string\",\n    \"middleName\": \"string\",\n    \"familyName\": \"string\",\n    \"editable\": true,\n    \"SCIM\": false,\n    \"push\": true,\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"OIDC\": true,\n    \"consentExpiration\": 3975,\n    \"recoveryEmail\": \"string\",\n    \"verifiedRecoveryEmail\": false,\n    \"recoveryPhone\": \"string\",\n    \"verifiedRecoveryPhone\": true\n  },\n  \"firstSeen\": true,\n  \"idpResponse\": {\n    \"samlResponse\": \"string\",\n    \"samlGeneratedUser\": \"string\",\n    \"samlGeneratedRoles\": \"string\",\n    \"oidcResponse\": \"string\",\n    \"oidcGeneratedUser\": \"string\",\n    \"oidcGeneratedRoles\": \"string\",\n    \"idpGroups\": [\n      \"string\",\n      \"string\"\n    ],\n    \"idpSAMLAttributes\": false,\n    \"idpOIDCClaims\": {}\n  },\n  \"sessionExpiration\": 6257,\n  \"externalToken\": \"string\",\n  \"claims\": {},\n  \"tenantSSOID\": \"string\",\n  \"trustedDeviceJwt\": \"string\",\n  \"nextRefreshSeconds\": 7151,\n  \"cookieName\": \"string\",\n  \"sessionCookieName\": \"string\",\n  \"sessionCookieDomain\": \"string\",\n  \"unsavedSSO\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b6ce873-7012-4214-8531-8dd1ad88aacb",
+          "name": "Update Phone (IM)",
+          "request": {
+            "name": "Update Phone (IM)",
+            "description": {
+              "content": "Update phone, and verify via OTP based on an instant message",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "auth",
+                "otp",
+                "update",
+                "phone",
+                "im"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"loginId\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"addToLoginIDs\": false,\n  \"onMergeUseExisting\": false,\n  \"providerId\": \"<string>\",\n  \"templateOptions\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"locale\": \"<string>\",\n  \"failOnConflict\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9977e086-6ed7-4846-8425-331503299ed3",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "auth",
+                    "otp",
+                    "update",
+                    "phone",
+                    "im"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"loginId\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"addToLoginIDs\": false,\n  \"onMergeUseExisting\": false,\n  \"providerId\": \"<string>\",\n  \"templateOptions\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"locale\": \"<string>\",\n  \"failOnConflict\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"maskedPhone\": \"string\",\n  \"verificationAttempts\": 2968\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.descope.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8aab5277-75fe-4d1e-9f5e-4afc10a07bce",
+    "name": "Descope Apps Instant Message (IM) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Descope API\n\nContact Support:\n Name: Descope\n Email: support@descope.com",
+      "type": "text/plain"
+    }
+  }
+}
