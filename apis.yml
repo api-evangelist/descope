@@ -7,6 +7,8 @@ apis:
   humanURL: https://docs.descope.com/api
   baseURL: https://api.descope.com
   tags:
+  - Application
+  tags_raw:
   - Apps
   properties:
   - type: OpenAPI
@@ -33,6 +35,8 @@ apis:
   humanURL: https://docs.descope.com/api
   baseURL: https://api.descope.com
   tags:
+  - Authentication
+  tags_raw:
   - Auth
   properties:
   - type: OpenAPI
@@ -84,7 +88,8 @@ apis:
   description: The Default API from Descope — 10 operation(s) for default.
   humanURL: https://docs.descope.com/api
   baseURL: https://api.descope.com
-  tags:
+  tags: []
+  tags_raw:
   - Default
   properties:
   - type: OpenAPI
@@ -267,6 +272,8 @@ apis:
   humanURL: https://docs.descope.com/api
   baseURL: https://api.descope.com
   tags:
+  - Authentication
+  tags_raw:
   - Oauth2
   properties:
   - type: OpenAPI
@@ -293,6 +300,8 @@ apis:
   humanURL: https://docs.descope.com/api
   baseURL: https://api.descope.com
   tags:
+  - SCIM
+  tags_raw:
   - Scim
   properties:
   - type: OpenAPI
@@ -419,6 +428,21 @@ apis:
     url: https://docs.descope.com/jwks
 name: Descope
 tags:
+- Authentication
+- Identity
+- CIAM
+- Passwordless
+- Passkeys
+- MFA
+- SSO
+- OIDC
+- SAML
+- SCIM
+- Authorization
+- FGA
+- Agentic Identity
+- MCP
+tags_raw:
 - Authentication
 - Identity
 - CIAM
