@@ -486,6 +486,11 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/descope.png
 access: 3rd-Party
 common:
+- type: ParentCompany
+  url: https://apis.io/providers/palo-alto-networks/
+  name: Palo Alto Networks
+  x-relationship: acquired
+  x-evidence: "Descope is a customer and agentic identity access management (CIAM) platform founded in 2022 by veterans of Sentrigo and Demisto (acquired by Palo Alto Networks)."
 - type: AgenticAccess
   url: agentic-access/descope-agentic-access.yml
 - type: TrustCenter
