@@ -487,6 +487,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/descope.png
 access: 3rd-Party
 common:
+- type: Website
+  url: https://www.descope.com/
 - type: ParentCompany
   url: https://apis.io/providers/palo-alto-networks/
   name: Palo Alto Networks
