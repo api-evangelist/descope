@@ -442,6 +442,7 @@ tags:
 - FGA
 - Agentic Identity
 - MCP
+- Identity Federation
 tags_raw:
 - Authentication
 - Identity
@@ -458,6 +459,7 @@ tags_raw:
 - FGA
 - Agentic Identity
 - MCP
+- Identity Federation
 kind: contract
 deliveryModel:
   model: saas
@@ -493,7 +495,8 @@ common:
   url: https://apis.io/providers/palo-alto-networks/
   name: Palo Alto Networks
   x-relationship: acquired
-  x-evidence: "Descope is a customer and agentic identity access management (CIAM) platform founded in 2022 by veterans of Sentrigo and Demisto (acquired by Palo Alto Networks)."
+  x-evidence: Descope is a customer and agentic identity access management (CIAM) platform founded in
+    2022 by veterans of Sentrigo and Demisto (acquired by Palo Alto Networks).
 - type: AgenticAccess
   url: agentic-access/descope-agentic-access.yml
 - type: TrustCenter
@@ -744,12 +747,14 @@ common:
   - SAML 2.0 inbound and outbound SSO with self-service IdP configuration for B2B customers
   - WS-Federation IdP support for Microsoft enterprise tenants
   - SCIM 2.0 user and group provisioning
-  - Fine-grained authorization (FGA / ReBAC) modeled after Google Zanzibar with schema, relation, and policy APIs
+  - Fine-grained authorization (FGA / ReBAC) modeled after Google Zanzibar with schema, relation, and
+    policy APIs
   - Role-based access control with company/project/tag-scoped management keys
   - Multi-tenant architecture with delegated admin widgets for B2B customer self-service
   - Risk-based / adaptive MFA via flow conditional logic and connectors (reCAPTCHA, Fingerprint, ipQualityScore)
   - Step-up authentication for sensitive transactions
-  - 50+ outbound connectors (HTTP, audit, AWS, Segment, Salesforce, HubSpot, Twilio, SendGrid, Slack, etc.)
+  - 50+ outbound connectors (HTTP, audit, AWS, Segment, Salesforce, HubSpot, Twilio, SendGrid, Slack,
+    etc.)
   - Inbound third-party app OAuth — Descope as an OIDC/OAuth 2.1 authorization server
   - Agentic Identity Hub with MCP server registration, per-agent OAuth scopes, and token vaulting for
     AI agents (Claude, ChatGPT, Cursor, etc.)
@@ -772,14 +777,14 @@ common:
 - type: UseCases
   data:
   - name: B2C Customer Authentication
-    description: Add passwordless sign-up/sign-in (passkeys, magic link, social) to consumer apps with adaptive
-      MFA and account-takeover protection.
+    description: Add passwordless sign-up/sign-in (passkeys, magic link, social) to consumer apps with
+      adaptive MFA and account-takeover protection.
   - name: B2B Enterprise SSO
     description: Let business customers self-serve SAML/OIDC SSO and SCIM provisioning without per-tenant
       engineering work, using delegated admin widgets.
   - name: Auth Migration
-    description: Migrate users from Auth0, Cognito, Firebase, Keycloak, and other IdPs with prebuilt
-      Python-based migration tools that preserve password hashes where possible.
+    description: Migrate users from Auth0, Cognito, Firebase, Keycloak, and other IdPs with prebuilt Python-based
+      migration tools that preserve password hashes where possible.
   - name: Agentic Identity for AI Agents
     description: Issue scoped OAuth tokens to AI agents and MCP servers using progressive scoping, token
       vaulting, and per-agent audit trails via the Agentic Identity Hub.
@@ -793,59 +798,59 @@ common:
     description: Native passkey, biometric, and social login in iOS, Android, React Native, and Flutter
       apps using Descope's mobile SDKs.
   - name: Compliance-Driven Auth
-    description: Use audit logs, custom message templates, MFA enforcement, and SOC 2 / GDPR controls to
-      satisfy regulated-industry requirements.
+    description: Use audit logs, custom message templates, MFA enforcement, and SOC 2 / GDPR controls
+      to satisfy regulated-industry requirements.
 - type: Integrations
   data:
   - name: AWS
-    description: SaaS Builder Toolkit integration, Cognito migration, and IAM role assumption from GCP via
-      OIDC GitHub Action.
+    description: SaaS Builder Toolkit integration, Cognito migration, and IAM role assumption from GCP
+      via OIDC GitHub Action.
   - name: Cloudflare
     description: Workers-based redirect worker for tenant-level SSO migration.
   - name: Terraform
-    description: "Official `terraform-provider-descope` for managing projects, flows, tenants, and SSO declaratively."
+    description: Official `terraform-provider-descope` for managing projects, flows, tenants, and SSO
+      declaratively.
   - name: Pulumi
-    description: "Official `pulumi-descope` provider."
+    description: Official `pulumi-descope` provider.
   - name: WordPress
     description: Descope auth plugin replacing native WordPress login.
   - name: Django
-    description: "`django-descope` plugin for first-class Django auth integration."
+    description: '`django-descope` plugin for first-class Django auth integration.'
   - name: Passport.js
-    description: "`passport-descope` strategy for Node.js apps using Passport."
+    description: '`passport-descope` strategy for Node.js apps using Passport.'
   - name: Next.js / React / Vue / Angular / SvelteKit
-    description: "Client SDKs and Flow web components shipped under `descope-js`."
+    description: Client SDKs and Flow web components shipped under `descope-js`.
   - name: Salesforce / HubSpot / Segment / Twilio / SendGrid / Slack / S3 / Snowflake
     description: 50+ outbound connectors invoked from inside Flows to enrich users, send messages, and
       stream events.
   - name: Anthropic Claude / OpenAI / Cursor / MCP Clients
-    description: Agentic Identity Hub issues short-lived, scoped tokens to AI agents via MCP server
-      registration and per-agent OAuth.
+    description: Agentic Identity Hub issues short-lived, scoped tokens to AI agents via MCP server registration
+      and per-agent OAuth.
 - type: Solutions
   data:
   - name: Customer Identity (CIAM)
     description: Drop-in B2C authentication with Flows, passwordless methods, and progressive profiling.
   - name: Workforce-Adjacent B2B Identity
-    description: SAML SSO, SCIM, delegated admin, and tenant management for SaaS vendors selling to
-      enterprises.
+    description: SAML SSO, SCIM, delegated admin, and tenant management for SaaS vendors selling to enterprises.
   - name: Agentic Identity
-    description: OAuth issuance, MCP server registration, and credential vaulting for AI agents and
-      autonomous workflows.
+    description: OAuth issuance, MCP server registration, and credential vaulting for AI agents and autonomous
+      workflows.
   - name: Migration & Modernization
-    description: Tooling to lift users off legacy IdPs (Auth0, Cognito, Firebase, Keycloak) onto a
-      modern, passwordless-first platform.
+    description: Tooling to lift users off legacy IdPs (Auth0, Cognito, Firebase, Keycloak) onto a modern,
+      passwordless-first platform.
 - type: Portal
   url: https://www.descope.com
 - type: Documentation
   url: https://docs.descope.com
 created: '2026-05-25T00:00:00.000Z'
-modified: '2026-05-25'
+modified: '2026-09-16'
 position: Consuming
 description: Descope is a customer and agentic identity access management (CIAM) platform founded in 2022
   by veterans of Sentrigo and Demisto (acquired by Palo Alto Networks). Its signature is drag-and-drop
   Descope Flows — a visual authentication-flow builder — paired with passwordless methods (passkeys, magic
   link, OTP, social, biometric), risk-based MFA, SSO/SAML/SCIM, fine-grained authorization, and a growing
-  Agentic Identity Hub that issues scoped OAuth tokens to AI agents and MCP servers. Descope ships SDKs for
-  every mainstream language and framework, a CLI, Terraform/Pulumi providers, self-hostable hosted-auth
+  Agentic Identity Hub that issues scoped OAuth tokens to AI agents and MCP servers. Descope ships SDKs
+  for every mainstream language and framework, a CLI, Terraform/Pulumi providers, self-hostable hosted-auth
   app, and prebuilt migration tools from Auth0, Cognito, Firebase, and Keycloak. Free tier covers 7,500
   MAUs forever; paid tiers start at $249/month.
 maintainers:
