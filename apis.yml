@@ -266,34 +266,6 @@ apis:
     url: https://docs.descope.com/scim
   - type: Documentation
     url: https://docs.descope.com/jwks
-- aid: descope:descope-oauth2-api
-  name: Descope Oauth2 API
-  description: The Oauth2 API from Descope — 30 operation(s) for oauth2.
-  humanURL: https://docs.descope.com/api
-  baseURL: https://api.descope.com
-  tags:
-  - Authentication
-  tags_raw:
-  - Oauth2
-  properties:
-  - type: OpenAPI
-    url: openapi/descope-oauth2-api-openapi.yml
-  - type: Documentation
-    url: https://docs.descope.com/api
-  - type: Documentation
-    url: https://docs.descope.com/auth-methods
-  - type: APIReference
-    url: https://docs.descope.com/api/openapi-spec
-  - type: Documentation
-    url: https://docs.descope.com/manage
-  - type: APIReference
-    url: https://docs.descope.com/api
-  - type: Documentation
-    url: https://docs.descope.com/inbound-apps
-  - type: Documentation
-    url: https://docs.descope.com/scim
-  - type: Documentation
-    url: https://docs.descope.com/jwks
 - aid: descope:descope-scim-api
   name: Descope Scim API
   description: The Scim API from Descope — 6 operation(s) for scim.
@@ -410,6 +382,32 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/descope-well-known-api-openapi.yml
+  - type: Documentation
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/auth-methods
+  - type: APIReference
+    url: https://docs.descope.com/api/openapi-spec
+  - type: Documentation
+    url: https://docs.descope.com/manage
+  - type: APIReference
+    url: https://docs.descope.com/api
+  - type: Documentation
+    url: https://docs.descope.com/inbound-apps
+  - type: Documentation
+    url: https://docs.descope.com/scim
+  - type: Documentation
+    url: https://docs.descope.com/jwks
+- aid: descope:descope-oauth2-api
+  name: Descope Oauth2 API
+  description: The Oauth2 API from Descope — 30 operation(s) for oauth2.
+  humanURL: https://docs.descope.com/api
+  baseURL: https://api.descope.com
+  tags:
+  - Oauth2
+  properties:
+  - type: OpenAPI
+    url: openapi/descope-oauth2-api-openapi.yml
   - type: Documentation
     url: https://docs.descope.com/api
   - type: Documentation
