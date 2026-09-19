@@ -404,6 +404,8 @@ apis:
   humanURL: https://docs.descope.com/api
   baseURL: https://api.descope.com
   tags:
+  - Authentication
+  tags_raw:
   - Oauth2
   properties:
   - type: OpenAPI
