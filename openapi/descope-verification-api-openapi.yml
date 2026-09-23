@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Descope Apps Verification API
+  title: Descope Verification API
   description: Descope API
   contact:
     name: Descope
@@ -30,7 +30,47 @@ paths:
       tags:
       - Verification
       summary: Verify Token
-      description: "### Verify the magic link token from the end user\n\nVerify that the magic link token in the URL clicked by the end user matches and has not expired. This endpoint completes the magic link flow for:\n* sign up\n    * [Sign-Up via email](/api/magic-link/email/sign-up)\n    * [Sign-Up via SMS](/api/magic-link/sms/sign-up)\n* sign-in\n    * [Sign-In via email](/api/magic-link/email/sign-in)\n    * [Sign-In via SMS](/api/magic-link/sms/sign-in)\n* sign-in with auto sign-up\n    * [Sign-In with Auto Sign-up via email](/api/magic-link/email/sign-in-auto-sign-up)\n    * [Sign-In with Auto Sign-up via SMS](/api/magic-link/sms/sign-in-auto-sign-up)\n* update data\n    * [update email](/api/magic-link/email/sign-up)\n    * [update phone number](/api/magic-link/email/sign-up)\n\n### Next Steps\n\nThe response object will contain the user's details including the session and refresh JWTs.\n\n### See Also\n- See [Magic link Authentication](/auth-methods/magic-link/with-sdks/client#introduction) for details about implementing magic links.\n- See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number."
+      description: '### Verify the magic link token from the end user
+
+
+        Verify that the magic link token in the URL clicked by the end user matches and has not expired. This endpoint completes the magic link flow for:
+
+        * sign up
+
+        * Sign-Up via email
+
+        * Sign-Up via SMS
+
+        * sign-in
+
+        * Sign-In via email
+
+        * Sign-In via SMS
+
+        * sign-in with auto sign-up
+
+        * Sign-In with Auto Sign-up via email
+
+        * Sign-In with Auto Sign-up via SMS
+
+        * update data
+
+        * update email
+
+        * update phone number
+
+
+        ### Next Steps
+
+
+        The response object will contain the user''s details including the session and refresh JWTs.
+
+
+        ### See Also
+
+        - See Magic link Authentication for details about implementing magic links.
+
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.'
       operationId: VerifyMagicLink
       requestBody:
         content:
@@ -55,6 +95,81 @@ paths:
         keywords: api, magic link
 components:
   schemas:
+    IDPResponse:
+      type: object
+      properties:
+        samlResponse:
+          type: string
+        samlGeneratedUser:
+          type: string
+        samlGeneratedRoles:
+          type: string
+        oidcResponse:
+          type: string
+        oidcGeneratedUser:
+          type: string
+        oidcGeneratedRoles:
+          type: string
+        idpGroups:
+          type: array
+          items:
+            type: string
+        idpSAMLAttributes:
+          type: object
+          default: false
+        idpOIDCClaims:
+          type: object
+    JWTResponse:
+      type: object
+      properties:
+        sessionJwt:
+          type: string
+        refreshJwt:
+          type: string
+        cookieDomain:
+          type: string
+        cookiePath:
+          type: string
+        cookieMaxAge:
+          type: integer
+          format: int32
+        cookieExpiration:
+          type: integer
+          format: int32
+        user:
+          $ref: '#/components/schemas/ResponseUser'
+        firstSeen:
+          type: boolean
+        idpResponse:
+          $ref: '#/components/schemas/IDPResponse'
+        sessionExpiration:
+          type: integer
+          format: int32
+        externalToken:
+          type: string
+        claims:
+          type: object
+        tenantSSOID:
+          type: string
+        trustedDeviceJwt:
+          type: string
+        nextRefreshSeconds:
+          type: integer
+          format: int32
+        cookieName:
+          type: string
+        sessionCookieName:
+          type: string
+        sessionCookieDomain:
+          type: string
+        unsavedSSO:
+          type: boolean
+      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
+    VerifyMagicLinkRequest:
+      type: object
+      properties:
+        token:
+          type: string
     ResponseUser:
       type: object
       properties:
@@ -166,103 +281,28 @@ components:
           type: array
           items:
             type: string
-    JWTResponse:
-      type: object
-      properties:
-        sessionJwt:
-          type: string
-        refreshJwt:
-          type: string
-        cookieDomain:
-          type: string
-        cookiePath:
-          type: string
-        cookieMaxAge:
-          type: integer
-          format: int32
-        cookieExpiration:
-          type: integer
-          format: int32
-        user:
-          $ref: '#/components/schemas/ResponseUser'
-        firstSeen:
-          type: boolean
-        idpResponse:
-          $ref: '#/components/schemas/IDPResponse'
-        sessionExpiration:
-          type: integer
-          format: int32
-        externalToken:
-          type: string
-        claims:
-          type: object
-        tenantSSOID:
-          type: string
-        trustedDeviceJwt:
-          type: string
-        nextRefreshSeconds:
-          type: integer
-          format: int32
-        cookieName:
-          type: string
-        sessionCookieName:
-          type: string
-        sessionCookieDomain:
-          type: string
-        unsavedSSO:
-          type: boolean
-      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
-    VerifyMagicLinkRequest:
-      type: object
-      properties:
-        token:
-          type: string
-    IDPResponse:
-      type: object
-      properties:
-        samlResponse:
-          type: string
-        samlGeneratedUser:
-          type: string
-        samlGeneratedRoles:
-          type: string
-        oidcResponse:
-          type: string
-        oidcGeneratedUser:
-          type: string
-        oidcGeneratedRoles:
-          type: string
-        idpGroups:
-          type: array
-          items:
-            type: string
-        idpSAMLAttributes:
-          type: object
-          default: false
-        idpOIDCClaims:
-          type: object
   securitySchemes:
-    Descope Project ID:
+    Descope_Project_ID:
       type: http
       scheme: bearer
       bearerFormat: Project ID
       description: Project ID as bearer token.
-    Descope Project ID:Refresh JWT:
+    Descope_Project_ID_Refresh_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Refresh JWT
       description: Project ID:Refresh JWT as bearer token.
-    Descope Project ID:Access Key:
+    Descope_Project_ID_Access_Key:
       type: http
       scheme: bearer
       bearerFormat: ProjectId:AccessKey
       description: Project ID:Access Key as bearer token.
-    Descope Project ID:Session JWT:
+    Descope_Project_ID_Session_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Session JWT
       description: Project ID:Session JWT as bearer token.
-    Descope Project ID and Management Key:
+    Descope_Project_ID_and_Management_Key:
       type: http
       description: Project ID:Management Key as bearer token.
       scheme: bearer

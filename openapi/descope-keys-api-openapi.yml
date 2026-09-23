@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Descope Apps Keys API
+  title: Descope Keys API
   description: Descope API
   contact:
     name: Descope
@@ -74,7 +74,7 @@ paths:
         `projectId` is provided as a GET parameter, so this endpoint can be executed with a browser.
 
 
-        This endpoint differentiates from [Token Validation Key (V1)](/api/session/get-keys)
+        This endpoint differentiates from Token Validation Key (V1)
 
         as the data is returned in JSON format rather than an array.'
       operationId: GetKeysV2
@@ -104,6 +104,13 @@ paths:
         keywords: api, session get keys
 components:
   schemas:
+    sessionv1.JWKSResponseV2:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/sessionv1.JWKSResponse'
     sessionv1.JWKSResponse:
       type: object
       properties:
@@ -119,35 +126,28 @@ components:
           type: string
         use:
           type: string
-    sessionv1.JWKSResponseV2:
-      type: object
-      properties:
-        keys:
-          type: array
-          items:
-            $ref: '#/components/schemas/sessionv1.JWKSResponse'
   securitySchemes:
-    Descope Project ID:
+    Descope_Project_ID:
       type: http
       scheme: bearer
       bearerFormat: Project ID
       description: Project ID as bearer token.
-    Descope Project ID:Refresh JWT:
+    Descope_Project_ID_Refresh_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Refresh JWT
       description: Project ID:Refresh JWT as bearer token.
-    Descope Project ID:Access Key:
+    Descope_Project_ID_Access_Key:
       type: http
       scheme: bearer
       bearerFormat: ProjectId:AccessKey
       description: Project ID:Access Key as bearer token.
-    Descope Project ID:Session JWT:
+    Descope_Project_ID_Session_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Session JWT
       description: Project ID:Session JWT as bearer token.
-    Descope Project ID and Management Key:
+    Descope_Project_ID_and_Management_Key:
       type: http
       description: Project ID:Management Key as bearer token.
       scheme: bearer

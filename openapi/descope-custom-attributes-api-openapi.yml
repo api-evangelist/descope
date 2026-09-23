@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Descope Apps Custom Attributes API
+  title: Descope Custom Attributes API
   description: Descope API
   contact:
     name: Descope
@@ -39,11 +39,11 @@ paths:
         ### See also
 
 
-        - See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes
+        - See Custom Attributes for further details on custom user attributes
 
-        - See [Manage Users](/manage/users) for further details on managing users.
+        - See Manage Users for further details on managing users.
 
-        - See [The User Object](/api/overview#the-user-object) for further details on the user object.'
+        - See The User Object for further details on the user object.'
       operationId: UserCustomAttributes
       responses:
         '200':
@@ -74,11 +74,11 @@ paths:
         ### See also
 
 
-        - See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes
+        - See Custom Attributes for further details on custom user attributes
 
-        - See [Manage Users](/manage/users) for further details on managing users.
+        - See Manage Users for further details on managing users.
 
-        - See [The User Object](/api/overview#the-user-object) for further details on the user object.'
+        - See The User Object for further details on the user object.'
       operationId: CreateUserCustomAttribute
       requestBody:
         content:
@@ -115,11 +115,11 @@ paths:
         ### See also
 
 
-        - See [Custom Attributes](/manage/users#custom-user-attributes) for further details on custom user attributes
+        - See Custom Attributes for further details on custom user attributes
 
-        - See [Manage Users](/manage/users) for further details on managing users.
+        - See Manage Users for further details on managing users.
 
-        - See [The User Object](/api/overview#the-user-object) for further details on the user object.'
+        - See The User Object for further details on the user object.'
       operationId: DeleteUserCustomAttribute
       requestBody:
         content:
@@ -144,13 +144,14 @@ paths:
         keywords: api, user management
 components:
   schemas:
-    ImportCustomAttributesRequest:
+    google.protobuf.Any:
       type: object
       properties:
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomAttribute'
+        '@type':
+          type: string
+          description: The type of the serialized message.
+      additionalProperties: true
+      description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
     CustomAttributesResponse:
       type: object
       properties:
@@ -196,14 +197,13 @@ components:
         label:
           type: string
       description: Custom Attributes
-    google.protobuf.Any:
+    ImportCustomAttributesRequest:
       type: object
       properties:
-        '@type':
-          type: string
-          description: The type of the serialized message.
-      additionalProperties: true
-      description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomAttribute'
     DeleteCustomAttributesRequest:
       type: object
       properties:
@@ -212,27 +212,27 @@ components:
           items:
             type: string
   securitySchemes:
-    Descope Project ID:
+    Descope_Project_ID:
       type: http
       scheme: bearer
       bearerFormat: Project ID
       description: Project ID as bearer token.
-    Descope Project ID:Refresh JWT:
+    Descope_Project_ID_Refresh_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Refresh JWT
       description: Project ID:Refresh JWT as bearer token.
-    Descope Project ID:Access Key:
+    Descope_Project_ID_Access_Key:
       type: http
       scheme: bearer
       bearerFormat: ProjectId:AccessKey
       description: Project ID:Access Key as bearer token.
-    Descope Project ID:Session JWT:
+    Descope_Project_ID_Session_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Session JWT
       description: Project ID:Session JWT as bearer token.
-    Descope Project ID and Management Key:
+    Descope_Project_ID_and_Management_Key:
       type: http
       description: Project ID:Management Key as bearer token.
       scheme: bearer

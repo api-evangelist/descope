@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Descope Apps  API
+  title: Descope API
   description: Descope API
   contact:
     name: Descope
@@ -50,7 +50,7 @@ paths:
 
         Enchanted links expire in the time frame configured in the
 
-        [Descope console](https://app.descope.com/settings/authentication/enchantedlink),
+        Descope console,
 
         so sending multiple enchanted links (for example, when an end user tries to sign-up a second or third time)
 
@@ -73,20 +73,20 @@ paths:
 
         ### Next Steps
 
-        1. Verify the enchanted link token using the [Verify Token](/api/enchanted-link/verify-token) endpoint.
+        1. Verify the enchanted link token using the Verify Token endpoint.
 
-        2. Poll for the successful completion of the token verification using the [Poll Session](/api/enchanted-link/poll-session) endpoint, providing the `pendingRef` returned by the this endpoint.
+        2. Poll for the successful completion of the token verification using the Poll Session endpoint, providing the `pendingRef` returned by the this endpoint.
 
 
         ### See Also
 
-        - See [Enchanted link Authentication](/api/enchantedlink/) for details about implementing enchanted links.
+        - See Enchanted link Authentication for details about implementing enchanted links.
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.
 
-        - Use the [Sign-In](/api/enchanted-link/sign-in) endpoint to sign-in an existing end user.
+        - Use the Sign-In endpoint to sign-in an existing end user.
 
-        - Use the [Sign-In with Auto Sign-up](/api/enchanted-link/sign-in-auto-sign-up) endpoint to create a single sign-up and sign-in flow, which will create a new end user if they are not already registered.'
+        - Use the Sign-In with Auto Sign-up endpoint to create a single sign-up and sign-in flow, which will create a new end user if they are not already registered.'
       operationId: SignUpEnchantedLink
       requestBody:
         content:
@@ -134,7 +134,7 @@ paths:
 
         Enchanted links expire in the time frame configured in the
 
-        [Descope console](https://app.descope.com/settings/authentication/enchantedlink),
+        Descope console,
 
         so sending multiple enchanted links (for example, when an end user tries to sign-up a second or third time)
 
@@ -157,22 +157,22 @@ paths:
 
         ### Next Steps
 
-        1. Verify the enchanted link token using the [Verify Token](/api/enchanted-link/verify-token) endpoint.
+        1. Verify the enchanted link token using the Verify Token endpoint.
 
-        2. Poll for the successful completion of the token verification using the [Poll Session](/api/enchanted-link/poll-session) endpoint, providing the `pendingRef` returned by the this endpoint.
+        2. Poll for the successful completion of the token verification using the Poll Session endpoint, providing the `pendingRef` returned by the this endpoint.
 
 
         ### See Also
 
-        - See [Enchanted link Authentication](/api/enchantedlink/) for details about implementing enchanted links.
+        - See Enchanted link Authentication for details about implementing enchanted links.
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.
 
-        - See [User Login Options](/api/overview#user-login-options) for further details on loginOptions.
+        - See User Login Options for further details on loginOptions.
 
-        - Use the [Sign-Up](/api/enchanted-link/sign-up) endpoint to sign-up a new end user.
+        - Use the Sign-Up endpoint to sign-up a new end user.
 
-        - Use the [Sign-In with Auto Sign-up](/api/enchanted-link/sign-in-auto-sign-up) endpoint to create a single sign-up and sign-in flow, which will create a new end user if they are not already registered.'
+        - Use the Sign-In with Auto Sign-up endpoint to create a single sign-up and sign-in flow, which will create a new end user if they are not already registered.'
       operationId: SignInEnchantedLinkEmail
       requestBody:
         content:
@@ -225,7 +225,7 @@ paths:
 
         Enchanted links expire in the time frame configured in the
 
-        [Descope console](https://app.descope.com/settings/authentication/enchantedlink),
+        Descope console,
 
         so sending multiple enchanted links (for example, when an end user tries to sign-up a second or third time)
 
@@ -248,22 +248,22 @@ paths:
 
         ### Next Steps
 
-        1. Verify the enchanted link token using the [Verify Token](/api/enchanted-link/verify-token) endpoint.
+        1. Verify the enchanted link token using the Verify Token endpoint.
 
-        2. Poll for the successful completion of the token verification using the [Poll Session](/api/enchanted-link/poll-session) endpoint, providing the `pendingRef` returned by the this endpoint.
+        2. Poll for the successful completion of the token verification using the Poll Session endpoint, providing the `pendingRef` returned by the this endpoint.
 
 
         ### See Also
 
-        - See [Enchanted link Authentication](/api/enchantedlink/) for details about implementing enchanted links.
+        - See Enchanted link Authentication for details about implementing enchanted links.
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.
 
-        - See [User Login Options](/api/overview#user-login-options) for further details on loginOptions.
+        - See User Login Options for further details on loginOptions.
 
-        - Use the [Sign-Up](/api/enchanted-link/sign-up) endpoint to sign-up a new end user.
+        - Use the Sign-Up endpoint to sign-up a new end user.
 
-        - Use the [Sign-In with Auto Sign-up](/api/enchanted-link/sign-in-auto-sign-up) endpoint to create a single sign-up and sign-in flow, which will create a new end user if they are not already registered.'
+        - Use the Sign-In with Auto Sign-up endpoint to create a single sign-up and sign-in flow, which will create a new end user if they are not already registered.'
       operationId: SignUpOrInEnchantedLinkEmail
       requestBody:
         content:
@@ -291,7 +291,44 @@ paths:
       tags:
       - ''
       summary: Verify Token
-      description: "### Verify Enchanted Link token from user\n\nVerify that the enchanted link token in the URL clicked by the end user matches and has\nnot expired. This endpoint completes the enchanted link flow for:\n* sign up\n    * [Sign-Up via email](/api/enchanted-link/sign-up)\n* sign-in\n    * [Sign-In via email](/api/enchanted-link/sign-in)\n* sign-in with auto sign-up\n    * [Sign-In with Auto Sign-up via email](/api/enchanted-link/sign-in-auto-sign-up)\n* Update data\n    * [update email](/api/enchanted-link/update-email)\n\n### Next Steps\n\nPoll for the successful completion of the token verification using the [Poll Session](/api/enchanted-link/poll-session) endpoint, providing the `pendingRef` returned by the this endpoint.\n\nThe response object will be empty when this endpoint completes successfully. The session information will be returned by the the [Poll Session](/api/enchanted-link/poll-session) endpoint.\n\n### See Also\n- See [Enchanted link Authentication](/api/enchantedlink/) for details about implementing enchanted links.\n- See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number."
+      description: '### Verify Enchanted Link token from user
+
+
+        Verify that the enchanted link token in the URL clicked by the end user matches and has
+
+        not expired. This endpoint completes the enchanted link flow for:
+
+        * sign up
+
+        * Sign-Up via email
+
+        * sign-in
+
+        * Sign-In via email
+
+        * sign-in with auto sign-up
+
+        * Sign-In with Auto Sign-up via email
+
+        * Update data
+
+        * update email
+
+
+        ### Next Steps
+
+
+        Poll for the successful completion of the token verification using the Poll Session endpoint, providing the `pendingRef` returned by the this endpoint.
+
+
+        The response object will be empty when this endpoint completes successfully. The session information will be returned by the the Poll Session endpoint.
+
+
+        ### See Also
+
+        - See Enchanted link Authentication for details about implementing enchanted links.
+
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.'
       operationId: VerifyEnchantedLink
       requestBody:
         content:
@@ -332,7 +369,7 @@ paths:
 
         ### See Also
 
-        - See [Enchanted link Authentication](/api/enchantedlink/) for details about implementing enchanted links.'
+        - See Enchanted link Authentication for details about implementing enchanted links.'
       operationId: GetEnchantedLinkSession
       requestBody:
         content:
@@ -381,14 +418,14 @@ paths:
 
         Enchanted links expire in the time frame configured in the
 
-        [Descope console](https://app.descope.com/settings/authentication/enchantedlink),
+        Descope console,
 
         so sending multiple enchanted links (for example, when an end user tries to sign-up a second or third time)
 
         does not invalidate links that have already been sent.
 
 
-        The bearer token requires both the ProjectId and refresh JWT in the format `<Project ID>:<JWT>`, and can therefore only be run for end users who are currently signed-in.
+        The bearer token requires both the ProjectId and refresh JWT in the format `:`, and can therefore only be run for end users who are currently signed-in.
 
 
         Note that `URI` is an optional parameter. If omitted - the project setting will apply.
@@ -399,21 +436,21 @@ paths:
         Once the token is successfully verified - the email address will be updated.
 
 
-        Descope allows you to associating multiple login IDs for a user during API update calls. For details on how this feature works, please review the details [here](/manage/users#associating-multiple-login-ids-for-a-user).
+        Descope allows you to associating multiple login IDs for a user during API update calls. For details on how this feature works, please review the details here.
 
 
         ### Next Steps
 
-        1. Verify the enchanted link token using the [Verify Token](/api/enchanted-link/verify-token) endpoint.
+        1. Verify the enchanted link token using the Verify Token endpoint.
 
-        2. Poll for the successful completion of the token verification using the [Poll Session](/api/enchanted-link/poll-session) endpoint, providing the `pendingRef` returned by the this endpoint.
+        2. Poll for the successful completion of the token verification using the Poll Session endpoint, providing the `pendingRef` returned by the this endpoint.
 
 
         ### See Also
 
-        - See [Enchanted link Authentication](/api/enchantedlink/) for details about implementing enchanted links.
+        - See Enchanted link Authentication for details about implementing enchanted links.
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.'
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.'
       operationId: UpdateUserEmailEnchantedLink
       requestBody:
         content:
@@ -571,292 +608,6 @@ paths:
         keywords: api, notp
 components:
   schemas:
-    NOTPLinkResponse:
-      type: object
-      properties:
-        pendingRef:
-          type: string
-          description: Pending ref is the reference to the pending operation
-        redirectUrl:
-          type: string
-          description: Link to the app (e.g.  https://wa.me/1234567890?text=My%20authentication%20code%20is%20999999)
-        image:
-          type: string
-          description: QR code image
-    UpdateUserEmailEnchantedLinkRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        email:
-          type: string
-        redirectUrl:
-          type: string
-        addToLoginIDs:
-          type: boolean
-          default: false
-        onMergeUseExisting:
-          type: boolean
-          default: false
-        providerId:
-          type: string
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        failOnConflict:
-          type: boolean
-    NOTPSignUpRequest:
-      type: object
-      properties:
-        provider:
-          type: string
-          description: Whatsapp, IMessage, etc
-        phone:
-          type: string
-        loginId:
-          type: string
-        user:
-          $ref: '#/components/schemas/SignUpUser'
-        providerId:
-          type: string
-        templates:
-          $ref: '#/components/schemas/NOTPTemplateIDs'
-        ssoAppId:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/SignupLoginOptions'
-    GetNOTPSessionRequest:
-      type: object
-      properties:
-        pendingRef:
-          type: string
-    JWTResponse:
-      type: object
-      properties:
-        sessionJwt:
-          type: string
-        refreshJwt:
-          type: string
-        cookieDomain:
-          type: string
-        cookiePath:
-          type: string
-        cookieMaxAge:
-          type: integer
-          format: int32
-        cookieExpiration:
-          type: integer
-          format: int32
-        user:
-          $ref: '#/components/schemas/ResponseUser'
-        firstSeen:
-          type: boolean
-        idpResponse:
-          $ref: '#/components/schemas/IDPResponse'
-        sessionExpiration:
-          type: integer
-          format: int32
-        externalToken:
-          type: string
-        claims:
-          type: object
-        tenantSSOID:
-          type: string
-        trustedDeviceJwt:
-          type: string
-        nextRefreshSeconds:
-          type: integer
-          format: int32
-        cookieName:
-          type: string
-        sessionCookieName:
-          type: string
-        sessionCookieDomain:
-          type: string
-        unsavedSSO:
-          type: boolean
-      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
-    NOTPSignInRequest:
-      type: object
-      properties:
-        provider:
-          type: string
-          description: Whatsapp, IMessage, etc
-        loginId:
-          type: string
-          description: Optional, becasue can be retrived from the provider webhook
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-        providerId:
-          type: string
-        templates:
-          $ref: '#/components/schemas/NOTPTemplateIDs'
-        ssoAppId:
-          type: string
-    SignUpUser:
-      type: object
-      properties:
-        loginId:
-          type: string
-        name:
-          type: string
-        phone:
-          type: string
-        email:
-          type: string
-        givenName:
-          type: string
-        middleName:
-          type: string
-        familyName:
-          type: string
-        recoveryEmail:
-          type: string
-        recoveryPhone:
-          type: string
-    EnchantedLinkSignUpEmailRequest:
-      type: object
-      properties:
-        email:
-          type: string
-        loginId:
-          type: string
-        user:
-          $ref: '#/components/schemas/SignUpUser'
-        redirectUrl:
-          type: string
-        providerId:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/SignupLoginOptions'
-    IDPResponse:
-      type: object
-      properties:
-        samlResponse:
-          type: string
-        samlGeneratedUser:
-          type: string
-        samlGeneratedRoles:
-          type: string
-        oidcResponse:
-          type: string
-        oidcGeneratedUser:
-          type: string
-        oidcGeneratedRoles:
-          type: string
-        idpGroups:
-          type: array
-          items:
-            type: string
-        idpSAMLAttributes:
-          type: object
-          default: false
-        idpOIDCClaims:
-          type: object
-    NOTPTemplateIDs:
-      type: object
-      properties:
-        verifyTemplateId:
-          type: string
-        successTemplateId:
-          type: string
-        errorTemplateId:
-          type: string
-      description: NOTP Requests & Responses
-    EnchantedLinkResponse:
-      type: object
-      properties:
-        pendingRef:
-          type: string
-        linkId:
-          type: string
-        maskedEmail:
-          type: string
-    LoginOptions:
-      type: object
-      properties:
-        stepup:
-          type: boolean
-          default: false
-        customClaims:
-          type: object
-          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
-          additionalProperties:
-            type: string
-          example:
-            claim-name: claim-value
-        mfa:
-          type: boolean
-          default: false
-        ssoAppId:
-          type: string
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        pkceChallenge:
-          type: string
-          description: relevant only for enchanted links in the point in time - other methods will ignore this field
-          format: bytes
-        revokeOtherSessions:
-          type: boolean
-        revokeOtherSessionsTypes:
-          type: array
-          items:
-            type: string
-        tenantId:
-          type: string
-    UserTenants:
-      type: object
-      properties:
-        tenantId:
-          type: string
-        roleNames:
-          type: array
-          items:
-            type: string
-        tenantName:
-          type: string
-        permissions:
-          type: array
-          items:
-            type: string
-    GetEnchantedLinkSessionRequest:
-      type: object
-      properties:
-        pendingRef:
-          type: string
-    VerifyEnchantedLinkResponse:
-      type: object
-      properties: {}
-    EnchantedLinkSignInRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        redirectUrl:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-        providerId:
-          type: string
-        ssoAppId:
-          type: string
-        useRecovery:
-          type: boolean
-    VerifyEnchantedLinkRequest:
-      type: object
-      properties:
-        token:
-          type: string
-        pkceVerifier:
-          type: string
-          format: bytes
     ResponseUser:
       type: object
       properties:
@@ -953,6 +704,193 @@ components:
           type: string
         verifiedRecoveryPhone:
           type: boolean
+    EnchantedLinkSignUpEmailRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        loginId:
+          type: string
+        user:
+          $ref: '#/components/schemas/SignUpUser'
+        redirectUrl:
+          type: string
+        providerId:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/SignupLoginOptions'
+    NOTPSignUpRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+          description: Whatsapp, IMessage, etc
+        phone:
+          type: string
+        loginId:
+          type: string
+        user:
+          $ref: '#/components/schemas/SignUpUser'
+        providerId:
+          type: string
+        templates:
+          $ref: '#/components/schemas/NOTPTemplateIDs'
+        ssoAppId:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/SignupLoginOptions'
+    NOTPLinkResponse:
+      type: object
+      properties:
+        pendingRef:
+          type: string
+          description: Pending ref is the reference to the pending operation
+        redirectUrl:
+          type: string
+          description: Link to the app (e.g.  https://wa.me/1234567890?text=My%20authentication%20code%20is%20999999)
+        image:
+          type: string
+          description: QR code image
+    UpdateUserEmailEnchantedLinkRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        email:
+          type: string
+        redirectUrl:
+          type: string
+        addToLoginIDs:
+          type: boolean
+          default: false
+        onMergeUseExisting:
+          type: boolean
+          default: false
+        providerId:
+          type: string
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        failOnConflict:
+          type: boolean
+    GetEnchantedLinkSessionRequest:
+      type: object
+      properties:
+        pendingRef:
+          type: string
+    VerifyEnchantedLinkRequest:
+      type: object
+      properties:
+        token:
+          type: string
+        pkceVerifier:
+          type: string
+          format: bytes
+    VerifyEnchantedLinkResponse:
+      type: object
+      properties: {}
+    EnchantedLinkResponse:
+      type: object
+      properties:
+        pendingRef:
+          type: string
+        linkId:
+          type: string
+        maskedEmail:
+          type: string
+    EnchantedLinkSignInRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        redirectUrl:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        providerId:
+          type: string
+        ssoAppId:
+          type: string
+        useRecovery:
+          type: boolean
+    IDPResponse:
+      type: object
+      properties:
+        samlResponse:
+          type: string
+        samlGeneratedUser:
+          type: string
+        samlGeneratedRoles:
+          type: string
+        oidcResponse:
+          type: string
+        oidcGeneratedUser:
+          type: string
+        oidcGeneratedRoles:
+          type: string
+        idpGroups:
+          type: array
+          items:
+            type: string
+        idpSAMLAttributes:
+          type: object
+          default: false
+        idpOIDCClaims:
+          type: object
+    NOTPTemplateIDs:
+      type: object
+      properties:
+        verifyTemplateId:
+          type: string
+        successTemplateId:
+          type: string
+        errorTemplateId:
+          type: string
+      description: NOTP Requests & Responses
+    GetNOTPSessionRequest:
+      type: object
+      properties:
+        pendingRef:
+          type: string
+    LoginOptions:
+      type: object
+      properties:
+        stepup:
+          type: boolean
+          default: false
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        mfa:
+          type: boolean
+          default: false
+        ssoAppId:
+          type: string
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        pkceChallenge:
+          type: string
+          description: relevant only for enchanted links in the point in time - other methods will ignore this field
+          format: bytes
+        revokeOtherSessions:
+          type: boolean
+        revokeOtherSessionsTypes:
+          type: array
+          items:
+            type: string
+        tenantId:
+          type: string
     SignupLoginOptions:
       type: object
       properties:
@@ -975,28 +913,127 @@ components:
           format: bytes
         tenantId:
           type: string
+    JWTResponse:
+      type: object
+      properties:
+        sessionJwt:
+          type: string
+        refreshJwt:
+          type: string
+        cookieDomain:
+          type: string
+        cookiePath:
+          type: string
+        cookieMaxAge:
+          type: integer
+          format: int32
+        cookieExpiration:
+          type: integer
+          format: int32
+        user:
+          $ref: '#/components/schemas/ResponseUser'
+        firstSeen:
+          type: boolean
+        idpResponse:
+          $ref: '#/components/schemas/IDPResponse'
+        sessionExpiration:
+          type: integer
+          format: int32
+        externalToken:
+          type: string
+        claims:
+          type: object
+        tenantSSOID:
+          type: string
+        trustedDeviceJwt:
+          type: string
+        nextRefreshSeconds:
+          type: integer
+          format: int32
+        cookieName:
+          type: string
+        sessionCookieName:
+          type: string
+        sessionCookieDomain:
+          type: string
+        unsavedSSO:
+          type: boolean
+      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
+    NOTPSignInRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+          description: Whatsapp, IMessage, etc
+        loginId:
+          type: string
+          description: Optional, becasue can be retrived from the provider webhook
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        providerId:
+          type: string
+        templates:
+          $ref: '#/components/schemas/NOTPTemplateIDs'
+        ssoAppId:
+          type: string
+    SignUpUser:
+      type: object
+      properties:
+        loginId:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        givenName:
+          type: string
+        middleName:
+          type: string
+        familyName:
+          type: string
+        recoveryEmail:
+          type: string
+        recoveryPhone:
+          type: string
+    UserTenants:
+      type: object
+      properties:
+        tenantId:
+          type: string
+        roleNames:
+          type: array
+          items:
+            type: string
+        tenantName:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
   securitySchemes:
-    Descope Project ID:
+    Descope_Project_ID:
       type: http
       scheme: bearer
       bearerFormat: Project ID
       description: Project ID as bearer token.
-    Descope Project ID:Refresh JWT:
+    Descope_Project_ID_Refresh_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Refresh JWT
       description: Project ID:Refresh JWT as bearer token.
-    Descope Project ID:Access Key:
+    Descope_Project_ID_Access_Key:
       type: http
       scheme: bearer
       bearerFormat: ProjectId:AccessKey
       description: Project ID:Access Key as bearer token.
-    Descope Project ID:Session JWT:
+    Descope_Project_ID_Session_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Session JWT
       description: Project ID:Session JWT as bearer token.
-    Descope Project ID and Management Key:
+    Descope_Project_ID_and_Management_Key:
       type: http
       description: Project ID:Management Key as bearer token.
       scheme: bearer

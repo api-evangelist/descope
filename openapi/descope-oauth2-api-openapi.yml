@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Descope Apps Oauth2 API
+  title: Descope Oauth2 API
   description: Descope API
   contact:
     name: Descope
@@ -23,12 +23,12 @@ security:
   Descope Project ID and Management Key: []
   Descope Project ID:Access Key: []
 tags:
-- name: Oauth2
+- name: OAuth2
 paths:
   /oauth2/v1/apps/agentic/{project_id}/{mcp_server_id}/authorize:
     get:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application authorization GET endpoint by MCP server ID
       operationId: ThirdPartyApplicationAuthorizeGetByMcpServerID
       parameters:
@@ -128,9 +128,11 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application authorization GET endpoint by MCP server ID
         keywords: api, third party apps
+      summary: Third party application authorize get by mcp server ID
+      x-summary-source: derived
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application authorization POST endpoint by MCP server ID
       operationId: ThirdPartyApplicationAuthorizePOSTByMcpServerID
       parameters:
@@ -163,10 +165,12 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application authorization POST endpoint by MCP server ID
         keywords: api, third party apps
+      summary: Third party application authorize POSTBy mcp server ID
+      x-summary-source: derived
   /oauth2/v1/apps/agentic/{project_id}/{mcp_server_id}/token:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application token endpoint by MCP server ID
       operationId: ThirdPartyApplicationTokenEndpointByMcpServerID
       parameters:
@@ -199,10 +203,12 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application token endpoint by MCP server ID
         keywords: api, third party apps
+      summary: Third party application token endpoint by mcp server ID
+      x-summary-source: derived
   /oauth2/v1/apps/authorize:
     get:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application authorization GET endpoint
       operationId: ThirdPartyApplicationAuthorizeGet
       parameters:
@@ -304,7 +310,7 @@ paths:
         keywords: api, third party apps
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application authorization POST endpoint
       operationId: ThirdPartyApplicationAuthorize
       requestBody:
@@ -331,7 +337,7 @@ paths:
   /oauth2/v1/apps/bc-authorize:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application CIBA backchannel authentication endpoint
       operationId: ThirdPartyApplicationCIBAEndpoint
       requestBody:
@@ -353,10 +359,12 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application CIBA backchannel authentication endpoint
         keywords: api, third party apps
+      summary: Third party application CIBA endpoint
+      x-summary-source: derived
   /oauth2/v1/apps/device:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application device endpoint
       operationId: ThirdPartyApplicationDeviceEndpoint
       requestBody:
@@ -378,10 +386,12 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application device endpoint
         keywords: api, third party apps
+      summary: Third party application device endpoint
+      x-summary-source: derived
   /oauth2/v1/apps/finish-authorize:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application authorization finish endpoint
       operationId: ThirdPartyApplicationFinish
       requestBody:
@@ -408,8 +418,7 @@ paths:
   /oauth2/v1/apps/revoke:
     post:
       tags:
-      - Oauth2
-      description: OIDC revoke endpoint
+      - OAuth2
       operationId: ThirdPartyApplicationRevocationEndpoint
       requestBody:
         content:
@@ -435,8 +444,7 @@ paths:
   /oauth2/v1/apps/token:
     post:
       tags:
-      - Oauth2
-      description: Third Party application token endpoint
+      - OAuth2
       operationId: ThirdPartyApplicationTokenEndpoint
       requestBody:
         content:
@@ -462,8 +470,7 @@ paths:
   /oauth2/v1/apps/userinfo:
     get:
       tags:
-      - Oauth2
-      description: Third Party application Get UserInfo endpoint
+      - OAuth2
       operationId: ThirdPartyApplicationUserInfoEndpointGet
       parameters:
       - name: project_id
@@ -488,8 +495,7 @@ paths:
         keywords: api, third party apps
     post:
       tags:
-      - Oauth2
-      description: Third Party application Post UserInfo endpoint
+      - OAuth2
       operationId: ThirdPartyApplicationUserInfoEndpointPost
       requestBody:
         content:
@@ -515,7 +521,7 @@ paths:
   /oauth2/v1/apps/{project_id}/authorize:
     get:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application authorization GET endpoint
       operationId: ThirdPartyApplicationAuthorizeGetByProjectID
       parameters:
@@ -614,9 +620,11 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application authorization GET endpoint
         keywords: api, third party apps
+      summary: Third party application authorize get by project ID
+      x-summary-source: derived
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application authorization POST endpoint
       operationId: ThirdPartyApplicationAuthorizePostByProjectID
       parameters:
@@ -644,10 +652,12 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application authorization POST endpoint
         keywords: api, third party apps
+      summary: Third party application authorize post by project ID
+      x-summary-source: derived
   /oauth2/v1/apps/{project_id}/bc-authorize:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application CIBA backchannel authentication endpoint
       operationId: ThirdPartyApplicationCIBAEndpoint
       parameters:
@@ -675,10 +685,12 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application CIBA backchannel authentication endpoint
         keywords: api, third party apps
+      summary: Third party application CIBA endpoint
+      x-summary-source: derived
   /oauth2/v1/apps/{project_id}/device:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application device endpoint
       operationId: ThirdPartyApplicationDeviceEndpoint
       parameters:
@@ -706,10 +718,12 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application device endpoint
         keywords: api, third party apps
+      summary: Third party application device endpoint
+      x-summary-source: derived
   /oauth2/v1/apps/{project_id}/revoke:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application revoke endpoint by project ID
       operationId: ThirdPartyApplicationRevocationEndpointByProjectID
       parameters:
@@ -737,10 +751,12 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application revoke endpoint by project ID
         keywords: api, third party apps
+      summary: Third party application revocation endpoint by project ID
+      x-summary-source: derived
   /oauth2/v1/apps/{project_id}/token:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application token endpoint by project ID
       operationId: ThirdPartyApplicationTokenEndpointByProjectID
       parameters:
@@ -768,10 +784,12 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application token endpoint by project ID
         keywords: api, third party apps
+      summary: Third party application token endpoint by project ID
+      x-summary-source: derived
   /oauth2/v1/apps/{project_id}/userinfo:
     get:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application Get UserInfo endpoint by project ID
       operationId: ThirdPartyApplicationUserInfoEndpointGetByProjectID
       parameters:
@@ -794,9 +812,11 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application Get UserInfo endpoint by project ID
         keywords: api, third party apps
+      summary: Third party application user info endpoint get by project ID
+      x-summary-source: derived
     post:
       tags:
-      - Oauth2
+      - OAuth2
       description: Third Party application POST UserInfo endpoint by project ID
       operationId: ThirdPartyApplicationUserInfoEndpointPostByProjectID
       parameters:
@@ -825,10 +845,12 @@ paths:
         title: undefined | Third Party Apps
         description: Third Party application POST UserInfo endpoint by project ID
         keywords: api, third party apps
+      summary: Third party application user info endpoint post by project ID
+      x-summary-source: derived
   /oauth2/v1/authorize:
     get:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Authorize
       description: OIDC GET authorization endpoint start
       operationId: OIDCAuthZEndpointGetStart
@@ -917,7 +939,7 @@ paths:
         keywords: api, federated apps
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Authorize
       description: OIDC POST authorization endpoint start
       operationId: OIDCAuthZEndpointPostStart
@@ -943,7 +965,7 @@ paths:
   /oauth2/v1/authorize/entramfa:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Authorize Entra MFA
       description: OIDC Entra MFA authorization endpoint
       operationId: OIDCAuthZEndpointEntraMFA
@@ -969,7 +991,7 @@ paths:
   /oauth2/v1/device:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Device
       description: OIDC device endpoint
       operationId: OIDCDeviceEndpoint
@@ -995,7 +1017,7 @@ paths:
   /oauth2/v1/finish-authorize:
     get:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Finish Authorize
       description: OIDC POST authorization endpoint finish
       operationId: OIDCAuthZEndpointFinishPost
@@ -1027,7 +1049,7 @@ paths:
         keywords: api, federated apps
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Finish Authorize
       description: OIDC GET authorization endpoint finish
       operationId: OIDCAuthZEndpointFinishGet
@@ -1053,7 +1075,7 @@ paths:
   /oauth2/v1/logout:
     get:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC End Session
       description: OIDC end session GET endpoint
       operationId: OIDCEndSessionEndpointGet
@@ -1093,7 +1115,7 @@ paths:
         keywords: api, federated apps
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC End Session
       description: OIDC end session POST endpoint
       operationId: OIDCEndSessionEndpointPost
@@ -1119,7 +1141,7 @@ paths:
   /oauth2/v1/revoke:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Revoke
       description: OIDC revoke endpoint
       operationId: OIDCRevocationEndpoint
@@ -1145,7 +1167,7 @@ paths:
   /oauth2/v1/token:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Token
       description: OIDC token endpoint
       operationId: OIDCTokenEndpoint
@@ -1171,7 +1193,7 @@ paths:
   /oauth2/v1/userinfo:
     get:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC UserInfo
       description: OIDC Get UserInfo endpoint
       operationId: OIDCUserInfoEndpointGet
@@ -1196,7 +1218,7 @@ paths:
         keywords: api, federated apps
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC UserInfo
       description: OIDC POST UserInfo endpoint
       operationId: OIDCUserInfoEndpointPost
@@ -1222,7 +1244,7 @@ paths:
   /{ssoAppId}/oauth2/v1/authorize:
     get:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Authorize
       description: OIDC GET authorization endpoint start (sso app)
       operationId: OIDCSSOAppAuthZEndpointGetStart
@@ -1312,7 +1334,7 @@ paths:
         keywords: api, federated apps
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Authorize
       description: OIDC POST authorization endpoint start (sso app)
       operationId: OIDCSSOAppAuthZEndpointPostStart
@@ -1344,7 +1366,7 @@ paths:
   /{ssoAppId}/oauth2/v1/authorize/entramfa:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Authorize Entra MFA
       description: OIDC Entra MFA authorization endpoint (SSO App)
       operationId: OIDCSSOAppAuthZEndpointEntraMFA
@@ -1376,7 +1398,7 @@ paths:
   /{ssoAppId}/oauth2/v1/device:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Device
       description: OIDC device endpoint (sso app)
       operationId: OIDCDeviceEndpoint
@@ -1408,7 +1430,7 @@ paths:
   /{ssoAppId}/oauth2/v1/logout:
     get:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC End Session
       description: OIDC end session GET endpoint (sso app)
       operationId: OIDCSSOAppEndSessionEndpointGet
@@ -1449,7 +1471,7 @@ paths:
         keywords: api, federated apps
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC End Session
       description: OIDC end session POST endpoint (sso app)
       operationId: OIDSSOAppCEndSessionEndpointPost
@@ -1481,7 +1503,7 @@ paths:
   /{ssoAppId}/oauth2/v1/revoke:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Revoke
       description: OIDC revoke endpoint (sso app)
       operationId: OIDCSSOAppRevocationEndpoint
@@ -1513,7 +1535,7 @@ paths:
   /{ssoAppId}/oauth2/v1/token:
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC Token
       description: OIDC token endpoint (sso app)
       operationId: OIDCSSOAppTokenEndpoint
@@ -1545,7 +1567,7 @@ paths:
   /{ssoAppId}/oauth2/v1/userinfo:
     get:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC UserInfo
       description: OIDC Get UserInfo endpoint (sso app)
       operationId: OIDCSSOAppUserInfoEndpointGet
@@ -1571,7 +1593,7 @@ paths:
         keywords: api, federated apps
     post:
       tags:
-      - Oauth2
+      - OAuth2
       summary: OIDC UserInfo
       description: OIDC POST UserInfo endpoint (sso app)
       operationId: OIDCSSOAppUserInfoEndpointPost
@@ -1603,6 +1625,109 @@ paths:
         keywords: api, federated apps
 components:
   schemas:
+    OIDCTokenEndpointResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        refresh_token:
+          type: string
+        id_token:
+          type: string
+        expires_in:
+          type: integer
+          format: uint32
+        scope:
+          type: string
+        error:
+          type: string
+          description: Those fields are in use just in case of error of device flow scenario (where device polling on the specific error response)
+        description:
+          type: string
+        issued_token_type:
+          type: string
+    ThirdPartyApplicationRevocationEndpointRequest:
+      type: object
+      properties:
+        token:
+          type: string
+        token_type_hint:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        project_id:
+          type: string
+    OIDCEndSessionEndpointRequest:
+      type: object
+      properties:
+        id_token_hint:
+          type: string
+        client_id:
+          type: string
+        post_logout_redirect_uri:
+          type: string
+        state:
+          type: string
+        ssoAppId:
+          type: string
+    OIDCAuthZEndpointFinishRequest:
+      type: object
+      properties:
+        state_id:
+          type: string
+        sso_app_id:
+          type: string
+        error_redirect_uri:
+          type: string
+    OIDCUserInfoEndpointRequest:
+      type: object
+      properties:
+        ssoAppId:
+          type: string
+          description: Can be empty as data arrived on the Authorization header token
+    CIBAAuthRequest:
+      type: object
+      properties:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        scope:
+          type: string
+        login_hint:
+          type: string
+        binding_message:
+          type: string
+        requested_expiry:
+          type: integer
+          format: uint32
+        audience:
+          type: string
+        project_id:
+          type: string
+        dpop_jkt:
+          type: string
+    OIDCDeviceEndpointResponse:
+      type: object
+      properties:
+        device_code:
+          type: string
+        user_code:
+          type: string
+        verification_uri:
+          type: string
+        verification_uri_complete:
+          type: string
+        expires_in:
+          type: integer
+          format: uint32
+        interval:
+          type: integer
+          format: uint32
     ThirdPartyApplicationTokenEndpointRequest:
       type: object
       properties:
@@ -1645,37 +1770,6 @@ components:
           type: string
         auth_req_id:
           type: string
-    CIBAAuthRequest:
-      type: object
-      properties:
-        client_id:
-          type: string
-        client_secret:
-          type: string
-        scope:
-          type: string
-        login_hint:
-          type: string
-        binding_message:
-          type: string
-        requested_expiry:
-          type: integer
-          format: uint32
-        audience:
-          type: string
-        project_id:
-          type: string
-        dpop_jkt:
-          type: string
-    OperationResponse:
-      type: object
-      properties: {}
-    OIDCUserInfoEndpointRequest:
-      type: object
-      properties:
-        ssoAppId:
-          type: string
-          description: Can be empty as data arrived on the Authorization header token
     OIDCUserInfoEndpointResponse:
       type: object
       properties:
@@ -1696,6 +1790,12 @@ components:
           type: string
         dpop_jkt:
           type: string
+    ThirdPartyApplicationUserInfoEndpointRequest:
+      type: object
+      properties:
+        project_id:
+          type: string
+          description: Can be empty as data arrived on the Authorization header token
     OIDCRevocationEndpointRequest:
       type: object
       properties:
@@ -1705,33 +1805,7 @@ components:
           type: string
         ssoAppId:
           type: string
-    OIDCEndSessionEndpointRequest:
-      type: object
-      properties:
-        id_token_hint:
-          type: string
-        client_id:
-          type: string
-        post_logout_redirect_uri:
-          type: string
-        state:
-          type: string
-        ssoAppId:
-          type: string
-    ThirdPartyApplicationRevocationEndpointRequest:
-      type: object
-      properties:
-        token:
-          type: string
-        token_type_hint:
-          type: string
-        client_id:
-          type: string
-        client_secret:
-          type: string
-        project_id:
-          type: string
-    OIDCAuthZEntraMFAEndpointRequest:
+    OIDCAuthZEndpointRequest:
       type: object
       properties:
         response_type:
@@ -1744,25 +1818,47 @@ components:
           type: string
         redirect_uri:
           type: string
+        code_challenge_method:
+          type: string
+          description: PKCE
+        code_challenge:
+          type: string
+        dynamic_val:
+          type: string
         nonce:
-          type: string
-        id_token_hint:
-          type: string
-        claims:
           type: string
         ssoAppId:
           type: string
+        loginHint:
+          type: string
+        prompt:
+          type: string
+        flow:
+          type: string
+        flow_token:
+          type: string
+        tenant:
+          type: string
         style:
           type: string
-    OIDCAuthZEndpointFinishRequest:
+        dpop_jkt:
+          type: string
+    CIBAAuthResponse:
       type: object
       properties:
-        state_id:
+        auth_req_id:
           type: string
-        sso_app_id:
-          type: string
-        error_redirect_uri:
-          type: string
+        expires_in:
+          type: integer
+          format: uint32
+        interval:
+          type: integer
+          format: uint32
+    ThirdPartyApplicationUserInfoEndpointResponse:
+      type: object
+      properties:
+        userInfoClaims:
+          type: object
     ThirdPartyApplicationAuthZEndpointRequest:
       type: object
       properties:
@@ -1808,55 +1904,6 @@ components:
         dpop_jkt:
           type: string
         request:
-          type: string
-    CIBAAuthResponse:
-      type: object
-      properties:
-        auth_req_id:
-          type: string
-        expires_in:
-          type: integer
-          format: uint32
-        interval:
-          type: integer
-          format: uint32
-    OIDCAuthZEndpointRequest:
-      type: object
-      properties:
-        response_type:
-          type: string
-        scope:
-          type: string
-        client_id:
-          type: string
-        state:
-          type: string
-        redirect_uri:
-          type: string
-        code_challenge_method:
-          type: string
-          description: PKCE
-        code_challenge:
-          type: string
-        dynamic_val:
-          type: string
-        nonce:
-          type: string
-        ssoAppId:
-          type: string
-        loginHint:
-          type: string
-        prompt:
-          type: string
-        flow:
-          type: string
-        flow_token:
-          type: string
-        tenant:
-          type: string
-        style:
-          type: string
-        dpop_jkt:
           type: string
     ThirdPartyApplicationFinishEndpointRequest:
       type: object
@@ -1904,79 +1951,54 @@ components:
           type: string
         device_code:
           type: string
-    ThirdPartyApplicationUserInfoEndpointResponse:
+    OperationResponse:
+      type: object
+      properties: {}
+    OIDCAuthZEntraMFAEndpointRequest:
       type: object
       properties:
-        userInfoClaims:
-          type: object
-    ThirdPartyApplicationUserInfoEndpointRequest:
-      type: object
-      properties:
-        project_id:
+        response_type:
           type: string
-          description: Can be empty as data arrived on the Authorization header token
-    OIDCDeviceEndpointResponse:
-      type: object
-      properties:
-        device_code:
-          type: string
-        user_code:
-          type: string
-        verification_uri:
-          type: string
-        verification_uri_complete:
-          type: string
-        expires_in:
-          type: integer
-          format: uint32
-        interval:
-          type: integer
-          format: uint32
-    OIDCTokenEndpointResponse:
-      type: object
-      properties:
-        access_token:
-          type: string
-        token_type:
-          type: string
-        refresh_token:
-          type: string
-        id_token:
-          type: string
-        expires_in:
-          type: integer
-          format: uint32
         scope:
           type: string
-        error:
+        client_id:
           type: string
-          description: Those fields are in use just in case of error of device flow scenario (where device polling on the specific error response)
-        description:
+        state:
           type: string
-        issued_token_type:
+        redirect_uri:
+          type: string
+        nonce:
+          type: string
+        id_token_hint:
+          type: string
+        claims:
+          type: string
+        ssoAppId:
+          type: string
+        style:
           type: string
   securitySchemes:
-    Descope Project ID:
+    Descope_Project_ID:
       type: http
       scheme: bearer
       bearerFormat: Project ID
       description: Project ID as bearer token.
-    Descope Project ID:Refresh JWT:
+    Descope_Project_ID_Refresh_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Refresh JWT
       description: Project ID:Refresh JWT as bearer token.
-    Descope Project ID:Access Key:
+    Descope_Project_ID_Access_Key:
       type: http
       scheme: bearer
       bearerFormat: ProjectId:AccessKey
       description: Project ID:Access Key as bearer token.
-    Descope Project ID:Session JWT:
+    Descope_Project_ID_Session_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Session JWT
       description: Project ID:Session JWT as bearer token.
-    Descope Project ID and Management Key:
+    Descope_Project_ID_and_Management_Key:
       type: http
       description: Project ID:Management Key as bearer token.
       scheme: bearer

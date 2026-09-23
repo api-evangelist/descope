@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Descope Apps Auth API
+  title: Descope Auth API
   description: Descope API
   contact:
     name: Descope
@@ -376,7 +376,7 @@ paths:
 
         This API Endpoint will take an API key for the project and provide an access token to be used for accessing the application.
 
-        The session token JWT token will be valid for the configured [Session Token Timeout](/project-settings#session-token-timeout), and its expiration time will be provided in the `expiration` field of the response object.'
+        The session token JWT token will be valid for the configured Session Token Timeout, and its expiration time will be provided in the `expiration` field of the response object.'
       operationId: ExchangeAccessKey
       requestBody:
         content:
@@ -521,7 +521,7 @@ paths:
         This endpoint allows you to get a new session token and refresh token with the `dct` claim on the JWT which shows the active selected tenant for the user.
 
 
-        See [Tenant Selection Article](/knowledgebase/descopeflows/tenantselectcomponent/) for more details of the usage.'
+        See Tenant Selection Article for more details of the usage.'
       operationId: SelectTenant
       requestBody:
         content:
@@ -741,7 +741,7 @@ paths:
         Initiate a social login (OAuth) sign-up or sign-in process for an end user. Descope will coordinate the authorization process with the OAUth provider specified in the `provider` field. Specify the URL you want to redirect the end user to after a successful sign-in in the `redirectURL` parameter.
 
 
-        When the OAuth authorization completes successfully, the endpoint returns a URL `url` that has a unique code `<unique-code\>` appended as a URL parameter to the `redirectURL` you provided. For example, if `redirectURL = https://oauth.mycompany.com/shopping.htm` then `url = https://oauth.mycompany.com/shopping.htm?code=<unique-code\>`. The unique code will be exchanged for a valid user object in the next step.
+        When the OAuth authorization completes successfully, the endpoint returns a URL `url` that has a unique code `` appended as a URL parameter to the `redirectURL` you provided. For example, if `redirectURL = https://oauth.mycompany.com/shopping.htm` then `url = https://oauth.mycompany.com/shopping.htm?code=`. The unique code will be exchanged for a valid user object in the next step.
 
 
         After the end user successfully authenticates with the OAuth provider the end user session is redirected to `url`.
@@ -749,14 +749,14 @@ paths:
 
         ### Next Steps
 
-        Call the [Exchange Code](/api/oauth/exchange-code) endpoint from the flow that responds to the URL specified in the `redirectURL` field, to exchange the unique code for a user session object.
+        Call the Exchange Code endpoint from the flow that responds to the URL specified in the `redirectURL` field, to exchange the unique code for a user session object.
 
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.
 
-        - See [User Login Options](/api/overview#user-login-options) for further details on the stepup, mfa, and customClaims parameters.'
+        - See User Login Options for further details on the stepup, mfa, and customClaims parameters.'
       operationId: AuthorizeOAuth
       parameters:
       - name: provider
@@ -823,7 +823,7 @@ paths:
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.'
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.'
       operationId: CreateOAuthRedirectURISignin
       parameters:
       - name: provider
@@ -890,7 +890,7 @@ paths:
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.'
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.'
       operationId: CreateOAuthRedirectURISignup
       parameters:
       - name: provider
@@ -949,7 +949,6 @@ paths:
       tags:
       - Auth
       summary: Creating OAuth redirect URI for update user request
-      description: Creating OAuth redirect URI for update user request
       operationId: CreateOAuthRedirectURIUpdateUser
       parameters:
       - name: provider
@@ -1004,7 +1003,6 @@ paths:
       tags:
       - Auth
       summary: Starts a full OAuth flow using native APIs
-      description: Starts a full OAuth flow using native APIs
       operationId: OAuthNativeStart
       requestBody:
         content:
@@ -1035,18 +1033,18 @@ paths:
       description: '### Exchange OAuth code for Descope user session
 
 
-        This endpoint will exchange the OAuth code for the Descope session information needed for managing the end user session. Call this endpoint from your code flow that responds to the `url` that was returned by the [Sign-In](/api/oauth/sign-up-sign-in) endpoint.
+        This endpoint will exchange the OAuth code for the Descope session information needed for managing the end user session. Call this endpoint from your code flow that responds to the `url` that was returned by the Sign-In endpoint.
 
 
-        The unique code `<unique-code\>` is appended as a URL parameter: `code=<unique-code\>`, for example, `url = https://oauth.mycompany.com/shopping.htm?code=<unique-code\>`.
+        The unique code `` is appended as a URL parameter: `code=`, for example, `url = https://oauth.mycompany.com/shopping.htm?code=`.
 
 
         ### Next Steps
 
 
-        1. Extract the unique code `<unique-code\>` from the URL parameter.
+        1. Extract the unique code `` from the URL parameter.
 
-        2. Call this endpoint, passing the `<unique-code\>` as the request parameter
+        2. Call this endpoint, passing the `` as the request parameter
 
 
         The response object includes the session JWT (sessionJwt) and refresh JWT (refreshJwt) when this endpoint completes successfully.
@@ -1054,7 +1052,7 @@ paths:
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.'
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.'
       operationId: ExchangeCodeoauth
       requestBody:
         content:
@@ -1082,7 +1080,6 @@ paths:
       tags:
       - Auth
       summary: Finishes a full OAuth flow using native APIs
-      description: Finishes a full OAuth flow using native APIs
       operationId: OAuthNativeFinish
       requestBody:
         content:
@@ -1110,7 +1107,6 @@ paths:
       tags:
       - Auth
       summary: Exchanges one tap id token for a JWT
-      description: Exchanges one tap id token for a JWT
       operationId: ExchangeOneTapIDToken
       requestBody:
         content:
@@ -1138,7 +1134,6 @@ paths:
       tags:
       - Auth
       summary: Verifies one tap id token for a code
-      description: Verifies one tap id token for a code
       operationId: VerifyOneTapIDToken
       requestBody:
         content:
@@ -1199,20 +1194,20 @@ paths:
 
         ### Next Steps
 
-        Verify the user''s email to allow for password reset by updating the email via [OTP](/api/otp/email/update-email), [Enchanted Link](/api/enchanted-link/update-email), or [Magic Link](/api/magic-link/email/update-email)
+        Verify the user''s email to allow for password reset by updating the email via OTP, Enchanted Link, or Magic Link
 
 
-        Add tenants to the user via [Update User Add Tenant](/api/management/users/update-user-add-tenant)
+        Add tenants to the user via Update User Add Tenant
 
 
-        Add roles to the user via [Update User Add Role](/api/management/users/update-user-add-roles)
+        Add roles to the user via Update User Add Role
 
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.
 
-        - Use the [Sign-In](/api/passwords/sign-in) endpoint to sign-in an existing end user.'
+        - Use the Sign-In endpoint to sign-in an existing end user.'
       operationId: SignUpPassword
       requestBody:
         content:
@@ -1245,20 +1240,20 @@ paths:
 
         ### Next Steps
 
-        Verify the user''s email to allow for password reset by updating the email via [OTP](/api/otp/email/update-email), [Enchanted Link](/api/enchanted-link/update-email), or [Magic Link](/api/magic-link/email/update-email)
+        Verify the user''s email to allow for password reset by updating the email via OTP, Enchanted Link, or Magic Link
 
 
-        Add tenants to the user via [Update User Add Tenant](/api/management/users/update-user-add-tenant)
+        Add tenants to the user via Update User Add Tenant
 
 
-        Add roles to the user via [Update User Add Role](/api/management/users/update-user-add-roles)
+        Add roles to the user via Update User Add Role
 
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.
 
-        - Use the [Sign-Up](/api/passwords/sign-up) endpoint to sign-up a new end user.'
+        - Use the Sign-Up endpoint to sign-up a new end user.'
       operationId: SignInPassword
       requestBody:
         content:
@@ -1291,14 +1286,14 @@ paths:
 
         ### Next Steps
 
-        Sign the user in with their new password via [Sign-In](/api/passwords/sign-in)
+        Sign the user in with their new password via Sign-In
 
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.
 
-        - You can also utilize [Update Password](/api/passwords/update-password) or [Reset Password](/api/passwords/email/password-reset) as alternatives to change a user''s password.'
+        - You can also utilize Update Password or Reset Password as alternatives to change a user''s password.'
       operationId: ReplaceUserPassword
       requestBody:
         content:
@@ -1331,14 +1326,14 @@ paths:
 
         ### Next Steps
 
-        Sign the user in with their new password via [Sign-In](/api/passwords/sign-in)
+        Sign the user in with their new password via Sign-In
 
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.
 
-        - You can also utilize [Replace Password](/api/passwords/replace-password) or [Reset Password](/api/passwords/email/password-reset) as alternatives to change a user''s password.'
+        - You can also utilize Replace Password or Reset Password as alternatives to change a user''s password.'
       operationId: UpdateUserPassword
       requestBody:
         content:
@@ -1368,7 +1363,7 @@ paths:
 
         ### See Also
 
-        - See [Password Policy Customization](/auth-methods/passwords#password-policy) for further details on password policy configuration.'
+        - See Password Policy Customization for further details on password policy configuration.'
       operationId: GetPasswordPolicy
       responses:
         '200':
@@ -1390,7 +1385,6 @@ paths:
       tags:
       - Auth
       summary: Generate recovery codes for a user
-      description: Generate recovery codes for a user
       operationId: GenerateUserRecoveryCodes
       requestBody:
         content:
@@ -1418,7 +1412,6 @@ paths:
       tags:
       - Auth
       summary: Sign in a user using a recovery code
-      description: Sign in a user using a recovery code
       operationId: SignInRecoveryCode
       requestBody:
         content:
@@ -1447,7 +1440,6 @@ paths:
       tags:
       - Auth
       summary: Creating SAML redirect URI
-      description: Creating SAML redirect URI
       operationId: CreateSAMLRedirect
       parameters:
       - name: tenant
@@ -1832,7 +1824,6 @@ paths:
       tags:
       - Auth
       summary: Finalize SAML authentication
-      description: Finalize SAML authentication
       operationId: ExchangeToken
       requestBody:
         content:
@@ -1860,7 +1851,6 @@ paths:
       tags:
       - Auth
       summary: IDP Metadata URL for external SAML services
-      description: IDP Metadata URL for external SAML services
       operationId: SAMLIDPMetadata
       parameters:
       - name: app
@@ -1886,7 +1876,6 @@ paths:
       tags:
       - Auth
       summary: Sets up security questions for a user
-      description: Sets up security questions for a user
       operationId: SetupUserSecurityQuestions
       requestBody:
         content:
@@ -1914,7 +1903,6 @@ paths:
       tags:
       - Auth
       summary: Get the security questions for a user to verify
-      description: Get the security questions for a user to verify
       operationId: GetUserSecurityVerifyQuestions
       responses:
         '200':
@@ -1935,7 +1923,6 @@ paths:
       tags:
       - Auth
       summary: Verifies the security questions for a user
-      description: Verifies the security questions for a user
       operationId: VerifyUserSecurityQuestions
       requestBody:
         content:
@@ -1969,7 +1956,7 @@ paths:
         Initiate a SAML SSO (Single Sign-On, "sign-in" in Descope terminology) process for an end user. Descope will coordinate the sign-in process with the service provider. Specify the URL you want to redirect the end user to after a successful sign-in in the `redirectURL` parameter.
 
 
-        When the SSO sign-in completes successfully, the endpoint returns a URL `url` that has a unique code `<unique-code\>`, also called a token) appended as a URL parameter to the `redirectURL` you provided. For example, if `redirectURL = https://sso.mycompany.com/mywork.htm` then `url = https://sso.mycompany.com/mywork.htm?code=<unique-code\>`. The unique code will be exchanged for a valid user object in the next step.
+        When the SSO sign-in completes successfully, the endpoint returns a URL `url` that has a unique code ``, also called a token) appended as a URL parameter to the `redirectURL` you provided. For example, if `redirectURL = https://sso.mycompany.com/mywork.htm` then `url = https://sso.mycompany.com/mywork.htm?code=`. The unique code will be exchanged for a valid user object in the next step.
 
 
         After the end user has been successfully authenticated with the identity provider (IdP) the end user session is redirected to `url`.
@@ -1977,14 +1964,14 @@ paths:
 
         ### Next Steps
 
-        Call the [Exchange Code](/api/sso/exchange-code) endpoint from the flow that responds to the URL specified in the `redirectURL` field, to exchange the unique code for a user session object.
+        Call the Exchange Code endpoint from the flow that responds to the URL specified in the `redirectURL` field, to exchange the unique code for a user session object.
 
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.
 
-        - See [User Login Options](/api/overview#user-login-options) for further details on the stepup, mfa, and customClaims parameters.'
+        - See User Login Options for further details on the stepup, mfa, and customClaims parameters.'
       operationId: AuthorizeSAML
       parameters:
       - name: tenant
@@ -2372,18 +2359,18 @@ paths:
       description: '### Exchange SSO SAML code for Descope user session
 
 
-        This endpoint will exchange the unique SAML code (also called a token) for the Descope session information needed for managing the end user session. Call this endpoint from your code flow that responds to the `url` that was returned by the [Sign-In](/api/oauth/sign-up-sign-in) endpoint.
+        This endpoint will exchange the unique SAML code (also called a token) for the Descope session information needed for managing the end user session. Call this endpoint from your code flow that responds to the `url` that was returned by the Sign-In endpoint.
 
 
-        The unique code `<unique-code\>` is appended as a URL parameter: `code=<unique-code\>`, for example, `url = https://sso.mycompany.com/mywork.htm?code=<unique-code\>`.
+        The unique code `` is appended as a URL parameter: `code=`, for example, `url = https://sso.mycompany.com/mywork.htm?code=`.
 
 
         ### Next Steps
 
 
-        1. Extract the unique code `<unique-code\>` from the URL parameter.
+        1. Extract the unique code `` from the URL parameter.
 
-        2. Call this endpoint, passing the `<unique-code\>` as the request parameter
+        2. Call this endpoint, passing the `` as the request parameter
 
 
         The response object includes the session JWT (sessionJwt) and refresh JWT (refreshJwt) when this endpoint completes successfully.
@@ -2391,7 +2378,7 @@ paths:
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.'
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.'
       operationId: ExchangeCodesso
       requestBody:
         content:
@@ -2425,7 +2412,7 @@ paths:
         Initiate a TOTP sign-up process for a new end user. Descope will generate a TOTP key (also called a secret or seed) that will be entered into the end user''s authenticator app so that TOTP codes can be successfully verified. The new end user will be registered after the full TOTP sign-up flow has successfully completed.
 
 
-        If the end user is already registered use the [add/update](/api/totp/add-update-key) endpoint to add TOTP funtionality to an existing end user, to prevent the same person being registered twice.
+        If the end user is already registered use the add/update endpoint to add TOTP funtionality to an existing end user, to prevent the same person being registered twice.
 
 
         ### Next Steps
@@ -2434,14 +2421,14 @@ paths:
 
         2. Prompt the end user user for a TOTP code generated by their authenticator app.
 
-        3. Verify the TOTP code using the [Sign-In / Verify](/api/totp/sign-in-verify) endpoint to complete the sign-in process. After successfully verifying the TOTP code the new end user will be registered using the details you provided in the body of this endpoint.
+        3. Verify the TOTP code using the Sign-In / Verify endpoint to complete the sign-in process. After successfully verifying the TOTP code the new end user will be registered using the details you provided in the body of this endpoint.
 
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.
 
-        - Use the [add/update](/api/totp/add-update-key) endpoint to add TOTP funtionality to an existing end user.'
+        - Use the add/update endpoint to add TOTP funtionality to an existing end user.'
       operationId: SignUpTOTP
       requestBody:
         content:
@@ -2486,9 +2473,9 @@ paths:
 
         ### See Also
 
-        - See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number.
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.
 
-        - See [User Login Options](/api/overview#user-login-options) for further details on loginOptions.'
+        - See User Login Options for further details on loginOptions.'
       operationId: VerifyCodeTOTP
       requestBody:
         content:
@@ -2516,7 +2503,33 @@ paths:
       tags:
       - Auth
       summary: Add / Update Key
-      description: "### Add or update TOTP key for existing end user\n\nInitiate a flow to add TOTP functionality for an existing end user, or to update the TOTP key for an existing end user. Descope will generate a TOTP key (also called a secret or seed) that will be entered into the end user's authenticator app so that TOTP codes can be successfully verified. The new end user will be registered after the full Add / Update TOTP flow has successfully completed. The bearer token requires both the ProjectId and refresh JWT in the format `<Project ID>:<JWT>`, and can therefore only be run for end users who are currently signed-in.\n\nIf the end user is not yet registered use the [Sign-Up](/api/totp/sign-up) endpoint to register the user.\n\n### Next Steps\n1. Display the TOTP key to the end user so the key can be entered into the authenticator app. Use any of the following methods to display the key to your end user:\n    * (recommended) Redirect the end user session to the `provisioningURL` returned in the response body. The URL displays the key as a QR code that can be scanned directly from the authenticator app.\n    * Render the QR code using your own web page using the `image` (the QR code as Base64) returned in the response body.\n    * If your end user cannot scan a QR code, present the `key` returned in the response body so the key can be pasted into their authenticator app. If the authenticator app prompts, the end user must select key type: \"time based\".\n2. Prompt the end user user for a TOTP code generated by their authenticator app.\n3. Verify the TOTP code using the [Sign-In / Verify](/api/totp/sign-in-verify) endpoint to complete the Add / Update process. After successfully verifying the TOTP code the new TOTP key will be used to validate future TOTP code.\n\n### See Also\n- See [The User Object](/api/overview#the-user-object) for further details on how to identify users and their contact information such as email addresses and phone number."
+      description: '### Add or update TOTP key for existing end user
+
+
+        Initiate a flow to add TOTP functionality for an existing end user, or to update the TOTP key for an existing end user. Descope will generate a TOTP key (also called a secret or seed) that will be entered into the end user''s authenticator app so that TOTP codes can be successfully verified. The new end user will be registered after the full Add / Update TOTP flow has successfully completed. The bearer token requires both the ProjectId and refresh JWT in the format `:`, and can therefore only be run for end users who are currently signed-in.
+
+
+        If the end user is not yet registered use the Sign-Up endpoint to register the user.
+
+
+        ### Next Steps
+
+        1. Display the TOTP key to the end user so the key can be entered into the authenticator app. Use any of the following methods to display the key to your end user:
+
+        * (recommended) Redirect the end user session to the `provisioningURL` returned in the response body. The URL displays the key as a QR code that can be scanned directly from the authenticator app.
+
+        * Render the QR code using your own web page using the `image` (the QR code as Base64) returned in the response body.
+
+        * If your end user cannot scan a QR code, present the `key` returned in the response body so the key can be pasted into their authenticator app. If the authenticator app prompts, the end user must select key type: "time based".
+
+        2. Prompt the end user user for a TOTP code generated by their authenticator app.
+
+        3. Verify the TOTP code using the Sign-In / Verify endpoint to complete the Add / Update process. After successfully verifying the TOTP code the new TOTP key will be used to validate future TOTP code.
+
+
+        ### See Also
+
+        - See The User Object for further details on how to identify users and their contact information such as email addresses and phone number.'
       operationId: UpdateUserTOTP
       requestBody:
         content:
@@ -2762,84 +2775,6 @@ paths:
         keywords: api, w s fed
 components:
   schemas:
-    MeAuthHistoryResponse:
-      type: object
-      properties:
-        authHistory:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExportedAuthHistory'
-    OAuthNativeStartResponse:
-      type: object
-      properties:
-        clientId:
-          type: string
-        stateId:
-          type: string
-        nonce:
-          type: string
-        implicit:
-          type: boolean
-        errorId:
-          type: string
-    NOTPLinkResponse:
-      type: object
-      properties:
-        pendingRef:
-          type: string
-          description: Pending ref is the reference to the pending operation
-        redirectUrl:
-          type: string
-          description: Link to the app (e.g.  https://wa.me/1234567890?text=My%20authentication%20code%20is%20999999)
-        image:
-          type: string
-          description: QR code image
-    WebauthnSignUpOrInStartRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        origin:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-        ssoAppId:
-          type: string
-        passkeyOptions:
-          $ref: '#/components/schemas/PasskeyOptions'
-    SAMLIDPMetadataResponse:
-      type: object
-      properties:
-        xml:
-          type: string
-    PasskeyOptions:
-      type: object
-      properties:
-        authenticatorSelection:
-          allOf:
-          - $ref: '#/components/schemas/PasskeyOptions_WebauthnAuthenticatorSelectionCriteria'
-          description: attestation only (sign up)
-        attestation:
-          type: integer
-          format: enum
-          default: false
-        userVerification:
-          type: integer
-          description: assertion only (sign in)
-          format: enum
-        extensionsJSON:
-          type: string
-          description: shared
-    SAMLIDPFinishEndpointRequest:
-      type: object
-      properties:
-        state_id:
-          type: string
-        sso_app_id:
-          type: string
-        additionalSAMLAttributes:
-          type: object
-          default: false
     OptionalJWTResponse:
       type: object
       properties:
@@ -2879,116 +2814,37 @@ components:
         sessionCookieDomain:
           type: string
       description: "This is a copy of JWTResponse with all fields optional\n This is used so in case an empty response is returned, it won't send zero values"
-    UpdateUserNOTPRequest:
+    WebauthnSignInFinishRequest:
       type: object
       properties:
-        provider:
+        transactionId:
           type: string
-        loginId:
+        response:
           type: string
-        phone:
+    SAMLIDPFinishEndpointRequest:
+      type: object
+      properties:
+        state_id:
           type: string
-        addToLoginIDs:
-          type: boolean
-          default: false
-        onMergeUseExisting:
-          type: boolean
-          default: false
-        providerId:
+        sso_app_id:
           type: string
-        templates:
-          $ref: '#/components/schemas/NOTPTemplateIDs'
-        templateOptions:
+        additionalSAMLAttributes:
           type: object
-          additionalProperties:
-            type: string
-        ssoAppId:
+          default: false
+    RecoveryCode:
+      type: object
+      properties:
+        code:
           type: string
-        locale:
+    WebauthnStartResponse:
+      type: object
+      properties:
+        transactionId:
           type: string
-        failOnConflict:
+        options:
+          type: string
+        create:
           type: boolean
-    LogoutRequest:
-      type: object
-      properties:
-        logoutType:
-          type: array
-          items:
-            type: string
-    SelectTenantRequest:
-      type: object
-      properties:
-        tenant:
-          type: string
-    OperationResponse:
-      type: object
-      properties: {}
-    WebauthnSignUpStartRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        user:
-          $ref: '#/components/schemas/SignUpUser'
-        origin:
-          type: string
-        passkeyOptions:
-          $ref: '#/components/schemas/PasskeyOptions'
-        loginOptions:
-          $ref: '#/components/schemas/SignupLoginOptions'
-    SetupUserSecurityQuestionsRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        answers:
-          type: array
-          items:
-            $ref: '#/components/schemas/SecurityQuestionAnswer'
-      description: Setup Questions
-    PasskeyOptions_WebauthnAuthenticatorSelectionCriteria:
-      type: object
-      properties:
-        authenticatorAttachment:
-          type: integer
-          format: enum
-        requireResidentKey:
-          type: integer
-          format: enum
-        residentKey:
-          type: integer
-          format: enum
-        userVerification:
-          type: integer
-          format: enum
-        extensionsJSON:
-          type: string
-    PasswordPolicyResponse:
-      type: object
-      properties:
-        minLength:
-          type: integer
-          format: int32
-        lowercase:
-          type: boolean
-        uppercase:
-          type: boolean
-        number:
-          type: boolean
-        nonAlphanumeric:
-          type: boolean
-        strengthScoreEnabled:
-          type: boolean
-        strengthScore:
-          type: integer
-          format: int32
-    GetUserSecurityVerifyQuestionsResponse:
-      type: object
-      properties:
-        questions:
-          type: array
-          items:
-            $ref: '#/components/schemas/SecurityQuestion'
     PasswordSignUpRequest:
       type: object
       properties:
@@ -3000,432 +2856,6 @@ components:
           type: string
         loginOptions:
           $ref: '#/components/schemas/SignupLoginOptions'
-    SecurityQuestionAnswer:
-      type: object
-      properties:
-        id:
-          type: string
-        answer:
-          type: string
-    ValidateSessionResponse:
-      type: object
-      properties:
-        parsedJWT:
-          type: object
-    ExchangeOneTapIDTokenRequest:
-      type: object
-      properties:
-        provider:
-          type: string
-        idToken:
-          type: string
-        nonce:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-    IDPSSOLogoutRequest:
-      type: object
-      properties:
-        app:
-          type: string
-    WebauthnSignInStartRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        origin:
-          type: string
-        passkeyOptions:
-          $ref: '#/components/schemas/PasskeyOptions'
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-    TOTPSignUpRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        user:
-          $ref: '#/components/schemas/SignUpUser'
-        ssoAppId:
-          type: string
-    OAuthRedirectResponse:
-      type: object
-      properties:
-        url:
-          type: string
-        errorId:
-          type: string
-    TOTPVerifyCodeRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        code:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-    PasswordSignInRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        password:
-          type: string
-        ssoAppId:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-    JWTResponse:
-      type: object
-      properties:
-        sessionJwt:
-          type: string
-        refreshJwt:
-          type: string
-        cookieDomain:
-          type: string
-        cookiePath:
-          type: string
-        cookieMaxAge:
-          type: integer
-          format: int32
-        cookieExpiration:
-          type: integer
-          format: int32
-        user:
-          $ref: '#/components/schemas/ResponseUser'
-        firstSeen:
-          type: boolean
-        idpResponse:
-          $ref: '#/components/schemas/IDPResponse'
-        sessionExpiration:
-          type: integer
-          format: int32
-        externalToken:
-          type: string
-        claims:
-          type: object
-        tenantSSOID:
-          type: string
-        trustedDeviceJwt:
-          type: string
-        nextRefreshSeconds:
-          type: integer
-          format: int32
-        cookieName:
-          type: string
-        sessionCookieName:
-          type: string
-        sessionCookieDomain:
-          type: string
-        unsavedSSO:
-          type: boolean
-      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
-    SetupUserSecurityQuestionsResponse:
-      type: object
-      properties: {}
-    TOTPUpdateRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-    WSFedIDPFinishEndpointResponse:
-      type: object
-      properties:
-        replyURL:
-          type: string
-        wresult:
-          type: string
-        wctx:
-          type: string
-        error:
-          type: boolean
-    RecoveryCode:
-      type: object
-      properties:
-        code:
-          type: string
-    SignUpUser:
-      type: object
-      properties:
-        loginId:
-          type: string
-        name:
-          type: string
-        phone:
-          type: string
-        email:
-          type: string
-        givenName:
-          type: string
-        middleName:
-          type: string
-        familyName:
-          type: string
-        recoveryEmail:
-          type: string
-        recoveryPhone:
-          type: string
-    AccessKeyLoginOptions:
-      type: object
-      properties:
-        customClaims:
-          type: object
-          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
-          additionalProperties:
-            type: string
-          example:
-            claim-name: claim-value
-        selectedTenant:
-          type: string
-    WebauthnSignUpFinishRequest:
-      type: object
-      properties:
-        transactionId:
-          type: string
-        response:
-          type: string
-    ExchangeAccessKeyResponse:
-      type: object
-      properties:
-        keyId:
-          type: string
-        sessionJwt:
-          type: string
-    WSFedIDPPassiveRequest:
-      type: object
-      properties:
-        app:
-          type: string
-        wa:
-          type: string
-        wtrealm:
-          type: string
-        wreply:
-          type: string
-        wctx:
-          type: string
-        whr:
-          type: string
-        tenant:
-          type: string
-        login_hint:
-          type: string
-    NOTPTemplateIDs:
-      type: object
-      properties:
-        verifyTemplateId:
-          type: string
-        successTemplateId:
-          type: string
-        errorTemplateId:
-          type: string
-      description: NOTP Requests & Responses
-    IDPResponse:
-      type: object
-      properties:
-        samlResponse:
-          type: string
-        samlGeneratedUser:
-          type: string
-        samlGeneratedRoles:
-          type: string
-        oidcResponse:
-          type: string
-        oidcGeneratedUser:
-          type: string
-        oidcGeneratedRoles:
-          type: string
-        idpGroups:
-          type: array
-          items:
-            type: string
-        idpSAMLAttributes:
-          type: object
-          default: false
-        idpOIDCClaims:
-          type: object
-    ExportedAuthHistory:
-      type: object
-      properties:
-        userId:
-          type: string
-        loginTime:
-          type: integer
-          format: int32
-        city:
-          type: string
-        country:
-          type: string
-        ip:
-          type: string
-        selectedTenant:
-          type: string
-    LoginOptions:
-      type: object
-      properties:
-        stepup:
-          type: boolean
-          default: false
-        customClaims:
-          type: object
-          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
-          additionalProperties:
-            type: string
-          example:
-            claim-name: claim-value
-        mfa:
-          type: boolean
-          default: false
-        ssoAppId:
-          type: string
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        pkceChallenge:
-          type: string
-          description: relevant only for enchanted links in the point in time - other methods will ignore this field
-          format: bytes
-        revokeOtherSessions:
-          type: boolean
-        revokeOtherSessionsTypes:
-          type: array
-          items:
-            type: string
-        tenantId:
-          type: string
-    UserTenants:
-      type: object
-      properties:
-        tenantId:
-          type: string
-        roleNames:
-          type: array
-          items:
-            type: string
-        tenantName:
-          type: string
-        permissions:
-          type: array
-          items:
-            type: string
-    SAMLRedirectResponse:
-      type: object
-      properties:
-        url:
-          type: string
-    WebauthnAddDeviceStartRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        origin:
-          type: string
-        passkeyOptions:
-          $ref: '#/components/schemas/PasskeyOptions'
-    WSFedIDPInitiateRequest:
-      type: object
-      properties:
-        app:
-          type: string
-        tenant:
-          type: string
-        login_hint:
-          type: string
-    SAMLIDPSSORequestPOSTData:
-      type: object
-      properties:
-        SAMLRequest:
-          type: string
-          default: false
-        RelayState:
-          type: string
-        SamlRequest:
-          type: string
-        LoginHint:
-          type: string
-        tenant:
-          type: string
-        flow_token:
-          type: string
-        login_hint:
-          type: string
-    PasswordReplaceRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        oldPassword:
-          type: string
-        newPassword:
-          type: string
-        revokeOtherSessions:
-          type: boolean
-        revokeOtherSessionsTypes:
-          type: array
-          items:
-            type: string
-    WSFedIDPFinishEndpointRequest:
-      type: object
-      properties:
-        state_id:
-          type: string
-        sso_app_id:
-          type: string
-    WebauthnAddDeviceFinishResponse:
-      type: object
-      properties: {}
-    ExchangeTokenRequest:
-      type: object
-      properties:
-        code:
-          type: string
-    RefreshSessionRequest:
-      type: object
-      properties:
-        externalToken:
-          type: string
-    SignInRecoveryCodeRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-        code:
-          type: string
-    TOTPResponse:
-      type: object
-      properties:
-        provisioningURL:
-          type: string
-          description: Clickable URL containing the TOTP key that will open an installed authenticator app
-        image:
-          type: string
-          description: QR code of the TOTP key (as a Base64 image) that can be scanned from an authenticator app
-        key:
-          type: string
-          description: TOTP key that can be manually pasted into the authenticator app
-    WebauthnStartResponse:
-      type: object
-      properties:
-        transactionId:
-          type: string
-        options:
-          type: string
-        create:
-          type: boolean
-    ValidateSessionRequest:
-      type: object
-      properties: {}
-    ExchangeAccessKeyRequest:
-      type: object
-      properties:
-        loginOptions:
-          $ref: '#/components/schemas/AccessKeyLoginOptions'
     OAuthNativeStartRequest:
       type: object
       properties:
@@ -3437,59 +2867,34 @@ components:
           type: boolean
         rawResponse:
           type: boolean
-    WebauthnAddDeviceFinishRequest:
+    WSFedIDPMetadataResponse:
+      type: object
+      properties:
+        xml:
+          type: string
+    WSFedIDPInitiateRequest:
+      type: object
+      properties:
+        app:
+          type: string
+        tenant:
+          type: string
+        login_hint:
+          type: string
+    WebauthnSignUpFinishRequest:
       type: object
       properties:
         transactionId:
           type: string
         response:
           type: string
-    SecurityQuestion:
+    MeAuthHistoryResponse:
       type: object
       properties:
-        id:
-          type: string
-        text:
-          type: string
-      description: Same as service service's SecurityQuestion, but we don't want to depend on project service
-    VerifyUserSecurityQuestionsRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        answers:
+        authHistory:
           type: array
           items:
-            $ref: '#/components/schemas/SecurityQuestionAnswer'
-        stepup:
-          type: boolean
-      description: Verify Questions
-    SAMLIDPInitiateRequestPOST:
-      type: object
-      properties:
-        app:
-          type: string
-        RelayState:
-          type: string
-        LoginHint:
-          type: string
-        tenant:
-          type: string
-        flow_token:
-          type: string
-        login_hint:
-          type: string
-    SAMLIDPFinishEndpointResponse:
-      type: object
-      properties:
-        url:
-          type: string
-        samlResponse:
-          type: string
-        relayState:
-          type: string
-        error:
-          type: boolean
+            $ref: '#/components/schemas/ExportedAuthHistory'
     ResponseUser:
       type: object
       properties:
@@ -3586,32 +2991,138 @@ components:
           type: string
         verifiedRecoveryPhone:
           type: boolean
-    WSFedIDPMetadataResponse:
+    SAMLIDPMetadataResponse:
       type: object
       properties:
         xml:
-          type: string
-    WebauthnSignInFinishRequest:
-      type: object
-      properties:
-        transactionId:
-          type: string
-        response:
-          type: string
-    GenerateUserRecoveryCodesRequest:
-      type: object
-      properties:
-        loginId:
           type: string
     VerifyOneTapIDTokenResponse:
       type: object
       properties:
         code:
           type: string
-    GetOneTapClientIDResponse:
+    WebauthnAddDeviceStartRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        origin:
+          type: string
+        passkeyOptions:
+          $ref: '#/components/schemas/PasskeyOptions'
+    PasswordReplaceRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        oldPassword:
+          type: string
+        newPassword:
+          type: string
+        revokeOtherSessions:
+          type: boolean
+        revokeOtherSessionsTypes:
+          type: array
+          items:
+            type: string
+    TOTPSignUpRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        user:
+          $ref: '#/components/schemas/SignUpUser'
+        ssoAppId:
+          type: string
+    IDPSSOLogoutRequest:
+      type: object
+      properties:
+        app:
+          type: string
+    GetUserSecurityVerifyQuestionsResponse:
+      type: object
+      properties:
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityQuestion'
+    NOTPLinkResponse:
+      type: object
+      properties:
+        pendingRef:
+          type: string
+          description: Pending ref is the reference to the pending operation
+        redirectUrl:
+          type: string
+          description: Link to the app (e.g.  https://wa.me/1234567890?text=My%20authentication%20code%20is%20999999)
+        image:
+          type: string
+          description: QR code image
+    ExchangeTokenRequest:
+      type: object
+      properties:
+        code:
+          type: string
+    TOTPVerifyCodeRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        code:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+    SignUpUser:
+      type: object
+      properties:
+        loginId:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        email:
+          type: string
+        givenName:
+          type: string
+        middleName:
+          type: string
+        familyName:
+          type: string
+        recoveryEmail:
+          type: string
+        recoveryPhone:
+          type: string
+    OAuthNativeStartResponse:
       type: object
       properties:
         clientId:
+          type: string
+        stateId:
+          type: string
+        nonce:
+          type: string
+        implicit:
+          type: boolean
+        errorId:
+          type: string
+    WebauthnSignUpStartRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        user:
+          $ref: '#/components/schemas/SignUpUser'
+        origin:
+          type: string
+        passkeyOptions:
+          $ref: '#/components/schemas/PasskeyOptions'
+        loginOptions:
+          $ref: '#/components/schemas/SignupLoginOptions'
+    RefreshSessionRequest:
+      type: object
+      properties:
+        externalToken:
           type: string
     PasswordUpdateRequest:
       type: object
@@ -3620,6 +3131,339 @@ components:
           type: string
         newPassword:
           type: string
+    OAuthRedirectResponse:
+      type: object
+      properties:
+        url:
+          type: string
+        errorId:
+          type: string
+    WebauthnSignInStartRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        origin:
+          type: string
+        passkeyOptions:
+          $ref: '#/components/schemas/PasskeyOptions'
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+    WSFedIDPFinishEndpointRequest:
+      type: object
+      properties:
+        state_id:
+          type: string
+        sso_app_id:
+          type: string
+    WSFedIDPPassiveRequest:
+      type: object
+      properties:
+        app:
+          type: string
+        wa:
+          type: string
+        wtrealm:
+          type: string
+        wreply:
+          type: string
+        wctx:
+          type: string
+        whr:
+          type: string
+        tenant:
+          type: string
+        login_hint:
+          type: string
+    ValidateSessionRequest:
+      type: object
+      properties: {}
+    TOTPUpdateRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+    ValidateSessionResponse:
+      type: object
+      properties:
+        parsedJWT:
+          type: object
+    SignInRecoveryCodeRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        code:
+          type: string
+    OperationResponse:
+      type: object
+      properties: {}
+    PasskeyOptions:
+      type: object
+      properties:
+        authenticatorSelection:
+          allOf:
+          - $ref: '#/components/schemas/PasskeyOptions_WebauthnAuthenticatorSelectionCriteria'
+          description: attestation only (sign up)
+        attestation:
+          type: integer
+          format: enum
+          default: false
+        userVerification:
+          type: integer
+          description: assertion only (sign in)
+          format: enum
+        extensionsJSON:
+          type: string
+          description: shared
+    VerifyUserSecurityQuestionsRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityQuestionAnswer'
+        stepup:
+          type: boolean
+      description: Verify Questions
+    TOTPResponse:
+      type: object
+      properties:
+        provisioningURL:
+          type: string
+          description: Clickable URL containing the TOTP key that will open an installed authenticator app
+        image:
+          type: string
+          description: QR code of the TOTP key (as a Base64 image) that can be scanned from an authenticator app
+        key:
+          type: string
+          description: TOTP key that can be manually pasted into the authenticator app
+    SAMLIDPInitiateRequestPOST:
+      type: object
+      properties:
+        app:
+          type: string
+        RelayState:
+          type: string
+        LoginHint:
+          type: string
+        tenant:
+          type: string
+        flow_token:
+          type: string
+        login_hint:
+          type: string
+    IDPResponse:
+      type: object
+      properties:
+        samlResponse:
+          type: string
+        samlGeneratedUser:
+          type: string
+        samlGeneratedRoles:
+          type: string
+        oidcResponse:
+          type: string
+        oidcGeneratedUser:
+          type: string
+        oidcGeneratedRoles:
+          type: string
+        idpGroups:
+          type: array
+          items:
+            type: string
+        idpSAMLAttributes:
+          type: object
+          default: false
+        idpOIDCClaims:
+          type: object
+    SetupUserSecurityQuestionsRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityQuestionAnswer'
+      description: Setup Questions
+    AccessKeyLoginOptions:
+      type: object
+      properties:
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        selectedTenant:
+          type: string
+    SAMLIDPFinishEndpointResponse:
+      type: object
+      properties:
+        url:
+          type: string
+        samlResponse:
+          type: string
+        relayState:
+          type: string
+        error:
+          type: boolean
+    PasskeyOptions_WebauthnAuthenticatorSelectionCriteria:
+      type: object
+      properties:
+        authenticatorAttachment:
+          type: integer
+          format: enum
+        requireResidentKey:
+          type: integer
+          format: enum
+        residentKey:
+          type: integer
+          format: enum
+        userVerification:
+          type: integer
+          format: enum
+        extensionsJSON:
+          type: string
+    NOTPTemplateIDs:
+      type: object
+      properties:
+        verifyTemplateId:
+          type: string
+        successTemplateId:
+          type: string
+        errorTemplateId:
+          type: string
+      description: NOTP Requests & Responses
+    WSFedIDPFinishEndpointResponse:
+      type: object
+      properties:
+        replyURL:
+          type: string
+        wresult:
+          type: string
+        wctx:
+          type: string
+        error:
+          type: boolean
+    UpdateUserNOTPRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+        loginId:
+          type: string
+        phone:
+          type: string
+        addToLoginIDs:
+          type: boolean
+          default: false
+        onMergeUseExisting:
+          type: boolean
+          default: false
+        providerId:
+          type: string
+        templates:
+          $ref: '#/components/schemas/NOTPTemplateIDs'
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        ssoAppId:
+          type: string
+        locale:
+          type: string
+        failOnConflict:
+          type: boolean
+    OAuthNativeFinishRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+        stateId:
+          type: string
+        user:
+          type: string
+        code:
+          type: string
+        idToken:
+          type: string
+    WebauthnAddDeviceFinishRequest:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        response:
+          type: string
+    ExportedAuthHistory:
+      type: object
+      properties:
+        userId:
+          type: string
+        loginTime:
+          type: integer
+          format: int32
+        city:
+          type: string
+        country:
+          type: string
+        ip:
+          type: string
+        selectedTenant:
+          type: string
+    LoginOptions:
+      type: object
+      properties:
+        stepup:
+          type: boolean
+          default: false
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        mfa:
+          type: boolean
+          default: false
+        ssoAppId:
+          type: string
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        pkceChallenge:
+          type: string
+          description: relevant only for enchanted links in the point in time - other methods will ignore this field
+          format: bytes
+        revokeOtherSessions:
+          type: boolean
+        revokeOtherSessionsTypes:
+          type: array
+          items:
+            type: string
+        tenantId:
+          type: string
+    PasswordSignInRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        password:
+          type: string
+        ssoAppId:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
     SignupLoginOptions:
       type: object
       properties:
@@ -3642,6 +3486,30 @@ components:
           format: bytes
         tenantId:
           type: string
+    SelectTenantRequest:
+      type: object
+      properties:
+        tenant:
+          type: string
+    PasswordPolicyResponse:
+      type: object
+      properties:
+        minLength:
+          type: integer
+          format: int32
+        lowercase:
+          type: boolean
+        uppercase:
+          type: boolean
+        number:
+          type: boolean
+        nonAlphanumeric:
+          type: boolean
+        strengthScoreEnabled:
+          type: boolean
+        strengthScore:
+          type: integer
+          format: int32
     GenerateUserRecoveryCodesResponse:
       type: object
       properties:
@@ -3649,41 +3517,186 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RecoveryCode'
-    OAuthNativeFinishRequest:
+    JWTResponse:
+      type: object
+      properties:
+        sessionJwt:
+          type: string
+        refreshJwt:
+          type: string
+        cookieDomain:
+          type: string
+        cookiePath:
+          type: string
+        cookieMaxAge:
+          type: integer
+          format: int32
+        cookieExpiration:
+          type: integer
+          format: int32
+        user:
+          $ref: '#/components/schemas/ResponseUser'
+        firstSeen:
+          type: boolean
+        idpResponse:
+          $ref: '#/components/schemas/IDPResponse'
+        sessionExpiration:
+          type: integer
+          format: int32
+        externalToken:
+          type: string
+        claims:
+          type: object
+        tenantSSOID:
+          type: string
+        trustedDeviceJwt:
+          type: string
+        nextRefreshSeconds:
+          type: integer
+          format: int32
+        cookieName:
+          type: string
+        sessionCookieName:
+          type: string
+        sessionCookieDomain:
+          type: string
+        unsavedSSO:
+          type: boolean
+      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
+    ExchangeOneTapIDTokenRequest:
       type: object
       properties:
         provider:
           type: string
-        stateId:
-          type: string
-        user:
-          type: string
-        code:
-          type: string
         idToken:
           type: string
+        nonce:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+    LogoutRequest:
+      type: object
+      properties:
+        logoutType:
+          type: array
+          items:
+            type: string
+    SecurityQuestion:
+      type: object
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+      description: Same as service service's SecurityQuestion, but we don't want to depend on project service
+    GetOneTapClientIDResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+    SecurityQuestionAnswer:
+      type: object
+      properties:
+        id:
+          type: string
+        answer:
+          type: string
+    WebauthnSignUpOrInStartRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        origin:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        ssoAppId:
+          type: string
+        passkeyOptions:
+          $ref: '#/components/schemas/PasskeyOptions'
+    SetupUserSecurityQuestionsResponse:
+      type: object
+      properties: {}
+    SAMLRedirectResponse:
+      type: object
+      properties:
+        url:
+          type: string
+    ExchangeAccessKeyRequest:
+      type: object
+      properties:
+        loginOptions:
+          $ref: '#/components/schemas/AccessKeyLoginOptions'
+    ExchangeAccessKeyResponse:
+      type: object
+      properties:
+        keyId:
+          type: string
+        sessionJwt:
+          type: string
+    SAMLIDPSSORequestPOSTData:
+      type: object
+      properties:
+        SAMLRequest:
+          type: string
+          default: false
+        RelayState:
+          type: string
+        SamlRequest:
+          type: string
+        LoginHint:
+          type: string
+        tenant:
+          type: string
+        flow_token:
+          type: string
+        login_hint:
+          type: string
+    GenerateUserRecoveryCodesRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+    UserTenants:
+      type: object
+      properties:
+        tenantId:
+          type: string
+        roleNames:
+          type: array
+          items:
+            type: string
+        tenantName:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+    WebauthnAddDeviceFinishResponse:
+      type: object
+      properties: {}
   securitySchemes:
-    Descope Project ID:
+    Descope_Project_ID:
       type: http
       scheme: bearer
       bearerFormat: Project ID
       description: Project ID as bearer token.
-    Descope Project ID:Refresh JWT:
+    Descope_Project_ID_Refresh_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Refresh JWT
       description: Project ID:Refresh JWT as bearer token.
-    Descope Project ID:Access Key:
+    Descope_Project_ID_Access_Key:
       type: http
       scheme: bearer
       bearerFormat: ProjectId:AccessKey
       description: Project ID:Access Key as bearer token.
-    Descope Project ID:Session JWT:
+    Descope_Project_ID_Session_JWT:
       type: http
       scheme: bearer
       bearerFormat: Project ID:Session JWT
       description: Project ID:Session JWT as bearer token.
-    Descope Project ID and Management Key:
+    Descope_Project_ID_and_Management_Key:
       type: http
       description: Project ID:Management Key as bearer token.
       scheme: bearer
