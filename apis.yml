@@ -489,6 +489,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/descope.png
 access: 3rd-Party
 common:
+- type: VendorFacets
+  url: vendor-facets/descope-vendor-facets.yml
 - type: Website
   url: https://www.descope.com/
 - type: ParentCompany
