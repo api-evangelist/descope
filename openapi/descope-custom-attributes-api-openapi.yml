@@ -144,14 +144,20 @@ paths:
         keywords: api, user management
 components:
   schemas:
-    google.protobuf.Any:
+    ImportCustomAttributesRequest:
       type: object
       properties:
-        '@type':
-          type: string
-          description: The type of the serialized message.
-      additionalProperties: true
-      description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomAttribute'
+    DeleteCustomAttributesRequest:
+      type: object
+      properties:
+        names:
+          type: array
+          items:
+            type: string
     CustomAttributesResponse:
       type: object
       properties:
@@ -161,6 +167,14 @@ components:
             $ref: '#/components/schemas/CustomAttribute'
         total:
           type: string
+    CustomAttributeOption:
+      type: object
+      properties:
+        value:
+          type: string
+        label:
+          type: string
+      description: Custom Attributes
     CustomAttribute:
       type: object
       properties:
@@ -189,28 +203,14 @@ components:
           type: boolean
           description: this is to know if this specific user can edit this specific field
       description: "this object is used in project exports, make sure any changes here\n are also applied in managementservice"
-    CustomAttributeOption:
+    google.protobuf.Any:
       type: object
       properties:
-        value:
+        '@type':
           type: string
-        label:
-          type: string
-      description: Custom Attributes
-    ImportCustomAttributesRequest:
-      type: object
-      properties:
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomAttribute'
-    DeleteCustomAttributesRequest:
-      type: object
-      properties:
-        names:
-          type: array
-          items:
-            type: string
+          description: The type of the serialized message.
+      additionalProperties: true
+      description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
   securitySchemes:
     Descope_Project_ID:
       type: http

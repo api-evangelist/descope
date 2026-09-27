@@ -273,52 +273,6 @@ paths:
         keywords: api, otp
 components:
   schemas:
-    IDPResponse:
-      type: object
-      properties:
-        samlResponse:
-          type: string
-        samlGeneratedUser:
-          type: string
-        samlGeneratedRoles:
-          type: string
-        oidcResponse:
-          type: string
-        oidcGeneratedUser:
-          type: string
-        oidcGeneratedRoles:
-          type: string
-        idpGroups:
-          type: array
-          items:
-            type: string
-        idpSAMLAttributes:
-          type: object
-          default: false
-        idpOIDCClaims:
-          type: object
-    SignupLoginOptions:
-      type: object
-      properties:
-        customClaims:
-          type: object
-          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
-          additionalProperties:
-            type: string
-          example:
-            claim-name: claim-value
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        pkceChallenge:
-          type: string
-          description: relevant only for enchanted links in the point in time - other methods will ignore this field
-          format: bytes
-        tenantId:
-          type: string
     OTPSignUpPhoneRequest:
       type: object
       properties:
@@ -332,83 +286,6 @@ components:
           type: string
         loginOptions:
           $ref: '#/components/schemas/SignupLoginOptions'
-    JWTResponse:
-      type: object
-      properties:
-        sessionJwt:
-          type: string
-        refreshJwt:
-          type: string
-        cookieDomain:
-          type: string
-        cookiePath:
-          type: string
-        cookieMaxAge:
-          type: integer
-          format: int32
-        cookieExpiration:
-          type: integer
-          format: int32
-        user:
-          $ref: '#/components/schemas/ResponseUser'
-        firstSeen:
-          type: boolean
-        idpResponse:
-          $ref: '#/components/schemas/IDPResponse'
-        sessionExpiration:
-          type: integer
-          format: int32
-        externalToken:
-          type: string
-        claims:
-          type: object
-        tenantSSOID:
-          type: string
-        trustedDeviceJwt:
-          type: string
-        nextRefreshSeconds:
-          type: integer
-          format: int32
-        cookieName:
-          type: string
-        sessionCookieName:
-          type: string
-        sessionCookieDomain:
-          type: string
-        unsavedSSO:
-          type: boolean
-      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
-    PhoneOperationResponse:
-      type: object
-      properties:
-        maskedPhone:
-          type: string
-        verificationAttempts:
-          type: integer
-          format: int32
-    UpdateUserPhoneOTPRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        phone:
-          type: string
-        addToLoginIDs:
-          type: boolean
-          default: false
-        onMergeUseExisting:
-          type: boolean
-          default: false
-        providerId:
-          type: string
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        failOnConflict:
-          type: boolean
     ResponseUser:
       type: object
       properties:
@@ -520,19 +397,27 @@ components:
           type: array
           items:
             type: string
-    PhoneSignUpUserObject:
+    SignupLoginOptions:
       type: object
       properties:
-        username:
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
           type: string
-          description: Username Username
-        name:
+        pkceChallenge:
           type: string
-          description: Name Name
-        email:
-          type: string
-          description: Email Email
-        icon:
+          description: relevant only for enchanted links in the point in time - other methods will ignore this field
+          format: bytes
+        tenantId:
           type: string
     OTPSignInRequest:
       type: object
@@ -547,13 +432,107 @@ components:
           type: string
         useRecovery:
           type: boolean
-    OTPVerifyCodeRequest:
+    IDPResponse:
+      type: object
+      properties:
+        samlResponse:
+          type: string
+        samlGeneratedUser:
+          type: string
+        samlGeneratedRoles:
+          type: string
+        oidcResponse:
+          type: string
+        oidcGeneratedUser:
+          type: string
+        oidcGeneratedRoles:
+          type: string
+        idpGroups:
+          type: array
+          items:
+            type: string
+        idpSAMLAttributes:
+          type: object
+          default: false
+        idpOIDCClaims:
+          type: object
+    JWTResponse:
+      type: object
+      properties:
+        sessionJwt:
+          type: string
+        refreshJwt:
+          type: string
+        cookieDomain:
+          type: string
+        cookiePath:
+          type: string
+        cookieMaxAge:
+          type: integer
+          format: int32
+        cookieExpiration:
+          type: integer
+          format: int32
+        user:
+          $ref: '#/components/schemas/ResponseUser'
+        firstSeen:
+          type: boolean
+        idpResponse:
+          $ref: '#/components/schemas/IDPResponse'
+        sessionExpiration:
+          type: integer
+          format: int32
+        externalToken:
+          type: string
+        claims:
+          type: object
+        tenantSSOID:
+          type: string
+        trustedDeviceJwt:
+          type: string
+        nextRefreshSeconds:
+          type: integer
+          format: int32
+        cookieName:
+          type: string
+        sessionCookieName:
+          type: string
+        sessionCookieDomain:
+          type: string
+        unsavedSSO:
+          type: boolean
+      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
+    UpdateUserPhoneOTPRequest:
       type: object
       properties:
         loginId:
           type: string
-        code:
+        phone:
           type: string
+        addToLoginIDs:
+          type: boolean
+          default: false
+        onMergeUseExisting:
+          type: boolean
+          default: false
+        providerId:
+          type: string
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        failOnConflict:
+          type: boolean
+    PhoneOperationResponse:
+      type: object
+      properties:
+        maskedPhone:
+          type: string
+        verificationAttempts:
+          type: integer
+          format: int32
     LoginOptions:
       type: object
       properties:
@@ -589,6 +568,27 @@ components:
           items:
             type: string
         tenantId:
+          type: string
+    OTPVerifyCodeRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        code:
+          type: string
+    PhoneSignUpUserObject:
+      type: object
+      properties:
+        username:
+          type: string
+          description: Username Username
+        name:
+          type: string
+          description: Name Name
+        email:
+          type: string
+          description: Email Email
+        icon:
           type: string
   securitySchemes:
     Descope_Project_ID:

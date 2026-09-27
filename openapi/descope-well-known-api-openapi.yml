@@ -324,6 +324,28 @@ paths:
         keywords: api, session well known
 components:
   schemas:
+    sessionv1.JWKSResponseV2:
+      type: object
+      properties:
+        keys:
+          type: array
+          items:
+            $ref: '#/components/schemas/sessionv1.JWKSResponse'
+    sessionv1.JWKSResponse:
+      type: object
+      properties:
+        alg:
+          type: string
+        e:
+          type: string
+        kid:
+          type: string
+        kty:
+          type: string
+        n:
+          type: string
+        use:
+          type: string
     sessionv1.WellKnownConfigurationResponse:
       type: object
       properties:
@@ -399,33 +421,11 @@ components:
           type: array
           items:
             type: string
-    sessionv1.JWKSResponseV2:
-      type: object
-      properties:
-        keys:
-          type: array
-          items:
-            $ref: '#/components/schemas/sessionv1.JWKSResponse'
     WellKnownProjectConfigurationResponse:
       type: object
       properties:
         allowAuthHostingIframeEmbedding:
           type: boolean
-    sessionv1.JWKSResponse:
-      type: object
-      properties:
-        alg:
-          type: string
-        e:
-          type: string
-        kid:
-          type: string
-        kty:
-          type: string
-        n:
-          type: string
-        use:
-          type: string
   securitySchemes:
     Descope_Project_ID:
       type: http

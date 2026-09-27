@@ -78,6 +78,13 @@ paths:
         keywords: api, get fed c m config
 components:
   schemas:
+    FedCMClientMetadataResponse:
+      type: object
+      properties:
+        privacy_policy_url:
+          type: string
+        terms_of_service_url:
+          type: string
     FedCMConfigResponse:
       type: object
       properties:
@@ -94,13 +101,6 @@ components:
         branding:
           $ref: '#/components/schemas/FedCMBranding'
       description: According to https://developers.google.com/privacy-sandbox/3pcd/fedcm-developer-guide#idp-config-file
-    FedCMClientMetadataResponse:
-      type: object
-      properties:
-        privacy_policy_url:
-          type: string
-        terms_of_service_url:
-          type: string
     FedCMBranding:
       type: object
       properties:

@@ -83,33 +83,6 @@ apis:
     url: https://docs.descope.com/scim
   - type: Documentation
     url: https://docs.descope.com/jwks
-- aid: descope:descope-default-api
-  name: Descope Default API
-  description: The Default API from Descope — 10 operation(s) for default.
-  humanURL: https://docs.descope.com/api
-  baseURL: https://api.descope.com
-  tags: []
-  tags_raw:
-  - Default
-  properties:
-  - type: OpenAPI
-    url: openapi/descope-default-api-openapi.yml
-  - type: Documentation
-    url: https://docs.descope.com/api
-  - type: Documentation
-    url: https://docs.descope.com/auth-methods
-  - type: APIReference
-    url: https://docs.descope.com/api/openapi-spec
-  - type: Documentation
-    url: https://docs.descope.com/manage
-  - type: APIReference
-    url: https://docs.descope.com/api
-  - type: Documentation
-    url: https://docs.descope.com/inbound-apps
-  - type: Documentation
-    url: https://docs.descope.com/scim
-  - type: Documentation
-    url: https://docs.descope.com/jwks
 - aid: descope:descope-email-api
   name: Descope Email API
   description: The Email API from Descope — 10 operation(s) for email.
@@ -493,12 +466,6 @@ common:
   url: vendor-facets/descope-vendor-facets.yml
 - type: Website
   url: https://www.descope.com/
-- type: ParentCompany
-  url: https://apis.io/providers/palo-alto-networks/
-  name: Palo Alto Networks
-  x-relationship: acquired
-  x-evidence: Descope is a customer and agentic identity access management (CIAM) platform founded in
-    2022 by veterans of Sentrigo and Demisto (acquired by Palo Alto Networks).
 - type: AgenticAccess
   url: agentic-access/descope-agentic-access.yml
 - type: TrustCenter
