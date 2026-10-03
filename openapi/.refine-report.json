@@ -20,9 +20,7 @@
     "descope-verification-api-openapi.yml",
     "descope-voice-message-phone-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 1 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [
     "descope-openapi.yml: dangling $ref: #/components/schemas/managementv1.RegisterThirdPartyApplicationRequest",
     "descope-openapi.yml: dangling $ref: #/components/schemas/managementv1.RegisterThirdPartyApplicationResponse"
@@ -469,14 +467,12 @@
     "descope-openapi.yml: declared missing tag: Scim",
     "descope-openapi.yml: declared missing tag: Verification",
     "descope-openapi.yml: declared missing tag: Voice Message (Phone)",
-    "superseded outputs removed: descope-default-api-openapi.yml",
-    "apis.yml register: written (+0 apis, 15 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "descope-apps-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "descope-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "descope-custom-attributes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "descope-default-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "descope-email-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "descope-embedded-link-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "descope-fedcm-api-openapi.yml: previously refined output, superseded by openapi/_original/",

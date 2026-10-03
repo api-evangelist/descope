@@ -101,6 +101,14 @@ components:
         branding:
           $ref: '#/components/schemas/FedCMBranding'
       description: According to https://developers.google.com/privacy-sandbox/3pcd/fedcm-developer-guide#idp-config-file
+    FedCMIcon:
+      type: object
+      properties:
+        url:
+          type: string
+        size:
+          type: integer
+          format: int32
     FedCMBranding:
       type: object
       properties:
@@ -112,14 +120,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/FedCMIcon'
-    FedCMIcon:
-      type: object
-      properties:
-        url:
-          type: string
-        size:
-          type: integer
-          format: int32
   securitySchemes:
     Descope_Project_ID:
       type: http

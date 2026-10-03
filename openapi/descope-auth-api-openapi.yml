@@ -3356,70 +3356,17 @@ paths:
         keywords: api, w s fed
 components:
   schemas:
-    GenerateUserRecoveryCodesResponse:
-      type: object
-      properties:
-        codes:
-          type: array
-          items:
-            $ref: '#/components/schemas/RecoveryCode'
-    WebauthnSignUpStartRequest:
+    PasswordSignUpRequest:
       type: object
       properties:
         loginId:
           type: string
         user:
           $ref: '#/components/schemas/SignUpUser'
-        origin:
+        password:
           type: string
-        passkeyOptions:
-          $ref: '#/components/schemas/PasskeyOptions'
         loginOptions:
           $ref: '#/components/schemas/SignupLoginOptions'
-    GenerateUserRecoveryCodesRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-    UpdateUserEmailEnchantedLinkRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        email:
-          type: string
-        redirectUrl:
-          type: string
-        addToLoginIDs:
-          type: boolean
-          default: false
-        onMergeUseExisting:
-          type: boolean
-          default: false
-        providerId:
-          type: string
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        failOnConflict:
-          type: boolean
-    ExchangeAccessKeyResponse:
-      type: object
-      properties:
-        keyId:
-          type: string
-        sessionJwt:
-          type: string
-    PasswordUpdateRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        newPassword:
-          type: string
     ExportedAuthHistory:
       type: object
       properties:
@@ -3436,6 +3383,15 @@ components:
           type: string
         selectedTenant:
           type: string
+    WebauthnStartResponse:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        options:
+          type: string
+        create:
+          type: boolean
     OAuthNativeStartRequest:
       type: object
       properties:
@@ -3447,258 +3403,6 @@ components:
           type: boolean
         rawResponse:
           type: boolean
-    EnchantedLinkSignInRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        redirectUrl:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-        providerId:
-          type: string
-        ssoAppId:
-          type: string
-        useRecovery:
-          type: boolean
-    ValidateSessionRequest:
-      type: object
-      properties: {}
-    PasswordReplaceRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        oldPassword:
-          type: string
-        newPassword:
-          type: string
-        revokeOtherSessions:
-          type: boolean
-        revokeOtherSessionsTypes:
-          type: array
-          items:
-            type: string
-    UserTenants:
-      type: object
-      properties:
-        tenantId:
-          type: string
-        roleNames:
-          type: array
-          items:
-            type: string
-        tenantName:
-          type: string
-        permissions:
-          type: array
-          items:
-            type: string
-    GetUserSecurityVerifyQuestionsResponse:
-      type: object
-      properties:
-        questions:
-          type: array
-          items:
-            $ref: '#/components/schemas/SecurityQuestion'
-    NOTPTemplateIDs:
-      type: object
-      properties:
-        verifyTemplateId:
-          type: string
-        successTemplateId:
-          type: string
-        errorTemplateId:
-          type: string
-      description: NOTP Requests & Responses
-    VerifyOneTapIDTokenResponse:
-      type: object
-      properties:
-        code:
-          type: string
-    TOTPResponse:
-      type: object
-      properties:
-        provisioningURL:
-          type: string
-          description: Clickable URL containing the TOTP key that will open an installed authenticator app
-        image:
-          type: string
-          description: QR code of the TOTP key (as a Base64 image) that can be scanned from an authenticator app
-        key:
-          type: string
-          description: TOTP key that can be manually pasted into the authenticator app
-    WSFedIDPInitiateRequest:
-      type: object
-      properties:
-        app:
-          type: string
-        tenant:
-          type: string
-        login_hint:
-          type: string
-    GetEnchantedLinkSessionRequest:
-      type: object
-      properties:
-        pendingRef:
-          type: string
-    SAMLIDPFinishEndpointRequest:
-      type: object
-      properties:
-        state_id:
-          type: string
-        sso_app_id:
-          type: string
-        additionalSAMLAttributes:
-          type: object
-          default: false
-    JWTResponse:
-      type: object
-      properties:
-        sessionJwt:
-          type: string
-        refreshJwt:
-          type: string
-        cookieDomain:
-          type: string
-        cookiePath:
-          type: string
-        cookieMaxAge:
-          type: integer
-          format: int32
-        cookieExpiration:
-          type: integer
-          format: int32
-        user:
-          $ref: '#/components/schemas/ResponseUser'
-        firstSeen:
-          type: boolean
-        idpResponse:
-          $ref: '#/components/schemas/IDPResponse'
-        sessionExpiration:
-          type: integer
-          format: int32
-        externalToken:
-          type: string
-        claims:
-          type: object
-        tenantSSOID:
-          type: string
-        trustedDeviceJwt:
-          type: string
-        nextRefreshSeconds:
-          type: integer
-          format: int32
-        cookieName:
-          type: string
-        sessionCookieName:
-          type: string
-        sessionCookieDomain:
-          type: string
-        unsavedSSO:
-          type: boolean
-      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
-    MeAuthHistoryResponse:
-      type: object
-      properties:
-        authHistory:
-          type: array
-          items:
-            $ref: '#/components/schemas/ExportedAuthHistory'
-    ExchangeTokenRequest:
-      type: object
-      properties:
-        code:
-          type: string
-    ExchangeOneTapIDTokenRequest:
-      type: object
-      properties:
-        provider:
-          type: string
-        idToken:
-          type: string
-        nonce:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-    PasskeyOptions_WebauthnAuthenticatorSelectionCriteria:
-      type: object
-      properties:
-        authenticatorAttachment:
-          type: integer
-          format: enum
-        requireResidentKey:
-          type: integer
-          format: enum
-        residentKey:
-          type: integer
-          format: enum
-        userVerification:
-          type: integer
-          format: enum
-        extensionsJSON:
-          type: string
-    OperationResponse:
-      type: object
-      properties: {}
-    ExchangeAccessKeyRequest:
-      type: object
-      properties:
-        loginOptions:
-          $ref: '#/components/schemas/AccessKeyLoginOptions'
-    SetupUserSecurityQuestionsResponse:
-      type: object
-      properties: {}
-    WSFedIDPMetadataResponse:
-      type: object
-      properties:
-        xml:
-          type: string
-    SignInRecoveryCodeRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-        code:
-          type: string
-    SAMLIDPFinishEndpointResponse:
-      type: object
-      properties:
-        url:
-          type: string
-        samlResponse:
-          type: string
-        relayState:
-          type: string
-        error:
-          type: boolean
-    WebauthnStartResponse:
-      type: object
-      properties:
-        transactionId:
-          type: string
-        options:
-          type: string
-        create:
-          type: boolean
-    SecurityQuestion:
-      type: object
-      properties:
-        id:
-          type: string
-        text:
-          type: string
-      description: Same as service service's SecurityQuestion, but we don't want to depend on project service
-    SecurityQuestionAnswer:
-      type: object
-      properties:
-        id:
-          type: string
-        answer:
-          type: string
     ResponseUser:
       type: object
       properties:
@@ -3795,26 +3499,336 @@ components:
           type: string
         verifiedRecoveryPhone:
           type: boolean
-    WebauthnAddDeviceFinishRequest:
+    GetEnchantedLinkSessionRequest:
+      type: object
+      properties:
+        pendingRef:
+          type: string
+    ExchangeAccessKeyRequest:
+      type: object
+      properties:
+        loginOptions:
+          $ref: '#/components/schemas/AccessKeyLoginOptions'
+    LoginOptions:
+      type: object
+      properties:
+        stepup:
+          type: boolean
+          default: false
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        mfa:
+          type: boolean
+          default: false
+        ssoAppId:
+          type: string
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        pkceChallenge:
+          type: string
+          description: relevant only for enchanted links in the point in time - other methods will ignore this field
+          format: bytes
+        revokeOtherSessions:
+          type: boolean
+        revokeOtherSessionsTypes:
+          type: array
+          items:
+            type: string
+        tenantId:
+          type: string
+    NOTPSignUpRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+          description: Whatsapp, IMessage, etc
+        phone:
+          type: string
+        loginId:
+          type: string
+        user:
+          $ref: '#/components/schemas/SignUpUser'
+        providerId:
+          type: string
+        templates:
+          $ref: '#/components/schemas/NOTPTemplateIDs'
+        ssoAppId:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/SignupLoginOptions'
+    JWTResponse:
+      type: object
+      properties:
+        sessionJwt:
+          type: string
+        refreshJwt:
+          type: string
+        cookieDomain:
+          type: string
+        cookiePath:
+          type: string
+        cookieMaxAge:
+          type: integer
+          format: int32
+        cookieExpiration:
+          type: integer
+          format: int32
+        user:
+          $ref: '#/components/schemas/ResponseUser'
+        firstSeen:
+          type: boolean
+        idpResponse:
+          $ref: '#/components/schemas/IDPResponse'
+        sessionExpiration:
+          type: integer
+          format: int32
+        externalToken:
+          type: string
+        claims:
+          type: object
+        tenantSSOID:
+          type: string
+        trustedDeviceJwt:
+          type: string
+        nextRefreshSeconds:
+          type: integer
+          format: int32
+        cookieName:
+          type: string
+        sessionCookieName:
+          type: string
+        sessionCookieDomain:
+          type: string
+        unsavedSSO:
+          type: boolean
+      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
+    WebauthnSignInFinishRequest:
       type: object
       properties:
         transactionId:
           type: string
         response:
           type: string
-    WebauthnAddDeviceStartRequest:
+    SignInRecoveryCodeRequest:
       type: object
       properties:
         loginId:
           type: string
-        origin:
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        code:
           type: string
-        passkeyOptions:
-          $ref: '#/components/schemas/PasskeyOptions'
     GetOneTapClientIDResponse:
       type: object
       properties:
         clientId:
+          type: string
+    OAuthNativeStartResponse:
+      type: object
+      properties:
+        clientId:
+          type: string
+        stateId:
+          type: string
+        nonce:
+          type: string
+        implicit:
+          type: boolean
+        errorId:
+          type: string
+    WSFedIDPInitiateRequest:
+      type: object
+      properties:
+        app:
+          type: string
+        tenant:
+          type: string
+        login_hint:
+          type: string
+    WebauthnSignUpFinishRequest:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        response:
+          type: string
+    ValidateSessionResponse:
+      type: object
+      properties:
+        parsedJWT:
+          type: object
+    ExchangeOneTapIDTokenRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+        idToken:
+          type: string
+        nonce:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+    GenerateUserRecoveryCodesRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+    GetNOTPSessionRequest:
+      type: object
+      properties:
+        pendingRef:
+          type: string
+    IDPResponse:
+      type: object
+      properties:
+        samlResponse:
+          type: string
+        samlGeneratedUser:
+          type: string
+        samlGeneratedRoles:
+          type: string
+        oidcResponse:
+          type: string
+        oidcGeneratedUser:
+          type: string
+        oidcGeneratedRoles:
+          type: string
+        idpGroups:
+          type: array
+          items:
+            type: string
+        idpSAMLAttributes:
+          type: object
+          default: false
+        idpOIDCClaims:
+          type: object
+    SAMLIDPSSORequestPOSTData:
+      type: object
+      properties:
+        SAMLRequest:
+          type: string
+          default: false
+        RelayState:
+          type: string
+        SamlRequest:
+          type: string
+        LoginHint:
+          type: string
+        tenant:
+          type: string
+        flow_token:
+          type: string
+        login_hint:
+          type: string
+    SecurityQuestion:
+      type: object
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+      description: Same as service service's SecurityQuestion, but we don't want to depend on project service
+    IDPSSOLogoutRequest:
+      type: object
+      properties:
+        app:
+          type: string
+    VerifyUserSecurityQuestionsRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityQuestionAnswer'
+        stepup:
+          type: boolean
+      description: Verify Questions
+    WSFedIDPFinishEndpointRequest:
+      type: object
+      properties:
+        state_id:
+          type: string
+        sso_app_id:
+          type: string
+    RecoveryCode:
+      type: object
+      properties:
+        code:
+          type: string
+    UserTenants:
+      type: object
+      properties:
+        tenantId:
+          type: string
+        roleNames:
+          type: array
+          items:
+            type: string
+        tenantName:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+    SetupUserSecurityQuestionsResponse:
+      type: object
+      properties: {}
+    AccessKeyLoginOptions:
+      type: object
+      properties:
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        selectedTenant:
+          type: string
+    UpdateUserNOTPRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+        loginId:
+          type: string
+        phone:
+          type: string
+        addToLoginIDs:
+          type: boolean
+          default: false
+        onMergeUseExisting:
+          type: boolean
+          default: false
+        providerId:
+          type: string
+        templates:
+          $ref: '#/components/schemas/NOTPTemplateIDs'
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        ssoAppId:
+          type: string
+        locale:
+          type: string
+        failOnConflict:
+          type: boolean
+    RefreshSessionRequest:
+      type: object
+      properties:
+        externalToken:
           type: string
     SignUpUser:
       type: object
@@ -3837,21 +3851,27 @@ components:
           type: string
         recoveryPhone:
           type: string
-    WSFedIDPFinishEndpointResponse:
+    EnchantedLinkSignInRequest:
       type: object
       properties:
-        replyURL:
+        loginId:
           type: string
-        wresult:
+        redirectUrl:
           type: string
-        wctx:
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        providerId:
           type: string
-        error:
+        ssoAppId:
+          type: string
+        useRecovery:
           type: boolean
-    RecoveryCode:
+    ExchangeAccessKeyResponse:
       type: object
       properties:
-        code:
+        keyId:
+          type: string
+        sessionJwt:
           type: string
     WSFedIDPPassiveRequest:
       type: object
@@ -3872,6 +3892,36 @@ components:
           type: string
         login_hint:
           type: string
+    WSFedIDPMetadataResponse:
+      type: object
+      properties:
+        xml:
+          type: string
+    UpdateUserEmailEnchantedLinkRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        email:
+          type: string
+        redirectUrl:
+          type: string
+        addToLoginIDs:
+          type: boolean
+          default: false
+        onMergeUseExisting:
+          type: boolean
+          default: false
+        providerId:
+          type: string
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        failOnConflict:
+          type: boolean
     VerifyEnchantedLinkRequest:
       type: object
       properties:
@@ -3880,53 +3930,216 @@ components:
         pkceVerifier:
           type: string
           format: bytes
-    OAuthRedirectResponse:
+    SAMLIDPFinishEndpointRequest:
+      type: object
+      properties:
+        state_id:
+          type: string
+        sso_app_id:
+          type: string
+        additionalSAMLAttributes:
+          type: object
+          default: false
+    PasswordReplaceRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        oldPassword:
+          type: string
+        newPassword:
+          type: string
+        revokeOtherSessions:
+          type: boolean
+        revokeOtherSessionsTypes:
+          type: array
+          items:
+            type: string
+    PasswordPolicyResponse:
+      type: object
+      properties:
+        minLength:
+          type: integer
+          format: int32
+        lowercase:
+          type: boolean
+        uppercase:
+          type: boolean
+        number:
+          type: boolean
+        nonAlphanumeric:
+          type: boolean
+        strengthScoreEnabled:
+          type: boolean
+        strengthScore:
+          type: integer
+          format: int32
+    WebauthnSignUpStartRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        user:
+          $ref: '#/components/schemas/SignUpUser'
+        origin:
+          type: string
+        passkeyOptions:
+          $ref: '#/components/schemas/PasskeyOptions'
+        loginOptions:
+          $ref: '#/components/schemas/SignupLoginOptions'
+    SelectTenantRequest:
+      type: object
+      properties:
+        tenant:
+          type: string
+    TOTPResponse:
+      type: object
+      properties:
+        provisioningURL:
+          type: string
+          description: Clickable URL containing the TOTP key that will open an installed authenticator app
+        image:
+          type: string
+          description: QR code of the TOTP key (as a Base64 image) that can be scanned from an authenticator app
+        key:
+          type: string
+          description: TOTP key that can be manually pasted into the authenticator app
+    NOTPTemplateIDs:
+      type: object
+      properties:
+        verifyTemplateId:
+          type: string
+        successTemplateId:
+          type: string
+        errorTemplateId:
+          type: string
+      description: NOTP Requests & Responses
+    WebauthnAddDeviceFinishResponse:
+      type: object
+      properties: {}
+    ExchangeTokenRequest:
+      type: object
+      properties:
+        code:
+          type: string
+    PasskeyOptions_WebauthnAuthenticatorSelectionCriteria:
+      type: object
+      properties:
+        authenticatorAttachment:
+          type: integer
+          format: enum
+        requireResidentKey:
+          type: integer
+          format: enum
+        residentKey:
+          type: integer
+          format: enum
+        userVerification:
+          type: integer
+          format: enum
+        extensionsJSON:
+          type: string
+    SAMLIDPMetadataResponse:
+      type: object
+      properties:
+        xml:
+          type: string
+    MeAuthHistoryResponse:
+      type: object
+      properties:
+        authHistory:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExportedAuthHistory'
+    SAMLIDPFinishEndpointResponse:
       type: object
       properties:
         url:
           type: string
-        errorId:
+        samlResponse:
           type: string
+        relayState:
+          type: string
+        error:
+          type: boolean
+    SAMLRedirectResponse:
+      type: object
+      properties:
+        url:
+          type: string
+    WebauthnSignUpOrInStartRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        origin:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        ssoAppId:
+          type: string
+        passkeyOptions:
+          $ref: '#/components/schemas/PasskeyOptions'
+    WebauthnAddDeviceFinishRequest:
+      type: object
+      properties:
+        transactionId:
+          type: string
+        response:
+          type: string
+    TOTPVerifyCodeRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        code:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+    LogoutRequest:
+      type: object
+      properties:
+        logoutType:
+          type: array
+          items:
+            type: string
     VerifyEnchantedLinkResponse:
       type: object
       properties: {}
-    TOTPSignUpRequest:
+    PasskeyOptions:
+      type: object
+      properties:
+        authenticatorSelection:
+          allOf:
+          - $ref: '#/components/schemas/PasskeyOptions_WebauthnAuthenticatorSelectionCriteria'
+          description: attestation only (sign up)
+        attestation:
+          type: integer
+          format: enum
+          default: false
+        userVerification:
+          type: integer
+          description: assertion only (sign in)
+          format: enum
+        extensionsJSON:
+          type: string
+          description: shared
+    WebauthnAddDeviceStartRequest:
       type: object
       properties:
         loginId:
           type: string
-        user:
-          $ref: '#/components/schemas/SignUpUser'
-        ssoAppId:
+        origin:
           type: string
-    WebauthnAddDeviceFinishResponse:
-      type: object
-      properties: {}
-    NOTPSignUpRequest:
+        passkeyOptions:
+          $ref: '#/components/schemas/PasskeyOptions'
+    GetUserSecurityVerifyQuestionsResponse:
       type: object
       properties:
-        provider:
-          type: string
-          description: Whatsapp, IMessage, etc
-        phone:
-          type: string
-        loginId:
-          type: string
-        user:
-          $ref: '#/components/schemas/SignUpUser'
-        providerId:
-          type: string
-        templates:
-          $ref: '#/components/schemas/NOTPTemplateIDs'
-        ssoAppId:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/SignupLoginOptions'
-    TOTPUpdateRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
+        questions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityQuestion'
     PasswordSignInRequest:
       type: object
       properties:
@@ -3938,6 +4151,111 @@ components:
           type: string
         loginOptions:
           $ref: '#/components/schemas/LoginOptions'
+    OAuthRedirectResponse:
+      type: object
+      properties:
+        url:
+          type: string
+        errorId:
+          type: string
+    SAMLIDPInitiateRequestPOST:
+      type: object
+      properties:
+        app:
+          type: string
+        RelayState:
+          type: string
+        LoginHint:
+          type: string
+        tenant:
+          type: string
+        flow_token:
+          type: string
+        login_hint:
+          type: string
+    EnchantedLinkResponse:
+      type: object
+      properties:
+        pendingRef:
+          type: string
+        linkId:
+          type: string
+        maskedEmail:
+          type: string
+    SetupUserSecurityQuestionsRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        answers:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityQuestionAnswer'
+      description: Setup Questions
+    PasswordUpdateRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        newPassword:
+          type: string
+    SecurityQuestionAnswer:
+      type: object
+      properties:
+        id:
+          type: string
+        answer:
+          type: string
+    NOTPSignInRequest:
+      type: object
+      properties:
+        provider:
+          type: string
+          description: Whatsapp, IMessage, etc
+        loginId:
+          type: string
+          description: Optional, becasue can be retrived from the provider webhook
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        providerId:
+          type: string
+        templates:
+          $ref: '#/components/schemas/NOTPTemplateIDs'
+        ssoAppId:
+          type: string
+    SignupLoginOptions:
+      type: object
+      properties:
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        pkceChallenge:
+          type: string
+          description: relevant only for enchanted links in the point in time - other methods will ignore this field
+          format: bytes
+        tenantId:
+          type: string
+    WSFedIDPFinishEndpointResponse:
+      type: object
+      properties:
+        replyURL:
+          type: string
+        wresult:
+          type: string
+        wctx:
+          type: string
+        error:
+          type: boolean
     OptionalJWTResponse:
       type: object
       properties:
@@ -3977,266 +4295,18 @@ components:
         sessionCookieDomain:
           type: string
       description: "This is a copy of JWTResponse with all fields optional\n This is used so in case an empty response is returned, it won't send zero values"
-    VerifyUserSecurityQuestionsRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        answers:
-          type: array
-          items:
-            $ref: '#/components/schemas/SecurityQuestionAnswer'
-        stepup:
-          type: boolean
-      description: Verify Questions
-    PasswordSignUpRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        user:
-          $ref: '#/components/schemas/SignUpUser'
-        password:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/SignupLoginOptions'
-    SetupUserSecurityQuestionsRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        answers:
-          type: array
-          items:
-            $ref: '#/components/schemas/SecurityQuestionAnswer'
-      description: Setup Questions
-    UpdateUserNOTPRequest:
-      type: object
-      properties:
-        provider:
-          type: string
-        loginId:
-          type: string
-        phone:
-          type: string
-        addToLoginIDs:
-          type: boolean
-          default: false
-        onMergeUseExisting:
-          type: boolean
-          default: false
-        providerId:
-          type: string
-        templates:
-          $ref: '#/components/schemas/NOTPTemplateIDs'
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        ssoAppId:
-          type: string
-        locale:
-          type: string
-        failOnConflict:
-          type: boolean
-    SelectTenantRequest:
-      type: object
-      properties:
-        tenant:
-          type: string
-    EnchantedLinkResponse:
+    NOTPLinkResponse:
       type: object
       properties:
         pendingRef:
           type: string
-        linkId:
+          description: Pending ref is the reference to the pending operation
+        redirectUrl:
           type: string
-        maskedEmail:
+          description: Link to the app (e.g.  https://wa.me/1234567890?text=My%20authentication%20code%20is%20999999)
+        image:
           type: string
-    RefreshSessionRequest:
-      type: object
-      properties:
-        externalToken:
-          type: string
-    WebauthnSignUpFinishRequest:
-      type: object
-      properties:
-        transactionId:
-          type: string
-        response:
-          type: string
-    IDPResponse:
-      type: object
-      properties:
-        samlResponse:
-          type: string
-        samlGeneratedUser:
-          type: string
-        samlGeneratedRoles:
-          type: string
-        oidcResponse:
-          type: string
-        oidcGeneratedUser:
-          type: string
-        oidcGeneratedRoles:
-          type: string
-        idpGroups:
-          type: array
-          items:
-            type: string
-        idpSAMLAttributes:
-          type: object
-          default: false
-        idpOIDCClaims:
-          type: object
-    PasswordPolicyResponse:
-      type: object
-      properties:
-        minLength:
-          type: integer
-          format: int32
-        lowercase:
-          type: boolean
-        uppercase:
-          type: boolean
-        number:
-          type: boolean
-        nonAlphanumeric:
-          type: boolean
-        strengthScoreEnabled:
-          type: boolean
-        strengthScore:
-          type: integer
-          format: int32
-    LoginOptions:
-      type: object
-      properties:
-        stepup:
-          type: boolean
-          default: false
-        customClaims:
-          type: object
-          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
-          additionalProperties:
-            type: string
-          example:
-            claim-name: claim-value
-        mfa:
-          type: boolean
-          default: false
-        ssoAppId:
-          type: string
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        pkceChallenge:
-          type: string
-          description: relevant only for enchanted links in the point in time - other methods will ignore this field
-          format: bytes
-        revokeOtherSessions:
-          type: boolean
-        revokeOtherSessionsTypes:
-          type: array
-          items:
-            type: string
-        tenantId:
-          type: string
-    WebauthnSignInFinishRequest:
-      type: object
-      properties:
-        transactionId:
-          type: string
-        response:
-          type: string
-    TOTPVerifyCodeRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        code:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-    PasskeyOptions:
-      type: object
-      properties:
-        authenticatorSelection:
-          allOf:
-          - $ref: '#/components/schemas/PasskeyOptions_WebauthnAuthenticatorSelectionCriteria'
-          description: attestation only (sign up)
-        attestation:
-          type: integer
-          format: enum
-          default: false
-        userVerification:
-          type: integer
-          description: assertion only (sign in)
-          format: enum
-        extensionsJSON:
-          type: string
-          description: shared
-    SAMLIDPSSORequestPOSTData:
-      type: object
-      properties:
-        SAMLRequest:
-          type: string
-          default: false
-        RelayState:
-          type: string
-        SamlRequest:
-          type: string
-        LoginHint:
-          type: string
-        tenant:
-          type: string
-        flow_token:
-          type: string
-        login_hint:
-          type: string
-    WebauthnSignUpOrInStartRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        origin:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-        ssoAppId:
-          type: string
-        passkeyOptions:
-          $ref: '#/components/schemas/PasskeyOptions'
-    OAuthNativeStartResponse:
-      type: object
-      properties:
-        clientId:
-          type: string
-        stateId:
-          type: string
-        nonce:
-          type: string
-        implicit:
-          type: boolean
-        errorId:
-          type: string
-    SAMLIDPInitiateRequestPOST:
-      type: object
-      properties:
-        app:
-          type: string
-        RelayState:
-          type: string
-        LoginHint:
-          type: string
-        tenant:
-          type: string
-        flow_token:
-          type: string
-        login_hint:
-          type: string
+          description: QR code image
     WebauthnSignInStartRequest:
       type: object
       properties:
@@ -4248,103 +4318,32 @@ components:
           $ref: '#/components/schemas/PasskeyOptions'
         loginOptions:
           $ref: '#/components/schemas/LoginOptions'
-    SAMLIDPMetadataResponse:
+    ValidateSessionRequest:
+      type: object
+      properties: {}
+    TOTPSignUpRequest:
       type: object
       properties:
-        xml:
-          type: string
-    NOTPSignInRequest:
-      type: object
-      properties:
-        provider:
-          type: string
-          description: Whatsapp, IMessage, etc
         loginId:
           type: string
-          description: Optional, becasue can be retrived from the provider webhook
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-        providerId:
-          type: string
-        templates:
-          $ref: '#/components/schemas/NOTPTemplateIDs'
+        user:
+          $ref: '#/components/schemas/SignUpUser'
         ssoAppId:
           type: string
-    GetNOTPSessionRequest:
+    GenerateUserRecoveryCodesResponse:
       type: object
       properties:
-        pendingRef:
-          type: string
-    AccessKeyLoginOptions:
-      type: object
-      properties:
-        customClaims:
-          type: object
-          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
-          additionalProperties:
-            type: string
-          example:
-            claim-name: claim-value
-        selectedTenant:
-          type: string
-    OAuthNativeFinishRequest:
-      type: object
-      properties:
-        provider:
-          type: string
-        stateId:
-          type: string
-        user:
-          type: string
-        code:
-          type: string
-        idToken:
-          type: string
-    LogoutRequest:
-      type: object
-      properties:
-        logoutType:
+        codes:
           type: array
           items:
-            type: string
-    ValidateSessionResponse:
+            $ref: '#/components/schemas/RecoveryCode'
+    OperationResponse:
+      type: object
+      properties: {}
+    TOTPUpdateRequest:
       type: object
       properties:
-        parsedJWT:
-          type: object
-    WSFedIDPFinishEndpointRequest:
-      type: object
-      properties:
-        state_id:
-          type: string
-        sso_app_id:
-          type: string
-    SignupLoginOptions:
-      type: object
-      properties:
-        customClaims:
-          type: object
-          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
-          additionalProperties:
-            type: string
-          example:
-            claim-name: claim-value
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        pkceChallenge:
-          type: string
-          description: relevant only for enchanted links in the point in time - other methods will ignore this field
-          format: bytes
-        tenantId:
-          type: string
-    IDPSSOLogoutRequest:
-      type: object
-      properties:
-        app:
+        loginId:
           type: string
     EnchantedLinkSignUpEmailRequest:
       type: object
@@ -4361,23 +4360,24 @@ components:
           type: string
         loginOptions:
           $ref: '#/components/schemas/SignupLoginOptions'
-    SAMLRedirectResponse:
+    VerifyOneTapIDTokenResponse:
       type: object
       properties:
-        url:
+        code:
           type: string
-    NOTPLinkResponse:
+    OAuthNativeFinishRequest:
       type: object
       properties:
-        pendingRef:
+        provider:
           type: string
-          description: Pending ref is the reference to the pending operation
-        redirectUrl:
+        stateId:
           type: string
-          description: Link to the app (e.g.  https://wa.me/1234567890?text=My%20authentication%20code%20is%20999999)
-        image:
+        user:
           type: string
-          description: QR code image
+        code:
+          type: string
+        idToken:
+          type: string
   securitySchemes:
     Descope_Project_ID:
       type: http

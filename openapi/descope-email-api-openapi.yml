@@ -534,204 +534,6 @@ paths:
         keywords: api, password
 components:
   schemas:
-    PasswordResetSendResponse:
-      type: object
-      properties:
-        resetMethod:
-          type: string
-        pendingRef:
-          type: string
-        linkId:
-          type: string
-        maskedEmail:
-          type: string
-    OTPSignUpEmailRequest:
-      type: object
-      properties:
-        email:
-          type: string
-        loginId:
-          type: string
-        user:
-          $ref: '#/components/schemas/EmailSignUpUserObject'
-        providerId:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/SignupLoginOptions'
-    OTPSignInRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        loginOptions:
-          $ref: '#/components/schemas/LoginOptions'
-        providerId:
-          type: string
-        ssoAppId:
-          type: string
-        useRecovery:
-          type: boolean
-    IDPResponse:
-      type: object
-      properties:
-        samlResponse:
-          type: string
-        samlGeneratedUser:
-          type: string
-        samlGeneratedRoles:
-          type: string
-        oidcResponse:
-          type: string
-        oidcGeneratedUser:
-          type: string
-        oidcGeneratedRoles:
-          type: string
-        idpGroups:
-          type: array
-          items:
-            type: string
-        idpSAMLAttributes:
-          type: object
-          default: false
-        idpOIDCClaims:
-          type: object
-    JWTResponse:
-      type: object
-      properties:
-        sessionJwt:
-          type: string
-        refreshJwt:
-          type: string
-        cookieDomain:
-          type: string
-        cookiePath:
-          type: string
-        cookieMaxAge:
-          type: integer
-          format: int32
-        cookieExpiration:
-          type: integer
-          format: int32
-        user:
-          $ref: '#/components/schemas/ResponseUser'
-        firstSeen:
-          type: boolean
-        idpResponse:
-          $ref: '#/components/schemas/IDPResponse'
-        sessionExpiration:
-          type: integer
-          format: int32
-        externalToken:
-          type: string
-        claims:
-          type: object
-        tenantSSOID:
-          type: string
-        trustedDeviceJwt:
-          type: string
-        nextRefreshSeconds:
-          type: integer
-          format: int32
-        cookieName:
-          type: string
-        sessionCookieName:
-          type: string
-        sessionCookieDomain:
-          type: string
-        unsavedSSO:
-          type: boolean
-      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
-    EmailOperationResponse:
-      type: object
-      properties:
-        maskedEmail:
-          type: string
-        verificationAttempts:
-          type: integer
-          format: int32
-    LoginOptions:
-      type: object
-      properties:
-        stepup:
-          type: boolean
-          default: false
-        customClaims:
-          type: object
-          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
-          additionalProperties:
-            type: string
-          example:
-            claim-name: claim-value
-        mfa:
-          type: boolean
-          default: false
-        ssoAppId:
-          type: string
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        pkceChallenge:
-          type: string
-          description: relevant only for enchanted links in the point in time - other methods will ignore this field
-          format: bytes
-        revokeOtherSessions:
-          type: boolean
-        revokeOtherSessionsTypes:
-          type: array
-          items:
-            type: string
-        tenantId:
-          type: string
-    OTPVerifyCodeRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        code:
-          type: string
-    UpdateUserEmailOTPRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        email:
-          type: string
-        addToLoginIDs:
-          type: boolean
-          default: false
-        onMergeUseExisting:
-          type: boolean
-          default: false
-        providerId:
-          type: string
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        failOnConflict:
-          type: boolean
-    PasswordResetSendRequest:
-      type: object
-      properties:
-        loginId:
-          type: string
-        redirectUrl:
-          type: string
-        providerId:
-          type: string
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        useRecovery:
-          type: boolean
     UpdateUserEmailMagicLinkRequest:
       type: object
       properties:
@@ -757,11 +559,19 @@ components:
           type: string
         failOnConflict:
           type: boolean
-    EmailMagicLinkResponse:
+    OTPSignInRequest:
       type: object
       properties:
-        maskedEmail:
+        loginId:
           type: string
+        loginOptions:
+          $ref: '#/components/schemas/LoginOptions'
+        providerId:
+          type: string
+        ssoAppId:
+          type: string
+        useRecovery:
+          type: boolean
     ResponseUser:
       type: object
       properties:
@@ -858,43 +668,6 @@ components:
           type: string
         verifiedRecoveryPhone:
           type: boolean
-    UserTenants:
-      type: object
-      properties:
-        tenantId:
-          type: string
-        roleNames:
-          type: array
-          items:
-            type: string
-        tenantName:
-          type: string
-        permissions:
-          type: array
-          items:
-            type: string
-    SignupLoginOptions:
-      type: object
-      properties:
-        customClaims:
-          type: object
-          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
-          additionalProperties:
-            type: string
-          example:
-            claim-name: claim-value
-        templateOptions:
-          type: object
-          additionalProperties:
-            type: string
-        locale:
-          type: string
-        pkceChallenge:
-          type: string
-          description: relevant only for enchanted links in the point in time - other methods will ignore this field
-          format: bytes
-        tenantId:
-          type: string
     MagicLinkSignUpEmailRequest:
       type: object
       properties:
@@ -910,6 +683,146 @@ components:
           type: string
         loginOptions:
           $ref: '#/components/schemas/SignupLoginOptions'
+    EmailOperationResponse:
+      type: object
+      properties:
+        maskedEmail:
+          type: string
+        verificationAttempts:
+          type: integer
+          format: int32
+    UserTenants:
+      type: object
+      properties:
+        tenantId:
+          type: string
+        roleNames:
+          type: array
+          items:
+            type: string
+        tenantName:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
+    OTPVerifyCodeRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        code:
+          type: string
+    EmailMagicLinkResponse:
+      type: object
+      properties:
+        maskedEmail:
+          type: string
+    LoginOptions:
+      type: object
+      properties:
+        stepup:
+          type: boolean
+          default: false
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        mfa:
+          type: boolean
+          default: false
+        ssoAppId:
+          type: string
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        pkceChallenge:
+          type: string
+          description: relevant only for enchanted links in the point in time - other methods will ignore this field
+          format: bytes
+        revokeOtherSessions:
+          type: boolean
+        revokeOtherSessionsTypes:
+          type: array
+          items:
+            type: string
+        tenantId:
+          type: string
+    UpdateUserEmailOTPRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        email:
+          type: string
+        addToLoginIDs:
+          type: boolean
+          default: false
+        onMergeUseExisting:
+          type: boolean
+          default: false
+        providerId:
+          type: string
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        failOnConflict:
+          type: boolean
+    JWTResponse:
+      type: object
+      properties:
+        sessionJwt:
+          type: string
+        refreshJwt:
+          type: string
+        cookieDomain:
+          type: string
+        cookiePath:
+          type: string
+        cookieMaxAge:
+          type: integer
+          format: int32
+        cookieExpiration:
+          type: integer
+          format: int32
+        user:
+          $ref: '#/components/schemas/ResponseUser'
+        firstSeen:
+          type: boolean
+        idpResponse:
+          $ref: '#/components/schemas/IDPResponse'
+        sessionExpiration:
+          type: integer
+          format: int32
+        externalToken:
+          type: string
+        claims:
+          type: object
+        tenantSSOID:
+          type: string
+        trustedDeviceJwt:
+          type: string
+        nextRefreshSeconds:
+          type: integer
+          format: int32
+        cookieName:
+          type: string
+        sessionCookieName:
+          type: string
+        sessionCookieDomain:
+          type: string
+        unsavedSSO:
+          type: boolean
+      description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
     MagicLinkSignInRequest:
       type: object
       properties:
@@ -946,6 +859,47 @@ components:
           type: string
         recoveryPhone:
           type: string
+    OTPSignUpEmailRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        loginId:
+          type: string
+        user:
+          $ref: '#/components/schemas/EmailSignUpUserObject'
+        providerId:
+          type: string
+        loginOptions:
+          $ref: '#/components/schemas/SignupLoginOptions'
+    PasswordResetSendResponse:
+      type: object
+      properties:
+        resetMethod:
+          type: string
+        pendingRef:
+          type: string
+        linkId:
+          type: string
+        maskedEmail:
+          type: string
+    PasswordResetSendRequest:
+      type: object
+      properties:
+        loginId:
+          type: string
+        redirectUrl:
+          type: string
+        providerId:
+          type: string
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        useRecovery:
+          type: boolean
     EmailSignUpUserObject:
       type: object
       properties:
@@ -959,6 +913,52 @@ components:
           type: string
           description: Phone Phone
         icon:
+          type: string
+    IDPResponse:
+      type: object
+      properties:
+        samlResponse:
+          type: string
+        samlGeneratedUser:
+          type: string
+        samlGeneratedRoles:
+          type: string
+        oidcResponse:
+          type: string
+        oidcGeneratedUser:
+          type: string
+        oidcGeneratedRoles:
+          type: string
+        idpGroups:
+          type: array
+          items:
+            type: string
+        idpSAMLAttributes:
+          type: object
+          default: false
+        idpOIDCClaims:
+          type: object
+    SignupLoginOptions:
+      type: object
+      properties:
+        customClaims:
+          type: object
+          description: Custom claims to include in the JWT as key-value pairs. Keys must be strings; values can be strings, numbers, or booleans.
+          additionalProperties:
+            type: string
+          example:
+            claim-name: claim-value
+        templateOptions:
+          type: object
+          additionalProperties:
+            type: string
+        locale:
+          type: string
+        pkceChallenge:
+          type: string
+          description: relevant only for enchanted links in the point in time - other methods will ignore this field
+          format: bytes
+        tenantId:
           type: string
   securitySchemes:
     Descope_Project_ID:

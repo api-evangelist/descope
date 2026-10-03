@@ -144,37 +144,6 @@ paths:
         keywords: api, user management
 components:
   schemas:
-    ImportCustomAttributesRequest:
-      type: object
-      properties:
-        attributes:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomAttribute'
-    DeleteCustomAttributesRequest:
-      type: object
-      properties:
-        names:
-          type: array
-          items:
-            type: string
-    CustomAttributesResponse:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/CustomAttribute'
-        total:
-          type: string
-    CustomAttributeOption:
-      type: object
-      properties:
-        value:
-          type: string
-        label:
-          type: string
-      description: Custom Attributes
     CustomAttribute:
       type: object
       properties:
@@ -211,6 +180,37 @@ components:
           description: The type of the serialized message.
       additionalProperties: true
       description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+    CustomAttributesResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomAttribute'
+        total:
+          type: string
+    CustomAttributeOption:
+      type: object
+      properties:
+        value:
+          type: string
+        label:
+          type: string
+      description: Custom Attributes
+    DeleteCustomAttributesRequest:
+      type: object
+      properties:
+        names:
+          type: array
+          items:
+            type: string
+    ImportCustomAttributesRequest:
+      type: object
+      properties:
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/CustomAttribute'
   securitySchemes:
     Descope_Project_ID:
       type: http

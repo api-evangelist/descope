@@ -1631,105 +1631,14 @@ paths:
         keywords: api, federated apps
 components:
   schemas:
-    ThirdPartyApplicationUserInfoEndpointResponse:
+    OIDCRevocationEndpointRequest:
       type: object
       properties:
-        userInfoClaims:
-          type: object
-    OIDCDeviceEndpointRequest:
-      type: object
-      properties:
-        ssoAppId:
+        token:
           type: string
-        client_id:
-          type: string
-        scope:
-          type: string
-        audience:
-          type: string
-        project_id:
-          type: string
-        dpop_jkt:
-          type: string
-    CIBAAuthResponse:
-      type: object
-      properties:
-        auth_req_id:
-          type: string
-        expires_in:
-          type: integer
-          format: uint32
-        interval:
-          type: integer
-          format: uint32
-    OIDCUserInfoEndpointRequest:
-      type: object
-      properties:
-        ssoAppId:
-          type: string
-          description: Can be empty as data arrived on the Authorization header token
-    ThirdPartyApplicationUserInfoEndpointRequest:
-      type: object
-      properties:
-        project_id:
-          type: string
-          description: Can be empty as data arrived on the Authorization header token
-    CIBAAuthRequest:
-      type: object
-      properties:
-        client_id:
-          type: string
-        client_secret:
-          type: string
-        scope:
-          type: string
-        login_hint:
-          type: string
-        binding_message:
-          type: string
-        requested_expiry:
-          type: integer
-          format: uint32
-        audience:
-          type: string
-        project_id:
-          type: string
-        dpop_jkt:
-          type: string
-    OIDCTokenEndpointRequest:
-      type: object
-      properties:
-        grant_type:
-          type: string
-        code:
-          type: string
-        redirect_uri:
-          type: string
-        client_id:
-          type: string
-        client_secret:
-          type: string
-        code_verifier:
-          type: string
-        refresh_token:
-          type: string
-        scope:
+        token_type_hint:
           type: string
         ssoAppId:
-          type: string
-        audience:
-          type: string
-        username:
-          type: string
-        password:
-          type: string
-        assertion:
-          type: string
-        client_assertion_type:
-          type: string
-        client_assertion:
-          type: string
-        device_code:
           type: string
     OIDCEndSessionEndpointRequest:
       type: object
@@ -1744,20 +1653,69 @@ components:
           type: string
         ssoAppId:
           type: string
-    ThirdPartyApplicationFinishEndpointRequest:
+    OIDCDeviceEndpointResponse:
       type: object
       properties:
-        state_id:
+        device_code:
           type: string
-        app_id:
+        user_code:
           type: string
-        error_redirect_uri:
+        verification_uri:
           type: string
-        consent_id:
+        verification_uri_complete:
           type: string
-    OperationResponse:
+        expires_in:
+          type: integer
+          format: uint32
+        interval:
+          type: integer
+          format: uint32
+    OIDCAuthZEntraMFAEndpointRequest:
       type: object
-      properties: {}
+      properties:
+        response_type:
+          type: string
+        scope:
+          type: string
+        client_id:
+          type: string
+        state:
+          type: string
+        redirect_uri:
+          type: string
+        nonce:
+          type: string
+        id_token_hint:
+          type: string
+        claims:
+          type: string
+        ssoAppId:
+          type: string
+        style:
+          type: string
+    OIDCTokenEndpointResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        refresh_token:
+          type: string
+        id_token:
+          type: string
+        expires_in:
+          type: integer
+          format: uint32
+        scope:
+          type: string
+        error:
+          type: string
+          description: Those fields are in use just in case of error of device flow scenario (where device polling on the specific error response)
+        description:
+          type: string
+        issued_token_type:
+          type: string
     OIDCAuthZEndpointRequest:
       type: object
       properties:
@@ -1796,33 +1754,44 @@ components:
           type: string
         dpop_jkt:
           type: string
-    OIDCUserInfoEndpointResponse:
+    ThirdPartyApplicationUserInfoEndpointResponse:
       type: object
       properties:
         userInfoClaims:
           type: object
-    OIDCTokenEndpointResponse:
+    ThirdPartyApplicationUserInfoEndpointRequest:
       type: object
       properties:
-        access_token:
+        project_id:
           type: string
-        token_type:
+          description: Can be empty as data arrived on the Authorization header token
+    OIDCUserInfoEndpointRequest:
+      type: object
+      properties:
+        ssoAppId:
           type: string
-        refresh_token:
+          description: Can be empty as data arrived on the Authorization header token
+    CIBAAuthRequest:
+      type: object
+      properties:
+        client_id:
           type: string
-        id_token:
+        client_secret:
           type: string
-        expires_in:
-          type: integer
-          format: uint32
         scope:
           type: string
-        error:
+        login_hint:
           type: string
-          description: Those fields are in use just in case of error of device flow scenario (where device polling on the specific error response)
-        description:
+        binding_message:
           type: string
-        issued_token_type:
+        requested_expiry:
+          type: integer
+          format: uint32
+        audience:
+          type: string
+        project_id:
+          type: string
+        dpop_jkt:
           type: string
     ThirdPartyApplicationAuthZEndpointRequest:
       type: object
@@ -1870,29 +1839,11 @@ components:
           type: string
         request:
           type: string
-    OIDCAuthZEntraMFAEndpointRequest:
+    OIDCUserInfoEndpointResponse:
       type: object
       properties:
-        response_type:
-          type: string
-        scope:
-          type: string
-        client_id:
-          type: string
-        state:
-          type: string
-        redirect_uri:
-          type: string
-        nonce:
-          type: string
-        id_token_hint:
-          type: string
-        claims:
-          type: string
-        ssoAppId:
-          type: string
-        style:
-          type: string
+        userInfoClaims:
+          type: object
     OIDCAuthZEndpointFinishRequest:
       type: object
       properties:
@@ -1902,16 +1853,24 @@ components:
           type: string
         error_redirect_uri:
           type: string
-    OIDCDeviceEndpointResponse:
+    ThirdPartyApplicationFinishEndpointRequest:
       type: object
       properties:
-        device_code:
+        state_id:
           type: string
-        user_code:
+        app_id:
           type: string
-        verification_uri:
+        error_redirect_uri:
           type: string
-        verification_uri_complete:
+        consent_id:
+          type: string
+    OperationResponse:
+      type: object
+      properties: {}
+    CIBAAuthResponse:
+      type: object
+      properties:
+        auth_req_id:
           type: string
         expires_in:
           type: integer
@@ -1919,15 +1878,6 @@ components:
         interval:
           type: integer
           format: uint32
-    OIDCRevocationEndpointRequest:
-      type: object
-      properties:
-        token:
-          type: string
-        token_type_hint:
-          type: string
-        ssoAppId:
-          type: string
     ThirdPartyApplicationTokenEndpointRequest:
       type: object
       properties:
@@ -1970,6 +1920,21 @@ components:
           type: string
         auth_req_id:
           type: string
+    OIDCDeviceEndpointRequest:
+      type: object
+      properties:
+        ssoAppId:
+          type: string
+        client_id:
+          type: string
+        scope:
+          type: string
+        audience:
+          type: string
+        project_id:
+          type: string
+        dpop_jkt:
+          type: string
     ThirdPartyApplicationRevocationEndpointRequest:
       type: object
       properties:
@@ -1982,6 +1947,41 @@ components:
         client_secret:
           type: string
         project_id:
+          type: string
+    OIDCTokenEndpointRequest:
+      type: object
+      properties:
+        grant_type:
+          type: string
+        code:
+          type: string
+        redirect_uri:
+          type: string
+        client_id:
+          type: string
+        client_secret:
+          type: string
+        code_verifier:
+          type: string
+        refresh_token:
+          type: string
+        scope:
+          type: string
+        ssoAppId:
+          type: string
+        audience:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+        assertion:
+          type: string
+        client_assertion_type:
+          type: string
+        client_assertion:
+          type: string
+        device_code:
           type: string
   securitySchemes:
     Descope_Project_ID:
