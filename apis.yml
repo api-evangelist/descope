@@ -462,6 +462,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/descope.png
 access: 3rd-Party
 common:
+- type: CapabilityMap
+  url: capabilities/descope-capability-edges.yml
+  name: Descope Business Capability Map
 - type: VendorFacets
   url: vendor-facets/descope-vendor-facets.yml
 - type: Website

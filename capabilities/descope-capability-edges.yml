@@ -1,0 +1,89 @@
+slug: descope
+provider: Descope
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Auth
+  spec_file: descope-auth-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.92
+  evidence: POST /v1/auth/saml/idp/sso-finish  SAMLIDPFinishEndpoint  SAML IDP Finish; POST /v1/auth/accesskey/exchange  ExchangeAccessKey;
+    schema ValidateSessionResponse
+  reason: 'Core authentication surface of a CIAM platform: SAML/WS-Fed IdP SSO flows, sign-up/sign-in,
+    access-key exchange, session validation, recovery codes. This plainly performs Identity & Access Management
+    including federation.'
+- tag: Email
+  spec_file: descope-email-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.88
+  evidence: POST /v1/auth/magiclink/signin/email  SignInMagicLinkEmail  Sign-In; POST /v1/auth/password/reset  SendPasswordReset  Reset
+    Password
+  reason: 'Email-channel authentication: magic-link and OTP sign-up/sign-in, email update, password reset.
+    Despite the generic tag ''Email'', the operations are authentication, not messaging — Identity & Access
+    Management.'
+- tag: Instant Message (IM)
+  spec_file: descope-instant-message-im-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /v1/auth/otp/signin/im  SignInOTPInstantMessage  User Sign-In (IM)
+  reason: OTP-over-instant-message sign-up, sign-in, code verification and phone update. The tag names
+    a delivery channel but the operations are authentication — Identity & Access Management.
+- tag: Mgmt
+  spec_file: descope-mgmt-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.85
+  evidence: POST /v1/mgmt/accesskey/create CreateAccessKey; schemas DeleteRolesRequest, DeletePermissionRequest,
+    SSOApplication, RecalculateSSOMappingsResponse
+  reason: The management surface administers access keys, roles, permissions, SSO applications and user
+    auth history for a CIAM platform — i.e. identity and access administration, which realises Identity
+    & Access Management. Breadth of the 288 operations leaves some residual ambiguity, hence not 0.95.
+- tag: SCIM
+  spec_file: descope-scim-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.8
+  evidence: GET /scim/v2/Users SearchSCIMUsers; POST /scim/v2/Groups CreateSCIMGroup; DELETE /scim/v2/Users/{userId}
+    DeleteSCIMUser
+  reason: SCIM user and group provisioning/de-provisioning endpoints are the classic joiners-movers-leavers
+    and federation mechanism, squarely Identity & Access Management. Some ambiguity versus a tenant-identity-federation
+    reading.
+- tag: Embedded Link
+  spec_file: descope-embedded-link-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: POST /v1/mgmt/user/signin/embeddedlink  EmbeddedLinkSignin  Generate Embedded Link
+  reason: Single operation generating a sign-in link for a user — an authentication credential issuance
+    flow. Maps to Identity & Access Management; thin surface so moderate confidence.
+- tag: OAuth2
+  spec_file: descope-oauth2-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.72
+  evidence: GET /oauth2/v1/apps/authorize Get Authorization Endpoint; POST /oauth2/v1/apps/token; POST
+    /oauth2/v1/apps/revoke OIDC revoke endpoint
+  reason: These are OIDC/OAuth2 authorization-server endpoints issuing and revoking tokens and returning
+    userinfo for third-party applications. For this vendor the product itself is identity federation and
+    access control, so IAM is the honest reading; however protocol endpoints are close to plumbing, so
+    confidence is moderate.
