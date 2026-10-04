@@ -95,26 +95,6 @@ paths:
         keywords: api, magic link
 components:
   schemas:
-    UserTenants:
-      type: object
-      properties:
-        tenantId:
-          type: string
-        roleNames:
-          type: array
-          items:
-            type: string
-        tenantName:
-          type: string
-        permissions:
-          type: array
-          items:
-            type: string
-    VerifyMagicLinkRequest:
-      type: object
-      properties:
-        token:
-          type: string
     JWTResponse:
       type: object
       properties:
@@ -161,6 +141,50 @@ components:
         unsavedSSO:
           type: boolean
       description: 'NOTE: if you add a new field to this message, also add it to the OptionalJWTResponse message'
+    IDPResponse:
+      type: object
+      properties:
+        samlResponse:
+          type: string
+        samlGeneratedUser:
+          type: string
+        samlGeneratedRoles:
+          type: string
+        oidcResponse:
+          type: string
+        oidcGeneratedUser:
+          type: string
+        oidcGeneratedRoles:
+          type: string
+        idpGroups:
+          type: array
+          items:
+            type: string
+        idpSAMLAttributes:
+          type: object
+          default: false
+        idpOIDCClaims:
+          type: object
+    VerifyMagicLinkRequest:
+      type: object
+      properties:
+        token:
+          type: string
+    UserTenants:
+      type: object
+      properties:
+        tenantId:
+          type: string
+        roleNames:
+          type: array
+          items:
+            type: string
+        tenantName:
+          type: string
+        permissions:
+          type: array
+          items:
+            type: string
     ResponseUser:
       type: object
       properties:
@@ -257,30 +281,6 @@ components:
           type: string
         verifiedRecoveryPhone:
           type: boolean
-    IDPResponse:
-      type: object
-      properties:
-        samlResponse:
-          type: string
-        samlGeneratedUser:
-          type: string
-        samlGeneratedRoles:
-          type: string
-        oidcResponse:
-          type: string
-        oidcGeneratedUser:
-          type: string
-        oidcGeneratedRoles:
-          type: string
-        idpGroups:
-          type: array
-          items:
-            type: string
-        idpSAMLAttributes:
-          type: object
-          default: false
-        idpOIDCClaims:
-          type: object
   securitySchemes:
     Descope_Project_ID:
       type: http

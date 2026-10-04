@@ -324,11 +324,6 @@ paths:
         keywords: api, session well known
 components:
   schemas:
-    WellKnownProjectConfigurationResponse:
-      type: object
-      properties:
-        allowAuthHostingIframeEmbedding:
-          type: boolean
     sessionv1.JWKSResponse:
       type: object
       properties:
@@ -351,6 +346,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/sessionv1.JWKSResponse'
+    WellKnownProjectConfigurationResponse:
+      type: object
+      properties:
+        allowAuthHostingIframeEmbedding:
+          type: boolean
     sessionv1.WellKnownConfigurationResponse:
       type: object
       properties:

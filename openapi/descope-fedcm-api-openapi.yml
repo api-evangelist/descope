@@ -85,6 +85,17 @@ components:
           type: string
         terms_of_service_url:
           type: string
+    FedCMBranding:
+      type: object
+      properties:
+        background_color:
+          type: string
+        color:
+          type: string
+        icons:
+          type: array
+          items:
+            $ref: '#/components/schemas/FedCMIcon'
     FedCMConfigResponse:
       type: object
       properties:
@@ -109,17 +120,6 @@ components:
         size:
           type: integer
           format: int32
-    FedCMBranding:
-      type: object
-      properties:
-        background_color:
-          type: string
-        color:
-          type: string
-        icons:
-          type: array
-          items:
-            $ref: '#/components/schemas/FedCMIcon'
   securitySchemes:
     Descope_Project_ID:
       type: http
