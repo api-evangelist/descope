@@ -19,3 +19,21 @@ tools_note: No tool list captured. This manifest records a PROBED, reachable end
   not perform. Run signals/audit_mcp_authorship.py --probe to enumerate tools and settle platform-vs-provider
   authorship. Do NOT derive a tool list from the OpenAPI and store it here -- that is a candidate manifest,
   and it belongs under an X-MCPServerCandidate pointer.
+rfc9728:
+  endpoint: https://mcp.descope.com/mcp
+  metadata_url: https://mcp.descope.com/.well-known/oauth-protected-resource
+  discovered_via: WWW-Authenticate resource_metadata on an anonymous POST initialize
+  fetched: '2026-09-25'
+  http_status: 200
+  content_type: application/json
+  document:
+    resource: https://mcp.descope.com
+    authorization_servers:
+    - https://api.descope.com/v1/apps/agentic/P2DA3QqyF3N3BlmIqn1nr0LMFhrw/MS3AebdnI1nLELsiorZz77KmIleWt
+    scopes_supported:
+    - project:read
+    - project:write
+    - company:read
+    - company:write
+    bearer_methods_supported:
+    - header
