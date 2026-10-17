@@ -641,16 +641,7 @@ paths:
         keywords: api, scim management
 components:
   schemas:
-    SCIMUserEmail:
-      type: object
-      properties:
-        value:
-          type: string
-        primary:
-          type: boolean
-        type:
-          type: string
-    SCIMGetUsersResponse:
+    SCIMGetGroupsResponse:
       type: object
       properties:
         totalResults:
@@ -669,12 +660,19 @@ components:
         Resources:
           type: array
           items:
-            $ref: '#/components/schemas/SCIMGetUsersResource'
+            $ref: '#/components/schemas/SCIMGroupResponse'
         detail:
           type: string
         status:
           type: integer
           format: int32
+    SCIMGroupMember:
+      type: object
+      properties:
+        value:
+          type: string
+        display:
+          type: string
     SCIMGetUsersResourceMeta:
       type: object
       properties:
@@ -686,31 +684,43 @@ components:
           type: object
         resourceType:
           type: string
-    SCIMGroupRequest:
+    SCIMUserEmail:
       type: object
       properties:
-        groupId:
+        value:
           type: string
-        displayName:
+        primary:
+          type: boolean
+        type:
           type: string
-        members:
+    SCIMPatchOperation:
+      type: object
+      properties:
+        op:
+          type: string
+        path:
+          type: string
+        valueString:
+          type: string
+          description: "The following values are manipulated by the marshaler in httpgateway/marshaler.go\n in case of changing or adding new ones, need to edit the marshaler as well"
+        valueBoolean:
+          type: boolean
+        valueArray:
           type: array
           items:
-            $ref: '#/components/schemas/SCIMGroupMember'
-        externalId:
+            $ref: '#/components/schemas/SCIMPatchOperationValue'
+        valueID:
           type: string
-        excludedAttributes:
+        valueDisplayName:
           type: string
-    Supported:
+    Filter:
       type: object
       properties:
         supported:
           type: boolean
-    SCIMGetUserResponse:
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/SCIMGetUsersResource'
+        maxResults:
+          type: integer
+          format: int32
     SCIMUserRequest:
       type: object
       properties:
@@ -731,47 +741,6 @@ components:
           type: string
         attributes:
           type: object
-    ResourceType:
-      type: object
-      properties:
-        schemas:
-          type: array
-          items:
-            type: string
-        id:
-          type: string
-        name:
-          type: string
-        description:
-          type: string
-        endpoint:
-          type: string
-        schema:
-          type: string
-    SCIMGroupResponse:
-      type: object
-      properties:
-        displayName:
-          type: string
-        schemas:
-          type: array
-          items:
-            type: string
-        id:
-          type: string
-        members:
-          type: array
-          items:
-            $ref: '#/components/schemas/SCIMGroupMember'
-        meta:
-          $ref: '#/components/schemas/SCIMGroupResourceMeta'
-        externalId:
-          type: string
-        detail:
-          type: string
-        status:
-          type: integer
-          format: int32
     Bulk:
       type: object
       properties:
@@ -783,65 +752,20 @@ components:
         maxPayloadSize:
           type: integer
           format: int32
-    SCIMPatchRequest:
+    SCIMUserName:
       type: object
       properties:
-        userId:
+        givenName:
           type: string
-        groupId:
+        familyName:
           type: string
-        operations:
-          type: array
-          items:
-            $ref: '#/components/schemas/SCIMPatchOperation'
-    SCIMPatchOperationValue:
-      type: object
-      properties:
-        value:
+        middleName:
           type: string
-          description: "The following values are manipulated by the marshaler in httpgateway/marshaler.go\n in case of changing or adding new ones, need to edit the marshaler as well"
-        display:
-          type: string
-    Filter:
+    Supported:
       type: object
       properties:
         supported:
           type: boolean
-        maxResults:
-          type: integer
-          format: int32
-    SCIMGroupMember:
-      type: object
-      properties:
-        value:
-          type: string
-        display:
-          type: string
-    SCIMServiceProviderConfigResponse:
-      type: object
-      properties:
-        schemas:
-          type: array
-          items:
-            type: string
-        documentationUri:
-          type: string
-        patch:
-          $ref: '#/components/schemas/Supported'
-        bulk:
-          $ref: '#/components/schemas/Bulk'
-        filter:
-          $ref: '#/components/schemas/Filter'
-        changePassword:
-          $ref: '#/components/schemas/Supported'
-        sort:
-          $ref: '#/components/schemas/Supported'
-        etag:
-          $ref: '#/components/schemas/Supported'
-        authenticationSchemes:
-          type: array
-          items:
-            $ref: '#/components/schemas/AuthenticationSchemes'
     SCIMGetUsersResource:
       type: object
       properties:
@@ -872,55 +796,6 @@ components:
         status:
           type: integer
           format: int32
-    SCIMPatchOperation:
-      type: object
-      properties:
-        op:
-          type: string
-        path:
-          type: string
-        valueString:
-          type: string
-          description: "The following values are manipulated by the marshaler in httpgateway/marshaler.go\n in case of changing or adding new ones, need to edit the marshaler as well"
-        valueBoolean:
-          type: boolean
-        valueArray:
-          type: array
-          items:
-            $ref: '#/components/schemas/SCIMPatchOperationValue'
-        valueID:
-          type: string
-        valueDisplayName:
-          type: string
-    SCIMResourceTypesResponse:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/ResourceType'
-    SCIMUserName:
-      type: object
-      properties:
-        givenName:
-          type: string
-        familyName:
-          type: string
-        middleName:
-          type: string
-    AuthenticationSchemes:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        primary:
-          type: boolean
-        specUri:
-          type: string
-        type:
-          type: string
     SCIMGroupResourceMeta:
       type: object
       properties:
@@ -932,7 +807,64 @@ components:
           type: object
         resourceType:
           type: string
-    SCIMGetGroupsResponse:
+    SCIMPatchOperationValue:
+      type: object
+      properties:
+        value:
+          type: string
+          description: "The following values are manipulated by the marshaler in httpgateway/marshaler.go\n in case of changing or adding new ones, need to edit the marshaler as well"
+        display:
+          type: string
+    SCIMServiceProviderConfigResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+        documentationUri:
+          type: string
+        patch:
+          $ref: '#/components/schemas/Supported'
+        bulk:
+          $ref: '#/components/schemas/Bulk'
+        filter:
+          $ref: '#/components/schemas/Filter'
+        changePassword:
+          $ref: '#/components/schemas/Supported'
+        sort:
+          $ref: '#/components/schemas/Supported'
+        etag:
+          $ref: '#/components/schemas/Supported'
+        authenticationSchemes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationSchemes'
+    SCIMGroupResponse:
+      type: object
+      properties:
+        displayName:
+          type: string
+        schemas:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/SCIMGroupMember'
+        meta:
+          $ref: '#/components/schemas/SCIMGroupResourceMeta'
+        externalId:
+          type: string
+        detail:
+          type: string
+        status:
+          type: integer
+          format: int32
+    SCIMGetUsersResponse:
       type: object
       properties:
         totalResults:
@@ -951,12 +883,80 @@ components:
         Resources:
           type: array
           items:
-            $ref: '#/components/schemas/SCIMGroupResponse'
+            $ref: '#/components/schemas/SCIMGetUsersResource'
         detail:
           type: string
         status:
           type: integer
           format: int32
+    SCIMPatchRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+        groupId:
+          type: string
+        operations:
+          type: array
+          items:
+            $ref: '#/components/schemas/SCIMPatchOperation'
+    SCIMResourceTypesResponse:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResourceType'
+    ResourceType:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        endpoint:
+          type: string
+        schema:
+          type: string
+    SCIMGetUserResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/SCIMGetUsersResource'
+    AuthenticationSchemes:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        primary:
+          type: boolean
+        specUri:
+          type: string
+        type:
+          type: string
+    SCIMGroupRequest:
+      type: object
+      properties:
+        groupId:
+          type: string
+        displayName:
+          type: string
+        members:
+          type: array
+          items:
+            $ref: '#/components/schemas/SCIMGroupMember'
+        externalId:
+          type: string
+        excludedAttributes:
+          type: string
   securitySchemes:
     Descope_Project_ID:
       type: http

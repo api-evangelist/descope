@@ -73,15 +73,6 @@ paths:
         keywords: api, embedded link
 components:
   schemas:
-    EmbeddedLinkSignInResponse:
-      type: object
-      properties:
-        token:
-          type: string
-        maskedEmail:
-          type: string
-        maskedPhone:
-          type: string
     EmbeddedLinkSignInRequest:
       type: object
       properties:
@@ -97,6 +88,15 @@ components:
         timeout:
           type: integer
           format: int32
+    EmbeddedLinkSignInResponse:
+      type: object
+      properties:
+        token:
+          type: string
+        maskedEmail:
+          type: string
+        maskedPhone:
+          type: string
   securitySchemes:
     Descope_Project_ID:
       type: http
