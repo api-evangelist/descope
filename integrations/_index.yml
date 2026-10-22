@@ -132,3 +132,16 @@
   relationship: platform-app
   status: not-a-workflow
   arazzo: null
+- slug: descope-vercel-own
+  label: Vercel (own)
+  partner: vercel
+  partner_name: Vercel (own)
+  category: Authentication Agents
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://vercel.com/marketplace/descope
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
